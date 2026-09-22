@@ -146,8 +146,12 @@ Menyunu dəyişmək üçün `data/menu.php`, altlıq menyularını isə
 ## Surətə əlavə edilmiş dəyişikliklər
 
 - **Mobil menyu yenidən dizayn olunub.** Orijinalda menyu başlığın altından
-  açılan tünd panel idi; burada tam ekran ağ panelə çevrilib: bəndlər
-  mərkəzdə, qalın şriftlə, cari səhifə yumşaq yaşıl fonla işarələnir.
+  açılan tünd panel idi; burada burger düyməsinə basanda bütün səhifəni
+  örtən ağ panel açılır: yuxarıda loqo və bağlama düyməsi, altında
+  mərkəzdə, qalın şriftlə bəndlər, cari səhifə yumşaq yaşıl fonla.
+  Panel başlığı da örtdüyü üçün loqo və "×" panelin öz zolağındadır;
+  loqonun tünd variantı (`uploads/2023/11/fav.png`) işlədilir, çünki
+  başlıqdakı loqo ağdır və ağ fonda görünmür.
   Dil seçimi, telefon və sosial şəbəkə düymələri panelə əlavə edilməyib.
   Kod: `assets/css/custom.css` və `assets/js/mobile-menu.js` — hər ikisi
   yalnız bizim dəyişikliyimizdir və digər fayllardan sonra yüklənir,

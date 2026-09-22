@@ -3,7 +3,7 @@
  * Bu fayl orijinal saytdan gəlmir: burada yalnız bizim dəyişikliklərimiz var,
  * ona görə də bütün digər üslub fayllarından SONRA yüklənir.
  *
- * 1. Mobil menyu — tam ekran ağ panel, mərkəzləşdirilmiş bəndlər.
+ * 1. Mobil menyu — bütün səhifəni örtən ağ panel.
  */
 
 /* ------------------------------------------------------------------ *
@@ -12,60 +12,117 @@
 
 @media (max-width: 1024px) {
 
-	/* Başlıq panelin üstündə qalır: loqo və bağlama düyməsi həmişə görünür */
-	.elementor-location-header {
-		position: relative;
-		z-index: 9999;
-	}
-
-	/*
-	 * Menyu açıq olanda başlıq şəffaf qalmasın: ana səhifədə başlığın arxasında
-	 * video oynayır və panelin üstündə zolaq kimi görünürdü.
-	 * Sinif JavaScript tərəfindən qoyulur (:has() köhnə brauzerlərdə işləmir).
-	 */
-	body.itkin-menu-open .elementor-location-header {
-		background-image: linear-gradient(11deg, #6B8F7C 0%, #84A091 100%);
-	}
-
-	/* Daxili konteynerin öz fonu qalsa, iki qradiyent arasında tikiş görünür */
-	body.itkin-menu-open .elementor-location-header .e-con-boxed.e-parent {
-		background-image: none;
-		background-color: transparent;
-	}
-
 	/*
 	 * --- panelin özü ---
-	 * Elementor "stretch" rejimində panelin yerini JavaScript ilə inline
-	 * üslub kimi yazır (top/left/width), ona görə burada !important lazımdır.
+	 * Bütün ekranı örtür: başlıq da altında qalır, ona görə loqo və bağlama
+	 * düyməsi panelin öz yuxarı zolağındadır (JavaScript əlavə edir).
+	 *
+	 * Elementor "stretch" rejimində panelin yerini inline üslub kimi yazır
+	 * (top/left/width), ona görə burada !important lazımdır.
 	 */
 	.elementor-location-header nav.elementor-nav-menu--dropdown {
 		position: fixed !important;
-		top: var(--itkin-mobile-header-h, 83px) !important;
+		top: 0 !important;
 		right: 0 !important;
 		bottom: 0 !important;
 		left: 0 !important;
 		width: auto !important;
 		height: auto !important;
 		max-height: none !important;
-		z-index: 9998 !important;
+		z-index: 10000 !important;
 		margin: 0 !important;
 
+		flex-direction: column;
+		padding: 0;
+		overflow: hidden;
+
+		background-color: #FFFFFF;
+		border: 0;
+		box-shadow: none;
+	}
+
+	/*
+	 * Panelin görünməsini birbaşa toggle-ın vəziyyətinə bağlayırıq.
+	 * Elementor bağlananda inline height/display qoyur — bu qayda ilə
+	 * panel həmişə ya tam açıq, ya da tam gizli olur.
+	 */
+	.elementor-location-header .elementor-menu-toggle:not(.elementor-active) ~ nav.elementor-nav-menu--dropdown {
+		display: none !important;
+	}
+
+	/*
+	 * Animasiya qəsdən yoxdur: brauzer animasiyaları dayandıranda (enerjiyə
+	 * qənaət, arxa fon nişanı, "reduced motion") panel yarıyolda qalıb
+	 * görünməz ola bilirdi. Tam ekran menyu üçün dərhal açılmaq daha etibarlıdır.
+	 */
+	.elementor-location-header .elementor-menu-toggle.elementor-active ~ nav.elementor-nav-menu--dropdown {
+		display: flex !important;
+		opacity: 1 !important;
+	}
+
+	/* --- yuxarı zolaq: loqo və bağlama düyməsi --- */
+	.itkin-mm-bar {
+		flex: 0 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		padding: 16px 20px;
+		border-bottom: 1px solid #E6ECE9;
+		background-color: #FFFFFF;
+	}
+
+	.itkin-mm-bar__logo {
+		display: inline-flex;
+		align-items: center;
+		line-height: 0;
+	}
+
+	.itkin-mm-bar__logo img {
+		display: block;
+		width: auto;
+		height: 46px;
+	}
+
+	.itkin-mm-bar__close {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 44px;
+		height: 44px;
+		padding: 0;
+		border: 0;
+		border-radius: 12px;
+		background-color: transparent;
+		color: #0E1B2A;
+		cursor: pointer;
+		-webkit-appearance: none;
+		appearance: none;
+		transition: background-color .18s ease;
+	}
+
+	.itkin-mm-bar__close:hover,
+	.itkin-mm-bar__close:focus-visible {
+		background-color: #F2F7F4;
+	}
+
+	.itkin-mm-bar__close svg {
+		width: 22px;
+		height: 22px;
+		fill: currentColor;
+	}
+
+	/* --- sürüşən hissə --- */
+	.elementor-location-header nav.elementor-nav-menu--dropdown > ul.elementor-nav-menu {
+		flex: 1 1 auto;
+		display: block;
+		width: 100%;
+		max-width: 420px;
+		margin: 0 auto;
 		padding: 36px 20px calc(36px + env(safe-area-inset-bottom, 0px));
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
 		overscroll-behavior: contain;
-
-		background-color: #FFFFFF;
-		border-top: 1px solid #E6ECE9;
-		box-shadow: none;
-	}
-
-	/* --- bənd siyahısı --- */
-	.elementor-location-header nav.elementor-nav-menu--dropdown ul.elementor-nav-menu {
-		display: block;
-		max-width: 420px;
-		margin: 0 auto;
-		padding: 0;
 	}
 
 	.elementor-location-header nav.elementor-nav-menu--dropdown ul.elementor-nav-menu > li {
@@ -81,7 +138,7 @@
 		justify-content: center;
 		gap: 8px;
 
-		padding: 18px 18px;
+		padding: 18px;
 		margin: 5px 0;
 		border: 0;
 		border-radius: 14px;
