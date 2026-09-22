@@ -4,20 +4,38 @@
  * Bütün məzmun data/ qovluğundakı PHP massivlərində saxlanılır.
  */
 
-function data_load(string $name): array
+/**
+ * @param bool $reload admin panelində yazıdan sonra keşi təzələmək üçün
+ */
+function data_load(string $name, bool $reload = false): array
 {
     static $cache = [];
+    if ($reload) {
+        unset($cache[$name]);
+        data_sorted_reset();
+    }
     if (isset($cache[$name])) {
         return $cache[$name];
     }
     $file = dirname(__DIR__) . '/data/' . $name . '.php';
-    return $cache[$name] = is_file($file) ? (array) require $file : [];
+    // require_once işlətmirik: yenidən oxumaq lazım ola bilər
+    return $cache[$name] = is_file($file) ? (array) include $file : [];
+}
+
+/** Sıralanmış siyahıların keşini sıfırlayır */
+function data_sorted_reset(): void
+{
+    all_posts(true);
 }
 
 /** Bütün yazılar — tarixə görə yenidən köhnəyə */
-function all_posts(): array
+function all_posts(bool $reload = false): array
 {
     static $sorted = null;
+    if ($reload) {
+        $sorted = null;
+        return [];
+    }
     if ($sorted !== null) {
         return $sorted;
     }

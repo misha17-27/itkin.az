@@ -20,20 +20,20 @@
 				<div class="elementor-element elementor-element-eae4ab2 elementor-widget elementor-widget-heading" data-id="eae4ab2" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
 			<style>/*! elementor - v3.21.0 - 26-05-2024 */
-.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h2 class="elementor-heading-title elementor-size-default">Birinci Qarabağ müharibəsində itkin düşən şəxslər</h2>		</div>
+.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h2 class="elementor-heading-title elementor-size-default"><?= page_text('home.h.1', 'Birinci Qarabağ müharibəsində itkin düşən şəxslər') ?></h2>		</div>
 				</div>
 				<div class="elementor-element elementor-element-b2cf8f6 elementor-widget elementor-widget-heading" data-id="b2cf8f6" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">“Qarabağ İtkin Ailələri” İctimai Birliyi</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= page_text('home.h.2', '“Qarabağ İtkin Ailələri” İctimai Birliyi') ?></h2>		</div>
 				</div>
 				<div class="elementor-element elementor-element-f2ef7b6 elementor-widget elementor-widget-button" data-id="f2ef7b6" data-element_type="widget" data-widget_type="button.default">
 				<div class="elementor-widget-container">
 					<div class="elementor-button-wrapper">
-			<a class="elementor-button elementor-button-link elementor-size-sm" href="#">
+			<a class="elementor-button elementor-button-link elementor-size-sm" href="<?= page_text('home.link.1', '#') ?>">
 						<span class="elementor-button-content-wrapper">
 						<span class="elementor-button-icon elementor-align-icon-left">
 				<svg aria-hidden="true" class="e-font-icon-svg e-far-folder-open" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M527.9 224H480v-48c0-26.5-21.5-48-48-48H272l-64-64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h400c16.5 0 31.9-8.5 40.7-22.6l79.9-128c20-31.9-3-73.4-40.7-73.4zM48 118c0-3.3 2.7-6 6-6h134.1l64 64H426c3.3 0 6 2.7 6 6v42H152c-16.8 0-32.4 8.8-41.1 23.2L48 351.4zm400 282H72l77.2-128H528z"></path></svg>			</span>
-									<span class="elementor-button-text">Siyahıya bax</span>
+									<span class="elementor-button-text"><?= page_text('home.btn.1', 'Siyahıya bax') ?></span>
 					</span>
 					</a>
 		</div>
@@ -53,8 +53,10 @@
 		<div class="elementor-element elementor-element-79df9a0 e-con-full e-flex e-con e-child" data-id="79df9a0" data-element_type="container">
 				<div class="elementor-element elementor-element-bbb9de8 elementor-widget elementor-widget-heading" data-id="bbb9de8" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">“Qarabağ İtkin Ailələri” 
-İctimai Birliyi haqqında</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= page_text('home.h.3', <<<'TXT'
+“Qarabağ İtkin Ailələri” 
+İctimai Birliyi haqqında
+TXT) ?></h2>		</div>
 				</div>
 				<div class="elementor-element elementor-element-2627e1b elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="2627e1b" data-element_type="widget" data-widget_type="divider.default">
 				<div class="elementor-widget-container">
@@ -73,9 +75,9 @@
 				<div class="elementor-element elementor-element-d2c36c1 elementor-widget elementor-widget-button" data-id="d2c36c1" data-element_type="widget" data-widget_type="button.default">
 				<div class="elementor-widget-container">
 					<div class="elementor-button-wrapper">
-			<a class="elementor-button elementor-button-link elementor-size-sm" href="#">
+			<a class="elementor-button elementor-button-link elementor-size-sm" href="<?= page_text('home.link.2', '#') ?>">
 						<span class="elementor-button-content-wrapper">
-									<span class="elementor-button-text">Daha ətraflı</span>
+									<span class="elementor-button-text"><?= page_text('home.btn.2', 'Daha ətraflı') ?></span>
 					</span>
 					</a>
 		</div>
@@ -108,7 +110,7 @@
 		<div class="elementor-element elementor-element-bea6be1 e-con-full e-flex e-con e-child" data-id="bea6be1" data-element_type="container">
 				<div class="elementor-element elementor-element-4085e66 elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="4085e66" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">1-ci Qarabağ müharibəsində itkin düşən şəxslər</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= page_text('home.h.4', '1-ci Qarabağ müharibəsində itkin düşən şəxslər') ?></h2>		</div>
 				</div>
 				</div>
 		<div class="elementor-element elementor-element-ec7c0d7 e-con-full e-flex e-con e-child" data-id="ec7c0d7" data-element_type="container">
@@ -147,8 +149,10 @@
 		<div class="elementor-element elementor-element-4b5bd39 e-con-full e-flex e-con e-child" data-id="4b5bd39" data-element_type="container">
 				<div class="elementor-element elementor-element-d3ebf98 elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="d3ebf98" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">1-ci və 2-ci Qarabağ Müharibəsində
-itkin düşənlərin statistikası</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= page_text('home.h.5', <<<'TXT'
+1-ci və 2-ci Qarabağ Müharibəsində
+itkin düşənlərin statistikası
+TXT) ?></h2>		</div>
 				</div>
 				</div>
 		<div class="elementor-element elementor-element-ce16a8a e-con-full e-flex e-con e-child" data-id="ce16a8a" data-element_type="container">
@@ -175,12 +179,14 @@ itkin düşənlərin statistikası</h2>		</div>
 		<div class="elementor-element elementor-element-31f3421 e-con-full e-flex e-con e-child" data-id="31f3421" data-element_type="container">
 				<div class="elementor-element elementor-element-cc90496 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="cc90496" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">1991-1994</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= page_text('home.h.6', '1991-1994') ?></h2>		</div>
 				</div>
 				<div class="elementor-element elementor-element-cc9c6a2 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="cc9c6a2" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Birinci Qarabağ 
-Müharibəsi</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= page_text('home.h.7', <<<'TXT'
+Birinci Qarabağ 
+Müharibəsi
+TXT) ?></h2>		</div>
 				</div>
 				</div>
 				<div class="elementor-element elementor-element-7df74e0 elementor-widget__width-initial elementor-widget elementor-widget-counter" data-id="7df74e0" data-element_type="widget" data-widget_type="counter.default">
@@ -189,7 +195,7 @@ Müharibəsi</h2>		</div>
 .elementor-counter{display:flex;justify-content:center;align-items:stretch;flex-direction:column-reverse}.elementor-counter .elementor-counter-number{flex-grow:var(--counter-number-grow,0)}.elementor-counter .elementor-counter-number-wrapper{flex:1;display:flex;font-size:69px;font-weight:600;line-height:1;text-align:center}.elementor-counter .elementor-counter-number-prefix{text-align:end;flex-grow:var(--counter-prefix-grow,1);white-space:pre-wrap}.elementor-counter .elementor-counter-number-suffix{text-align:start;flex-grow:var(--counter-suffix-grow,1);white-space:pre-wrap}.elementor-counter .elementor-counter-title{flex:1;display:flex;justify-content:center;align-items:center;margin:0;padding:0;font-size:19px;font-weight:400;line-height:2.5}</style>		<div class="elementor-counter">
 			<div class="elementor-counter-title">İtkin düşənlər</div>			<div class="elementor-counter-number-wrapper">
 				<span class="elementor-counter-number-prefix"></span>
-				<span class="elementor-counter-number" data-duration="2000" data-to-value="4003" data-from-value="0" data-delimiter=" ">0</span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="<?= page_text('home.num.1', '4003') ?>" data-from-value="0" data-delimiter=" ">0</span>
 				<span class="elementor-counter-number-suffix"></span>
 			</div>
 		</div>
@@ -200,7 +206,7 @@ Müharibəsi</h2>		</div>
 					<div class="elementor-counter">
 			<div class="elementor-counter-title">Azad edilmişlər </div>			<div class="elementor-counter-number-wrapper">
 				<span class="elementor-counter-number-prefix"></span>
-				<span class="elementor-counter-number" data-duration="2000" data-to-value="1702" data-from-value="0" data-delimiter=" ">0</span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="<?= page_text('home.num.2', '1702') ?>" data-from-value="0" data-delimiter=" ">0</span>
 				<span class="elementor-counter-number-suffix"></span>
 			</div>
 		</div>
@@ -219,12 +225,14 @@ Müharibəsi</h2>		</div>
 		<div class="elementor-element elementor-element-5124e34 e-con-full e-flex e-con e-child" data-id="5124e34" data-element_type="container">
 				<div class="elementor-element elementor-element-92b3439 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="92b3439" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">2020</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= page_text('home.h.8', '2020') ?></h2>		</div>
 				</div>
 				<div class="elementor-element elementor-element-32b507e elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="32b507e" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">İkinci Qarabağ 
-Müharibəsi</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= page_text('home.h.9', <<<'TXT'
+İkinci Qarabağ 
+Müharibəsi
+TXT) ?></h2>		</div>
 				</div>
 				</div>
 				<div class="elementor-element elementor-element-318b112 elementor-widget__width-initial elementor-widget elementor-widget-counter" data-id="318b112" data-element_type="widget" data-widget_type="counter.default">
@@ -232,7 +240,7 @@ Müharibəsi</h2>		</div>
 					<div class="elementor-counter">
 			<div class="elementor-counter-title">İtkin düşənlər </div>			<div class="elementor-counter-number-wrapper">
 				<span class="elementor-counter-number-prefix"></span>
-				<span class="elementor-counter-number" data-duration="2000" data-to-value="6" data-from-value="0" data-delimiter=" ">0</span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="<?= page_text('home.num.3', '6') ?>" data-from-value="0" data-delimiter=" ">0</span>
 				<span class="elementor-counter-number-suffix"></span>
 			</div>
 		</div>
@@ -243,7 +251,7 @@ Müharibəsi</h2>		</div>
 					<div class="elementor-counter">
 			<div class="elementor-counter-title">Azad edilmişlər </div>			<div class="elementor-counter-number-wrapper">
 				<span class="elementor-counter-number-prefix"></span>
-				<span class="elementor-counter-number" data-duration="2000" data-to-value="29" data-from-value="0" data-delimiter=" ">0</span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="<?= page_text('home.num.4', '29') ?>" data-from-value="0" data-delimiter=" ">0</span>
 				<span class="elementor-counter-number-suffix"></span>
 			</div>
 		</div>
@@ -259,12 +267,14 @@ Müharibəsi</h2>		</div>
 		<div class="elementor-element elementor-element-24c72d9 e-con-full e-flex e-con e-child" data-id="24c72d9" data-element_type="container">
 				<div class="elementor-element elementor-element-3fd3d74 elementor-widget__width-auto elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="3fd3d74" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Tədbirlər</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= page_text('home.h.10', 'Tədbirlər') ?></h2>		</div>
 				</div>
 				<div class="elementor-element elementor-element-20d492a elementor-widget elementor-widget-heading" data-id="20d492a" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Daha çox tədbir üçün
-Bütün tədbirlər bölməsinə keçid edin.</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= page_text('home.h.11', <<<'TXT'
+Daha çox tədbir üçün
+Bütün tədbirlər bölməsinə keçid edin.
+TXT) ?></h2>		</div>
 				</div>
 				</div>
 		<div class="elementor-element elementor-element-4ef284a e-con-full e-flex e-con e-child" data-id="4ef284a" data-element_type="container">
@@ -273,7 +283,7 @@ Bütün tədbirlər bölməsinə keçid edin.</h2>		</div>
 					<div class="elementor-button-wrapper">
 			<a class="elementor-button elementor-button-link elementor-size-sm" href="<?= url('category/tedbirler') ?>">
 						<span class="elementor-button-content-wrapper">
-									<span class="elementor-button-text">Bütün tədbirlər</span>
+									<span class="elementor-button-text"><?= page_text('home.btn.3', 'Bütün tədbirlər') ?></span>
 					</span>
 					</a>
 		</div>
@@ -366,7 +376,7 @@ Bütün tədbirlər bölməsinə keçid edin.</h2>		</div>
 				</div>
 				<div class="elementor-element elementor-element-58df172 elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-id="58df172" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Azərbaycan Respublikasının Prezidenti</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= page_text('home.h.12', 'Azərbaycan Respublikasının Prezidenti') ?></h2>		</div>
 				</div>
 				</a>
 		<a class="elementor-element elementor-element-bbdfc06 e-con-full e-flex e-con e-child" data-id="bbdfc06" data-element_type="container" href="https://mehriban-aliyeva.az/" target="_blank">
@@ -376,7 +386,7 @@ Bütün tədbirlər bölməsinə keçid edin.</h2>		</div>
 				</div>
 				<div class="elementor-element elementor-element-216228b elementor-widget elementor-widget-heading" data-id="216228b" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Azərbaycan Respublikasının I Vitse-Prezidenti</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= page_text('home.h.13', 'Azərbaycan Respublikasının I Vitse-Prezidenti') ?></h2>		</div>
 				</div>
 				</a>
 		<a class="elementor-element elementor-element-0e7a620 e-con-full e-flex e-con e-child" data-id="0e7a620" data-element_type="container" href="https://heydar-aliyev-foundation.org/az" target="_blank">
@@ -386,7 +396,7 @@ Bütün tədbirlər bölməsinə keçid edin.</h2>		</div>
 				</div>
 				<div class="elementor-element elementor-element-9d55012 elementor-widget elementor-widget-heading" data-id="9d55012" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Heydər Əliyev Fondu</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= page_text('home.h.14', 'Heydər Əliyev Fondu') ?></h2>		</div>
 				</div>
 				</a>
 		<a class="elementor-element elementor-element-e71a8b9 e-con-full e-flex e-con e-child" data-id="e71a8b9" data-element_type="container" href="https://www.heydaraliyevcenter.az/#main" target="_blank">
@@ -396,7 +406,7 @@ Bütün tədbirlər bölməsinə keçid edin.</h2>		</div>
 				</div>
 				<div class="elementor-element elementor-element-0e911eb elementor-widget elementor-widget-heading" data-id="0e911eb" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Heydər Əliyev Mərkəzi</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= page_text('home.h.15', 'Heydər Əliyev Mərkəzi') ?></h2>		</div>
 				</div>
 				</a>
 					</div>

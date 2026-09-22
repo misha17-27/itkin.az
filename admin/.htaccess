@@ -1,0 +1,14 @@
+# İdarə paneli axtarış sistemlərinə düşməsin
+<IfModule mod_headers.c>
+    Header set X-Robots-Tag "noindex, nofollow, noarchive"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "same-origin"
+</IfModule>
+
+# Panelin öz qovluqlarında PHP işə düşməsin
+<FilesMatch "\.(css|js|map)$">
+    <IfModule mod_headers.c>
+        Header set Cache-Control "no-store"
+    </IfModule>
+</FilesMatch>

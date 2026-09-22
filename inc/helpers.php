@@ -3,13 +3,42 @@
  * Köməkçi funksiyalar / helper functions
  */
 
+/**
+ * Ayarlar iki yerdən gəlir:
+ *   config.php      — quraşdırma ayarları (ünvan, admin girişi)
+ *   data/settings.php — admin panelindən dəyişdirilə bilənlər
+ * İkincisi birincinin üstünə yazılır.
+ */
 function cfg(string $key, $default = null)
 {
+    $all = cfg_all();
+    return $all[$key] ?? $default;
+}
+
+/** @param bool $reload ayar dəyişdikdən sonra yenidən oxumaq üçün */
+function cfg_all(bool $reload = false): array
+{
     static $cfg = null;
+    if ($reload) {
+        $cfg = null;
+    }
     if ($cfg === null) {
         $cfg = require dirname(__DIR__) . '/config.php';
+        $file = dirname(__DIR__) . '/data/settings.php';
+        if (is_file($file)) {
+            $saved = include $file;
+            if (is_array($saved)) {
+                $cfg = array_replace($cfg, $saved);
+            }
+        }
     }
-    return $cfg[$key] ?? $default;
+    return $cfg;
+}
+
+/** Ayar dəyişdikdən sonra keşi sıfırlayır */
+function cfg_reset(): void
+{
+    cfg_all(true);
 }
 
 /** Saytın kök ünvanı (alt qovluqda işləməsi üçün) */
@@ -24,7 +53,14 @@ function base_path(): string
         return $base = rtrim(parse_url($configured, PHP_URL_PATH) ?: '', '/');
     }
     $dir = strtr(dirname($_SERVER['SCRIPT_NAME'] ?? '/index.php'), DIRECTORY_SEPARATOR, '/');
-    return $base = ($dir === '/' || $dir === '.') ? '' : rtrim($dir, '/');
+    $dir = ($dir === '/' || $dir === '.') ? '' : rtrim($dir, '/');
+
+    // İdarə paneli /admin/ qovluğundan işləyir — sayt kökü bir səviyyə yuxarıdadır
+    if (substr($dir, -6) === '/admin' || $dir === '/admin') {
+        $dir = substr($dir, 0, -6);
+    }
+
+    return $base = $dir;
 }
 
 /** Daxili ünvan qurur: url('xeberler') => /xeberler/ */
@@ -201,6 +237,27 @@ function abs_url_file(string $path): string
     $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
     $host   = $_SERVER['HTTP_HOST'] ?? 'itkin.az';
     return $scheme . '://' . $host . asset($path);
+}
+
+/**
+ * Statik səhifələrdəki redaktə oluna bilən mətnlər.
+ *
+ * Şablonlarda mətnin orijinal variantı olduğu kimi qalır, admin panelindən
+ * dəyişdiriləni isə data/page-texts.php faylından götürülür. Beləliklə fayl
+ * silinsə belə sayt orijinal mətnlə işləməyə davam edir.
+ */
+function page_text(string $key, string $default = ''): string
+{
+    static $texts = null;
+    if ($texts === null) {
+        $texts = data_load('page-texts');
+    }
+    if (!array_key_exists($key, $texts)) {
+        return $default;
+    }
+    $value = (string) $texts[$key];
+    // Şəkil və fayl yolları saytın ünvanına uyğunlaşdırılır
+    return strpos($value, 'uploads/') === 0 ? asset($value) : $value;
 }
 
 /** Yazının kateqoriya CSS sinifləri: category-xeberler category-tedbirler */

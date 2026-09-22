@@ -1,6 +1,10 @@
 # Lokal qurma faylları
 .env.build
 
+# Admin panelinin ayarları — şifrənin hash-i burada saxlanılır,
+# ona görə serverdə qalmalı, repozitoriyaya düşməməlidir
+/data/settings.php
+
 # Əlaqə formasının logları
 /storage/
 

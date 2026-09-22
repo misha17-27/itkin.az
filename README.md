@@ -42,6 +42,78 @@ Forma işləmirsə, `config.php`-də `'log_contact' => true` edin — müraciət
 
 ---
 
+## İdarə paneli
+
+Ünvan: **`/admin/`** (məsələn `https://itkin.az/admin/`).
+
+İlk giriş: istifadəçi `admin`, şifrə `itkin2026`.
+**Girdikdən dərhal sonra “Ayarlar” bölməsindən şifrəni dəyişin.**
+
+### Nə redaktə olunur
+
+| Bölmə | Nə edir |
+|---|---|
+| Xəbərlər | Yazı əlavə etmək, dəyişmək, silmək: başlıq, ünvan, tarix, kateqoriya, şəkil, mətn |
+| Kitabxana | Kitablar: ad, müəllif, üz qabığı, təsvir və hər dil üçün PDF keçidi (AZ / EN / RU) |
+| İtkinlər | İtkin düşmüş şəxslərin siyahısı: ad və foto |
+| Kateqoriyalar | Ad, ünvan, təsvir. Yazısı olan kateqoriya silinmir |
+| Səhifələr | Statik səhifələrin başlıqları, düymələri və rəqəmləri |
+| Menyular | Əsas menyu və altlıqdakı iki sütun; alt bəndlərlə birlikdə |
+| Şəkillər | Fayl yükləmək və mövcud faylların yolunu köçürmək |
+| Ayarlar | Sayt adı, əlaqə e-poçtu, səhifələmə, Google Analytics, şifrə |
+
+### Necə işləyir
+
+Panel məzmunu `data/*.php` fayllarına yazır — verilənlər bazası yoxdur.
+Hər yazıdan əvvəl köhnə nüsxə `storage/backups/` altında saxlanılır
+(son 20 versiya), fayl isə əvvəlcə müvəqqəti ada yazılıb yoxlanır və
+yalnız sonra yerinə keçirilir. Beləliklə yarımçıq yazı saytı sındırmır.
+
+Statik səhifələrin mətnləri ayrıca işləyir: şablonlardakı orijinal mətn
+toxunulmaz qalır, dəyişdirdikləriniz isə `data/page-texts.php` faylına
+düşür. Sahəni orijinal dəyərinə qaytarsanız, qeyd tamamilə silinir.
+
+### Hostinqdə
+
+Bu qovluqlara yazma icazəsi lazımdır (cPanel-də 755 və ya 775):
+
+```
+data/       uploads/       storage/
+```
+
+Panelin “İcmal” səhifəsi giriş zamanı bunu özü yoxlayır və problem varsa
+xəbərdarlıq göstərir.
+
+`data/`, `storage/` və `/admin/` üçün `.htaccess` faylları repozitoriyadadır:
+məzmun faylları birbaşa açılmır, panel isə axtarış sistemlərinə düşmür.
+
+### Sayt yeniləndikdə — diqqət
+
+Panel məzmunu `data/*.php` fayllarına yazır, bu fayllar isə repozitoriyada da
+var. Deməli **serverdə `git pull` etsəniz, paneldən etdiyiniz dəyişikliklər
+itə bilər** — pull gələn nüsxəni yerindəkinin üstünə yazır.
+
+Kod yeniləyəndə belə edin:
+
+1. Serverdə `data/` qovluğunun və `uploads/` qovluğunun nüsxəsini götürün
+   (cPanel → File Manager → Compress, yaxud panelin `storage/backups/` nüsxələri).
+2. `git pull` edin.
+3. `data/` qovluğunu geri qaytarın.
+
+Ən rahatı isə serverdə məzmunu git-dən ayırmaqdır — bir dəfə icra edin:
+
+```bash
+git update-index --skip-worktree data/posts.php data/kitabxana.php data/itkinlr.php data/categories.php data/menu.php data/menu-footer-1.php data/menu-footer-2.php data/page-texts.php
+```
+
+Bundan sonra `git pull` bu faylları toxunmadan buraxır.
+
+Eyni səbəbdən **şifrəni dəyişəndən sonra `data/settings.php` faylını
+repozitoriyaya göndərməyin** — orada şifrənin hash-i saxlanılır. `config.php`
+faylındakı `form_secret` də serverdə öz dəyəri ilə qalmalıdır.
+
+---
+
 ## Lokal işə salma
 
 ```bash

@@ -30,8 +30,10 @@
 				<div class="elementor-element elementor-element-376599d elementor-widget elementor-widget-heading" data-id="376599d" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
 			<style>/*! elementor - v3.21.0 - 26-05-2024 */
-.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h2 class="elementor-heading-title elementor-size-default">“Qarabağ İtkin Ailələri” 
-İctimai Birliyi haqqında</h2>		</div>
+.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h2 class="elementor-heading-title elementor-size-default"><?= page_text('haqqimizda.h.1', <<<'TXT'
+“Qarabağ İtkin Ailələri” 
+İctimai Birliyi haqqında
+TXT) ?></h2>		</div>
 				</div>
 				<div class="elementor-element elementor-element-854f122 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="854f122" data-element_type="widget" data-widget_type="divider.default">
 				<div class="elementor-widget-container">
@@ -64,7 +66,7 @@
 		<div class="elementor-element elementor-element-6fc6f71 e-con-full e-flex e-con e-child" data-id="6fc6f71" data-element_type="container">
 				<div class="elementor-element elementor-element-b7cb292 elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="b7cb292" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Qarabağ müharibəsində itkin düşən şəxslər</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= page_text('haqqimizda.h.2', 'Qarabağ müharibəsində itkin düşən şəxslər') ?></h2>		</div>
 				</div>
 				</div>
 		<div class="elementor-element elementor-element-16e0e59 e-con-full e-flex e-con e-child" data-id="16e0e59" data-element_type="container">

@@ -23,6 +23,14 @@ return [
         'itkinlr'   => 10,
     ],
 
+    // ---------------------------------------------------------------- admin
+    // Admin panelinə giriş: /admin/
+    // Şifrəni dəyişmək üçün panelin "Ayarlar" bölməsindən istifadə edin
+    // və ya burada password_hash('yeni-şifrə', PASSWORD_DEFAULT) nəticəsini yazın.
+    'admin_user'     => 'admin',
+    // Standart şifrə: itkin2026 — İLK GİRİŞDƏN SONRA MÜTLƏQ DƏYİŞİN
+    'admin_password' => '$2y$10$mPlw9fbIJo0W4CN7wF7N4ucWKNuTRwspN0guCEmDL5EimguQrDsMG',
+
     // Əlaqə formasının CSRF açarı — quraşdırmadan sonra təsadüfi sətirlə əvəz edin
     'form_secret'   => '',
 
