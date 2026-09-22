@@ -4,7 +4,33 @@
  * ona görə də bütün digər üslub fayllarından SONRA yüklənir.
  *
  * 1. Mobil menyu — bütün səhifəni örtən ağ panel.
+ * 2. Ana səhifədə başlığın mobil yerləşməsi.
  */
+
+/* ------------------------------------------------------------------ *
+ * 2. Ana səhifədə başlıq (mobil)                                      *
+ * ------------------------------------------------------------------ *
+ * Başlıq zolağı videonun üstündə "üzür" və aşağıdakı qəhrəman blokunu
+ * mənfi kənar boşluqla yuxarı dartır. Mobil ekranda başlıq mətni üç sətrə
+ * bölünür və zolağa çox yaxın düşürdü (cəmi ~49px ara qalırdı).
+ *
+ * Ona görə zolağı bir az yuxarı qaldırırıq və mənfi boşluğu eyni ölçüdə
+ * azaldırıq: zolaq yuxarı qalxır, mətn isə yerində qalır — aradakı məsafə
+ * ~89px olur. Qəhrəman blokunun altındakı boş sahə buna imkan verir.
+ */
+
+@media (max-width: 767px) {
+
+	/*
+	 * elementor-element-1e818cb — ana səhifə başlığının (#50) zolağı.
+	 * Elementor öz qaydasını `.elementor-50 .elementor-element.elementor-...`
+	 * kimi yazır, ona görə burada da eyni dərəcədə dəqiq seçici lazımdır.
+	 */
+	.elementor-location-header .elementor-element.elementor-element-1e818cb {
+		--margin-top: 20px !important;
+		--margin-bottom: -210px !important;
+	}
+}
 
 /* ------------------------------------------------------------------ *
  * 1. Mobil menyu                                                      *
