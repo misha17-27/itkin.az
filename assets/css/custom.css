@@ -1,0 +1,151 @@
+/*
+ * itkin.az — surətə əlavə edilmiş üslublar.
+ * Bu fayl orijinal saytdan gəlmir: burada yalnız bizim dəyişikliklərimiz var,
+ * ona görə də bütün digər üslub fayllarından SONRA yüklənir.
+ *
+ * 1. Mobil menyu — tam ekran ağ panel, mərkəzləşdirilmiş bəndlər.
+ */
+
+/* ------------------------------------------------------------------ *
+ * 1. Mobil menyu                                                      *
+ * ------------------------------------------------------------------ */
+
+@media (max-width: 1024px) {
+
+	/* Başlıq panelin üstündə qalır: loqo və bağlama düyməsi həmişə görünür */
+	.elementor-location-header {
+		position: relative;
+		z-index: 9999;
+	}
+
+	/*
+	 * Menyu açıq olanda başlıq şəffaf qalmasın: ana səhifədə başlığın arxasında
+	 * video oynayır və panelin üstündə zolaq kimi görünürdü.
+	 * Sinif JavaScript tərəfindən qoyulur (:has() köhnə brauzerlərdə işləmir).
+	 */
+	body.itkin-menu-open .elementor-location-header {
+		background-image: linear-gradient(11deg, #6B8F7C 0%, #84A091 100%);
+	}
+
+	/* Daxili konteynerin öz fonu qalsa, iki qradiyent arasında tikiş görünür */
+	body.itkin-menu-open .elementor-location-header .e-con-boxed.e-parent {
+		background-image: none;
+		background-color: transparent;
+	}
+
+	/*
+	 * --- panelin özü ---
+	 * Elementor "stretch" rejimində panelin yerini JavaScript ilə inline
+	 * üslub kimi yazır (top/left/width), ona görə burada !important lazımdır.
+	 */
+	.elementor-location-header nav.elementor-nav-menu--dropdown {
+		position: fixed !important;
+		top: var(--itkin-mobile-header-h, 83px) !important;
+		right: 0 !important;
+		bottom: 0 !important;
+		left: 0 !important;
+		width: auto !important;
+		height: auto !important;
+		max-height: none !important;
+		z-index: 9998 !important;
+		margin: 0 !important;
+
+		padding: 36px 20px calc(36px + env(safe-area-inset-bottom, 0px));
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		overscroll-behavior: contain;
+
+		background-color: #FFFFFF;
+		border-top: 1px solid #E6ECE9;
+		box-shadow: none;
+	}
+
+	/* --- bənd siyahısı --- */
+	.elementor-location-header nav.elementor-nav-menu--dropdown ul.elementor-nav-menu {
+		display: block;
+		max-width: 420px;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	.elementor-location-header nav.elementor-nav-menu--dropdown ul.elementor-nav-menu > li {
+		display: block;
+		border: 0;
+	}
+
+	/* --- bəndlərin özü --- */
+	.elementor-location-header nav.elementor-nav-menu--dropdown .elementor-item,
+	.elementor-location-header nav.elementor-nav-menu--dropdown .elementor-sub-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+
+		padding: 18px 18px;
+		margin: 5px 0;
+		border: 0;
+		border-radius: 14px;
+
+		font-family: "Montserrat", sans-serif;
+		font-size: 17px;
+		font-weight: 700;
+		line-height: 1.35;
+		text-align: center;
+		color: #1E3329;
+		background-color: transparent;
+		transition: background-color .18s ease, color .18s ease;
+	}
+
+	/* aktiv bənd — yumşaq yaşıl fon */
+	.elementor-location-header nav.elementor-nav-menu--dropdown .elementor-item.elementor-item-active,
+	.elementor-location-header nav.elementor-nav-menu--dropdown .elementor-sub-item.elementor-item-active,
+	.elementor-location-header nav.elementor-nav-menu--dropdown li.current-menu-item > .elementor-item,
+	.elementor-location-header nav.elementor-nav-menu--dropdown li.current-menu-item > .elementor-sub-item {
+		color: #3F7B60;
+		background-color: #EAF2ED;
+	}
+
+	.elementor-location-header nav.elementor-nav-menu--dropdown .elementor-item:hover,
+	.elementor-location-header nav.elementor-nav-menu--dropdown .elementor-item:focus,
+	.elementor-location-header nav.elementor-nav-menu--dropdown .elementor-sub-item:hover,
+	.elementor-location-header nav.elementor-nav-menu--dropdown .elementor-sub-item:focus {
+		color: #3F7B60;
+		background-color: #F2F7F4;
+	}
+
+	/* --- alt menyular --- */
+	.elementor-location-header nav.elementor-nav-menu--dropdown ul.sub-menu {
+		margin: 2px 0 10px;
+		padding: 0;
+		border: 0;
+		background-color: transparent;
+	}
+
+	.elementor-location-header nav.elementor-nav-menu--dropdown ul.sub-menu .elementor-sub-item {
+		padding: 12px 18px;
+		font-size: 14px;
+		font-weight: 600;
+		color: #4B5F55;
+	}
+
+	/* açılma oxu mətnin yanında dursun */
+	.elementor-location-header nav.elementor-nav-menu--dropdown .sub-arrow {
+		position: static;
+		margin: 0;
+		padding: 0;
+		line-height: 1;
+		opacity: .55;
+	}
+
+	.elementor-location-header nav.elementor-nav-menu--dropdown .sub-arrow i,
+	.elementor-location-header nav.elementor-nav-menu--dropdown .sub-arrow svg {
+		font-size: 12px;
+		width: 12px;
+		height: 12px;
+	}
+
+	/* Menyu açıq olanda arxa fon sürüşməsin */
+	body.itkin-menu-open {
+		overflow: hidden;
+	}
+}

@@ -151,5 +151,6 @@ var JetHamburgerPanelSettings = {"ajaxurl":"<?= url('wp-admin/admin-ajax.php') ?
 //# sourceURL=jet-blocks-js-extra
 </script>
 <script id="jet-blocks-js" src="<?= asset('assets/vendor/plugins/jet-blocks/assets/js/jet-blocks.min.js') ?>"></script>
+<script id="itkin-mobile-menu-js" src="<?= asset(JS_CUSTOM) ?>"></script>
 </body>
 </html>

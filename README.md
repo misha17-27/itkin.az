@@ -100,7 +100,8 @@ Hər sətirdə məzmundan başqa iki sahə də var:
 domen dəyişsə belə struktur məlumat düzgün qalır).
 
 assets/
-  css/                 orijinalda inline olan üslublar
+  css/                 orijinalda inline olan üslublar + custom.css
+  js/                  mobile-menu.js (surətə əlavə edilib)
   vendor/              Elementor, Hello Elementor, jQuery və s.
 uploads/               şəkillər, PDF kitablar, video
 ```
@@ -142,9 +143,22 @@ Menyunu dəyişmək üçün `data/menu.php`, altlıq menyularını isə
 
 ---
 
+## Surətə əlavə edilmiş dəyişikliklər
+
+- **Mobil menyu yenidən dizayn olunub.** Orijinalda menyu başlığın altından
+  açılan tünd panel idi; burada tam ekran ağ panelə çevrilib: bəndlər
+  mərkəzdə, qalın şriftlə, cari səhifə yumşaq yaşıl fonla işarələnir.
+  Dil seçimi, telefon və sosial şəbəkə düymələri panelə əlavə edilməyib.
+  Kod: `assets/css/custom.css` və `assets/js/mobile-menu.js` — hər ikisi
+  yalnız bizim dəyişikliyimizdir və digər fayllardan sonra yüklənir,
+  ona görə geri qaytarmaq üçün bu iki faylı çıxarmaq kifayətdir.
+  Kompüter versiyasındakı menyuya toxunulmayıb.
+
+---
+
 ## Orijinaldan fərqlər
 
-Vizual olaraq fərq yoxdur. Texniki fərqlər:
+Qalan hər şey vizual olaraq eynidir. Texniki fərqlər:
 
 - **E-poçt ünvanları açıq yazılıb.** Orijinalda Cloudflare onları şifrələyir və
   JavaScript ilə açır; burada birbaşa `mailto:` keçidi var.

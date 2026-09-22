@@ -129,6 +129,13 @@ const CSS_TAIL = [
     ],
 ];
 
+/**
+ * Surətə əlavə edilmiş fayllar (orijinalda yoxdur).
+ * Üslub ən sonda yüklənir ki, lazım gələndə digərlərini üstələyə bilsin.
+ */
+const CSS_CUSTOM = 'assets/css/custom.css';
+const JS_CUSTOM  = 'assets/js/mobile-menu.js';
+
 /** Bəzi üslublar orijinalda media="screen" ilə verilir */
 const CSS_MEDIA = [
     'assets/vendor/plugins/wpml-cms-nav/res/css/cms-navigation-base.css' => 'screen',

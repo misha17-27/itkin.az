@@ -86,6 +86,9 @@ foreach ($styles as $href) {
     echo "	<link rel=\"stylesheet\" href=\"" . e(asset($href)) . "\" media=\"" . e(CSS_MEDIA[$href] ?? 'all') . "\">
 ";
 }
+// surətə xas üslub — həmişə sonuncu
+echo "	<link rel=\"stylesheet\" href=\"" . e(asset(CSS_CUSTOM)) . "\" media=\"all\">
+";
 ?>
 
 <script id="wpml-cookie-js-extra">
