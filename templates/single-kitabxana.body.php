@@ -50,7 +50,7 @@
 				<div class="elementor-element elementor-element-7f9aa47 elementor-widget__width-auto elementor-widget elementor-widget-button" data-id="7f9aa47" data-element_type="widget" data-widget_type="button.default">
 				<div class="elementor-widget-container">
 					<div class="elementor-button-wrapper">
-			<a class="elementor-button elementor-button-link elementor-size-sm" href="http://human.gov.az/frq-content/plugins/book_x1/pdf/file/20210826130317_52433400.pdf">
+			<?php $dl = $post['downloads']['7f9aa47'] ?? ''; ?><?php if ($dl !== ''): ?><a class="elementor-button elementor-button-link elementor-size-sm" href="<?= e(link_url($dl)) ?>"><?php else: ?><a class="elementor-button elementor-size-sm" role="button"><?php endif; ?>
 						<span class="elementor-button-content-wrapper">
 						<span class="elementor-button-icon elementor-align-icon-left">
 				<svg aria-hidden="true" class="e-font-icon-svg e-fas-download" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M216 0h80c13.3 0 24 10.7 24 24v168h87.7c17.8 0 26.7 21.5 14.1 34.1L269.7 378.3c-7.5 7.5-19.8 7.5-27.3 0L90.1 226.1c-12.6-12.6-3.7-34.1 14.1-34.1H192V24c0-13.3 10.7-24 24-24zm296 376v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h146.7l49 49c20.1 20.1 52.5 20.1 72.6 0l49-49H488c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path></svg>			</span>
@@ -63,7 +63,7 @@
 				<div class="elementor-element elementor-element-43181c2 elementor-widget__width-auto elementor-widget elementor-widget-button" data-id="43181c2" data-element_type="widget" data-widget_type="button.default">
 				<div class="elementor-widget-container">
 					<div class="elementor-button-wrapper">
-			<a class="elementor-button elementor-button-link elementor-size-sm" href="http://human.gov.az/frq-content/plugins/book_x1/pdf/file/20210826130542_77195100.pdf">
+			<?php $dl = $post['downloads']['43181c2'] ?? ''; ?><?php if ($dl !== ''): ?><a class="elementor-button elementor-button-link elementor-size-sm" href="<?= e(link_url($dl)) ?>"><?php else: ?><a class="elementor-button elementor-size-sm" role="button"><?php endif; ?>
 						<span class="elementor-button-content-wrapper">
 						<span class="elementor-button-icon elementor-align-icon-left">
 				<svg aria-hidden="true" class="e-font-icon-svg e-fas-download" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M216 0h80c13.3 0 24 10.7 24 24v168h87.7c17.8 0 26.7 21.5 14.1 34.1L269.7 378.3c-7.5 7.5-19.8 7.5-27.3 0L90.1 226.1c-12.6-12.6-3.7-34.1 14.1-34.1H192V24c0-13.3 10.7-24 24-24zm296 376v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h146.7l49 49c20.1 20.1 52.5 20.1 72.6 0l49-49H488c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path></svg>			</span>
@@ -76,7 +76,7 @@
 				<div class="elementor-element elementor-element-044b0d1 elementor-widget__width-auto elementor-widget elementor-widget-button" data-id="044b0d1" data-element_type="widget" data-widget_type="button.default">
 				<div class="elementor-widget-container">
 					<div class="elementor-button-wrapper">
-			<a class="elementor-button elementor-button-link elementor-size-sm" href="http://human.gov.az/frq-content/plugins/book_x1/pdf/file/20210826130600_71328200.pdf">
+			<?php $dl = $post['downloads']['044b0d1'] ?? ''; ?><?php if ($dl !== ''): ?><a class="elementor-button elementor-button-link elementor-size-sm" href="<?= e(link_url($dl)) ?>"><?php else: ?><a class="elementor-button elementor-size-sm" role="button"><?php endif; ?>
 						<span class="elementor-button-content-wrapper">
 						<span class="elementor-button-icon elementor-align-icon-left">
 				<svg aria-hidden="true" class="e-font-icon-svg e-fas-download" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M216 0h80c13.3 0 24 10.7 24 24v168h87.7c17.8 0 26.7 21.5 14.1 34.1L269.7 378.3c-7.5 7.5-19.8 7.5-27.3 0L90.1 226.1c-12.6-12.6-3.7-34.1 14.1-34.1H192V24c0-13.3 10.7-24 24-24zm296 376v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h146.7l49 49c20.1 20.1 52.5 20.1 72.6 0l49-49H488c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path></svg>			</span>

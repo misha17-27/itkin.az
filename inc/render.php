@@ -3,25 +3,130 @@
  * Şablonların birləşdirilməsi / layout renderer.
  */
 
-/** Hər səhifədə yüklənən üslublar */
-const CSS_BASE = [
-    'assets/vendor/plugins/elementor/assets/css/frontend-lite.min.css',
-    'assets/vendor/plugins/elementor-pro/assets/css/frontend-lite.min.css',
-    'assets/vendor/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css',
+/**
+ * Üslublar orijinaldakı ardıcıllıqla yüklənir — kaskad eyni qalsın deyə.
+ * wp-inline.css və elementor-widgets.css orijinalda <style> blokları kimi
+ * bütün <link>-lərdən əvvəl gəlir, ona görə siyahının başındadır.
+ * '__FONTS__' Google Fonts keçidinin yeridir.
+ */
+const CSS_LEAD = [
+    'assets/css/wp-inline.css',
+    'assets/css/elementor-widgets.css',
+];
+
+const CSS_COMMON = [
     'assets/vendor/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-list-horizontal/style.min.css',
     'assets/vendor/plugins/wpml-cms-nav/res/css/cms-navigation-base.css',
     'assets/vendor/plugins/wpml-cms-nav/res/css/cms-navigation.css',
     'assets/vendor/themes/hello-elementor/style.min.css',
     'assets/vendor/themes/hello-elementor/theme.min.css',
     'assets/vendor/themes/hello-elementor/header-footer.min.css',
-    'assets/css/wp-inline.css',
-    // Elementor vidjetlərinin inline üslubları — orijinalda səhifədən asılı olaraq
-    // markupun içində verilir, burada hamısı bir faylda toplanıb
-    'assets/css/elementor-widgets.css',
+    'assets/vendor/plugins/elementor/assets/css/frontend-lite.min.css',
     'uploads/elementor/css/post-7.css',
-    'uploads/elementor/css/global.css',
     'uploads/elementor/css/custom-jet-blocks.css',
-    'uploads/elementor/css/post-245.css',
+    'assets/vendor/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css',
+    'assets/vendor/plugins/elementor-pro/assets/css/frontend-lite.min.css',
+    'uploads/elementor/css/global.css',
+];
+
+const CSS_TAIL = [
+    'home' => [
+        'uploads/elementor/css/post-23.css',
+        'uploads/elementor/css/post-50.css',
+        'uploads/elementor/css/post-245.css',
+        '__FONTS__',
+        'uploads/elementor/css/post-150.css',
+        'uploads/elementor/css/post-214.css',
+        'assets/vendor/plugins/elementor/assets/lib/animations/animations.min.css',
+    ],
+    'page-xeberler' => [
+        'uploads/elementor/css/post-327.css',
+        'uploads/elementor/css/post-334.css',
+        'uploads/elementor/css/post-245.css',
+        '__FONTS__',
+        'uploads/elementor/css/post-214.css',
+    ],
+    'page-haqqimizda' => [
+        'uploads/elementor/css/post-399.css',
+        'uploads/elementor/css/post-334.css',
+        'uploads/elementor/css/post-245.css',
+        '__FONTS__',
+        'assets/vendor/plugins/elementor/assets/lib/e-gallery/css/e-gallery.min.css',
+    ],
+    'page-elaqe' => [
+        'uploads/elementor/css/post-374.css',
+        'uploads/elementor/css/post-334.css',
+        'uploads/elementor/css/post-245.css',
+        '__FONTS__',
+    ],
+    'page-sekiller' => [
+        'uploads/elementor/css/post-662.css',
+        'uploads/elementor/css/post-334.css',
+        'uploads/elementor/css/post-245.css',
+        '__FONTS__',
+        'assets/vendor/plugins/elementor/assets/lib/e-gallery/css/e-gallery.min.css',
+    ],
+    'page-beynelxalq-senedler' => [
+        'uploads/elementor/css/post-830.css',
+        'uploads/elementor/css/post-334.css',
+        'uploads/elementor/css/post-245.css',
+        '__FONTS__',
+    ],
+    'page-milli-qanunvericilik' => [
+        'uploads/elementor/css/post-869.css',
+        'uploads/elementor/css/post-334.css',
+        'uploads/elementor/css/post-245.css',
+        '__FONTS__',
+    ],
+    'page-kitabxana' => [
+        'uploads/elementor/css/post-904.css',
+        'uploads/elementor/css/post-334.css',
+        'uploads/elementor/css/post-245.css',
+        '__FONTS__',
+        'uploads/elementor/css/post-906.css',
+    ],
+    'single-post' => [
+        'uploads/elementor/css/post-334.css',
+        'uploads/elementor/css/post-245.css',
+        'uploads/elementor/css/post-581.css',
+        '__FONTS__',
+        'uploads/elementor/css/post-214.css',
+    ],
+    'single-kitabxana' => [
+        'uploads/elementor/css/post-334.css',
+        'uploads/elementor/css/post-245.css',
+        'uploads/elementor/css/post-928.css',
+        '__FONTS__',
+    ],
+    'single-itkinlr' => [
+        'uploads/elementor/css/post-334.css',
+        'uploads/elementor/css/post-245.css',
+        '__FONTS__',
+    ],
+    'archive-itkinlr' => [
+        'uploads/elementor/css/post-334.css',
+        'uploads/elementor/css/post-245.css',
+        '__FONTS__',
+    ],
+    'archive-category' => [
+        'uploads/elementor/css/post-334.css',
+        'uploads/elementor/css/post-245.css',
+        'uploads/elementor/css/post-588.css',
+        '__FONTS__',
+        'uploads/elementor/css/post-214.css',
+    ],
+    'archive-kitabxana' => [
+        'uploads/elementor/css/post-334.css',
+        'uploads/elementor/css/post-245.css',
+        'uploads/elementor/css/post-968.css',
+        '__FONTS__',
+        'uploads/elementor/css/post-906.css',
+    ],
+    '404' => [
+        'uploads/elementor/css/post-334.css',
+        'uploads/elementor/css/post-245.css',
+        '__FONTS__',
+    ],
 ];
 
 /** Bəzi üslublar orijinalda media="screen" ilə verilir */
@@ -51,31 +156,6 @@ const FONTS_VIEW = [
 /** Orijinalda hreflang yalnız bu şablonlarda verilmir */
 const NO_HREFLANG = ['single-itkinlr', 'archive-itkinlr', 'archive-kitabxana', 'single-kitabxana', '404'];
 
-/** Şablona görə əlavə üslublar (Elementor şablon ID-ləri) */
-const CSS_VIEW = [
-    'home' => [
-        'assets/vendor/plugins/elementor/assets/lib/animations/animations.min.css',
-        'uploads/elementor/css/post-50.css',
-        'uploads/elementor/css/post-23.css',
-        'uploads/elementor/css/post-150.css',
-        'uploads/elementor/css/post-214.css',
-    ],
-    'page-xeberler'             => ['uploads/elementor/css/post-334.css', 'uploads/elementor/css/post-327.css', 'uploads/elementor/css/post-214.css'],
-    'page-haqqimizda'           => ['uploads/elementor/css/post-334.css', 'uploads/elementor/css/post-399.css', 'assets/vendor/plugins/elementor/assets/lib/e-gallery/css/e-gallery.min.css'],
-    'page-elaqe'                => ['uploads/elementor/css/post-334.css', 'uploads/elementor/css/post-374.css'],
-    'page-sekiller'             => ['uploads/elementor/css/post-334.css', 'uploads/elementor/css/post-662.css', 'assets/vendor/plugins/elementor/assets/lib/e-gallery/css/e-gallery.min.css'],
-    'page-beynelxalq-senedler'  => ['uploads/elementor/css/post-334.css', 'uploads/elementor/css/post-830.css'],
-    'page-milli-qanunvericilik' => ['uploads/elementor/css/post-334.css', 'uploads/elementor/css/post-869.css'],
-    'page-kitabxana'            => ['uploads/elementor/css/post-334.css', 'uploads/elementor/css/post-904.css', 'uploads/elementor/css/post-906.css'],
-    'single-post'               => ['uploads/elementor/css/post-334.css', 'uploads/elementor/css/post-581.css', 'uploads/elementor/css/post-214.css'],
-    // post-942.css orijinal saytda da 404 qaytarır — kart üslubu şablonun içində inline verilib
-    'single-kitabxana'          => ['uploads/elementor/css/post-334.css', 'uploads/elementor/css/post-928.css'],
-    'single-itkinlr'            => ['uploads/elementor/css/post-334.css'],
-    'archive-itkinlr'           => ['uploads/elementor/css/post-334.css'],
-    'archive-category'          => ['uploads/elementor/css/post-334.css', 'uploads/elementor/css/post-588.css', 'uploads/elementor/css/post-214.css'],
-    'archive-kitabxana'         => ['uploads/elementor/css/post-334.css', 'uploads/elementor/css/post-968.css', 'uploads/elementor/css/post-906.css'],
-    '404'                       => ['uploads/elementor/css/post-334.css'],
-];
 
 /**
  * Şablondan asılı olan skriptlər.
@@ -151,7 +231,7 @@ function render(string $view, array $vars = []): void
     include $file;
     $content = ob_get_clean();
 
-    $styles = array_merge(CSS_BASE, CSS_VIEW[$view] ?? [], $meta['extra_css']);
+    $styles = array_merge(CSS_LEAD, CSS_COMMON, CSS_TAIL[$view] ?? CSS_TAIL['404']);
 
     // Səhifəyə xas fayllar şablonun standart dəstindən əvvəl gəlir (orijinaldakı kimi)
     $scripts = [];

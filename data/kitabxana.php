@@ -110,6 +110,11 @@ HTML,
 <p>Esmira Orucova</p>
 <p>Kitabda Ermənistanın işğalçılıq siyasəti nəticəsində əsir və girov götürülmüş Azərbaycan vətəndaşlarının işğal altında olan ərazilərdə və Ermənistanda saxlanıldıqlarını, əzab və işgəncələrə məruz qaldıqlarını təsdiqləyən şahid ifadələri, habelə beynəlxalq təşkilatların və qarşı tərəfin nümayəndələrinin tərtib etdiyi sənədlər əsasında toplanmış faktlar oxucuya təqdim olunur.</p>
 HTML,
+        'downloads' => [
+            '7f9aa47' => 'uploads/2024/08/20220426093233_81152400.pdf',
+            '43181c2' => 'uploads/2024/08/20220426093315_52067000.pdf',
+            '044b0d1' => '',
+        ],
         'card_thumb' => [
             'url' => 'uploads/2024/08/20220426092734_25837600-768x1144.jpg',
             'srcset' => <<<'HTML'
@@ -221,6 +226,11 @@ HTML,
 <p>İsa Həbibbəyli, Yaqub Mahmudov</p>
 <p>Konfrans Azərbaycan Respublikası Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyasının sədri tərəfindən 1 aprel 2017-ci il tarixdə təsdiq edilmiş layihəyə əsasən, 24 aprel 2017-ci il tarixdə, Bakı şəhərində keçirilmişdir.</p>
 HTML,
+        'downloads' => [
+            '7f9aa47' => 'uploads/2024/08/20220426091754_41381300.pdf',
+            '43181c2' => '',
+            '044b0d1' => '',
+        ],
         'card_thumb' => [
             'url' => 'uploads/2024/08/20220426091642_82010300-768x1144.jpg',
             'srcset' => <<<'HTML'
@@ -331,6 +341,11 @@ HTML,
 <p>Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyasının İşçi qrupu tərəfindən toplanmış material ların əsasında tərtib edilmiş kitabda əksini tapan hadisələr, şahid ifa dələrinə əsaslanan faktlardır. Bunlar sadəcə hadisə yox, Ermənistanın Azərbaycana təcavüzü zamanı törədilmiş müharibə cina yət ləridir. Həmin cinayətləri eyni zamanda, kitabda oxucuların diqq ətinə təqdim edilmiş radio əks-kəşfiyyat məlumatları da təsdiq edir.<br />
 Kitab geniş oxucu kütləsi üçün nəzərdə tutulmuşdur.</p>
 HTML,
+        'downloads' => [
+            '7f9aa47' => 'uploads/2024/08/20211003203628_19945500-1.pdf',
+            '43181c2' => '',
+            '044b0d1' => '',
+        ],
         'card_thumb' => [
             'url' => 'uploads/2024/08/20211003203352_57015400.jpg',
             'srcset' => 'uploads/2024/08/20211003203352_57015400.jpg 510w, uploads/2024/08/20211003203352_57015400-201x300.jpg 201w',
@@ -440,6 +455,11 @@ HTML,
 <p>Eldar Səmədov, Rauf Məəmmədov</p>
 <p>Kitabda Ermənistan Respublikasının Azərbaycan Respublikasına qarşı ərazi iddiaları ilə bağlı 1988-ci ildən etibarən yenidən alovlanan Dağlıq Qarabağ münaqişəsi prosesində erməni terrorçu-quldur dəstələri tərəfidən həm intensiv hərbi əməliyyatların getdiyi ərazilərdə, həm də həmin ərazilərdən kənarda dinc azərbaycanlılara qarşı həyata keçirilmiş terror əməlləri araşdırılmışdır.</p>
 HTML,
+        'downloads' => [
+            '7f9aa47' => 'uploads/2024/08/20211003200620_03136100.pdf',
+            '43181c2' => 'uploads/2024/08/20211003214143_62251500.pdf',
+            '044b0d1' => 'uploads/2024/08/20211003202430_68945500-1.pdf',
+        ],
         'card_thumb' => [
             'url' => 'uploads/2024/08/20210826132347_85365100-768x1144.jpg',
             'srcset' => <<<'HTML'
@@ -551,6 +571,11 @@ HTML,
 <p>İlkin Şükürbəyli, Nəsimi Faiqoğlu</p>
 <p>Bu kitab hər sətrindən qan daman sənədlər toplusudur. Kitabın səhifələrindən şəhid olmuş, itkin düşmüş uşaqların, hələ dil açmamış həyatına son qoyulan körpələrin məhv edilmiş taleyi boylanır. Bu körpələrin, yeniyetmə uşaqların həyatını məhv edən isə dünya qarşısında özünü soyqırıma məruz qalan xalq kimi tanıdan, yalandan göz yaşları tökən Ermənistan hakimiyyəti və ermənilərin faşist xislətli havadarlarıdır.</p>
 HTML,
+        'downloads' => [
+            '7f9aa47' => 'uploads/2024/08/20210826131445_72914800-1.pdf',
+            '43181c2' => '',
+            '044b0d1' => '',
+        ],
         'card_thumb' => [
             'url' => 'uploads/2024/08/20210826131313_47108700-768x1144.jpg',
             'srcset' => <<<'HTML'
@@ -667,6 +692,11 @@ HTML,
 <p>Eldar Səmədov, Emin Vəliyev, Aygün Həsənoğlu</p>
 <p>Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyası hazırlanmış bu nəşr erməni terrorizmi haqqında həqiqətləri dünya ictimaiyyətinə çatdırmaq üçün növbəti bir cəhddir.</p>
 HTML,
+        'downloads' => [
+            '7f9aa47' => 'http://human.gov.az/frq-content/plugins/book_x1/pdf/file/20210826130317_52433400.pdf',
+            '43181c2' => 'http://human.gov.az/frq-content/plugins/book_x1/pdf/file/20210826130542_77195100.pdf',
+            '044b0d1' => 'http://human.gov.az/frq-content/plugins/book_x1/pdf/file/20210826130600_71328200.pdf',
+        ],
         'card_thumb' => [
             'url' => 'uploads/2024/07/20210826125842_39550900-768x1144.jpg',
             'srcset' => <<<'HTML'
@@ -783,6 +813,11 @@ HTML,
 <p>Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev</p>
 <p>Kitab müxtəlif yaşa məxsus insanların xatirələri əsasında tərtib edilmişdir. Xatirələr qadın, uşaq, qocalara, eyni zamanda həm mülki şəxslərə, həm də hərbçilərə aiddir. “Xatirə” ifadəsi ilk anlamda insanda şirin və həzin hislər yaratsa da, bu kitabda yer almış xatirələr oxucuda daha çox insanın insana münasibəti kontekstində təəssüf və təəccüb hissi doğuracaq, bir çox hallarda isə dəhşət hissi yaradacaq.</p>
 HTML,
+        'downloads' => [
+            '7f9aa47' => 'uploads/2024/07/20210826124519_15140700.pdf',
+            '43181c2' => 'http://human.gov.az/frq-content/plugins/book_x1/pdf/file/20210826124629_75549800.pdf',
+            '044b0d1' => 'http://human.gov.az/frq-content/plugins/book_x1/pdf/file/20210826124651_32321200.pdf',
+        ],
         'card_thumb' => [
             'url' => 'uploads/2024/07/20210826124223_23290300-768x1144.jpg',
             'srcset' => <<<'HTML'

@@ -57,13 +57,30 @@
 	<link rel="apple-touch-icon" href="<?= asset('uploads/2023/11/fav.png') ?>">
 	<meta name="msapplication-TileImage" content="<?= asset('uploads/2023/11/fav.png') ?>">
 
-<?php foreach ($styles as $href): ?>
-	<link rel="stylesheet" href="<?= asset($href) ?>" media="<?= e(CSS_MEDIA[$href] ?? 'all') ?>">
-<?php endforeach; ?>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<?php $ff = implode('%7C', array_map(static function ($f) { return $f . ':100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic'; }, $fonts)); ?>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=<?= $ff ?>&display=swap" media="all">
+<?php
+$fontLink = static function () use ($fonts) {
+    $ff = implode('%7C', array_map(static function ($f) { return $f . ':100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic'; }, $fonts));
+    echo "	<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
+";
+    echo "	<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
+";
+    echo "	<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family={$ff}&display=swap\" media=\"all\">
+";
+};
+foreach ($styles as $href) {
+    if ($href === '__FONTS__') {
+        $fontLink();
+        // səhifəyə xas əlavə üslublar (məsələn MediaElement) şriftlərdən sonra gəlir
+        foreach ($meta['extra_css'] as $x) {
+            echo "	<link rel=\"stylesheet\" href=\"" . e(asset($x)) . "\" media=\"all\">
+";
+        }
+        continue;
+    }
+    echo "	<link rel=\"stylesheet\" href=\"" . e(asset($href)) . "\" media=\"" . e(CSS_MEDIA[$href] ?? 'all') . "\">
+";
+}
+?>
 
 <script id="wpml-cookie-js-extra">
 var wpml_cookies = {"wp-wpml_current_language":{"value":"<?= e(cfg('locale', 'az')) ?>","expires":1,"path":"/"}};

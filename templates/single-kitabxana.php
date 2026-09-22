@@ -25,8 +25,9 @@ foreach ($books as $i => $b) {
         break;
     }
 }
-$prev = $idx !== null ? ($books[$idx - 1] ?? null) : null;
-$next = $idx !== null ? ($books[$idx + 1] ?? null) : null;
+// Siyahı yenidən köhnəyə düzülüb: "əvvəlki" daha köhnə kitabdır
+$prev = $idx !== null ? ($books[$idx + 1] ?? null) : null;
+$next = $idx !== null ? ($books[$idx - 1] ?? null) : null;
 $prev_base = 'kitabxana-blog/';
 
 $related = array_values(array_filter($books, static function (array $b) use ($post) {

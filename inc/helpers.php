@@ -175,6 +175,12 @@ function elementor_post_json(int $id, string $title, string $image = ''): string
     ], JSON_UNESCAPED_UNICODE);
 }
 
+/** Xarici ünvan olduğu kimi, daxili yol isə sayt köküylə qaytarılır */
+function link_url(string $url): string
+{
+    return preg_match('#^(?:https?:)?//#', $url) ? $url : asset($url);
+}
+
 /** Faylın tam ünvanı (og:image və Elementor konfiqurasiyası üçün) */
 function abs_url_file(string $path): string
 {
