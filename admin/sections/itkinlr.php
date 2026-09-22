@@ -5,7 +5,11 @@ $rows = data_load('itkinlr');
 $id   = (int) ($_GET['id'] ?? 0);
 
 if ($action === 'delete' && $id > 0) {
+    admin_require_delete('itkinlr');
     $item = admin_find($rows, $id);
+    if (!$item) {
+        admin_redirect(['section' => 'itkinlr'], 'Belə qeyd tapılmadı — yəqin artıq silinib.', 'error');
+    }
     store_save('itkinlr', admin_delete($rows, $id), 'İtkin düşmüş şəxslər / missing persons');
     admin_redirect(['section' => 'itkinlr'], '“' . ($item['title'] ?? '') . '” silindi.');
 }

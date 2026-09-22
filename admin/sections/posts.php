@@ -14,10 +14,11 @@ $id = (int) ($_GET['id'] ?? 0);
 /* ---------------------------------------------------------------- silmək */
 
 if ($action === 'delete' && $id > 0) {
-    if (!admin_token_ok() && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
-        admin_redirect(['section' => 'posts'], 'Forma köhnəlib.', 'error');
-    }
+    admin_require_delete('posts');
     $item = admin_find($rows, $id);
+    if (!$item) {
+        admin_redirect(['section' => 'posts'], 'Belə yazı tapılmadı — yəqin artıq silinib.', 'error');
+    }
     store_save('posts', admin_delete($rows, $id), 'Xəbərlər və yazılar / posts');
     admin_redirect(['section' => 'posts'], '“' . ($item['title'] ?? '') . '” silindi.');
 }
@@ -199,6 +200,11 @@ admin_shell_start('posts', 'Xəbərlər', [
 				<div class="table__actions">
 					<a class="btn btn--sm" href="<?= e(url($row['slug'])) ?>" target="_blank" rel="noopener">Bax</a>
 					<a class="btn btn--sm" href="<?= e(admin_url(['section' => 'posts', 'action' => 'edit', 'id' => $row['id']])) ?>">Redaktə</a>
+					<form method="post" action="<?= e(admin_url(['section' => 'posts', 'action' => 'delete', 'id' => $row['id']])) ?>">
+						<?= admin_token_field() ?>
+						<button class="btn btn--sm btn--danger" type="submit"
+						        data-confirm="&#8220;<?= e(mb_strimwidth((string) $row['title'], 0, 70, '…')) ?>&#8221; silinsin? Bunu geri qaytarmaq olmur.">Sil</button>
+					</form>
 				</div>
 			</td>
 		</tr>

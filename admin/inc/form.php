@@ -117,7 +117,13 @@ function f_image(string $name, string $label, string $value, array $opt = []): v
 	<?php
 }
 
-/** Yadda saxla / Sil düymələri */
+/**
+ * Yadda saxla / Sil düymələri.
+ *
+ * “Sil” adi keçid deyil, elə bu formanın özünü silmə ünvanına göndərən
+ * düymədir — beləliklə sorğu POST olur və gizli token da onunla gedir.
+ * formnovalidate lazımdır ki, boş məcburi sahə silməyə mane olmasın.
+ */
 function f_actions(string $backHref, ?string $deleteHref = null): void
 {
     ?>
@@ -127,7 +133,9 @@ function f_actions(string $backHref, ?string $deleteHref = null): void
 			<a class="btn" href="<?= e($backHref) ?>">Ləğv et</a>
 		</div>
 <?php if ($deleteHref !== null): ?>
-		<a class="btn btn--danger" href="<?= e($deleteHref) ?>" data-confirm="Silmək istədiyinizə əminsiniz?">Sil</a>
+		<button class="btn btn--danger" type="submit" formmethod="post" formnovalidate
+		        formaction="<?= e($deleteHref) ?>"
+		        data-confirm="Silmək istədiyinizə əminsiniz?">Sil</button>
 <?php endif; ?>
 	</div>
 	<?php

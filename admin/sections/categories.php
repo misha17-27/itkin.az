@@ -5,6 +5,10 @@ $rows = data_load('categories');
 $id   = (int) ($_GET['id'] ?? 0);
 
 if ($action === 'delete' && $id > 0) {
+    admin_require_delete('categories');
+    if (!admin_find($rows, $id)) {
+        admin_redirect(['section' => 'categories'], 'Belə kateqoriya tapılmadı — yəqin artıq silinib.', 'error');
+    }
     $used = 0;
     foreach (data_load('posts') as $p) {
         if (in_array($id, array_map('intval', $p['categories'] ?? []), true)) { $used++; }

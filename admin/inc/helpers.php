@@ -111,6 +111,20 @@ function admin_datetime_store(string $value, string $fallback): string
     return $new;
 }
 
+/**
+ * Silmə sorğusunu buraxır, yoxsa geri yönləndirir.
+ *
+ * Silmək yalnız POST və düzgün token ilə mümkündür. Adi keçid (GET) kifayət
+ * etsəydi, panelə girmiş istifadəçinin baxdığı kənar səhifədəki gizli şəkil
+ * və ya forma onun seansı ilə qeydi silə bilərdi.
+ */
+function admin_require_delete(string $section): void
+{
+    if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST' || !admin_token_ok()) {
+        admin_redirect(['section' => $section], 'Silmə təsdiqlənmədi. Yenidən cəhd edin.', 'error');
+    }
+}
+
 /** Siyahıda id-yə görə sətri tapır */
 function admin_find(array $rows, int $id): ?array
 {

@@ -8,7 +8,11 @@ $id   = (int) ($_GET['id'] ?? 0);
 const BOOK_LANGS = ['7f9aa47' => 'AZ', '43181c2' => 'EN', '044b0d1' => 'RU'];
 
 if ($action === 'delete' && $id > 0) {
+    admin_require_delete('kitabxana');
     $item = admin_find($rows, $id);
+    if (!$item) {
+        admin_redirect(['section' => 'kitabxana'], 'Belə kitab tapılmadı — yəqin artıq silinib.', 'error');
+    }
     store_save('kitabxana', admin_delete($rows, $id), 'Kitabxana / library books');
     admin_redirect(['section' => 'kitabxana'], '“' . ($item['title'] ?? '') . '” silindi.');
 }
