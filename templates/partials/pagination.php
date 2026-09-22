@@ -15,6 +15,10 @@ if ($total < 2) {
 $end_size = 1;
 $mid_size = 2;
 
+// Elementor Loop Grid standart olaraq ən çox 5 nömrə göstərir
+// (pagination_page_limit); data-max-page isə real sayı saxlayır.
+$shown = min($total, 5);
+
 $link = static function (int $n) use ($page_param, $pager_base) {
     return url($pager_base) . '?' . rawurlencode($page_param) . '=' . $n;
 };
@@ -23,14 +27,14 @@ $link = static function (int $n) use ($page_param, $pager_base) {
 <nav class="elementor-pagination" aria-label="Pagination">
 <?php
 $dots = false;
-for ($n = 1; $n <= $total; $n++) {
+for ($n = 1; $n <= $shown; $n++) {
     if ($n === $current) {
         echo '<span aria-current="page" class="page-numbers current"><span class="elementor-screen-only">Page</span>' . $n . '</span>' . "\n";
         $dots = true;
     } elseif (
         $n <= $end_size
         || ($n > $current - $mid_size - 1 && $n < $current + $mid_size + 1)
-        || $n > $total - $end_size
+        || $n > $shown - $end_size
     ) {
         echo '<a class="page-numbers" href="' . e($link($n)) . '"><span class="elementor-screen-only">Page</span>' . $n . '</a>' . "\n";
         $dots = true;

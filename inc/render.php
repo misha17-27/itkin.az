@@ -174,23 +174,41 @@ function render(string $view, array $vars = []): void
 }
 
 /**
- * Eyni üslub faylı bir neçə vidjet tərəfindən çağırıla bilər; WordPress onu
- * bir dəfə qoşur, ona görə təkrarları atırıq (ilk çağırış saxlanılır).
+ * Eyni üslub bir neçə vidjet tərəfindən çağırıla bilər; WordPress onu səhifəyə
+ * bir dəfə qoşur. Həm <link> fayllarının, həm də eyni məzmunlu inline <style>
+ * bloklarının təkrarını atırıq (ilk nüsxə saxlanılır).
+ *
+ * Kartların öz <style id="loop-dynamic-...">-ları hər dəfə fərqli olduğuna görə
+ * məzmuna görə müqayisə onlara toxunmur.
  */
 function dedupe_stylesheets(string $html): string
 {
-    $seen = [];
-    return preg_replace_callback(
+    $seenLinks = [];
+    $html = preg_replace_callback(
         '#<link[^>]*rel=["\']stylesheet["\'][^>]*>#i',
-        static function (array $m) use (&$seen) {
+        static function (array $m) use (&$seenLinks) {
             if (!preg_match('#href=["\']([^"\']+)["\']#i', $m[0], $h)) {
                 return $m[0];
             }
             $key = strtok($h[1], '?');
-            if (isset($seen[$key])) {
+            if (isset($seenLinks[$key])) {
                 return '';
             }
-            $seen[$key] = true;
+            $seenLinks[$key] = true;
+            return $m[0];
+        },
+        $html
+    );
+
+    $seenStyles = [];
+    return preg_replace_callback(
+        '#<style(?:\s[^>]*)?>(.*?)</style>#is',
+        static function (array $m) use (&$seenStyles) {
+            $key = md5($m[1]);
+            if (isset($seenStyles[$key])) {
+                return '';
+            }
+            $seenStyles[$key] = true;
             return $m[0];
         },
         $html

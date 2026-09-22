@@ -11,11 +11,26 @@ nav_context(['type' => 'itkinlr', 'slug' => 'itkinlr', 'categories' => []]);
 $pager = paginate(all_missing(), (int) cfg('per_page')['itkinlr'], $page ?? 1);
 $items = $pager['items'];
 
-$meta['title']      = 'İtkinlər Archive - ' . cfg('site_name');
+$base = data_load('archives')['itkinlr']['title'] ?? ('İtkinlər Archive - ' . cfg('site_name'));
+// WordPress səhifələnmiş arxivə " - Page N of M" əlavə edir
+if ($pager['page'] > 1) {
+    $base = str_replace(' - ' . cfg('site_name'),
+        ' - Page ' . $pager['page'] . ' of ' . $pager['pages'] . ' - ' . cfg('site_name'), $base);
+}
+$meta['title']      = $base;
+$meta['og_title']   = $base;
 $meta['og_type']    = 'website';
 $meta['canonical']  = abs_url($pager['page'] > 1 ? 'itkinlr/page/' . $pager['page'] : 'itkinlr');
 $meta['body_class'] = body_class('archive post-type-archive post-type-archive-itkinlr');
 $meta['head_meta']  = data_load('archives')['itkinlr']['head_meta'] ?? [];
+// səhifələnmiş arxivdə og:title da başlıqla birlikdə dəyişir
+if ($pager['page'] > 1) {
+    foreach ($meta['head_meta'] as $i => $tag) {
+        if ($tag[1] === 'og:title') {
+            $meta['head_meta'][$i][2] = $base;
+        }
+    }
+}
 $meta['schema']     = data_load('archives')['itkinlr']['schema'] ?? '';
 $meta['elementor_post'] = elementor_post_json(0, 'İtkinlər');
 
