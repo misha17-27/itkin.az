@@ -158,12 +158,20 @@ Vizual olaraq fərq yoxdur. Texniki fərqlər:
   qalereya səhifələri `e-gallery`, video olan yazı isə MediaElement dəsti.
   Siyahısı `inc/render.php`-dəki `JS_VIEW` sabitindədir.
 - **Əlaqə forması** Elementor Pro-nun AJAX emalı əvəzinə PHP `mail()` ilə işləyir;
-  əlavə olaraq CSRF nişanı və spam tələsi var.
+  əlavə olaraq CSRF nişanı və spam tələsi var. Vidjetin `data-widget_type` dəyəri
+  `contact-form.default`-a dəyişdirilib ki, Elementor Pro-nun JavaScript emalı
+  formanı ələ keçirməsin — CSS sinifləri toxunulmazdır.
 - **Ana səhifədəki böyük inline şəkil** (441 KB base64) ayrıca fayla çıxarılıb:
   `uploads/inline/`.
 - `itkinlr` siyahısı mövzunun standart şablonu ilə səhifələnir (`/itkinlr/page/2/`),
   Elementor siyahıları isə orijinaldakı kimi `?e-page-...=2` parametrini qəbul edir
   (`?sehife=2` də işləyir).
+- **Şəkillərin yüklənmə işarələri.** WordPress səhifədəki şəkilləri sayıb bir
+  hissəsinə `loading="lazy"`, birinciyə isə `fetchpriority="high"` qoyur. Orijinalda
+  bu sayğac ardıcıl işləmir (bəzi səhifədə iki şəkil "high" alır, bəzisində heç biri),
+  ona görə surətdə təkrarlanmayıb. Şəkillərin sayı, ünvanı, ölçüsü və `decoding`
+  atributu isə orijinalla eynidir — fərq yalnız brauzerə verilən yükləmə
+  məsləhətindədir, görünüşə və axtarış sistemlərinə təsiri yoxdur.
 
 ---
 
