@@ -19,6 +19,8 @@ $meta['og_title']    = $category['name'] . ' Archives';
 $meta['description'] = $category['description'];
 $meta['canonical']   = abs_url($pager_base);
 $meta['body_class']  = body_class('archive category category-' . $category['slug'] . ' category-' . $category['id'], true, 'elementor-page-588');
+$meta['head_meta']   = $category['head_meta'] ?? [];
+$meta['schema']      = $category['schema'] ?? '';
 $meta['elementor_post'] = elementor_post_json(0, $category['name']);
 ?>
 <?php include __DIR__ . '/archive-category.body.php'; ?>

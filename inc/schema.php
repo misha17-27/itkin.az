@@ -1,87 +1,41 @@
 <?php
 /**
- * Schema.org JSON-LD qrafı — Yoast SEO-nun verdiyi quruluşun eynisi.
+ * Schema.org JSON-LD.
+ *
+ * Qraf data/ fayllarında orijinaldakı şəklində saxlanılır; sayt ünvanı orada
+ * {{SITE}} nişanı ilə əvəzlənib, burada isə real ünvana çevrilir. Beləliklə
+ * domen dəyişsə belə struktur məlumat düzgün qalır.
  */
 
-function schema_graph(array $meta, array $crumbs = [], ?array $entry = null, string $entryType = ''): string
+/** Saytın kök ünvanı, sonda kəsik olmadan: https://itkin.az */
+function site_origin(): string
 {
-    $home = rtrim(abs_url(), '/') . '/';
+    $configured = trim((string) cfg('site_url'));
+    if ($configured !== '') {
+        return rtrim($configured, '/');
+    }
+    return rtrim(abs_url(), '/');
+}
+
+/**
+ * Hazır qrafı çap üçün qaytarır.
+ *
+ * @param string $stored data/ faylından gələn qraf ({{SITE}} nişanı ilə)
+ */
+function schema_from_store(string $stored): string
+{
+    return str_replace('{{SITE}}', site_origin(), $stored);
+}
+
+/**
+ * Saxlanılmış qraf yoxdursa (məsələn 404 səhifəsi) minimal qraf qurur.
+ */
+function schema_fallback(array $meta, array $crumbs = []): string
+{
+    $home = site_origin() . '/';
     $url  = $meta['canonical'];
     $lang = cfg('locale', 'az');
 
-    $graph = [];
-
-    $hasImage = !empty($meta['image']);
-    $imageId  = $url . '#primaryimage';
-
-    // --- Article (yalnız yazı və kitablar üçün)
-    if ($entry !== null) {
-        $article = [
-            '@type'    => 'Article',
-            '@id'      => $url . '#article',
-            'isPartOf' => ['@id' => $url],
-            'author'   => ['name' => 'jgitd', '@id' => $home . '#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb'],
-            'headline' => $entry['title'],
-            'datePublished'    => date('c', strtotime($entry['date'])),
-            'dateModified'     => date('c', strtotime($entry['modified'] ?? $entry['date'])),
-            'mainEntityOfPage' => ['@id' => $url],
-            'publisher'        => ['@id' => $home . '#organization'],
-        ];
-        if ($hasImage) {
-            $article['image']        = ['@id' => $imageId];
-            $article['thumbnailUrl'] = $meta['image'];
-        }
-        $sections = [];
-        foreach ($entry['categories'] ?? [] as $id) {
-            $cat = category_by_id((int) $id);
-            if ($cat) {
-                $sections[] = $cat['name'];
-            }
-        }
-        if ($sections) {
-            $article['articleSection'] = $sections;
-        }
-        $article['inLanguage'] = $lang;
-        $graph[] = $article;
-    }
-
-    // --- WebPage
-    $page = [
-        '@type'    => 'WebPage',
-        '@id'      => $url,
-        'url'      => $url,
-        'name'     => $meta['title'],
-        'isPartOf' => ['@id' => $home . '#website'],
-    ];
-    if ($hasImage) {
-        $page['primaryImageOfPage'] = ['@id' => $imageId];
-        $page['image']             = ['@id' => $imageId];
-        $page['thumbnailUrl']      = $meta['image'];
-    }
-    if ($entry !== null) {
-        $page['datePublished'] = date('c', strtotime($entry['date']));
-        $page['dateModified']  = date('c', strtotime($entry['modified'] ?? $entry['date']));
-    }
-    $page['breadcrumb'] = ['@id' => $url . '#breadcrumb'];
-    $page['inLanguage'] = $lang;
-    $page['potentialAction'] = [['@type' => 'ReadAction', 'target' => [$url]]];
-    if ($meta['description'] !== '') {
-        $page['description'] = $meta['description'];
-    }
-    $graph[] = $page;
-
-    // --- ImageObject
-    if ($hasImage) {
-        $graph[] = [
-            '@type'      => 'ImageObject',
-            'inLanguage' => $lang,
-            '@id'        => $imageId,
-            'url'        => $meta['image'],
-            'contentUrl' => $meta['image'],
-        ];
-    }
-
-    // --- BreadcrumbList
     $list = [['@type' => 'ListItem', 'position' => 1, 'name' => 'Ana səhifə', 'item' => $home]];
     $pos = 2;
     foreach ($crumbs as $crumb) {
@@ -91,58 +45,50 @@ function schema_graph(array $meta, array $crumbs = [], ?array $entry = null, str
         }
         $list[] = $item;
     }
-    $graph[] = ['@type' => 'BreadcrumbList', '@id' => $url . '#breadcrumb', 'itemListElement' => $list];
 
-    // --- WebSite
-    $graph[] = [
-        '@type'         => 'WebSite',
-        '@id'           => $home . '#website',
-        'url'           => $home,
-        'name'          => cfg('site_name'),
-        'description'   => cfg('site_name'),
-        'publisher'     => ['@id' => $home . '#organization'],
-        'alternateName' => cfg('site_tagline'),
-        'potentialAction' => [[
-            '@type' => 'SearchAction',
-            'target' => ['@type' => 'EntryPoint', 'urlTemplate' => $home . '?s={search_term_string}'],
-            'query-input' => 'required name=search_term_string',
-        ]],
-        'inLanguage' => $lang,
-    ];
-
-    // --- Organization
     $logo = abs_url_file('uploads/2023/11/logo.png');
-    $graph[] = [
-        '@type'         => 'Organization',
-        '@id'           => $home . '#organization',
-        'name'          => cfg('site_tagline'),
-        'alternateName' => 'İctimai Birliyi',
-        'url'           => $home,
-        'logo' => [
-            '@type'      => 'ImageObject',
-            'inLanguage' => $lang,
-            '@id'        => $home . '#/schema/logo/image/',
-            'url'        => $logo,
-            'contentUrl' => $logo,
-            'width'      => 560,
-            'height'     => 415,
-            'caption'    => cfg('site_tagline'),
+
+    return json_encode([
+        '@context' => 'https://schema.org',
+        '@graph' => [
+            [
+                '@type' => 'WebPage', '@id' => $url, 'url' => $url, 'name' => $meta['title'],
+                'isPartOf' => ['@id' => $home . '#website'],
+                'breadcrumb' => ['@id' => $url . '#breadcrumb'],
+                'inLanguage' => $lang,
+                'potentialAction' => [['@type' => 'ReadAction', 'target' => [$url]]],
+            ],
+            ['@type' => 'BreadcrumbList', '@id' => $url . '#breadcrumb', 'itemListElement' => $list],
+            [
+                '@type' => 'WebSite', '@id' => $home . '#website', 'url' => $home,
+                'name' => cfg('site_name'), 'description' => cfg('site_name'),
+                'publisher' => ['@id' => $home . '#organization'],
+                'alternateName' => cfg('site_tagline'),
+                'potentialAction' => [[
+                    '@type' => 'SearchAction',
+                    'target' => ['@type' => 'EntryPoint', 'urlTemplate' => $home . '?s={search_term_string}'],
+                    'query-input' => 'required name=search_term_string',
+                ]],
+                'inLanguage' => $lang,
+            ],
+            [
+                '@type' => 'Organization', '@id' => $home . '#organization',
+                'name' => cfg('site_tagline'), 'alternateName' => 'İctimai Birliyi', 'url' => $home,
+                'logo' => [
+                    '@type' => 'ImageObject', 'inLanguage' => $lang,
+                    '@id' => $home . '#/schema/logo/image/',
+                    'url' => $logo, 'contentUrl' => $logo,
+                    'width' => 560, 'height' => 415, 'caption' => cfg('site_tagline'),
+                ],
+                'image' => ['@id' => $home . '#/schema/logo/image/'],
+            ],
         ],
-        'image' => ['@id' => $home . '#/schema/logo/image/'],
-    ];
+    ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+}
 
-    // --- Person (müəllif)
-    if ($entry !== null) {
-        $graph[] = [
-            '@type'  => 'Person',
-            '@id'    => $home . '#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb',
-            'name'   => 'jgitd',
-            'sameAs' => [rtrim($home, '/')],
-        ];
-    }
-
-    return json_encode(
-        ['@context' => 'https://schema.org', '@graph' => $graph],
-        JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
-    );
+/** <head> üçün hazır JSON-LD */
+function schema_graph(array $meta, array $crumbs = []): string
+{
+    $stored = (string) ($meta['schema'] ?? '');
+    return $stored !== '' ? schema_from_store($stored) : schema_fallback($meta, $crumbs);
 }

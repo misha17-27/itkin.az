@@ -21,6 +21,98 @@ HTML,
         'description' => <<<'HTML'
 Azərbaycanda akkreditə olunmuş diplomatik korpus nümayəndələrinin Qarabağ və Şərqi Zəngəzura səfəri ilə bağlı Ermənistanın siyasi dairələrinin və mediasının reaksiyaları ilk növbədə bir həqiqəti göstərir: Ermənistan hələ də sülhə hazır deyil.   Qarabağ və Şərqi Zəngəzur Azərbaycanın beynəlxalq səviyyədə tanınmış ərazisidir. Bu ərazilərə diplomatik nümayəndələrin səfərinin təşkil edilməsi Azərbaycanın daxili və xarici siyasətinin legitim istiqamətlərindən biridir […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Ermənistan cəmiyyətində regiondakı yeni reallıqların dərki ilə bağlı hələ də ciddi problemlər mövcuddur',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Azərbaycanda akkreditə olunmuş diplomatik korpus nümayəndələrinin Qarabağ və Şərqi Zəngəzura səfəri ilə bağlı Ermənistanın siyasi dairələrinin və mediasının reaksiyaları ilk növbədə bir həqiqəti göstərir: Ermənistan hələ də sülhə hazır deyil.   Qarabağ və Şərqi Zəngəzur Azərbaycanın beynəlxalq səviyyədə tanınmış ərazisidir. Bu ərazilərə diplomatik nümayəndələrin səfərinin təşkil edilməsi Azərbaycanın daxili və xarici siyasətinin legitim istiqamətlərindən biridir […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-09-21T07:13:58+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2026/09/direktor-2.jpeg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '922',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '630',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur/#article","isPartOf":{"@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Ermənistan cəmiyyətində regiondakı yeni reallıqların dərki ilə bağlı hələ də ciddi problemlər mövcuddur","datePublished":"2026-09-21T07:13:58+00:00","dateModified":"2026-09-21T07:13:58+00:00","mainEntityOfPage":{"@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur/"},"wordCount":539,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/09/direktor-2.jpeg","articleSection":["Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur/","url":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur/","name":"Ermənistan cəmiyyətində regiondakı yeni reallıqların dərki ilə bağlı hələ də ciddi problemlər mövcuddur - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur/#primaryimage"},"image":{"@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/09/direktor-2.jpeg","datePublished":"2026-09-21T07:13:58+00:00","dateModified":"2026-09-21T07:13:58+00:00","breadcrumb":{"@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur/#primaryimage","url":"{{SITE}}/uploads/2026/09/direktor-2.jpeg","contentUrl":"{{SITE}}/uploads/2026/09/direktor-2.jpeg","width":922,"height":630},{"@type":"BreadcrumbList","@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Ermənistan cəmiyyətində regiondakı yeni reallıqların dərki ilə bağlı hələ də ciddi problemlər mövcuddur"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2026/09/direktor-2.jpeg',
             'srcset' => 'uploads/2026/09/direktor-2.jpeg 922w, uploads/2026/09/direktor-2-300x205.jpeg 300w, uploads/2026/09/direktor-2-768x525.jpeg 768w',
@@ -56,6 +148,103 @@ Bakı, 18 sentyabr, AZƏRTAC Azərbaycan QHT-ləri ölkəmizdə akkreditə olunm
 HTML,
         'description' => <<<'HTML'
   Bakı, 18 sentyabr, AZƏRTAC Azərbaycan QHT-ləri ölkəmizdə akkreditə olunmuş diplomatik korpusun nümayəndələrinin işğaldan azad edilmiş ərazilərə səfəri ilə əlaqədar Ermənistanda başlanmış kampaniya əleyhinə bəyanat yayıb. AZƏRTAC bəyanatı təqdim edir: “Biz – Azərbaycanın vətəndaş cəmiyyəti təmsilçiləri Azərbaycanda akkreditə olunmuş diplomatik korpusun işğaldan azad edilmiş Qarabağa və Şərqi Zəngəzura sonuncu səfərinə Ermənistanın müxtəlif dairələrinin verdiyi reaksiyanı qəti şəkildə […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Azərbaycan QHT-ləri diplomatik korpusun azad edilmiş ərazilərə səfəri ilə bağlı Ermənistanda başlanmış kampaniyanı pisləyib',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+  Bakı, 18 sentyabr, AZƏRTAC Azərbaycan QHT-ləri ölkəmizdə akkreditə olunmuş diplomatik korpusun nümayəndələrinin işğaldan azad edilmiş ərazilərə səfəri ilə əlaqədar Ermənistanda başlanmış kampaniya əleyhinə bəyanat yayıb. AZƏRTAC bəyanatı təqdim edir: “Biz – Azərbaycanın vətəndaş cəmiyyəti təmsilçiləri Azərbaycanda akkreditə olunmuş diplomatik korpusun işğaldan azad edilmiş Qarabağa və Şərqi Zəngəzura sonuncu səfərinə Ermənistanın müxtəlif dairələrinin verdiyi reaksiyanı qəti şəkildə […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-09-21T07:07:36+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2026-09-21T07:11:59+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2026/09/alban-mebedi.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '923',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '630',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '5 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/azerbaycan-qht-leri-diplomatik-korpusun-azad-edilmis-erazilere-seferi-ile-bagli-ermenistanda-baslanmis-kampaniyani-pisleyib/#article","isPartOf":{"@id":"{{SITE}}/azerbaycan-qht-leri-diplomatik-korpusun-azad-edilmis-erazilere-seferi-ile-bagli-ermenistanda-baslanmis-kampaniyani-pisleyib/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Azərbaycan QHT-ləri diplomatik korpusun azad edilmiş ərazilərə səfəri ilə bağlı Ermənistanda başlanmış kampaniyanı pisləyib","datePublished":"2026-09-21T07:07:36+00:00","dateModified":"2026-09-21T07:11:59+00:00","mainEntityOfPage":{"@id":"{{SITE}}/azerbaycan-qht-leri-diplomatik-korpusun-azad-edilmis-erazilere-seferi-ile-bagli-ermenistanda-baslanmis-kampaniyani-pisleyib/"},"wordCount":1351,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/azerbaycan-qht-leri-diplomatik-korpusun-azad-edilmis-erazilere-seferi-ile-bagli-ermenistanda-baslanmis-kampaniyani-pisleyib/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/09/alban-mebedi.jpg","articleSection":["Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/azerbaycan-qht-leri-diplomatik-korpusun-azad-edilmis-erazilere-seferi-ile-bagli-ermenistanda-baslanmis-kampaniyani-pisleyib/","url":"{{SITE}}/azerbaycan-qht-leri-diplomatik-korpusun-azad-edilmis-erazilere-seferi-ile-bagli-ermenistanda-baslanmis-kampaniyani-pisleyib/","name":"Azərbaycan QHT-ləri diplomatik korpusun azad edilmiş ərazilərə səfəri ilə bağlı Ermənistanda başlanmış kampaniyanı pisləyib - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/azerbaycan-qht-leri-diplomatik-korpusun-azad-edilmis-erazilere-seferi-ile-bagli-ermenistanda-baslanmis-kampaniyani-pisleyib/#primaryimage"},"image":{"@id":"{{SITE}}/azerbaycan-qht-leri-diplomatik-korpusun-azad-edilmis-erazilere-seferi-ile-bagli-ermenistanda-baslanmis-kampaniyani-pisleyib/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/09/alban-mebedi.jpg","datePublished":"2026-09-21T07:07:36+00:00","dateModified":"2026-09-21T07:11:59+00:00","breadcrumb":{"@id":"{{SITE}}/azerbaycan-qht-leri-diplomatik-korpusun-azad-edilmis-erazilere-seferi-ile-bagli-ermenistanda-baslanmis-kampaniyani-pisleyib/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/azerbaycan-qht-leri-diplomatik-korpusun-azad-edilmis-erazilere-seferi-ile-bagli-ermenistanda-baslanmis-kampaniyani-pisleyib/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/azerbaycan-qht-leri-diplomatik-korpusun-azad-edilmis-erazilere-seferi-ile-bagli-ermenistanda-baslanmis-kampaniyani-pisleyib/#primaryimage","url":"{{SITE}}/uploads/2026/09/alban-mebedi.jpg","contentUrl":"{{SITE}}/uploads/2026/09/alban-mebedi.jpg","width":923,"height":630},{"@type":"BreadcrumbList","@id":"{{SITE}}/azerbaycan-qht-leri-diplomatik-korpusun-azad-edilmis-erazilere-seferi-ile-bagli-ermenistanda-baslanmis-kampaniyani-pisleyib/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Azərbaycan QHT-ləri diplomatik korpusun azad edilmiş ərazilərə səfəri ilə bağlı Ermənistanda başlanmış kampaniyanı pisləyib"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2026/09/alban-mebedi.jpg',
@@ -150,6 +339,103 @@ HTML,
         'description' => <<<'HTML'
 Bakı, 18 sentyabr, AZƏRTAC Azərbaycanda akkreditə olunmuş diplomatik korpus nümayəndələrinin Qarabağ və Şərqi Zəngəzura səfəri ilə bağlı Ermənistanın siyasi dairələrinin və mediasının reaksiyaları ilk növbədə bir həqiqəti göstərir: Ermənistan hələ də sülhə hazır deyil. Qarabağ və Şərqi Zəngəzur Azərbaycanın beynəlxalq səviyyədə tanınmış ərazisidir. Bu ərazilərə diplomatik nümayəndələrin səfərinin təşkil edilməsi Azərbaycanın daxili və xarici siyasətinin legitim […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Ermənistan cəmiyyətində regiondakı yeni reallıqların dərki ilə bağlı hələ də ciddi problemlər mövcuddur - RƏY',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Bakı, 18 sentyabr, AZƏRTAC Azərbaycanda akkreditə olunmuş diplomatik korpus nümayəndələrinin Qarabağ və Şərqi Zəngəzura səfəri ilə bağlı Ermənistanın siyasi dairələrinin və mediasının reaksiyaları ilk növbədə bir həqiqəti göstərir: Ermənistan hələ də sülhə hazır deyil. Qarabağ və Şərqi Zəngəzur Azərbaycanın beynəlxalq səviyyədə tanınmış ərazisidir. Bu ərazilərə diplomatik nümayəndələrin səfərinin təşkil edilməsi Azərbaycanın daxili və xarici siyasətinin legitim […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-09-18T12:02:53+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2026-09-18T12:05:47+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2026/09/direktor-2.jpeg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '922',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '630',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur-rey/#article","isPartOf":{"@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur-rey/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Ermənistan cəmiyyətində regiondakı yeni reallıqların dərki ilə bağlı hələ də ciddi problemlər mövcuddur &#8211; RƏY","datePublished":"2026-09-18T12:02:53+00:00","dateModified":"2026-09-18T12:05:47+00:00","mainEntityOfPage":{"@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur-rey/"},"wordCount":565,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur-rey/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/09/direktor-2.jpeg","articleSection":["Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur-rey/","url":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur-rey/","name":"Ermənistan cəmiyyətində regiondakı yeni reallıqların dərki ilə bağlı hələ də ciddi problemlər mövcuddur - RƏY - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur-rey/#primaryimage"},"image":{"@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur-rey/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/09/direktor-2.jpeg","datePublished":"2026-09-18T12:02:53+00:00","dateModified":"2026-09-18T12:05:47+00:00","breadcrumb":{"@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur-rey/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur-rey/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur-rey/#primaryimage","url":"{{SITE}}/uploads/2026/09/direktor-2.jpeg","contentUrl":"{{SITE}}/uploads/2026/09/direktor-2.jpeg","width":922,"height":630},{"@type":"BreadcrumbList","@id":"{{SITE}}/ermenistan-cemiyyetinde-regiondaki-yeni-realliqlarin-derki-ile-bagli-hele-de-ciddi-problemler-movcuddur-rey/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Ermənistan cəmiyyətində regiondakı yeni reallıqların dərki ilə bağlı hələ də ciddi problemlər mövcuddur &#8211; RƏY"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2026/09/direktor-2.jpeg',
             'srcset' => 'uploads/2026/09/direktor-2.jpeg 922w, uploads/2026/09/direktor-2-300x205.jpeg 300w, uploads/2026/09/direktor-2-768x525.jpeg 768w',
@@ -185,6 +471,98 @@ BMT-nin Məcburi İtkindüşmələr üzrə Komitəsinin 31-ci sessiyasına (14�
 HTML,
         'description' => <<<'HTML'
 BMT-nin Məcburi İtkindüşmələr üzrə Komitəsinin 31-ci sessiyasına (14–24 sentyabr 2026-cı il)   Beynəlxalq Avrasiya Mətbuat Fondunun, Vətəndaşların Əmək Hüquqlarını Müdafiə Liqasının, İnsan Hüquqları üzrə Təlim və Tədqiqat İctimai Birliyinin və “Qarabağ İtkin Ailələri” İctimai Birliyinin birgə   BƏYANATI   Ermənistan dövlətinin Komitəyə təqdim etdiyi dövri hesabatda I Qarabağ müharibəsi zamanı Ermənistan silahlı qüvvələri tərəfindən əsir […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'BMT-nin Məcburi İtkindüşmələr üzrə Komitəsinin 31-ci sessiyası',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+BMT-nin Məcburi İtkindüşmələr üzrə Komitəsinin 31-ci sessiyasına (14–24 sentyabr 2026-cı il)   Beynəlxalq Avrasiya Mətbuat Fondunun, Vətəndaşların Əmək Hüquqlarını Müdafiə Liqasının, İnsan Hüquqları üzrə Təlim və Tədqiqat İctimai Birliyinin və “Qarabağ İtkin Ailələri” İctimai Birliyinin birgə   BƏYANATI   Ermənistan dövlətinin Komitəyə təqdim etdiyi dövri hesabatda I Qarabağ müharibəsi zamanı Ermənistan silahlı qüvvələri tərəfindən əsir […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-09-17T07:24:16+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/07/ac1923c6-312a-46e9-ba94-d208e2e64fdc.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '922',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '630',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '5 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/bmt-nin-mecburi-itkindusmeler-uzre-komitesinin-31-ci-sessiyasi/#article","isPartOf":{"@id":"{{SITE}}/bmt-nin-mecburi-itkindusmeler-uzre-komitesinin-31-ci-sessiyasi/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"BMT-nin Məcburi İtkindüşmələr üzrə Komitəsinin 31-ci sessiyası","datePublished":"2026-09-17T07:24:16+00:00","dateModified":"2026-09-17T07:24:16+00:00","mainEntityOfPage":{"@id":"{{SITE}}/bmt-nin-mecburi-itkindusmeler-uzre-komitesinin-31-ci-sessiyasi/"},"wordCount":1606,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/bmt-nin-mecburi-itkindusmeler-uzre-komitesinin-31-ci-sessiyasi/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/08/qht-logo.avif","articleSection":["Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/bmt-nin-mecburi-itkindusmeler-uzre-komitesinin-31-ci-sessiyasi/","url":"{{SITE}}/bmt-nin-mecburi-itkindusmeler-uzre-komitesinin-31-ci-sessiyasi/","name":"BMT-nin Məcburi İtkindüşmələr üzrə Komitəsinin 31-ci sessiyası - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/bmt-nin-mecburi-itkindusmeler-uzre-komitesinin-31-ci-sessiyasi/#primaryimage"},"image":{"@id":"{{SITE}}/bmt-nin-mecburi-itkindusmeler-uzre-komitesinin-31-ci-sessiyasi/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/08/qht-logo.avif","datePublished":"2026-09-17T07:24:16+00:00","dateModified":"2026-09-17T07:24:16+00:00","breadcrumb":{"@id":"{{SITE}}/bmt-nin-mecburi-itkindusmeler-uzre-komitesinin-31-ci-sessiyasi/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/bmt-nin-mecburi-itkindusmeler-uzre-komitesinin-31-ci-sessiyasi/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/bmt-nin-mecburi-itkindusmeler-uzre-komitesinin-31-ci-sessiyasi/#primaryimage","url":"{{SITE}}/uploads/2026/08/qht-logo.avif","contentUrl":"{{SITE}}/uploads/2026/08/qht-logo.avif","width":1042,"height":627},{"@type":"BreadcrumbList","@id":"{{SITE}}/bmt-nin-mecburi-itkindusmeler-uzre-komitesinin-31-ci-sessiyasi/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"BMT-nin Məcburi İtkindüşmələr üzrə Komitəsinin 31-ci sessiyası"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2026/08/qht-logo.avif',
@@ -241,6 +619,98 @@ HTML,
         'description' => <<<'HTML'
 31 Avqust 2026 7-10 oktyabr 2026 | Azərbaycan Azərbaycanda İtkin düşmüş şəxslər üzrə Bakı Dialoqu çərçivəsində IV Beynəlxalq Konfrans keçiriləcək. Builki Konfransın əsas mövzusu: “İtkin düşmüş şəxslər məsələsinin həllində etimadın gücləndirilməsi, effektiv mexanizm və həll yollarının inkişaf etdirilməsi.” Builki müzakirələrin əsas istiqamətlərindən biri tərəflər arasında etimadın formalaşdırılması və möhkəmləndirilməsi olacaq. Təcrübə göstərir ki, itkin düşmüş […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Azərbaycanda İtkin düşmüş şəxslər üzrə Bakı Dialoqu çərçivəsində IV Beynəlxalq Konfrans keçiriləcək.',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+31 Avqust 2026 7-10 oktyabr 2026 | Azərbaycan Azərbaycanda İtkin düşmüş şəxslər üzrə Bakı Dialoqu çərçivəsində IV Beynəlxalq Konfrans keçiriləcək. Builki Konfransın əsas mövzusu: “İtkin düşmüş şəxslər məsələsinin həllində etimadın gücləndirilməsi, effektiv mexanizm və həll yollarının inkişaf etdirilməsi.” Builki müzakirələrin əsas istiqamətlərindən biri tərəflər arasında etimadın formalaşdırılması və möhkəmləndirilməsi olacaq. Təcrübə göstərir ki, itkin düşmüş […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-09-08T13:55:05+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2026/09/xeber.jpeg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1122',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1402',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/azerbaycanda-itkin-dusmus-sexsler-uzre-baki-dialoqu-cercivesinde-iv-beynelxalq-konfrans-kecirilecek/#article","isPartOf":{"@id":"{{SITE}}/azerbaycanda-itkin-dusmus-sexsler-uzre-baki-dialoqu-cercivesinde-iv-beynelxalq-konfrans-kecirilecek/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Azərbaycanda İtkin düşmüş şəxslər üzrə Bakı Dialoqu çərçivəsində IV Beynəlxalq Konfrans keçiriləcək.","datePublished":"2026-09-08T13:55:05+00:00","dateModified":"2026-09-08T13:55:05+00:00","mainEntityOfPage":{"@id":"{{SITE}}/azerbaycanda-itkin-dusmus-sexsler-uzre-baki-dialoqu-cercivesinde-iv-beynelxalq-konfrans-kecirilecek/"},"wordCount":412,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/azerbaycanda-itkin-dusmus-sexsler-uzre-baki-dialoqu-cercivesinde-iv-beynelxalq-konfrans-kecirilecek/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/09/xeber.jpeg","articleSection":["Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/azerbaycanda-itkin-dusmus-sexsler-uzre-baki-dialoqu-cercivesinde-iv-beynelxalq-konfrans-kecirilecek/","url":"{{SITE}}/azerbaycanda-itkin-dusmus-sexsler-uzre-baki-dialoqu-cercivesinde-iv-beynelxalq-konfrans-kecirilecek/","name":"Azərbaycanda İtkin düşmüş şəxslər üzrə Bakı Dialoqu çərçivəsində IV Beynəlxalq Konfrans keçiriləcək. - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/azerbaycanda-itkin-dusmus-sexsler-uzre-baki-dialoqu-cercivesinde-iv-beynelxalq-konfrans-kecirilecek/#primaryimage"},"image":{"@id":"{{SITE}}/azerbaycanda-itkin-dusmus-sexsler-uzre-baki-dialoqu-cercivesinde-iv-beynelxalq-konfrans-kecirilecek/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/09/xeber.jpeg","datePublished":"2026-09-08T13:55:05+00:00","dateModified":"2026-09-08T13:55:05+00:00","breadcrumb":{"@id":"{{SITE}}/azerbaycanda-itkin-dusmus-sexsler-uzre-baki-dialoqu-cercivesinde-iv-beynelxalq-konfrans-kecirilecek/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/azerbaycanda-itkin-dusmus-sexsler-uzre-baki-dialoqu-cercivesinde-iv-beynelxalq-konfrans-kecirilecek/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/azerbaycanda-itkin-dusmus-sexsler-uzre-baki-dialoqu-cercivesinde-iv-beynelxalq-konfrans-kecirilecek/#primaryimage","url":"{{SITE}}/uploads/2026/09/xeber.jpeg","contentUrl":"{{SITE}}/uploads/2026/09/xeber.jpeg","width":1122,"height":1402},{"@type":"BreadcrumbList","@id":"{{SITE}}/azerbaycanda-itkin-dusmus-sexsler-uzre-baki-dialoqu-cercivesinde-iv-beynelxalq-konfrans-kecirilecek/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Azərbaycanda İtkin düşmüş şəxslər üzrə Bakı Dialoqu çərçivəsində IV Beynəlxalq Konfrans keçiriləcək."}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2026/09/xeber.jpeg',
             'srcset' => 'uploads/2026/09/xeber.jpeg 1122w, uploads/2026/09/xeber-240x300.jpeg 240w, uploads/2026/09/xeber-819x1024.jpeg 819w, uploads/2026/09/xeber-768x960.jpeg 768w',
@@ -280,6 +750,98 @@ HTML,
         'description' => <<<'HTML'
 “Qarabağ İtkin Ailələri” İctimai Birliyi Sumqayıt şəhərindən olan bir qrup itkin-şəhid ailə üzvlərinin Qarabağ torpaqlarına səfərin təşkil etdi. Səfər 5 sentyabr 2026-cı ildə həyata keçirildi. Səfər Simqayıt şəhər İcra Hakimiyyətinin tərəfdaşlığl ilə baş tutdu.
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '“Qarabağ İtkin Ailələri” İctimai Birliyinin Qarabağa səfəri',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+“Qarabağ İtkin Ailələri” İctimai Birliyi Sumqayıt şəhərindən olan bir qrup itkin-şəhid ailə üzvlərinin Qarabağ torpaqlarına səfərin təşkil etdi. Səfər 5 sentyabr 2026-cı ildə həyata keçirildi. Səfər Simqayıt şəhər İcra Hakimiyyətinin tərəfdaşlığl ilə baş tutdu.
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-09-07T17:18:12+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2026/09/3.jpeg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '960',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1280',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '4 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-qarabaga-seferi/#article","isPartOf":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-qarabaga-seferi/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"“Qarabağ İtkin Ailələri” İctimai Birliyinin Qarabağa səfəri","datePublished":"2026-09-07T17:18:12+00:00","dateModified":"2026-09-07T17:18:12+00:00","mainEntityOfPage":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-qarabaga-seferi/"},"wordCount":69,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-qarabaga-seferi/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/09/3.jpeg","articleSection":["Tədbirlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-qarabaga-seferi/","url":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-qarabaga-seferi/","name":"“Qarabağ İtkin Ailələri” İctimai Birliyinin Qarabağa səfəri - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-qarabaga-seferi/#primaryimage"},"image":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-qarabaga-seferi/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/09/3.jpeg","datePublished":"2026-09-07T17:18:12+00:00","dateModified":"2026-09-07T17:18:12+00:00","breadcrumb":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-qarabaga-seferi/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-qarabaga-seferi/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-qarabaga-seferi/#primaryimage","url":"{{SITE}}/uploads/2026/09/3.jpeg","contentUrl":"{{SITE}}/uploads/2026/09/3.jpeg","width":960,"height":1280},{"@type":"BreadcrumbList","@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-qarabaga-seferi/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"“Qarabağ İtkin Ailələri” İctimai Birliyinin Qarabağa səfəri"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2026/09/3.jpeg',
             'srcset' => 'uploads/2026/09/3.jpeg 960w, uploads/2026/09/3-225x300.jpeg 225w, uploads/2026/09/3-768x1024.jpeg 768w',
@@ -308,6 +870,103 @@ Bakı, 5 sentyabr, AZƏRTAC Şuşaya səfər edən bəzi şəxslərin qayaların
 HTML,
         'description' => <<<'HTML'
   Bakı, 5 sentyabr, AZƏRTAC Şuşaya səfər edən bəzi şəxslərin qayaların və daşların üzərinə müxtəlif adlar yazması ilə bağlı yayılan görüntülər biz itkin-şəhid ailələrində ciddi narahatlıq doğurur. Bu fikirləri AZƏRTAC-a açıqlaması zamanı “Qarabağ İtkin Ailələri” İctimai Birliyinin sədri Könül Behbudova deyib. Azərbaycanın müxtəlif şəhər və rayonlarında şəhidlərin xatirəsinə ucaldılmış çoxsaylı abidələr, memorial komplekslər, parklar və xiyabanlar mövcud […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Hər bir daş, divar, tarixi məkan xalqımızın yaddaşının parçasıdır - AÇIQLAMA',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+  Bakı, 5 sentyabr, AZƏRTAC Şuşaya səfər edən bəzi şəxslərin qayaların və daşların üzərinə müxtəlif adlar yazması ilə bağlı yayılan görüntülər biz itkin-şəhid ailələrində ciddi narahatlıq doğurur. Bu fikirləri AZƏRTAC-a açıqlaması zamanı “Qarabağ İtkin Ailələri” İctimai Birliyinin sədri Könül Behbudova deyib. Azərbaycanın müxtəlif şəhər və rayonlarında şəhidlərin xatirəsinə ucaldılmış çoxsaylı abidələr, memorial komplekslər, parklar və xiyabanlar mövcud […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-09-07T03:25:10+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2026-09-07T17:06:10+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2026/09/direktor.jpeg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '923',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '630',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/her-bir-das-divar-tarixi-mekan-xalqimizin-yaddasinin-parcasidir-aciqlama/#article","isPartOf":{"@id":"{{SITE}}/her-bir-das-divar-tarixi-mekan-xalqimizin-yaddasinin-parcasidir-aciqlama/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Hər bir daş, divar, tarixi məkan xalqımızın yaddaşının parçasıdır &#8211; AÇIQLAMA","datePublished":"2026-09-07T03:25:10+00:00","dateModified":"2026-09-07T17:06:10+00:00","mainEntityOfPage":{"@id":"{{SITE}}/her-bir-das-divar-tarixi-mekan-xalqimizin-yaddasinin-parcasidir-aciqlama/"},"wordCount":284,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/her-bir-das-divar-tarixi-mekan-xalqimizin-yaddasinin-parcasidir-aciqlama/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/09/direktor.jpeg","articleSection":["Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/her-bir-das-divar-tarixi-mekan-xalqimizin-yaddasinin-parcasidir-aciqlama/","url":"{{SITE}}/her-bir-das-divar-tarixi-mekan-xalqimizin-yaddasinin-parcasidir-aciqlama/","name":"Hər bir daş, divar, tarixi məkan xalqımızın yaddaşının parçasıdır - AÇIQLAMA - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/her-bir-das-divar-tarixi-mekan-xalqimizin-yaddasinin-parcasidir-aciqlama/#primaryimage"},"image":{"@id":"{{SITE}}/her-bir-das-divar-tarixi-mekan-xalqimizin-yaddasinin-parcasidir-aciqlama/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/09/direktor.jpeg","datePublished":"2026-09-07T03:25:10+00:00","dateModified":"2026-09-07T17:06:10+00:00","breadcrumb":{"@id":"{{SITE}}/her-bir-das-divar-tarixi-mekan-xalqimizin-yaddasinin-parcasidir-aciqlama/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/her-bir-das-divar-tarixi-mekan-xalqimizin-yaddasinin-parcasidir-aciqlama/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/her-bir-das-divar-tarixi-mekan-xalqimizin-yaddasinin-parcasidir-aciqlama/#primaryimage","url":"{{SITE}}/uploads/2026/09/direktor.jpeg","contentUrl":"{{SITE}}/uploads/2026/09/direktor.jpeg","width":923,"height":630},{"@type":"BreadcrumbList","@id":"{{SITE}}/her-bir-das-divar-tarixi-mekan-xalqimizin-yaddasinin-parcasidir-aciqlama/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Hər bir daş, divar, tarixi məkan xalqımızın yaddaşının parçasıdır &#8211; AÇIQLAMA"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2026/09/direktor.jpeg',
@@ -343,6 +1002,103 @@ Birinci Qarabağ müharibəsi zamanı itkin düşən Azərbaycan vətəndaşlar�
 HTML,
         'description' => <<<'HTML'
 Birinci Qarabağ müharibəsi zamanı itkin düşən Azərbaycan vətəndaşlarının taleyinin müəyyənləşdirilməsi münaqişənin ən ağır humanitar nəticələrindən biridir. 2020-ci ildə Azərbaycan ərazilərinin işğaldan azad edilməsindən sonra bu suallara cavab tapılması üçün yeni imkanlar yaransa da, qarşıda hələ görüləsi böyük iş qalır.   Azərbaycanın itkin şəxslərin axtarışı üzrə apardığı işlər, işğaldan azad edilmiş ərazilərdə aşkarlanan kütləvi məzarlıqlar, DNT […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '30 ildən çoxdur cavabsız qalan sual: İtkin düşmüş 4 010 nəfərin taleyi necə araşdırılır? - ARAŞDIRMA',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Birinci Qarabağ müharibəsi zamanı itkin düşən Azərbaycan vətəndaşlarının taleyinin müəyyənləşdirilməsi münaqişənin ən ağır humanitar nəticələrindən biridir. 2020-ci ildə Azərbaycan ərazilərinin işğaldan azad edilməsindən sonra bu suallara cavab tapılması üçün yeni imkanlar yaransa da, qarşıda hələ görüləsi böyük iş qalır.   Azərbaycanın itkin şəxslərin axtarışı üzrə apardığı işlər, işğaldan azad edilmiş ərazilərdə aşkarlanan kütləvi məzarlıqlar, DNT […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-09-04T11:59:40+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2026-09-04T12:00:48+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2026/09/1.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1200',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '800',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '18 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/30-ilden-coxdur-cavabsiz-qalan-sual-itkin-dusmus-4-010-neferin-taleyi-nece-arasdirilir-arasdirma/#article","isPartOf":{"@id":"{{SITE}}/30-ilden-coxdur-cavabsiz-qalan-sual-itkin-dusmus-4-010-neferin-taleyi-nece-arasdirilir-arasdirma/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"30 ildən çoxdur cavabsız qalan sual: İtkin düşmüş 4 010 nəfərin taleyi necə araşdırılır? &#8211; ARAŞDIRMA","datePublished":"2026-09-04T11:59:40+00:00","dateModified":"2026-09-04T12:00:48+00:00","mainEntityOfPage":{"@id":"{{SITE}}/30-ilden-coxdur-cavabsiz-qalan-sual-itkin-dusmus-4-010-neferin-taleyi-nece-arasdirilir-arasdirma/"},"wordCount":4834,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/30-ilden-coxdur-cavabsiz-qalan-sual-itkin-dusmus-4-010-neferin-taleyi-nece-arasdirilir-arasdirma/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/09/1.jpg","articleSection":["Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/30-ilden-coxdur-cavabsiz-qalan-sual-itkin-dusmus-4-010-neferin-taleyi-nece-arasdirilir-arasdirma/","url":"{{SITE}}/30-ilden-coxdur-cavabsiz-qalan-sual-itkin-dusmus-4-010-neferin-taleyi-nece-arasdirilir-arasdirma/","name":"30 ildən çoxdur cavabsız qalan sual: İtkin düşmüş 4 010 nəfərin taleyi necə araşdırılır? - ARAŞDIRMA - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/30-ilden-coxdur-cavabsiz-qalan-sual-itkin-dusmus-4-010-neferin-taleyi-nece-arasdirilir-arasdirma/#primaryimage"},"image":{"@id":"{{SITE}}/30-ilden-coxdur-cavabsiz-qalan-sual-itkin-dusmus-4-010-neferin-taleyi-nece-arasdirilir-arasdirma/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/09/1.jpg","datePublished":"2026-09-04T11:59:40+00:00","dateModified":"2026-09-04T12:00:48+00:00","breadcrumb":{"@id":"{{SITE}}/30-ilden-coxdur-cavabsiz-qalan-sual-itkin-dusmus-4-010-neferin-taleyi-nece-arasdirilir-arasdirma/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/30-ilden-coxdur-cavabsiz-qalan-sual-itkin-dusmus-4-010-neferin-taleyi-nece-arasdirilir-arasdirma/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/30-ilden-coxdur-cavabsiz-qalan-sual-itkin-dusmus-4-010-neferin-taleyi-nece-arasdirilir-arasdirma/#primaryimage","url":"{{SITE}}/uploads/2026/09/1.jpg","contentUrl":"{{SITE}}/uploads/2026/09/1.jpg","width":1200,"height":800},{"@type":"BreadcrumbList","@id":"{{SITE}}/30-ilden-coxdur-cavabsiz-qalan-sual-itkin-dusmus-4-010-neferin-taleyi-nece-arasdirilir-arasdirma/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"30 ildən çoxdur cavabsız qalan sual: İtkin düşmüş 4 010 nəfərin taleyi necə araşdırılır? &#8211; ARAŞDIRMA"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2026/09/1.jpg',
@@ -482,6 +1238,98 @@ HTML,
         'description' => <<<'HTML'
 Prezidentin köməkçisi Hikmət Hacıyev Beynəlxalq İtkin Düşmüş Şəxslər Günü ilə bağlı paylaşım edib.O bildirib ki, 4 010 Azərbaycan vətəndaşı itkin düşmüş şəxs kimi qeydiyyatdadır. İndiyədək 32 kütləvi məzar aşkarlanıb, 328 şəxsin kimliyi müəyyən edilib.Hikmət Hacıyev Ermənistanı itkin azərbaycanlıların taleyi və onların dəfn yerləri barədə məlumat verməyə çağırıb. https://www.facebook.com/photo?fbid=1696872439113935&set=pb.100063735845602.-2207520000
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Hikmət Hacıyev Beynəlxalq İtkin Düşmüş Şəxslər Günü ilə bağlı paylaşım edib.',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Prezidentin köməkçisi Hikmət Hacıyev Beynəlxalq İtkin Düşmüş Şəxslər Günü ilə bağlı paylaşım edib.O bildirib ki, 4 010 Azərbaycan vətəndaşı itkin düşmüş şəxs kimi qeydiyyatdadır. İndiyədək 32 kütləvi məzar aşkarlanıb, 328 şəxsin kimliyi müəyyən edilib.Hikmət Hacıyev Ermənistanı itkin azərbaycanlıların taleyi və onların dəfn yerləri barədə məlumat verməyə çağırıb. https://www.facebook.com/photo?fbid=1696872439113935&set=pb.100063735845602.-2207520000
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-08-31T12:17:09+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2026/08/modern-az.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '526',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '526',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/hikmet-haciyev-beynelxalq-itkin-dusmus-sexsler-gunu-ile-bagli-paylasim-edib/#article","isPartOf":{"@id":"{{SITE}}/hikmet-haciyev-beynelxalq-itkin-dusmus-sexsler-gunu-ile-bagli-paylasim-edib/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Hikmət Hacıyev Beynəlxalq İtkin Düşmüş Şəxslər Günü ilə bağlı paylaşım edib.","datePublished":"2026-08-31T12:17:09+00:00","dateModified":"2026-08-31T12:17:09+00:00","mainEntityOfPage":{"@id":"{{SITE}}/hikmet-haciyev-beynelxalq-itkin-dusmus-sexsler-gunu-ile-bagli-paylasim-edib/"},"wordCount":113,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/hikmet-haciyev-beynelxalq-itkin-dusmus-sexsler-gunu-ile-bagli-paylasim-edib/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/08/modern-az.jpg","articleSection":["Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/hikmet-haciyev-beynelxalq-itkin-dusmus-sexsler-gunu-ile-bagli-paylasim-edib/","url":"{{SITE}}/hikmet-haciyev-beynelxalq-itkin-dusmus-sexsler-gunu-ile-bagli-paylasim-edib/","name":"Hikmət Hacıyev Beynəlxalq İtkin Düşmüş Şəxslər Günü ilə bağlı paylaşım edib. - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/hikmet-haciyev-beynelxalq-itkin-dusmus-sexsler-gunu-ile-bagli-paylasim-edib/#primaryimage"},"image":{"@id":"{{SITE}}/hikmet-haciyev-beynelxalq-itkin-dusmus-sexsler-gunu-ile-bagli-paylasim-edib/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/08/modern-az.jpg","datePublished":"2026-08-31T12:17:09+00:00","dateModified":"2026-08-31T12:17:09+00:00","breadcrumb":{"@id":"{{SITE}}/hikmet-haciyev-beynelxalq-itkin-dusmus-sexsler-gunu-ile-bagli-paylasim-edib/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/hikmet-haciyev-beynelxalq-itkin-dusmus-sexsler-gunu-ile-bagli-paylasim-edib/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/hikmet-haciyev-beynelxalq-itkin-dusmus-sexsler-gunu-ile-bagli-paylasim-edib/#primaryimage","url":"{{SITE}}/uploads/2026/08/modern-az.jpg","contentUrl":"{{SITE}}/uploads/2026/08/modern-az.jpg","width":526,"height":526},{"@type":"BreadcrumbList","@id":"{{SITE}}/hikmet-haciyev-beynelxalq-itkin-dusmus-sexsler-gunu-ile-bagli-paylasim-edib/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Hikmət Hacıyev Beynəlxalq İtkin Düşmüş Şəxslər Günü ilə bağlı paylaşım edib."}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2026/08/modern-az.jpg',
             'srcset' => 'uploads/2026/08/modern-az.jpg 526w, uploads/2026/08/modern-az-300x300.jpg 300w, uploads/2026/08/modern-az-150x150.jpg 150w',
@@ -513,6 +1361,103 @@ HTML,
 HTML,
         'description' => <<<'HTML'
 30 Avqust Beynəlxalq İtkin Düşmüşlər Günü. Bu gün 2010-cu il dekabrın 21-də Birləşmiş Millətlər Təşkilatının (BMT) Baş Məclisi tərəfindən təsis edilmişdir. Məqsədi: müharibələr, zorakılıqlar, təbii fəlakətlər və ya insan hüquqlarının pozulması nəticəsində itkin düşmüş şəxslərin taleyinə diqqət çəkmək, onların ailələrinin hüquqlarını və üzləşdikləri çətinlikləri ictimaiyyətə çatdırmaqdır. “Qarabağ İtkin Ailələri” İctimai Birliyi Ermənistanın Azərbaycana hərbi təcavüzü […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '30 Avqust Beynəlxalq İtkin Düşmüşlər Günü.',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+30 Avqust Beynəlxalq İtkin Düşmüşlər Günü. Bu gün 2010-cu il dekabrın 21-də Birləşmiş Millətlər Təşkilatının (BMT) Baş Məclisi tərəfindən təsis edilmişdir. Məqsədi: müharibələr, zorakılıqlar, təbii fəlakətlər və ya insan hüquqlarının pozulması nəticəsində itkin düşmüş şəxslərin taleyinə diqqət çəkmək, onların ailələrinin hüquqlarını və üzləşdikləri çətinlikləri ictimaiyyətə çatdırmaqdır. “Qarabağ İtkin Ailələri” İctimai Birliyi Ermənistanın Azərbaycana hərbi təcavüzü […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-08-30T09:15:47+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2026-08-31T12:06:24+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/07/ac1923c6-312a-46e9-ba94-d208e2e64fdc.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '922',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '630',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '6 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/1631/#article","isPartOf":{"@id":"{{SITE}}/1631/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"30 Avqust Beynəlxalq İtkin Düşmüşlər Günü.","datePublished":"2026-08-30T09:15:47+00:00","dateModified":"2026-08-31T12:06:24+00:00","mainEntityOfPage":{"@id":"{{SITE}}/1631/"},"wordCount":1372,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/1631/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/08/qht-logo.avif","articleSection":["Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/1631/","url":"{{SITE}}/1631/","name":"30 Avqust Beynəlxalq İtkin Düşmüşlər Günü. - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/1631/#primaryimage"},"image":{"@id":"{{SITE}}/1631/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/08/qht-logo.avif","datePublished":"2026-08-30T09:15:47+00:00","dateModified":"2026-08-31T12:06:24+00:00","breadcrumb":{"@id":"{{SITE}}/1631/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/1631/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/1631/#primaryimage","url":"{{SITE}}/uploads/2026/08/qht-logo.avif","contentUrl":"{{SITE}}/uploads/2026/08/qht-logo.avif","width":1042,"height":627},{"@type":"BreadcrumbList","@id":"{{SITE}}/1631/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"30 Avqust Beynəlxalq İtkin Düşmüşlər Günü."}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2026/08/qht-logo.avif',
@@ -579,6 +1524,103 @@ HTML,
         'description' => <<<'HTML'
 11.08.2026. “Qarabağ İtkin Ailələri” İctimai Birliyinin Zaqatala və Balakən rayonları şöbəsinin rəhbərii Reyhan Əhmədovanın (itkin həyat yoldaşı) və müavini Yeganə Osmanovanın ( itkin bacısı) təşəbbüsü ilə Zaqatala rayon İcra Hakimiyyətinin tərəfdaşlığı ilə Zaqatala rayonu Heydər Əliyev adına Mərkəzində “30 avqust Beynəlxalq İtkinlər Günü” nə həsr olunmuş “Anım Günü” tədbir keçirildi. Tədbirdə QİAİB-nin sədri K.Behbudova və […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '“Anım Günü” Tədbiri – Zaqatalada İtkin Şəxslərin Xatirəsi Anıldı',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+11.08.2026. “Qarabağ İtkin Ailələri” İctimai Birliyinin Zaqatala və Balakən rayonları şöbəsinin rəhbərii Reyhan Əhmədovanın (itkin həyat yoldaşı) və müavini Yeganə Osmanovanın ( itkin bacısı) təşəbbüsü ilə Zaqatala rayon İcra Hakimiyyətinin tərəfdaşlığı ilə Zaqatala rayonu Heydər Əliyev adına Mərkəzində “30 avqust Beynəlxalq İtkinlər Günü” nə həsr olunmuş “Anım Günü” tədbir keçirildi. Tədbirdə QİAİB-nin sədri K.Behbudova və […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-08-24T05:28:43+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2026-08-31T12:10:09+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/07/ac1923c6-312a-46e9-ba94-d208e2e64fdc.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '922',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '630',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '8 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/yoxlugun-sedasi-adli-layihenin-icrasina-baslanilib/#article","isPartOf":{"@id":"{{SITE}}/yoxlugun-sedasi-adli-layihenin-icrasina-baslanilib/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"“Anım Günü” Tədbiri – Zaqatalada İtkin Şəxslərin Xatirəsi Anıldı","datePublished":"2026-08-24T05:28:43+00:00","dateModified":"2026-08-31T12:10:09+00:00","mainEntityOfPage":{"@id":"{{SITE}}/yoxlugun-sedasi-adli-layihenin-icrasina-baslanilib/"},"wordCount":887,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/yoxlugun-sedasi-adli-layihenin-icrasina-baslanilib/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/08/qht-logo.avif","articleSection":["İtkinlərimizi anaq"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/yoxlugun-sedasi-adli-layihenin-icrasina-baslanilib/","url":"{{SITE}}/yoxlugun-sedasi-adli-layihenin-icrasina-baslanilib/","name":"“Anım Günü” Tədbiri – Zaqatalada İtkin Şəxslərin Xatirəsi Anıldı - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/yoxlugun-sedasi-adli-layihenin-icrasina-baslanilib/#primaryimage"},"image":{"@id":"{{SITE}}/yoxlugun-sedasi-adli-layihenin-icrasina-baslanilib/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/08/qht-logo.avif","datePublished":"2026-08-24T05:28:43+00:00","dateModified":"2026-08-31T12:10:09+00:00","breadcrumb":{"@id":"{{SITE}}/yoxlugun-sedasi-adli-layihenin-icrasina-baslanilib/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/yoxlugun-sedasi-adli-layihenin-icrasina-baslanilib/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/yoxlugun-sedasi-adli-layihenin-icrasina-baslanilib/#primaryimage","url":"{{SITE}}/uploads/2026/08/qht-logo.avif","contentUrl":"{{SITE}}/uploads/2026/08/qht-logo.avif","width":1042,"height":627},{"@type":"BreadcrumbList","@id":"{{SITE}}/yoxlugun-sedasi-adli-layihenin-icrasina-baslanilib/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"“Anım Günü” Tədbiri – Zaqatalada İtkin Şəxslərin Xatirəsi Anıldı"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2026/08/qht-logo.avif',
             'srcset' => <<<'HTML'
@@ -618,6 +1660,103 @@ HTML,
 HTML,
         'description' => <<<'HTML'
 “Qarabağ İtkin Ailələri” İctimai Birliyi, Qeyri Hökumət Təşkilatlarına Dövlət Dəstəyi Agentliyinin maliyyə dəstəyi ilə 01.08.2026-ci il tarixdən “Yoxluğun Sədası” adlı layihənin icrasına başlayıb. QHT.az xəbər verir ki, layihənin əsas məqsədi Qarabağ müharibələri zamanı itkin düşmüş şəxslərin ailələrinin illərdir davam edən gözləntisini, yaşadıqları mənəvi-psixoloji yükü və onların öz doğmalarından xəbər almaq haqqını beynəlxalq təşkilatlara və dünya ictimaiyyətin […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '“Yoxluğun Sədası” adlı layihənin icrasına başlanılıb',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+“Qarabağ İtkin Ailələri” İctimai Birliyi, Qeyri Hökumət Təşkilatlarına Dövlət Dəstəyi Agentliyinin maliyyə dəstəyi ilə 01.08.2026-ci il tarixdən “Yoxluğun Sədası” adlı layihənin icrasına başlayıb. QHT.az xəbər verir ki, layihənin əsas məqsədi Qarabağ müharibələri zamanı itkin düşmüş şəxslərin ailələrinin illərdir davam edən gözləntisini, yaşadıqları mənəvi-psixoloji yükü və onların öz doğmalarından xəbər almaq haqqını beynəlxalq təşkilatlara və dünya ictimaiyyətin […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-08-19T11:56:51+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2026-08-24T06:26:28+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/07/ac1923c6-312a-46e9-ba94-d208e2e64fdc.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '922',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '630',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/1576/#article","isPartOf":{"@id":"{{SITE}}/1576/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"“Yoxluğun Sədası” adlı layihənin icrasına başlanılıb","datePublished":"2026-08-19T11:56:51+00:00","dateModified":"2026-08-24T06:26:28+00:00","mainEntityOfPage":{"@id":"{{SITE}}/1576/"},"wordCount":624,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/1576/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/08/qht-logo.avif","articleSection":["Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/1576/","url":"{{SITE}}/1576/","name":"“Yoxluğun Sədası” adlı layihənin icrasına başlanılıb - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/1576/#primaryimage"},"image":{"@id":"{{SITE}}/1576/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/08/qht-logo.avif","datePublished":"2026-08-19T11:56:51+00:00","dateModified":"2026-08-24T06:26:28+00:00","breadcrumb":{"@id":"{{SITE}}/1576/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/1576/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/1576/#primaryimage","url":"{{SITE}}/uploads/2026/08/qht-logo.avif","contentUrl":"{{SITE}}/uploads/2026/08/qht-logo.avif","width":1042,"height":627},{"@type":"BreadcrumbList","@id":"{{SITE}}/1576/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"“Yoxluğun Sədası” adlı layihənin icrasına başlanılıb"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2026/08/qht-logo.avif',
@@ -659,6 +1798,103 @@ HTML,
 HTML,
         'description' => <<<'HTML'
 İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat 21 AVQUST 2026-ci il № Soyadı, adı və atasının adı Statusu Dəfn tarixi və yeri İtkin düşmüş şəxsin fotoşəkli 1. Məmmədov Cümşüd Həsənxan oğlu mülki 21.08.2026 Saat 13:00 Laçın şəhəri, Şəhidlər xiyabanı 2. İsmayılov Sərdar Cəfər oğlu hərbçi   21.08.2026 Saat 12:00 Neftçala rayonu, Astanlı kənd qəbirstanlığı, Şəhidlər cərgəsi 3. […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyasının İtkin-şəhidlərin dəfn mərasimlərinə dair məlumatı',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat 21 AVQUST 2026-ci il № Soyadı, adı və atasının adı Statusu Dəfn tarixi və yeri İtkin düşmüş şəxsin fotoşəkli 1. Məmmədov Cümşüd Həsənxan oğlu mülki 21.08.2026 Saat 13:00 Laçın şəhəri, Şəhidlər xiyabanı 2. İsmayılov Sərdar Cəfər oğlu hərbçi   21.08.2026 Saat 12:00 Neftçala rayonu, Astanlı kənd qəbirstanlığı, Şəhidlər cərgəsi 3. […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-08-19T08:12:57+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2026-08-19T08:13:58+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2026/08/xeber-shekli-boyuk.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '2280',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1438',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/1561/#article","isPartOf":{"@id":"{{SITE}}/1561/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyasının İtkin-şəhidlərin dəfn mərasimlərinə dair məlumatı","datePublished":"2026-08-19T08:12:57+00:00","dateModified":"2026-08-19T08:13:58+00:00","mainEntityOfPage":{"@id":"{{SITE}}/1561/"},"wordCount":181,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/1561/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/08/xeber-shekli-boyuk.jpg","articleSection":["Taleyi müəyyən olunmuş itkinlər","Tədbirlər","Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/1561/","url":"{{SITE}}/1561/","name":"Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyasının İtkin-şəhidlərin dəfn mərasimlərinə dair məlumatı - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/1561/#primaryimage"},"image":{"@id":"{{SITE}}/1561/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/08/xeber-shekli-boyuk.jpg","datePublished":"2026-08-19T08:12:57+00:00","dateModified":"2026-08-19T08:13:58+00:00","breadcrumb":{"@id":"{{SITE}}/1561/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/1561/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/1561/#primaryimage","url":"{{SITE}}/uploads/2026/08/xeber-shekli-boyuk.jpg","contentUrl":"{{SITE}}/uploads/2026/08/xeber-shekli-boyuk.jpg","width":2280,"height":1438},{"@type":"BreadcrumbList","@id":"{{SITE}}/1561/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyasının İtkin-şəhidlərin dəfn mərasimlərinə dair məlumatı"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2026/08/xeber-shekli-boyuk.jpg',
@@ -750,6 +1986,103 @@ HTML,
         'description' => <<<'HTML'
 “Qarabağ İtkin Ailələri” İctimai Birliyi “Qarabağ İtkin Ailələri” İctimai Birliyinin, Qeyri Hökumət Təşkilatlarına Dövlət Dəstəyi Agentliyinin maliyyə dəstəyi , Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyasının  tərəfdaşlığı ilə  “İtkinlər Problemi- Təcrübə və Əməkdaşlıq, Bosniya və Hersoqovina Təcübəsi” layihəsi çərçivəsində 5-7 avqust 2026-ci il tarixində                        təşkilatın  sədri Könül Behbudovanın və təşkilatın üzvü Xocalı sakini Hüseynova Samirə Bakir […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Bosniya və Herseqovina görüşü.',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+“Qarabağ İtkin Ailələri” İctimai Birliyi “Qarabağ İtkin Ailələri” İctimai Birliyinin, Qeyri Hökumət Təşkilatlarına Dövlət Dəstəyi Agentliyinin maliyyə dəstəyi , Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyasının  tərəfdaşlığı ilə  “İtkinlər Problemi- Təcrübə və Əməkdaşlıq, Bosniya və Hersoqovina Təcübəsi” layihəsi çərçivəsində 5-7 avqust 2026-ci il tarixində                        təşkilatın  sədri Könül Behbudovanın və təşkilatın üzvü Xocalı sakini Hüseynova Samirə Bakir […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-08-17T19:09:42+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2026-08-17T22:57:26+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2026/08/whatsapp-image-2026-08-17-at-13.51.31.jpeg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1280',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '960',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '29 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/1404/#article","isPartOf":{"@id":"{{SITE}}/1404/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Bosniya və Herseqovina görüşü.","datePublished":"2026-08-17T19:09:42+00:00","dateModified":"2026-08-17T22:57:26+00:00","mainEntityOfPage":{"@id":"{{SITE}}/1404/"},"wordCount":3444,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/1404/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/08/whatsapp-image-2026-08-17-at-13.51.31.jpeg","articleSection":["Tədbirlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/1404/","url":"{{SITE}}/1404/","name":"Bosniya və Herseqovina görüşü. - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/1404/#primaryimage"},"image":{"@id":"{{SITE}}/1404/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/08/whatsapp-image-2026-08-17-at-13.51.31.jpeg","datePublished":"2026-08-17T19:09:42+00:00","dateModified":"2026-08-17T22:57:26+00:00","breadcrumb":{"@id":"{{SITE}}/1404/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/1404/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/1404/#primaryimage","url":"{{SITE}}/uploads/2026/08/whatsapp-image-2026-08-17-at-13.51.31.jpeg","contentUrl":"{{SITE}}/uploads/2026/08/whatsapp-image-2026-08-17-at-13.51.31.jpeg","width":1280,"height":960},{"@type":"BreadcrumbList","@id":"{{SITE}}/1404/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Bosniya və Herseqovina görüşü."}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2026/08/whatsapp-image-2026-08-17-at-13.51.31.jpeg',
             'srcset' => <<<'HTML'
@@ -817,6 +2150,98 @@ HTML,
         'description' => <<<'HTML'
 İtkin düşmüş vətəndaşlarımızın ailə üzvlərinin təşəbbüsü ilə 2023-cü ildə “Qarabağ İtkin Ailələri” İctimai Birliyi təsis edilib və Ədliyyə Nazirliyi tərəfindən müvafiq qeydiyyata alınıb. Bu birlik Ermənistanın Azərbaycana qarşı hərbi təcavüzü nəticəsində itkin düsmüs, əsir-girov götürülmüs şəxslərin və onların ailələrinin hüquqlarının müdafiəsini qarşısına əsas məqsəd kimi qoyub AZƏRTAC xəbər verir ki, bunu “Qarabağ İtkin Ailələri” İctimai Birliyinin […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'İctimai Birlik sədri: ICMP-nin təşəbbüsləri və Dövlət Komissiyası ilə əməkdaşlığı itkin ailələrinin ümidlərini artırır',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+İtkin düşmüş vətəndaşlarımızın ailə üzvlərinin təşəbbüsü ilə 2023-cü ildə “Qarabağ İtkin Ailələri” İctimai Birliyi təsis edilib və Ədliyyə Nazirliyi tərəfindən müvafiq qeydiyyata alınıb. Bu birlik Ermənistanın Azərbaycana qarşı hərbi təcavüzü nəticəsində itkin düsmüs, əsir-girov götürülmüs şəxslərin və onların ailələrinin hüquqlarının müdafiəsini qarşısına əsas məqsəd kimi qoyub AZƏRTAC xəbər verir ki, bunu “Qarabağ İtkin Ailələri” İctimai Birliyinin […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-07-01T10:28:09+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2026/07/0000000.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '923',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '630',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/ictimai-birlik-sedri-icmp-nin-tesebbusleri-ve-dovlet-komissiyasi-ile-emekdasligi-itkin-ailelerinin-umidlerini-artirir/#article","isPartOf":{"@id":"{{SITE}}/ictimai-birlik-sedri-icmp-nin-tesebbusleri-ve-dovlet-komissiyasi-ile-emekdasligi-itkin-ailelerinin-umidlerini-artirir/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"İctimai Birlik sədri: ICMP-nin təşəbbüsləri və Dövlət Komissiyası ilə əməkdaşlığı itkin ailələrinin ümidlərini artırır","datePublished":"2026-07-01T10:28:09+00:00","dateModified":"2026-07-01T10:28:09+00:00","mainEntityOfPage":{"@id":"{{SITE}}/ictimai-birlik-sedri-icmp-nin-tesebbusleri-ve-dovlet-komissiyasi-ile-emekdasligi-itkin-ailelerinin-umidlerini-artirir/"},"wordCount":608,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/ictimai-birlik-sedri-icmp-nin-tesebbusleri-ve-dovlet-komissiyasi-ile-emekdasligi-itkin-ailelerinin-umidlerini-artirir/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/07/0000000.jpg","articleSection":["Tədbirlər","Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/ictimai-birlik-sedri-icmp-nin-tesebbusleri-ve-dovlet-komissiyasi-ile-emekdasligi-itkin-ailelerinin-umidlerini-artirir/","url":"{{SITE}}/ictimai-birlik-sedri-icmp-nin-tesebbusleri-ve-dovlet-komissiyasi-ile-emekdasligi-itkin-ailelerinin-umidlerini-artirir/","name":"İctimai Birlik sədri: ICMP-nin təşəbbüsləri və Dövlət Komissiyası ilə əməkdaşlığı itkin ailələrinin ümidlərini artırır - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/ictimai-birlik-sedri-icmp-nin-tesebbusleri-ve-dovlet-komissiyasi-ile-emekdasligi-itkin-ailelerinin-umidlerini-artirir/#primaryimage"},"image":{"@id":"{{SITE}}/ictimai-birlik-sedri-icmp-nin-tesebbusleri-ve-dovlet-komissiyasi-ile-emekdasligi-itkin-ailelerinin-umidlerini-artirir/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/07/0000000.jpg","datePublished":"2026-07-01T10:28:09+00:00","dateModified":"2026-07-01T10:28:09+00:00","breadcrumb":{"@id":"{{SITE}}/ictimai-birlik-sedri-icmp-nin-tesebbusleri-ve-dovlet-komissiyasi-ile-emekdasligi-itkin-ailelerinin-umidlerini-artirir/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/ictimai-birlik-sedri-icmp-nin-tesebbusleri-ve-dovlet-komissiyasi-ile-emekdasligi-itkin-ailelerinin-umidlerini-artirir/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/ictimai-birlik-sedri-icmp-nin-tesebbusleri-ve-dovlet-komissiyasi-ile-emekdasligi-itkin-ailelerinin-umidlerini-artirir/#primaryimage","url":"{{SITE}}/uploads/2026/07/0000000.jpg","contentUrl":"{{SITE}}/uploads/2026/07/0000000.jpg","width":923,"height":630},{"@type":"BreadcrumbList","@id":"{{SITE}}/ictimai-birlik-sedri-icmp-nin-tesebbusleri-ve-dovlet-komissiyasi-ile-emekdasligi-itkin-ailelerinin-umidlerini-artirir/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"İctimai Birlik sədri: ICMP-nin təşəbbüsləri və Dövlət Komissiyası ilə əməkdaşlığı itkin ailələrinin ümidlərini artırır"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2026/07/0000000.jpg',
             'srcset' => 'uploads/2026/07/0000000.jpg 923w, uploads/2026/07/0000000-300x205.jpg 300w, uploads/2026/07/0000000-768x524.jpg 768w',
@@ -852,6 +2277,103 @@ HTML,
 HTML,
         'description' => <<<'HTML'
 İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat 01 iyul 2026-ci il № Soyadı, adı və atasının adı Statusu Dəfn tarixi və yeri İtkin düşmüş şəxsin fotoşəkli 1. Nuriyev Yarməmməd Maqsud oğlu hərbçi 01.07.2026 Saat 13:00 Xaçmaz rayonu, Köhnə Xudat kənd qəbiristanlığı 03 iyul 2026-ci il № Soyadı, adı və atasının adı Statusu Dəfn tarixi və yeri İtkin […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyasının İtkin-şəhidlərin dəfn mərasimlərinə dair məlumatı',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat 01 iyul 2026-ci il № Soyadı, adı və atasının adı Statusu Dəfn tarixi və yeri İtkin düşmüş şəxsin fotoşəkli 1. Nuriyev Yarməmməd Maqsud oğlu hərbçi 01.07.2026 Saat 13:00 Xaçmaz rayonu, Köhnə Xudat kənd qəbiristanlığı 03 iyul 2026-ci il № Soyadı, adı və atasının adı Statusu Dəfn tarixi və yeri İtkin […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-07-01T06:18:34+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2026-07-01T06:20:13+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/09/xeber-shekli-boyuk.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '2280',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1438',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/esir-ve-itkin-dusmus-girov-goturulmus-vetendaslarla-elaqedar-dovlet-komissiyasinin-itkin-sehidlerin-defn-merasimlerine-dair-melumati/#article","isPartOf":{"@id":"{{SITE}}/esir-ve-itkin-dusmus-girov-goturulmus-vetendaslarla-elaqedar-dovlet-komissiyasinin-itkin-sehidlerin-defn-merasimlerine-dair-melumati/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyasının İtkin-şəhidlərin dəfn mərasimlərinə dair məlumatı","datePublished":"2026-07-01T06:18:34+00:00","dateModified":"2026-07-01T06:20:13+00:00","mainEntityOfPage":{"@id":"{{SITE}}/esir-ve-itkin-dusmus-girov-goturulmus-vetendaslarla-elaqedar-dovlet-komissiyasinin-itkin-sehidlerin-defn-merasimlerine-dair-melumati/"},"wordCount":209,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/esir-ve-itkin-dusmus-girov-goturulmus-vetendaslarla-elaqedar-dovlet-komissiyasinin-itkin-sehidlerin-defn-merasimlerine-dair-melumati/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/09/xeber-shekli-boyuk.jpg","articleSection":["Taleyi müəyyən olunmuş itkinlər","Tədbirlər","Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/esir-ve-itkin-dusmus-girov-goturulmus-vetendaslarla-elaqedar-dovlet-komissiyasinin-itkin-sehidlerin-defn-merasimlerine-dair-melumati/","url":"{{SITE}}/esir-ve-itkin-dusmus-girov-goturulmus-vetendaslarla-elaqedar-dovlet-komissiyasinin-itkin-sehidlerin-defn-merasimlerine-dair-melumati/","name":"Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyasının İtkin-şəhidlərin dəfn mərasimlərinə dair məlumatı - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/esir-ve-itkin-dusmus-girov-goturulmus-vetendaslarla-elaqedar-dovlet-komissiyasinin-itkin-sehidlerin-defn-merasimlerine-dair-melumati/#primaryimage"},"image":{"@id":"{{SITE}}/esir-ve-itkin-dusmus-girov-goturulmus-vetendaslarla-elaqedar-dovlet-komissiyasinin-itkin-sehidlerin-defn-merasimlerine-dair-melumati/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/09/xeber-shekli-boyuk.jpg","datePublished":"2026-07-01T06:18:34+00:00","dateModified":"2026-07-01T06:20:13+00:00","breadcrumb":{"@id":"{{SITE}}/esir-ve-itkin-dusmus-girov-goturulmus-vetendaslarla-elaqedar-dovlet-komissiyasinin-itkin-sehidlerin-defn-merasimlerine-dair-melumati/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/esir-ve-itkin-dusmus-girov-goturulmus-vetendaslarla-elaqedar-dovlet-komissiyasinin-itkin-sehidlerin-defn-merasimlerine-dair-melumati/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/esir-ve-itkin-dusmus-girov-goturulmus-vetendaslarla-elaqedar-dovlet-komissiyasinin-itkin-sehidlerin-defn-merasimlerine-dair-melumati/#primaryimage","url":"{{SITE}}/uploads/2025/09/xeber-shekli-boyuk.jpg","contentUrl":"{{SITE}}/uploads/2025/09/xeber-shekli-boyuk.jpg","width":2280,"height":1438},{"@type":"BreadcrumbList","@id":"{{SITE}}/esir-ve-itkin-dusmus-girov-goturulmus-vetendaslarla-elaqedar-dovlet-komissiyasinin-itkin-sehidlerin-defn-merasimlerine-dair-melumati/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyasının İtkin-şəhidlərin dəfn mərasimlərinə dair məlumatı"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2025/09/xeber-shekli-boyuk.jpg',
@@ -965,6 +2487,103 @@ HTML,
         'description' => <<<'HTML'
 Kəlbəcər rayonu Yanşaq kəndində Qızılqaya yüksəliyi uğrunda gedən döyüşdə 1994-ci il fevral ayının 10-da itkin düşən Priyev Rəşadətin nəşi 20 may 2026- cı il tarixdə Bərdə rayonu Yeni Daşkənd kəndinə gətirilərək dəfn olunmuşdur. 29 may 2026- ci ildə QİAİB- nin sədri K.Behbudova və itkin-şəhid anası, Bərdə rayonunda yaşayan itkin ailələri ilə birlikdə ziyarət etmişdir. Şəhidin […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Bərdə rayonu Yeni Daşkənd kəndində şəhid ailəsinə ziyarət edib, başsağlığı verilmişdir.',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Kəlbəcər rayonu Yanşaq kəndində Qızılqaya yüksəliyi uğrunda gedən döyüşdə 1994-ci il fevral ayının 10-da itkin düşən Priyev Rəşadətin nəşi 20 may 2026- cı il tarixdə Bərdə rayonu Yeni Daşkənd kəndinə gətirilərək dəfn olunmuşdur. 29 may 2026- ci ildə QİAİB- nin sədri K.Behbudova və itkin-şəhid anası, Bərdə rayonunda yaşayan itkin ailələri ilə birlikdə ziyarət etmişdir. Şəhidin […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-06-02T08:00:17+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2026-06-02T08:02:55+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2026/06/whatsapp-image-2026-06-02-at-10.45.55-1.jpeg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '960',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1280',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/berde-rayonu-yeni-daskend-kendinde-sehid-ailesine-ziyaret-edib-bassagligi-verilmisdir/#article","isPartOf":{"@id":"{{SITE}}/berde-rayonu-yeni-daskend-kendinde-sehid-ailesine-ziyaret-edib-bassagligi-verilmisdir/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Bərdə rayonu Yeni Daşkənd kəndində şəhid ailəsinə ziyarət edib, başsağlığı verilmişdir.","datePublished":"2026-06-02T08:00:17+00:00","dateModified":"2026-06-02T08:02:55+00:00","mainEntityOfPage":{"@id":"{{SITE}}/berde-rayonu-yeni-daskend-kendinde-sehid-ailesine-ziyaret-edib-bassagligi-verilmisdir/"},"wordCount":194,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/berde-rayonu-yeni-daskend-kendinde-sehid-ailesine-ziyaret-edib-bassagligi-verilmisdir/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/06/whatsapp-image-2026-06-02-at-10.45.55-1.jpeg","articleSection":["Tədbirlər","Xəbərlər","Без категории"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/berde-rayonu-yeni-daskend-kendinde-sehid-ailesine-ziyaret-edib-bassagligi-verilmisdir/","url":"{{SITE}}/berde-rayonu-yeni-daskend-kendinde-sehid-ailesine-ziyaret-edib-bassagligi-verilmisdir/","name":"Bərdə rayonu Yeni Daşkənd kəndində şəhid ailəsinə ziyarət edib, başsağlığı verilmişdir. - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/berde-rayonu-yeni-daskend-kendinde-sehid-ailesine-ziyaret-edib-bassagligi-verilmisdir/#primaryimage"},"image":{"@id":"{{SITE}}/berde-rayonu-yeni-daskend-kendinde-sehid-ailesine-ziyaret-edib-bassagligi-verilmisdir/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/06/whatsapp-image-2026-06-02-at-10.45.55-1.jpeg","datePublished":"2026-06-02T08:00:17+00:00","dateModified":"2026-06-02T08:02:55+00:00","breadcrumb":{"@id":"{{SITE}}/berde-rayonu-yeni-daskend-kendinde-sehid-ailesine-ziyaret-edib-bassagligi-verilmisdir/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/berde-rayonu-yeni-daskend-kendinde-sehid-ailesine-ziyaret-edib-bassagligi-verilmisdir/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/berde-rayonu-yeni-daskend-kendinde-sehid-ailesine-ziyaret-edib-bassagligi-verilmisdir/#primaryimage","url":"{{SITE}}/uploads/2026/06/whatsapp-image-2026-06-02-at-10.45.55-1.jpeg","contentUrl":"{{SITE}}/uploads/2026/06/whatsapp-image-2026-06-02-at-10.45.55-1.jpeg","width":960,"height":1280},{"@type":"BreadcrumbList","@id":"{{SITE}}/berde-rayonu-yeni-daskend-kendinde-sehid-ailesine-ziyaret-edib-bassagligi-verilmisdir/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Bərdə rayonu Yeni Daşkənd kəndində şəhid ailəsinə ziyarət edib, başsağlığı verilmişdir."}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2026/06/whatsapp-image-2026-06-02-at-10.45.55-1.jpeg',
             'srcset' => <<<'HTML'
@@ -998,6 +2617,103 @@ Qarabağ İtkin Ailələri İB- nin sədri K.Behbudova 29 may 2026- ci ildə Sab
 HTML,
         'description' => <<<'HTML'
 Qarabağ İtkin Ailələri İB- nin sədri K.Behbudova 29 may 2026- ci ildə Sabirabad rayonu Nizamikən kəndində itkin-şəhid Kərimov Xəqani Canəli oğlunun ailə üzvləri ilə görüşdü.. Kərimov Xəqani 8 mart 1974- ci ildə Saatlı rayonu Nizamikənd kəndində anadan olmuşdur..Daxili Qoşunların hərbi hissəsində xidmət edib və qoşun heyəti ilə birlikdə Qarabağ müharibəsinə yola düşmüşlər.. Vətən torpaqlarının müdafiəsində […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Saatlı rayonu Nizamikənd kəndində şəhid ailəsinə ziyarət edilmişdir.',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Qarabağ İtkin Ailələri İB- nin sədri K.Behbudova 29 may 2026- ci ildə Sabirabad rayonu Nizamikən kəndində itkin-şəhid Kərimov Xəqani Canəli oğlunun ailə üzvləri ilə görüşdü.. Kərimov Xəqani 8 mart 1974- ci ildə Saatlı rayonu Nizamikənd kəndində anadan olmuşdur..Daxili Qoşunların hərbi hissəsində xidmət edib və qoşun heyəti ilə birlikdə Qarabağ müharibəsinə yola düşmüşlər.. Vətən torpaqlarının müdafiəsində […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-06-02T06:09:35+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2026-06-02T06:36:08+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2026/06/whatsapp-image-2026-06-02-at-09.43.46.jpeg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '858',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '869',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/saatli-rayonu-nizamikend-kendinde-sehid-ailesine-ziyaret-edilmisdir/#article","isPartOf":{"@id":"{{SITE}}/saatli-rayonu-nizamikend-kendinde-sehid-ailesine-ziyaret-edilmisdir/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Saatlı rayonu Nizamikənd kəndində şəhid ailəsinə ziyarət edilmişdir.","datePublished":"2026-06-02T06:09:35+00:00","dateModified":"2026-06-02T06:36:08+00:00","mainEntityOfPage":{"@id":"{{SITE}}/saatli-rayonu-nizamikend-kendinde-sehid-ailesine-ziyaret-edilmisdir/"},"wordCount":156,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/saatli-rayonu-nizamikend-kendinde-sehid-ailesine-ziyaret-edilmisdir/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/06/whatsapp-image-2026-06-02-at-09.43.46.jpeg","articleSection":["İtkinlərimizi anaq","Tədbirlər","Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/saatli-rayonu-nizamikend-kendinde-sehid-ailesine-ziyaret-edilmisdir/","url":"{{SITE}}/saatli-rayonu-nizamikend-kendinde-sehid-ailesine-ziyaret-edilmisdir/","name":"Saatlı rayonu Nizamikənd kəndində şəhid ailəsinə ziyarət edilmişdir. - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/saatli-rayonu-nizamikend-kendinde-sehid-ailesine-ziyaret-edilmisdir/#primaryimage"},"image":{"@id":"{{SITE}}/saatli-rayonu-nizamikend-kendinde-sehid-ailesine-ziyaret-edilmisdir/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2026/06/whatsapp-image-2026-06-02-at-09.43.46.jpeg","datePublished":"2026-06-02T06:09:35+00:00","dateModified":"2026-06-02T06:36:08+00:00","breadcrumb":{"@id":"{{SITE}}/saatli-rayonu-nizamikend-kendinde-sehid-ailesine-ziyaret-edilmisdir/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/saatli-rayonu-nizamikend-kendinde-sehid-ailesine-ziyaret-edilmisdir/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/saatli-rayonu-nizamikend-kendinde-sehid-ailesine-ziyaret-edilmisdir/#primaryimage","url":"{{SITE}}/uploads/2026/06/whatsapp-image-2026-06-02-at-09.43.46.jpeg","contentUrl":"{{SITE}}/uploads/2026/06/whatsapp-image-2026-06-02-at-09.43.46.jpeg","width":858,"height":869},{"@type":"BreadcrumbList","@id":"{{SITE}}/saatli-rayonu-nizamikend-kendinde-sehid-ailesine-ziyaret-edilmisdir/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Saatlı rayonu Nizamikənd kəndində şəhid ailəsinə ziyarət edilmişdir."}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2026/06/whatsapp-image-2026-06-02-at-09.43.46.jpeg',
@@ -1033,6 +2749,103 @@ HTML,
 HTML,
         'description' => <<<'HTML'
 15 MAY 2026-ci il № Soyadı, adı və atasının adı Statusu Dəfn tarixi və yeri İtkin düşmüş şəxsin fotoşəkli 1. Cəfərov Rafiq Şirvan oğlu hərbçi 15.05.2026 Saat 15:00 Füzuli rayonu, Əbdürrəhmanlı kənd qəbiristanlığı 2. Həziyev Ələddin Həzi oğlu hərbçi 15.05.2026 Saat 17:00 Füzuli rayonu,İşıqlı kənd qəbiristanlığı, şəhidlər cərgəsi 3. Sadıqov Zaur İmamqulu oğlu hərbçi 15.05.2026 Saat […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+15 MAY 2026-ci il № Soyadı, adı və atasının adı Statusu Dəfn tarixi və yeri İtkin düşmüş şəxsin fotoşəkli 1. Cəfərov Rafiq Şirvan oğlu hərbçi 15.05.2026 Saat 15:00 Füzuli rayonu, Əbdürrəhmanlı kənd qəbiristanlığı 2. Həziyev Ələddin Həzi oğlu hərbçi 15.05.2026 Saat 17:00 Füzuli rayonu,İşıqlı kənd qəbiristanlığı, şəhidlər cərgəsi 3. Sadıqov Zaur İmamqulu oğlu hərbçi 15.05.2026 Saat […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2026-05-13T07:25:28+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2026-05-13T07:28:23+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/09/xeber-shekli-boyuk.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '2280',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1438',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/__trashed/#article","isPartOf":{"@id":"{{SITE}}/__trashed/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat","datePublished":"2026-05-13T07:25:28+00:00","dateModified":"2026-05-13T07:28:23+00:00","mainEntityOfPage":{"@id":"{{SITE}}/__trashed/"},"wordCount":103,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/__trashed/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/09/xeber-shekli-boyuk.jpg","articleSection":["İtkinlərimizi anaq","Tədbirlər","Без категории"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/__trashed/","url":"{{SITE}}/__trashed/","name":"İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/__trashed/#primaryimage"},"image":{"@id":"{{SITE}}/__trashed/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/09/xeber-shekli-boyuk.jpg","datePublished":"2026-05-13T07:25:28+00:00","dateModified":"2026-05-13T07:28:23+00:00","breadcrumb":{"@id":"{{SITE}}/__trashed/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/__trashed/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/__trashed/#primaryimage","url":"{{SITE}}/uploads/2025/09/xeber-shekli-boyuk.jpg","contentUrl":"{{SITE}}/uploads/2025/09/xeber-shekli-boyuk.jpg","width":2280,"height":1438},{"@type":"BreadcrumbList","@id":"{{SITE}}/__trashed/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2025/09/xeber-shekli-boyuk.jpg',
@@ -1104,6 +2917,103 @@ HTML,
 HTML,
         'description' => <<<'HTML'
 № Soyadı, adı, atasının adı Statusu Dəfn tarixi və yeri İtkin düüşmüş şəxsin fotoşəkli 1. Vəliyev Murad Məlikməmməd oğlu həbçi 12.09.2025 saat 15:30 Quba rayonu Nütəh kənd qəbiristanlığı 2. Abdullayev Cəlal Xankişi oğlu hərbçi 12.09.2025 saat 12:00 Bakı şəhəri, Qaradağ rayonu, Qobustan qəsəbəsinin qəbiristanlığı 3. Zərbəliyev Ayaz Əsgəralı oğlu hərbçi 12.09.2025 saat 14:00 Göyçay şəhəri, […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+№ Soyadı, adı, atasının adı Statusu Dəfn tarixi və yeri İtkin düüşmüş şəxsin fotoşəkli 1. Vəliyev Murad Məlikməmməd oğlu həbçi 12.09.2025 saat 15:30 Quba rayonu Nütəh kənd qəbiristanlığı 2. Abdullayev Cəlal Xankişi oğlu hərbçi 12.09.2025 saat 12:00 Bakı şəhəri, Qaradağ rayonu, Qobustan qəsəbəsinin qəbiristanlığı 3. Zərbəliyev Ayaz Əsgəralı oğlu hərbçi 12.09.2025 saat 14:00 Göyçay şəhəri, […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-09-11T07:46:33+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-09-11T07:59:51+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/09/xeber-shekli-boyuk.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '2280',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1438',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/1291/#article","isPartOf":{"@id":"{{SITE}}/1291/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat","datePublished":"2025-09-11T07:46:33+00:00","dateModified":"2025-09-11T07:59:51+00:00","mainEntityOfPage":{"@id":"{{SITE}}/1291/"},"wordCount":117,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/1291/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/09/xeber-shekli-boyuk.jpg","articleSection":["Taleyi müəyyən olunmuş itkinlər","Tədbirlər","Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/1291/","url":"{{SITE}}/1291/","name":"İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/1291/#primaryimage"},"image":{"@id":"{{SITE}}/1291/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/09/xeber-shekli-boyuk.jpg","datePublished":"2025-09-11T07:46:33+00:00","dateModified":"2025-09-11T07:59:51+00:00","breadcrumb":{"@id":"{{SITE}}/1291/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/1291/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/1291/#primaryimage","url":"{{SITE}}/uploads/2025/09/xeber-shekli-boyuk.jpg","contentUrl":"{{SITE}}/uploads/2025/09/xeber-shekli-boyuk.jpg","width":2280,"height":1438},{"@type":"BreadcrumbList","@id":"{{SITE}}/1291/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2025/09/xeber-shekli-boyuk.jpg',
@@ -1185,6 +3095,88 @@ HTML,
 HTML,
         'description' => <<<'HTML'
 № Soyadı, adı, atasının adı Statusu Dəfn tarixi və yeri İtkin düüşmüş şəxsin fotoşəkli 1. Vəliyev Murad Məlikməmməd oğlu həbçi 12.09.2025 saat 15:30 Quba rayonu Nütəh kənd qəbiristanlığı 2. Abdullayev Cəlal Xankişi oğlu hərbçi 12.09.2025 saat 12:00 Bakı şəhəri, Qaradağ rayonu, Qobustan qəsəbəsinin qəbiristanlığı 3. Zərbəliyev Ayaz Əsgəralı oğlu hərbçi 12.09.2025 saat 14:00 Göyçay şəhəri, […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Taleyi müəyyən olunmuş itkinlər',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+№ Soyadı, adı, atasının adı Statusu Dəfn tarixi və yeri İtkin düüşmüş şəxsin fotoşəkli 1. Vəliyev Murad Məlikməmməd oğlu həbçi 12.09.2025 saat 15:30 Quba rayonu Nütəh kənd qəbiristanlığı 2. Abdullayev Cəlal Xankişi oğlu hərbçi 12.09.2025 saat 12:00 Bakı şəhəri, Qaradağ rayonu, Qobustan qəsəbəsinin qəbiristanlığı 3. Zərbəliyev Ayaz Əsgəralı oğlu hərbçi 12.09.2025 saat 14:00 Göyçay şəhəri, […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-09-11T07:38:39+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-10-02T05:21:23+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/09/3904-veliyev-murad-melikmemmed-226x300.jpg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/elementor-1271/#article","isPartOf":{"@id":"{{SITE}}/elementor-1271/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Taleyi müəyyən olunmuş itkinlər","datePublished":"2025-09-11T07:38:39+00:00","dateModified":"2025-10-02T05:21:23+00:00","mainEntityOfPage":{"@id":"{{SITE}}/elementor-1271/"},"wordCount":113,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/elementor-1271/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/09/3904-veliyev-murad-melikmemmed-226x300.jpg","articleSection":["Taleyi müəyyən olunmuş itkinlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/elementor-1271/","url":"{{SITE}}/elementor-1271/","name":"Taleyi müəyyən olunmuş itkinlər - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/elementor-1271/#primaryimage"},"image":{"@id":"{{SITE}}/elementor-1271/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/09/3904-veliyev-murad-melikmemmed-226x300.jpg","datePublished":"2025-09-11T07:38:39+00:00","dateModified":"2025-10-02T05:21:23+00:00","breadcrumb":{"@id":"{{SITE}}/elementor-1271/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/elementor-1271/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/elementor-1271/#primaryimage","url":"{{SITE}}/uploads/2025/09/3904-veliyev-murad-melikmemmed.jpg","contentUrl":"{{SITE}}/uploads/2025/09/3904-veliyev-murad-melikmemmed.jpg","width":502,"height":667},{"@type":"BreadcrumbList","@id":"{{SITE}}/elementor-1271/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Taleyi müəyyən olunmuş itkinlər"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2025/09/3904-veliyev-murad-melikmemmed-226x300.jpg',
@@ -1281,6 +3273,103 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 26 August 1962, Nakhchivan / Azerbaijan. Went missing at the age of 32. Place of disappearance: Fuzuli. For 31 years, there has been no news about his fate… For his loved ones, time has stood still since Etibar disappeared…
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Etibar Ahmadov',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 26 August 1962, Nakhchivan / Azerbaijan. Went missing at the age of 32. Place of disappearance: Fuzuli. For 31 years, there has been no news about his fate… For his loved ones, time has stood still since Etibar disappeared…
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T11:12:07+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:40:40+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/etibar.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '330',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '386',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/etibar-ahmadov/#article","isPartOf":{"@id":"{{SITE}}/etibar-ahmadov/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Etibar Ahmadov","datePublished":"2025-08-12T11:12:07+00:00","dateModified":"2025-08-25T05:40:40+00:00","mainEntityOfPage":{"@id":"{{SITE}}/etibar-ahmadov/"},"wordCount":41,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/etibar-ahmadov/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/etibar.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/etibar-ahmadov/","url":"{{SITE}}/etibar-ahmadov/","name":"Etibar Ahmadov - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/etibar-ahmadov/#primaryimage"},"image":{"@id":"{{SITE}}/etibar-ahmadov/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/etibar.jpg","datePublished":"2025-08-12T11:12:07+00:00","dateModified":"2025-08-25T05:40:40+00:00","breadcrumb":{"@id":"{{SITE}}/etibar-ahmadov/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/etibar-ahmadov/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/etibar-ahmadov/#primaryimage","url":"{{SITE}}/uploads/2025/08/etibar.jpg","contentUrl":"{{SITE}}/uploads/2025/08/etibar.jpg","width":330,"height":386},{"@type":"BreadcrumbList","@id":"{{SITE}}/etibar-ahmadov/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Etibar Ahmadov"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/etibar.jpg',
             'srcset' => 'uploads/2025/08/etibar.jpg 330w, uploads/2025/08/etibar-256x300.jpg 256w',
@@ -1313,6 +3402,103 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 10 April 1973, Aghdam / Azerbaijan. Went missing at the age of 19. Place of disappearance: Zangilan. For 33 long years, no news has reached his family… His mother and loved ones still wait with hope for the day he will be found…
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Abbas Behbudov',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 10 April 1973, Aghdam / Azerbaijan. Went missing at the age of 19. Place of disappearance: Zangilan. For 33 long years, no news has reached his family… His mother and loved ones still wait with hope for the day he will be found…
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T11:11:08+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:42:38+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/abbas.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '418',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '519',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/abbas-behbudov/#article","isPartOf":{"@id":"{{SITE}}/abbas-behbudov/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Abbas Behbudov","datePublished":"2025-08-12T11:11:08+00:00","dateModified":"2025-08-25T05:42:38+00:00","mainEntityOfPage":{"@id":"{{SITE}}/abbas-behbudov/"},"wordCount":45,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/abbas-behbudov/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/abbas.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/abbas-behbudov/","url":"{{SITE}}/abbas-behbudov/","name":"Abbas Behbudov - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/abbas-behbudov/#primaryimage"},"image":{"@id":"{{SITE}}/abbas-behbudov/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/abbas.jpg","datePublished":"2025-08-12T11:11:08+00:00","dateModified":"2025-08-25T05:42:38+00:00","breadcrumb":{"@id":"{{SITE}}/abbas-behbudov/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/abbas-behbudov/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/abbas-behbudov/#primaryimage","url":"{{SITE}}/uploads/2025/08/abbas.jpg","contentUrl":"{{SITE}}/uploads/2025/08/abbas.jpg","width":418,"height":519},{"@type":"BreadcrumbList","@id":"{{SITE}}/abbas-behbudov/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Abbas Behbudov"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/abbas.jpg',
             'srcset' => 'uploads/2025/08/abbas.jpg 418w, uploads/2025/08/abbas-242x300.jpg 242w',
@@ -1344,6 +3530,103 @@ HTML,
         'description' => <<<'HTML'
 Vagif Mammadov and Afila Mammadova went missing following the Khojaly genocide on February 26, 1992, along with their children – 18-years-old Azer Mammadov, 16-years-old Jeyhun Mammadov and 14-years-old Niyammadin Mammadov… No belongings remain, only memories. Their absence is a wound that will never heal…
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'The Mammadov family',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Vagif Mammadov and Afila Mammadova went missing following the Khojaly genocide on February 26, 1992, along with their children – 18-years-old Azer Mammadov, 16-years-old Jeyhun Mammadov and 14-years-old Niyammadin Mammadov… No belongings remain, only memories. Their absence is a wound that will never heal…
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T11:09:42+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T08:57:24+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/memmedovlar.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '472',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '481',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/the-mammadov-family/#article","isPartOf":{"@id":"{{SITE}}/the-mammadov-family/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"The Mammadov family","datePublished":"2025-08-12T11:09:42+00:00","dateModified":"2025-08-25T08:57:24+00:00","mainEntityOfPage":{"@id":"{{SITE}}/the-mammadov-family/"},"wordCount":45,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/the-mammadov-family/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/memmedovlar.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/the-mammadov-family/","url":"{{SITE}}/the-mammadov-family/","name":"The Mammadov family - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/the-mammadov-family/#primaryimage"},"image":{"@id":"{{SITE}}/the-mammadov-family/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/memmedovlar.jpg","datePublished":"2025-08-12T11:09:42+00:00","dateModified":"2025-08-25T08:57:24+00:00","breadcrumb":{"@id":"{{SITE}}/the-mammadov-family/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/the-mammadov-family/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/the-mammadov-family/#primaryimage","url":"{{SITE}}/uploads/2025/08/memmedovlar.jpg","contentUrl":"{{SITE}}/uploads/2025/08/memmedovlar.jpg","width":472,"height":481},{"@type":"BreadcrumbList","@id":"{{SITE}}/the-mammadov-family/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"The Mammadov family"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/memmedovlar.jpg',
             'srcset' => 'uploads/2025/08/memmedovlar.jpg 472w, uploads/2025/08/memmedovlar-294x300.jpg 294w',
@@ -1372,6 +3655,103 @@ Date and place of birth: 21 September 1966, Baku / Azerbaijan. Went missing at t
 HTML,
         'description' => <<<'HTML'
 Date and place of birth: 21 September 1966, Baku / Azerbaijan. Went missing at the age of 27. Place of disappearance: Aghdara. For 32 years, there has been no news about his fate… His family still prays to see him again…
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Aydin Rahimov',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 21 September 1966, Baku / Azerbaijan. Went missing at the age of 27. Place of disappearance: Aghdara. For 32 years, there has been no news about his fate… His family still prays to see him again…
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T11:08:35+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:48:12+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/aydin.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '328',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '425',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/rehimov-aydin-daxil-oglu/#article","isPartOf":{"@id":"{{SITE}}/rehimov-aydin-daxil-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Aydin Rahimov","datePublished":"2025-08-12T11:08:35+00:00","dateModified":"2025-08-25T05:48:12+00:00","mainEntityOfPage":{"@id":"{{SITE}}/rehimov-aydin-daxil-oglu/"},"wordCount":38,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/rehimov-aydin-daxil-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/aydin.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/rehimov-aydin-daxil-oglu/","url":"{{SITE}}/rehimov-aydin-daxil-oglu/","name":"Aydin Rahimov - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/rehimov-aydin-daxil-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/rehimov-aydin-daxil-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/aydin.jpg","datePublished":"2025-08-12T11:08:35+00:00","dateModified":"2025-08-25T05:48:12+00:00","breadcrumb":{"@id":"{{SITE}}/rehimov-aydin-daxil-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/rehimov-aydin-daxil-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/rehimov-aydin-daxil-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/aydin.jpg","contentUrl":"{{SITE}}/uploads/2025/08/aydin.jpg","width":328,"height":425},{"@type":"BreadcrumbList","@id":"{{SITE}}/rehimov-aydin-daxil-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Aydin Rahimov"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/aydin.jpg',
@@ -1405,6 +3785,103 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 19 June 1973, Neftchala / Azerbaijan Went missing at the age of 19. Place of disappearance: Aghdam. For 33  years, there has been no news about his fate… His Mom Mrs.Elmira has a wish: “May God grant me time to see my child found, see him off to his final […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Ilham Dadashov',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 19 June 1973, Neftchala / Azerbaijan Went missing at the age of 19. Place of disappearance: Aghdam. For 33  years, there has been no news about his fate… His Mom Mrs.Elmira has a wish: “May God grant me time to see my child found, see him off to his final […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T11:06:58+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:32:27+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/ilham.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '375',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '475',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/dadasov-ilham-adil-oglu/#article","isPartOf":{"@id":"{{SITE}}/dadasov-ilham-adil-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Ilham Dadashov","datePublished":"2025-08-12T11:06:58+00:00","dateModified":"2025-08-25T05:32:27+00:00","mainEntityOfPage":{"@id":"{{SITE}}/dadasov-ilham-adil-oglu/"},"wordCount":63,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/dadasov-ilham-adil-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/ilham.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/dadasov-ilham-adil-oglu/","url":"{{SITE}}/dadasov-ilham-adil-oglu/","name":"Ilham Dadashov - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/dadasov-ilham-adil-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/dadasov-ilham-adil-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/ilham.jpg","datePublished":"2025-08-12T11:06:58+00:00","dateModified":"2025-08-25T05:32:27+00:00","breadcrumb":{"@id":"{{SITE}}/dadasov-ilham-adil-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/dadasov-ilham-adil-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/dadasov-ilham-adil-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/ilham.jpg","contentUrl":"{{SITE}}/uploads/2025/08/ilham.jpg","width":375,"height":475},{"@type":"BreadcrumbList","@id":"{{SITE}}/dadasov-ilham-adil-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Ilham Dadashov"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/ilham.jpg',
             'srcset' => 'uploads/2025/08/ilham.jpg 375w, uploads/2025/08/ilham-237x300.jpg 237w',
@@ -1436,6 +3913,103 @@ Date and place of birth: 9 April 1967, Lachin / Azerbaijan Went missing at the a
 HTML,
         'description' => <<<'HTML'
 Date and place of birth: 9 April 1967, Lachin / Azerbaijan Went missing at the age of 25. Place of disappearance: Khojaly.. For 33 years, there has been no news about his fate… His father spent months standing on the road in Aghdam, looking for Azad, hoping to get information about him from every passing […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Azad Jabbarov',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 9 April 1967, Lachin / Azerbaijan Went missing at the age of 25. Place of disappearance: Khojaly.. For 33 years, there has been no news about his fate… His father spent months standing on the road in Aghdam, looking for Azad, hoping to get information about him from every passing […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T11:05:57+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:31:41+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/azad.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '392',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '439',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/cabbarov-azad-pirqulu-oglu/#article","isPartOf":{"@id":"{{SITE}}/cabbarov-azad-pirqulu-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Azad Jabbarov","datePublished":"2025-08-12T11:05:57+00:00","dateModified":"2025-08-25T05:31:41+00:00","mainEntityOfPage":{"@id":"{{SITE}}/cabbarov-azad-pirqulu-oglu/"},"wordCount":71,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/cabbarov-azad-pirqulu-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/azad.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/cabbarov-azad-pirqulu-oglu/","url":"{{SITE}}/cabbarov-azad-pirqulu-oglu/","name":"Azad Jabbarov - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/cabbarov-azad-pirqulu-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/cabbarov-azad-pirqulu-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/azad.jpg","datePublished":"2025-08-12T11:05:57+00:00","dateModified":"2025-08-25T05:31:41+00:00","breadcrumb":{"@id":"{{SITE}}/cabbarov-azad-pirqulu-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/cabbarov-azad-pirqulu-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/cabbarov-azad-pirqulu-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/azad.jpg","contentUrl":"{{SITE}}/uploads/2025/08/azad.jpg","width":392,"height":439},{"@type":"BreadcrumbList","@id":"{{SITE}}/cabbarov-azad-pirqulu-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Azad Jabbarov"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/azad.jpg',
@@ -1469,6 +4043,103 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 25 August 1973, Baku / Azerbaijan Went missing at the age of 20. Place of disappearance: Aghdara. For 32 years, there has been no news about his fate… His mom Mrs.Mahuru says goodbye to the years, living every day in hope of the day she would receive news that Shahin […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Shahin Aliyev',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 25 August 1973, Baku / Azerbaijan Went missing at the age of 20. Place of disappearance: Aghdara. For 32 years, there has been no news about his fate… His mom Mrs.Mahuru says goodbye to the years, living every day in hope of the day she would receive news that Shahin […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T11:05:00+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:30:57+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/sahin.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '375',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '474',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/eliyev-sahin-mirze-oglu/#article","isPartOf":{"@id":"{{SITE}}/eliyev-sahin-mirze-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Shahin Aliyev","datePublished":"2025-08-12T11:05:00+00:00","dateModified":"2025-08-25T05:30:57+00:00","mainEntityOfPage":{"@id":"{{SITE}}/eliyev-sahin-mirze-oglu/"},"wordCount":64,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/eliyev-sahin-mirze-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/sahin.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/eliyev-sahin-mirze-oglu/","url":"{{SITE}}/eliyev-sahin-mirze-oglu/","name":"Shahin Aliyev - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/eliyev-sahin-mirze-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/eliyev-sahin-mirze-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/sahin.jpg","datePublished":"2025-08-12T11:05:00+00:00","dateModified":"2025-08-25T05:30:57+00:00","breadcrumb":{"@id":"{{SITE}}/eliyev-sahin-mirze-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/eliyev-sahin-mirze-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/eliyev-sahin-mirze-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/sahin.jpg","contentUrl":"{{SITE}}/uploads/2025/08/sahin.jpg","width":375,"height":474},{"@type":"BreadcrumbList","@id":"{{SITE}}/eliyev-sahin-mirze-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Shahin Aliyev"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/sahin.jpg',
             'srcset' => 'uploads/2025/08/sahin.jpg 375w, uploads/2025/08/sahin-237x300.jpg 237w',
@@ -1500,6 +4171,103 @@ Date and place of birth: 9 December 1973, Baku / Azerbaijan Went missing at the 
 HTML,
         'description' => <<<'HTML'
 Date and place of birth: 9 December 1973, Baku / Azerbaijan Went missing at the age of 20. Place of disappearance: Kalbajar For 32 years, there has been no news about his fate… His mother, Mrs.Tahira, has been waiting for her son for years, but she still hasn’t received any news about him…
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Telman Mustafayev',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 9 December 1973, Baku / Azerbaijan Went missing at the age of 20. Place of disappearance: Kalbajar For 32 years, there has been no news about his fate… His mother, Mrs.Tahira, has been waiting for her son for years, but she still hasn’t received any news about him…
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T11:04:08+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:30:27+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/telmanm.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '370',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '463',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/mustafayev-telman-qarabala-oglu/#article","isPartOf":{"@id":"{{SITE}}/mustafayev-telman-qarabala-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Telman Mustafayev","datePublished":"2025-08-12T11:04:08+00:00","dateModified":"2025-08-25T05:30:27+00:00","mainEntityOfPage":{"@id":"{{SITE}}/mustafayev-telman-qarabala-oglu/"},"wordCount":51,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/mustafayev-telman-qarabala-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/telmanm.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/mustafayev-telman-qarabala-oglu/","url":"{{SITE}}/mustafayev-telman-qarabala-oglu/","name":"Telman Mustafayev - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/mustafayev-telman-qarabala-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/mustafayev-telman-qarabala-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/telmanm.jpg","datePublished":"2025-08-12T11:04:08+00:00","dateModified":"2025-08-25T05:30:27+00:00","breadcrumb":{"@id":"{{SITE}}/mustafayev-telman-qarabala-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/mustafayev-telman-qarabala-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/mustafayev-telman-qarabala-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/telmanm.jpg","contentUrl":"{{SITE}}/uploads/2025/08/telmanm.jpg","width":370,"height":463},{"@type":"BreadcrumbList","@id":"{{SITE}}/mustafayev-telman-qarabala-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Telman Mustafayev"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/telmanm.jpg',
@@ -1533,6 +4301,103 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 10 February 1957, Aghdam/Azerbaijan. Went missing at the age of 35. Place of disappearance: Shusha. For 33 years, there has been no news about his fate… His son Jeyhun, daughter Parvane and beloved wife Nazan are still waiting…
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Abulfat Aliyev',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 10 February 1957, Aghdam/Azerbaijan. Went missing at the age of 35. Place of disappearance: Shusha. For 33 years, there has been no news about his fate… His son Jeyhun, daughter Parvane and beloved wife Nazan are still waiting…
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T11:02:47+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:28:40+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/ebulfet.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '282',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '417',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/eliyev-ebulfet-ferrux-oglu/#article","isPartOf":{"@id":"{{SITE}}/eliyev-ebulfet-ferrux-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Abulfat Aliyev","datePublished":"2025-08-12T11:02:47+00:00","dateModified":"2025-08-25T05:28:40+00:00","mainEntityOfPage":{"@id":"{{SITE}}/eliyev-ebulfet-ferrux-oglu/"},"wordCount":42,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/eliyev-ebulfet-ferrux-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/ebulfet.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/eliyev-ebulfet-ferrux-oglu/","url":"{{SITE}}/eliyev-ebulfet-ferrux-oglu/","name":"Abulfat Aliyev - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/eliyev-ebulfet-ferrux-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/eliyev-ebulfet-ferrux-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/ebulfet.jpg","datePublished":"2025-08-12T11:02:47+00:00","dateModified":"2025-08-25T05:28:40+00:00","breadcrumb":{"@id":"{{SITE}}/eliyev-ebulfet-ferrux-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/eliyev-ebulfet-ferrux-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/eliyev-ebulfet-ferrux-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/ebulfet.jpg","contentUrl":"{{SITE}}/uploads/2025/08/ebulfet.jpg","width":282,"height":417},{"@type":"BreadcrumbList","@id":"{{SITE}}/eliyev-ebulfet-ferrux-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Abulfat Aliyev"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/ebulfet.jpg',
             'srcset' => 'uploads/2025/08/ebulfet.jpg 282w, uploads/2025/08/ebulfet-203x300.jpg 203w',
@@ -1564,6 +4429,103 @@ Date and place of birth: 7 March 1961, Aghdam / Azerbaijan. Went missing at the 
 HTML,
         'description' => <<<'HTML'
 Date and place of birth: 7 March 1961, Aghdam / Azerbaijan. Went missing at the age of 31. Place of disappearance: Shusha. For 33 years, there has been no news about his fate… Silence surrounds his name, his wife and two children are still waiting with hope…
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Aliyar Aliyev',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 7 March 1961, Aghdam / Azerbaijan. Went missing at the age of 31. Place of disappearance: Shusha. For 33 years, there has been no news about his fate… Silence surrounds his name, his wife and two children are still waiting with hope…
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T11:01:47+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:25:14+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/eliyar.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '340',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '460',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/eliyev-eliyar-ferrux-oglu/#article","isPartOf":{"@id":"{{SITE}}/eliyev-eliyar-ferrux-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Aliyar Aliyev","datePublished":"2025-08-12T11:01:47+00:00","dateModified":"2025-08-25T05:25:14+00:00","mainEntityOfPage":{"@id":"{{SITE}}/eliyev-eliyar-ferrux-oglu/"},"wordCount":44,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/eliyev-eliyar-ferrux-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/eliyar.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/eliyev-eliyar-ferrux-oglu/","url":"{{SITE}}/eliyev-eliyar-ferrux-oglu/","name":"Aliyar Aliyev - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/eliyev-eliyar-ferrux-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/eliyev-eliyar-ferrux-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/eliyar.jpg","datePublished":"2025-08-12T11:01:47+00:00","dateModified":"2025-08-25T05:25:14+00:00","breadcrumb":{"@id":"{{SITE}}/eliyev-eliyar-ferrux-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/eliyev-eliyar-ferrux-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/eliyev-eliyar-ferrux-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/eliyar.jpg","contentUrl":"{{SITE}}/uploads/2025/08/eliyar.jpg","width":340,"height":460},{"@type":"BreadcrumbList","@id":"{{SITE}}/eliyev-eliyar-ferrux-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Aliyar Aliyev"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/eliyar.jpg',
@@ -1597,6 +4559,103 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 19 September 1953, Aghdam / Azerbaijan Went missing at the age of 41. Place of disappearance: Fuzuli. For 31 years, there has been no news about his fate… Even though years have passed, his family is still waiting for news from him…
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Gurbat Hasanov',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 19 September 1953, Aghdam / Azerbaijan Went missing at the age of 41. Place of disappearance: Fuzuli. For 31 years, there has been no news about his fate… Even though years have passed, his family is still waiting for news from him…
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T11:00:52+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T08:53:35+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/qurbet.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '359',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '523',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/gurbat-hasanov/#article","isPartOf":{"@id":"{{SITE}}/gurbat-hasanov/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Gurbat Hasanov","datePublished":"2025-08-12T11:00:52+00:00","dateModified":"2025-08-25T08:53:35+00:00","mainEntityOfPage":{"@id":"{{SITE}}/gurbat-hasanov/"},"wordCount":44,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/gurbat-hasanov/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/qurbet.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/gurbat-hasanov/","url":"{{SITE}}/gurbat-hasanov/","name":"Gurbat Hasanov - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/gurbat-hasanov/#primaryimage"},"image":{"@id":"{{SITE}}/gurbat-hasanov/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/qurbet.jpg","datePublished":"2025-08-12T11:00:52+00:00","dateModified":"2025-08-25T08:53:35+00:00","breadcrumb":{"@id":"{{SITE}}/gurbat-hasanov/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/gurbat-hasanov/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/gurbat-hasanov/#primaryimage","url":"{{SITE}}/uploads/2025/08/qurbet.jpg","contentUrl":"{{SITE}}/uploads/2025/08/qurbet.jpg","width":359,"height":523},{"@type":"BreadcrumbList","@id":"{{SITE}}/gurbat-hasanov/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Gurbat Hasanov"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/qurbet.jpg',
             'srcset' => 'uploads/2025/08/qurbet.jpg 359w, uploads/2025/08/qurbet-206x300.jpg 206w',
@@ -1628,6 +4687,103 @@ Date and place of birth: 5 August 1968, Zangilan / Azerbaijan Went missing at th
 HTML,
         'description' => <<<'HTML'
 Date and place of birth: 5 August 1968, Zangilan / Azerbaijan Went missing at the age of 25. Place of disappearance: Jabrail.  For 32 years, there has been no news about his fate… His family finds comfort in his memories, and they still wait with hope for the day he will be found…
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'İsmayil İsmayilov',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 5 August 1968, Zangilan / Azerbaijan Went missing at the age of 25. Place of disappearance: Jabrail.  For 32 years, there has been no news about his fate… His family finds comfort in his memories, and they still wait with hope for the day he will be found…
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T10:59:55+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:18:35+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/ismayil.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '323',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '410',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/ismayilov-ismayil-barat-oglu/#article","isPartOf":{"@id":"{{SITE}}/ismayilov-ismayil-barat-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"İsmayil İsmayilov","datePublished":"2025-08-12T10:59:55+00:00","dateModified":"2025-08-25T05:18:35+00:00","mainEntityOfPage":{"@id":"{{SITE}}/ismayilov-ismayil-barat-oglu/"},"wordCount":50,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/ismayilov-ismayil-barat-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/ismayil.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/ismayilov-ismayil-barat-oglu/","url":"{{SITE}}/ismayilov-ismayil-barat-oglu/","name":"İsmayil İsmayilov - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/ismayilov-ismayil-barat-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/ismayilov-ismayil-barat-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/ismayil.jpg","datePublished":"2025-08-12T10:59:55+00:00","dateModified":"2025-08-25T05:18:35+00:00","breadcrumb":{"@id":"{{SITE}}/ismayilov-ismayil-barat-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/ismayilov-ismayil-barat-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/ismayilov-ismayil-barat-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/ismayil.jpg","contentUrl":"{{SITE}}/uploads/2025/08/ismayil.jpg","width":323,"height":410},{"@type":"BreadcrumbList","@id":"{{SITE}}/ismayilov-ismayil-barat-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"İsmayil İsmayilov"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/ismayil.jpg',
@@ -1661,6 +4817,103 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 16 August 1975, Baku / Azerbaijan Went missing at the age of 19. Place of disappearance: Kalbajar. For 31 years, there has been no news about his fate… His notebook filled with handwriting is still preserved… as if waiting for Telman to finish the story he started. Unable to hear […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Telman Yusifov',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 16 August 1975, Baku / Azerbaijan Went missing at the age of 19. Place of disappearance: Kalbajar. For 31 years, there has been no news about his fate… His notebook filled with handwriting is still preserved… as if waiting for Telman to finish the story he started. Unable to hear […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T10:58:59+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:17:54+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/telman.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '392',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '517',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/yusifov-telman-avasat-oglu/#article","isPartOf":{"@id":"{{SITE}}/yusifov-telman-avasat-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Telman Yusifov","datePublished":"2025-08-12T10:58:59+00:00","dateModified":"2025-08-25T05:17:54+00:00","mainEntityOfPage":{"@id":"{{SITE}}/yusifov-telman-avasat-oglu/"},"wordCount":75,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/yusifov-telman-avasat-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/telman.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/yusifov-telman-avasat-oglu/","url":"{{SITE}}/yusifov-telman-avasat-oglu/","name":"Telman Yusifov - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/yusifov-telman-avasat-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/yusifov-telman-avasat-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/telman.jpg","datePublished":"2025-08-12T10:58:59+00:00","dateModified":"2025-08-25T05:17:54+00:00","breadcrumb":{"@id":"{{SITE}}/yusifov-telman-avasat-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/yusifov-telman-avasat-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/yusifov-telman-avasat-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/telman.jpg","contentUrl":"{{SITE}}/uploads/2025/08/telman.jpg","width":392,"height":517},{"@type":"BreadcrumbList","@id":"{{SITE}}/yusifov-telman-avasat-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Telman Yusifov"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/telman.jpg',
             'srcset' => 'uploads/2025/08/telman.jpg 392w, uploads/2025/08/telman-227x300.jpg 227w',
@@ -1692,6 +4945,103 @@ Date and place of birth: 20 January 1964, Salyan / Azerbaijan. Went missing at t
 HTML,
         'description' => <<<'HTML'
 Date and place of birth: 20 January 1964, Salyan / Azerbaijan. Went missing at the age of 30. Place of disappearance: Fuzuli. For 31 years, there has been no news about his fate… His wife, Mrs.Reyhan, and their two daughters have been waiting for him with hope for many years and still do not lose […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Sakhavat Janiyev',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 20 January 1964, Salyan / Azerbaijan. Went missing at the age of 30. Place of disappearance: Fuzuli. For 31 years, there has been no news about his fate… His wife, Mrs.Reyhan, and their two daughters have been waiting for him with hope for many years and still do not lose […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T10:57:55+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:16:22+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/sexavet.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '370',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '458',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/caniyev-sexavet-xanis-oglu/#article","isPartOf":{"@id":"{{SITE}}/caniyev-sexavet-xanis-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Sakhavat Janiyev","datePublished":"2025-08-12T10:57:55+00:00","dateModified":"2025-08-25T05:16:22+00:00","mainEntityOfPage":{"@id":"{{SITE}}/caniyev-sexavet-xanis-oglu/"},"wordCount":54,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/caniyev-sexavet-xanis-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/sexavet.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/caniyev-sexavet-xanis-oglu/","url":"{{SITE}}/caniyev-sexavet-xanis-oglu/","name":"Sakhavat Janiyev - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/caniyev-sexavet-xanis-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/caniyev-sexavet-xanis-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/sexavet.jpg","datePublished":"2025-08-12T10:57:55+00:00","dateModified":"2025-08-25T05:16:22+00:00","breadcrumb":{"@id":"{{SITE}}/caniyev-sexavet-xanis-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/caniyev-sexavet-xanis-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/caniyev-sexavet-xanis-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/sexavet.jpg","contentUrl":"{{SITE}}/uploads/2025/08/sexavet.jpg","width":370,"height":458},{"@type":"BreadcrumbList","@id":"{{SITE}}/caniyev-sexavet-xanis-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Sakhavat Janiyev"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/sexavet.jpg',
@@ -1725,6 +5075,103 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 18 September 1968. Went missing at the age of 24. Place of disappearance: Shusha.  For 33 years, there has been no news about his fate… The only surviving sister from this family, Ms.Nazlı is still waiting for her brother…
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Shirindil Hasanguliyev',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 18 September 1968. Went missing at the age of 24. Place of disappearance: Shusha.  For 33 years, there has been no news about his fate… The only surviving sister from this family, Ms.Nazlı is still waiting for her brother…
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T10:57:01+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T10:16:42+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/sirindil.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '368',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '458',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/hesenquliyev-sirindil-cavad-oglu/#article","isPartOf":{"@id":"{{SITE}}/hesenquliyev-sirindil-cavad-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Shirindil Hasanguliyev","datePublished":"2025-08-12T10:57:01+00:00","dateModified":"2025-08-25T10:16:42+00:00","mainEntityOfPage":{"@id":"{{SITE}}/hesenquliyev-sirindil-cavad-oglu/"},"wordCount":43,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/hesenquliyev-sirindil-cavad-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/sirindil.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/hesenquliyev-sirindil-cavad-oglu/","url":"{{SITE}}/hesenquliyev-sirindil-cavad-oglu/","name":"Shirindil Hasanguliyev - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/hesenquliyev-sirindil-cavad-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/hesenquliyev-sirindil-cavad-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/sirindil.jpg","datePublished":"2025-08-12T10:57:01+00:00","dateModified":"2025-08-25T10:16:42+00:00","breadcrumb":{"@id":"{{SITE}}/hesenquliyev-sirindil-cavad-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/hesenquliyev-sirindil-cavad-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/hesenquliyev-sirindil-cavad-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/sirindil.jpg","contentUrl":"{{SITE}}/uploads/2025/08/sirindil.jpg","width":368,"height":458},{"@type":"BreadcrumbList","@id":"{{SITE}}/hesenquliyev-sirindil-cavad-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Shirindil Hasanguliyev"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/sirindil.jpg',
             'srcset' => 'uploads/2025/08/sirindil.jpg 368w, uploads/2025/08/sirindil-241x300.jpg 241w',
@@ -1756,6 +5203,103 @@ Date and place of birth: 30 May 1957, Siyazan / Azerbaijan. Went missing at the 
 HTML,
         'description' => <<<'HTML'
 Date and place of birth: 30 May 1957, Siyazan / Azerbaijan. Went missing at the age of 36. Place of disappearance: Gubadli. For 32 years, there has been no news about his fate… His son Qabil says he last saw his father when he was 10 years old: “My sisters were young, they don’t remember […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Feyruz Jalilov',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 30 May 1957, Siyazan / Azerbaijan. Went missing at the age of 36. Place of disappearance: Gubadli. For 32 years, there has been no news about his fate… His son Qabil says he last saw his father when he was 10 years old: “My sisters were young, they don’t remember […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T10:56:11+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:15:00+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/feyruz.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '380',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '559',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/celilov-feyruz-xanbala-oglu/#article","isPartOf":{"@id":"{{SITE}}/celilov-feyruz-xanbala-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Feyruz Jalilov","datePublished":"2025-08-12T10:56:11+00:00","dateModified":"2025-08-25T05:15:00+00:00","mainEntityOfPage":{"@id":"{{SITE}}/celilov-feyruz-xanbala-oglu/"},"wordCount":54,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/celilov-feyruz-xanbala-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/feyruz.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/celilov-feyruz-xanbala-oglu/","url":"{{SITE}}/celilov-feyruz-xanbala-oglu/","name":"Feyruz Jalilov - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/celilov-feyruz-xanbala-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/celilov-feyruz-xanbala-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/feyruz.jpg","datePublished":"2025-08-12T10:56:11+00:00","dateModified":"2025-08-25T05:15:00+00:00","breadcrumb":{"@id":"{{SITE}}/celilov-feyruz-xanbala-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/celilov-feyruz-xanbala-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/celilov-feyruz-xanbala-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/feyruz.jpg","contentUrl":"{{SITE}}/uploads/2025/08/feyruz.jpg","width":380,"height":559},{"@type":"BreadcrumbList","@id":"{{SITE}}/celilov-feyruz-xanbala-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Feyruz Jalilov"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/feyruz.jpg',
@@ -1790,6 +5334,103 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 19 June 1959,  Khojaly / Azerbaijan. Went missing at the age of 33. Place of disappearance: Khojaly.           For 33 years, there has been no news about his fate… His wife Ms.Parvana: “We could not accept his absence, we waited for him, hoping    that we would receive some news, we […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Ogtay Mammadov',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 19 June 1959,  Khojaly / Azerbaijan. Went missing at the age of 33. Place of disappearance: Khojaly.           For 33 years, there has been no news about his fate… His wife Ms.Parvana: “We could not accept his absence, we waited for him, hoping    that we would receive some news, we […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T10:55:20+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:14:32+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/oqtay.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '368',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '421',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/memmedov-oqtay-sukur-oglu/#article","isPartOf":{"@id":"{{SITE}}/memmedov-oqtay-sukur-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Ogtay Mammadov","datePublished":"2025-08-12T10:55:20+00:00","dateModified":"2025-08-25T05:14:32+00:00","mainEntityOfPage":{"@id":"{{SITE}}/memmedov-oqtay-sukur-oglu/"},"wordCount":84,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/memmedov-oqtay-sukur-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/oqtay.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/memmedov-oqtay-sukur-oglu/","url":"{{SITE}}/memmedov-oqtay-sukur-oglu/","name":"Ogtay Mammadov - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/memmedov-oqtay-sukur-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/memmedov-oqtay-sukur-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/oqtay.jpg","datePublished":"2025-08-12T10:55:20+00:00","dateModified":"2025-08-25T05:14:32+00:00","breadcrumb":{"@id":"{{SITE}}/memmedov-oqtay-sukur-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/memmedov-oqtay-sukur-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/memmedov-oqtay-sukur-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/oqtay.jpg","contentUrl":"{{SITE}}/uploads/2025/08/oqtay.jpg","width":368,"height":421},{"@type":"BreadcrumbList","@id":"{{SITE}}/memmedov-oqtay-sukur-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Ogtay Mammadov"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/oqtay.jpg',
             'srcset' => 'uploads/2025/08/oqtay.jpg 368w, uploads/2025/08/oqtay-262x300.jpg 262w',
@@ -1823,6 +5464,103 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 18 December 1965. Went missing at the age of 27. Place of disappearance: Khojavand His watch stopped ticking 33 years ago… but in the hearts of his family, time still waits for Zahir’s return…
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Zahir Gasimov',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 18 December 1965. Went missing at the age of 27. Place of disappearance: Khojavand His watch stopped ticking 33 years ago… but in the hearts of his family, time still waits for Zahir’s return…
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T10:54:12+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T09:04:06+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/zahir.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '153',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '197',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/qasimov-zahir-ismayil-oglu/#article","isPartOf":{"@id":"{{SITE}}/qasimov-zahir-ismayil-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Zahir Gasimov","datePublished":"2025-08-12T10:54:12+00:00","dateModified":"2025-08-25T09:04:06+00:00","mainEntityOfPage":{"@id":"{{SITE}}/qasimov-zahir-ismayil-oglu/"},"wordCount":38,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/qasimov-zahir-ismayil-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/zahir.jpg","articleSection":["Həyat hekayələri","Без категории"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/qasimov-zahir-ismayil-oglu/","url":"{{SITE}}/qasimov-zahir-ismayil-oglu/","name":"Zahir Gasimov - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/qasimov-zahir-ismayil-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/qasimov-zahir-ismayil-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/zahir.jpg","datePublished":"2025-08-12T10:54:12+00:00","dateModified":"2025-08-25T09:04:06+00:00","breadcrumb":{"@id":"{{SITE}}/qasimov-zahir-ismayil-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/qasimov-zahir-ismayil-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/qasimov-zahir-ismayil-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/zahir.jpg","contentUrl":"{{SITE}}/uploads/2025/08/zahir.jpg","width":153,"height":197},{"@type":"BreadcrumbList","@id":"{{SITE}}/qasimov-zahir-ismayil-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Zahir Gasimov"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/zahir.jpg',
             'srcset' => '',
@@ -1854,6 +5592,103 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 27 June, 1972,  Aghdam / Azerbaijan. Went missing at the age of 22. Place of disappearance:  Murovdagh. For more than three decades, his family has carried the pain of not knowing… His mother still keeps his photos close, whispering that her son will one day come back…
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Bafadar Mirzayev',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 27 June, 1972,  Aghdam / Azerbaijan. Went missing at the age of 22. Place of disappearance:  Murovdagh. For more than three decades, his family has carried the pain of not knowing… His mother still keeps his photos close, whispering that her son will one day come back…
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T10:53:21+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:13:22+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/bafadar.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '375',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '458',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/mirzeyev-bafadar-esedulla-oglu/#article","isPartOf":{"@id":"{{SITE}}/mirzeyev-bafadar-esedulla-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Bafadar Mirzayev","datePublished":"2025-08-12T10:53:21+00:00","dateModified":"2025-08-25T05:13:22+00:00","mainEntityOfPage":{"@id":"{{SITE}}/mirzeyev-bafadar-esedulla-oglu/"},"wordCount":50,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/mirzeyev-bafadar-esedulla-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/bafadar.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/mirzeyev-bafadar-esedulla-oglu/","url":"{{SITE}}/mirzeyev-bafadar-esedulla-oglu/","name":"Bafadar Mirzayev - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/mirzeyev-bafadar-esedulla-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/mirzeyev-bafadar-esedulla-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/bafadar.jpg","datePublished":"2025-08-12T10:53:21+00:00","dateModified":"2025-08-25T05:13:22+00:00","breadcrumb":{"@id":"{{SITE}}/mirzeyev-bafadar-esedulla-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/mirzeyev-bafadar-esedulla-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/mirzeyev-bafadar-esedulla-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/bafadar.jpg","contentUrl":"{{SITE}}/uploads/2025/08/bafadar.jpg","width":375,"height":458},{"@type":"BreadcrumbList","@id":"{{SITE}}/mirzeyev-bafadar-esedulla-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Bafadar Mirzayev"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/bafadar.jpg',
             'srcset' => 'uploads/2025/08/bafadar.jpg 375w, uploads/2025/08/bafadar-246x300.jpg 246w',
@@ -1884,6 +5719,103 @@ Date and place of birth: 23 June 1974, Fuzuli / Azerbaijan. Went missing at the 
 HTML,
         'description' => <<<'HTML'
 Date and place of birth: 23 June 1974, Fuzuli / Azerbaijan. Went missing at the age of 19. Place of disappearance:  Aghdara. For 32 long years, his family has lived in uncertainty. Every day they pray that Ixtiyar’s fate will finally be revealed…
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Ikhtiyar Mammadov',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 23 June 1974, Fuzuli / Azerbaijan. Went missing at the age of 19. Place of disappearance:  Aghdara. For 32 long years, his family has lived in uncertainty. Every day they pray that Ixtiyar’s fate will finally be revealed…
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T10:51:56+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:12:36+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/ixtiyar.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '395',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '447',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/memmedov-ixtiyar-qameddin-oglu/#article","isPartOf":{"@id":"{{SITE}}/memmedov-ixtiyar-qameddin-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Ikhtiyar Mammadov","datePublished":"2025-08-12T10:51:56+00:00","dateModified":"2025-08-25T05:12:36+00:00","mainEntityOfPage":{"@id":"{{SITE}}/memmedov-ixtiyar-qameddin-oglu/"},"wordCount":41,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/memmedov-ixtiyar-qameddin-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/ixtiyar.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/memmedov-ixtiyar-qameddin-oglu/","url":"{{SITE}}/memmedov-ixtiyar-qameddin-oglu/","name":"Ikhtiyar Mammadov - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/memmedov-ixtiyar-qameddin-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/memmedov-ixtiyar-qameddin-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/ixtiyar.jpg","datePublished":"2025-08-12T10:51:56+00:00","dateModified":"2025-08-25T05:12:36+00:00","breadcrumb":{"@id":"{{SITE}}/memmedov-ixtiyar-qameddin-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/memmedov-ixtiyar-qameddin-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/memmedov-ixtiyar-qameddin-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/ixtiyar.jpg","contentUrl":"{{SITE}}/uploads/2025/08/ixtiyar.jpg","width":395,"height":447},{"@type":"BreadcrumbList","@id":"{{SITE}}/memmedov-ixtiyar-qameddin-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Ikhtiyar Mammadov"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/ixtiyar.jpg',
@@ -1917,6 +5849,103 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 3 October 1962, Kalbajar / Azerbaijan. Went missing at the age of 31. Place of disappearance: Kalbajar. For 32 years, silence has surrounded his name… His wife Mrs.Yagut raised their children with unwavering faith, believing that one day Natiq would come back…
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Natig Malikov',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 3 October 1962, Kalbajar / Azerbaijan. Went missing at the age of 31. Place of disappearance: Kalbajar. For 32 years, silence has surrounded his name… His wife Mrs.Yagut raised their children with unwavering faith, believing that one day Natiq would come back…
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T10:48:52+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:11:10+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/natiq.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '418',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '454',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/melikov-natiq-siyavus-oglu/#article","isPartOf":{"@id":"{{SITE}}/melikov-natiq-siyavus-oglu/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Natig Malikov","datePublished":"2025-08-12T10:48:52+00:00","dateModified":"2025-08-25T05:11:10+00:00","mainEntityOfPage":{"@id":"{{SITE}}/melikov-natiq-siyavus-oglu/"},"wordCount":45,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/melikov-natiq-siyavus-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/natiq.jpg","articleSection":["Həyat hekayələri","Без категории"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/melikov-natiq-siyavus-oglu/","url":"{{SITE}}/melikov-natiq-siyavus-oglu/","name":"Natig Malikov - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/melikov-natiq-siyavus-oglu/#primaryimage"},"image":{"@id":"{{SITE}}/melikov-natiq-siyavus-oglu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/natiq.jpg","datePublished":"2025-08-12T10:48:52+00:00","dateModified":"2025-08-25T05:11:10+00:00","breadcrumb":{"@id":"{{SITE}}/melikov-natiq-siyavus-oglu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/melikov-natiq-siyavus-oglu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/melikov-natiq-siyavus-oglu/#primaryimage","url":"{{SITE}}/uploads/2025/08/natiq.jpg","contentUrl":"{{SITE}}/uploads/2025/08/natiq.jpg","width":418,"height":454},{"@type":"BreadcrumbList","@id":"{{SITE}}/melikov-natiq-siyavus-oglu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Natig Malikov"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/natiq.jpg',
             'srcset' => 'uploads/2025/08/natiq.jpg 418w, uploads/2025/08/natiq-276x300.jpg 276w',
@@ -1947,6 +5976,103 @@ Date and place of birth: 11 February 1966, Jalilabad / Azerbaijan. Went missing 
 HTML,
         'description' => <<<'HTML'
 Date and place of birth: 11 February 1966, Jalilabad / Azerbaijan. Went missing at the age of 26. Place of disappearance: Shusha.  For 33 years, there has been no news about his fate… Even though years have passed, his family and only daughter are waiting for news from him…
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Tayyar Aghayev',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Date and place of birth: 11 February 1966, Jalilabad / Azerbaijan. Went missing at the age of 26. Place of disappearance: Shusha.  For 33 years, there has been no news about his fate… Even though years have passed, his family and only daughter are waiting for news from him…
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-08-12T10:47:27+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-08-25T05:47:29+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2025/08/teyyar.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '303',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '398',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/tayyar-aghayev/#article","isPartOf":{"@id":"{{SITE}}/tayyar-aghayev/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"Tayyar Aghayev","datePublished":"2025-08-12T10:47:27+00:00","dateModified":"2025-08-25T05:47:29+00:00","mainEntityOfPage":{"@id":"{{SITE}}/tayyar-aghayev/"},"wordCount":46,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/tayyar-aghayev/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/teyyar.jpg","articleSection":["Həyat hekayələri"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/tayyar-aghayev/","url":"{{SITE}}/tayyar-aghayev/","name":"Tayyar Aghayev - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/tayyar-aghayev/#primaryimage"},"image":{"@id":"{{SITE}}/tayyar-aghayev/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2025/08/teyyar.jpg","datePublished":"2025-08-12T10:47:27+00:00","dateModified":"2025-08-25T05:47:29+00:00","breadcrumb":{"@id":"{{SITE}}/tayyar-aghayev/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/tayyar-aghayev/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/tayyar-aghayev/#primaryimage","url":"{{SITE}}/uploads/2025/08/teyyar.jpg","contentUrl":"{{SITE}}/uploads/2025/08/teyyar.jpg","width":303,"height":398},{"@type":"BreadcrumbList","@id":"{{SITE}}/tayyar-aghayev/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Tayyar Aghayev"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2025/08/teyyar.jpg',
@@ -1980,6 +6106,103 @@ HTML,
 HTML,
         'description' => <<<'HTML'
 İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat 04 iyul 2025-ci il № Soyadı, adı və atasının adı Statusu Dəfn tarixi və yeri İtkin düşmüş şəxsin fotoşəkli 1. Əzizov Yusif İsmayıl oğlu hərbçi 04.07.2025 saat 15:00 Kəlbəcər şəhər qəbiristanlığı 2. Musayev Mehman Camal oğlu hərbçi 04.07.2025 saat 15:00 Kəlbəcər şəhər qəbiristanlığı   3. Qarayev Qafar Qəmbər oğlu hərbçi […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat 04 iyul 2025-ci il № Soyadı, adı və atasının adı Statusu Dəfn tarixi və yeri İtkin düşmüş şəxsin fotoşəkli 1. Əzizov Yusif İsmayıl oğlu hərbçi 04.07.2025 saat 15:00 Kəlbəcər şəhər qəbiristanlığı 2. Musayev Mehman Camal oğlu hərbçi 04.07.2025 saat 15:00 Kəlbəcər şəhər qəbiristanlığı   3. Qarayev Qafar Qəmbər oğlu hərbçi […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2025-07-03T12:38:01+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2025-07-03T12:40:57+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/09/20240918100745_76377800.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '2280',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1438',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'Konul',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat-2/#article","isPartOf":{"@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat-2/"},"author":{"name":"Konul","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa"},"headline":"İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat","datePublished":"2025-07-03T12:38:01+00:00","dateModified":"2025-07-03T12:40:57+00:00","mainEntityOfPage":{"@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat-2/"},"wordCount":100,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat-2/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/09/20240918100745_76377800.jpg","articleSection":["Tədbirlər","Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat-2/","url":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat-2/","name":"İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat-2/#primaryimage"},"image":{"@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat-2/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/09/20240918100745_76377800.jpg","datePublished":"2025-07-03T12:38:01+00:00","dateModified":"2025-07-03T12:40:57+00:00","breadcrumb":{"@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat-2/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat-2/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat-2/#primaryimage","url":"{{SITE}}/uploads/2024/09/20240918100745_76377800.jpg","contentUrl":"{{SITE}}/uploads/2024/09/20240918100745_76377800.jpg","width":2280,"height":1438},{"@type":"BreadcrumbList","@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat-2/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/fef9f489859829e6b231b76e96c3e7fa","name":"Konul"}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2024/09/20240918100745_76377800.jpg',
@@ -2055,6 +6278,103 @@ HTML,
 HTML,
         'description' => <<<'HTML'
 20 sentyabr 2024-cü il № Soyadı, adı və atasının adı Statusu Dəfn vaxtı və yeri İtkin düşmüş şəxsin fotosu 1. Məmmədov Mübariz İlyas oğlu Hərbçi saat 12:00 Bakı şəhəri, Nizami rayonu, Keşlə qəsəbəsi Şəhidlər Xiyabanı 2. Səfərov Səfəralı Alverdi (Allahverdi) oğlu Hərbçi saat 13:00 Sumqayıt şəhəri Şəhidlər Xiyabanı 3. Rüstəmov Tərlan Kamal oğlu Hərbçi saat […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+20 sentyabr 2024-cü il № Soyadı, adı və atasının adı Statusu Dəfn vaxtı və yeri İtkin düşmüş şəxsin fotosu 1. Məmmədov Mübariz İlyas oğlu Hərbçi saat 12:00 Bakı şəhəri, Nizami rayonu, Keşlə qəsəbəsi Şəhidlər Xiyabanı 2. Səfərov Səfəralı Alverdi (Allahverdi) oğlu Hərbçi saat 13:00 Sumqayıt şəhəri Şəhidlər Xiyabanı 3. Rüstəmov Tərlan Kamal oğlu Hərbçi saat […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2024-09-20T07:00:09+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2024-09-20T07:02:21+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/09/20240918100745_76377800.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '2280',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1438',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat/#article","isPartOf":{"@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat","datePublished":"2024-09-20T07:00:09+00:00","dateModified":"2024-09-20T07:02:21+00:00","mainEntityOfPage":{"@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat/"},"wordCount":126,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/09/20240918100745_76377800.jpg","articleSection":["Tədbirlər","Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat/","url":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat/","name":"İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat/#primaryimage"},"image":{"@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/09/20240918100745_76377800.jpg","datePublished":"2024-09-20T07:00:09+00:00","dateModified":"2024-09-20T07:02:21+00:00","breadcrumb":{"@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat/#primaryimage","url":"{{SITE}}/uploads/2024/09/20240918100745_76377800.jpg","contentUrl":"{{SITE}}/uploads/2024/09/20240918100745_76377800.jpg","width":2280,"height":1438},{"@type":"BreadcrumbList","@id":"{{SITE}}/itkin-sehidlerin-defn-merasimlerine-dair-melumat/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2024/09/20240918100745_76377800.jpg',
@@ -2151,6 +6471,98 @@ HTML,
         'description' => <<<'HTML'
   “Qarabağ İtkin Ailələri” İctimai Birliyi Azərbaycan Respublikası Qeyri-Hökumət Təşkilatlarına Dövlət Dəstəyi Agentliyinin maliyyə dəstəyi ilə “İtkin düşmüş Azərbaycan vətəndaşlarının hüquqlarının BMT müstəvisində müdafiəsi” layihəsinin icrasını uğurla davam etdirir. Qarabağ itkin ailələri İctimai Birliyi 30 avqust – Beynəlxalq İtkinlər Günü münasibətilə bəyanat yayması da bu layihənin ən önəmli və vacib predmetlərindən biri və itkin ailələrinin […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '"Beynəlxalq İtkinlər Günü münasibətilə bəyanat yaymaq haqqımızdır" - Birliyin sədri',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+  “Qarabağ İtkin Ailələri” İctimai Birliyi Azərbaycan Respublikası Qeyri-Hökumət Təşkilatlarına Dövlət Dəstəyi Agentliyinin maliyyə dəstəyi ilə “İtkin düşmüş Azərbaycan vətəndaşlarının hüquqlarının BMT müstəvisində müdafiəsi” layihəsinin icrasını uğurla davam etdirir. Qarabağ itkin ailələri İctimai Birliyi 30 avqust – Beynəlxalq İtkinlər Günü münasibətilə bəyanat yayması da bu layihənin ən önəmli və vacib predmetlərindən biri və itkin ailələrinin […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2024-09-03T18:41:24+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/09/1-1.png',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '922',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '630',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/png',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '4 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/beynelxalq-itkinler-gunu-munasibetile-beyanat-yaymaq-haqqimizdir-birliyin-sedri/#article","isPartOf":{"@id":"{{SITE}}/beynelxalq-itkinler-gunu-munasibetile-beyanat-yaymaq-haqqimizdir-birliyin-sedri/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"&#8220;Beynəlxalq İtkinlər Günü münasibətilə bəyanat yaymaq haqqımızdır&#8221; &#8211; Birliyin sədri","datePublished":"2024-09-03T18:41:24+00:00","dateModified":"2024-09-03T18:41:24+00:00","mainEntityOfPage":{"@id":"{{SITE}}/beynelxalq-itkinler-gunu-munasibetile-beyanat-yaymaq-haqqimizdir-birliyin-sedri/"},"wordCount":1084,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/beynelxalq-itkinler-gunu-munasibetile-beyanat-yaymaq-haqqimizdir-birliyin-sedri/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/09/1-1.png","articleSection":["Tədbirlər","Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/beynelxalq-itkinler-gunu-munasibetile-beyanat-yaymaq-haqqimizdir-birliyin-sedri/","url":"{{SITE}}/beynelxalq-itkinler-gunu-munasibetile-beyanat-yaymaq-haqqimizdir-birliyin-sedri/","name":"\"Beynəlxalq İtkinlər Günü münasibətilə bəyanat yaymaq haqqımızdır\" - Birliyin sədri - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/beynelxalq-itkinler-gunu-munasibetile-beyanat-yaymaq-haqqimizdir-birliyin-sedri/#primaryimage"},"image":{"@id":"{{SITE}}/beynelxalq-itkinler-gunu-munasibetile-beyanat-yaymaq-haqqimizdir-birliyin-sedri/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/09/1-1.png","datePublished":"2024-09-03T18:41:24+00:00","dateModified":"2024-09-03T18:41:24+00:00","breadcrumb":{"@id":"{{SITE}}/beynelxalq-itkinler-gunu-munasibetile-beyanat-yaymaq-haqqimizdir-birliyin-sedri/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/beynelxalq-itkinler-gunu-munasibetile-beyanat-yaymaq-haqqimizdir-birliyin-sedri/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/beynelxalq-itkinler-gunu-munasibetile-beyanat-yaymaq-haqqimizdir-birliyin-sedri/#primaryimage","url":"{{SITE}}/uploads/2024/09/1-1.png","contentUrl":"{{SITE}}/uploads/2024/09/1-1.png","width":922,"height":630},{"@type":"BreadcrumbList","@id":"{{SITE}}/beynelxalq-itkinler-gunu-munasibetile-beyanat-yaymaq-haqqimizdir-birliyin-sedri/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"&#8220;Beynəlxalq İtkinlər Günü münasibətilə bəyanat yaymaq haqqımızdır&#8221; &#8211; Birliyin sədri"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2024/09/1-1.png',
             'srcset' => 'uploads/2024/09/1-1.png 922w, uploads/2024/09/1-1-300x205.png 300w, uploads/2024/09/1-1-768x525.png 768w',
@@ -2209,6 +6621,98 @@ HTML,
         'description' => <<<'HTML'
 “Qarabağ İtkin Ailələri” İctimai Birliyi Azərbaycan Respublikasının Qeyri-Hökumət Təşkilatlarına Dövlət Dəstəyi Agentliyinin maliyyə dəstəyi ilə “İtkin düşmüş Azərbaycan vətəndaşlarının hüquqlarının BMT müstəvisində müdafiəsi” layihəsinin icrasına başlayıb. Layihə Bakı şəhərində icra ediləcək. Onu da əlavə edim ki itkin düşmüş ailələrinin üzvləri Bakı şəhərində daha çox yaşayırlar. Layihənin məqsədi BMT-nin İnsan Hüquqları Şurasının Zorakı və qeyri-iradi itkindüşmələr […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '“Qarabağ İtkin Ailələri” İctimai Birliyi',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+“Qarabağ İtkin Ailələri” İctimai Birliyi Azərbaycan Respublikasının Qeyri-Hökumət Təşkilatlarına Dövlət Dəstəyi Agentliyinin maliyyə dəstəyi ilə “İtkin düşmüş Azərbaycan vətəndaşlarının hüquqlarının BMT müstəvisində müdafiəsi” layihəsinin icrasına başlayıb. Layihə Bakı şəhərində icra ediləcək. Onu da əlavə edim ki itkin düşmüş ailələrinin üzvləri Bakı şəhərində daha çox yaşayırlar. Layihənin məqsədi BMT-nin İnsan Hüquqları Şurasının Zorakı və qeyri-iradi itkindüşmələr […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2024-07-12T12:19:37+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/07/ac1923c6-312a-46e9-ba94-d208e2e64fdc.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '922',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '630',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyi/#article","isPartOf":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyi/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"“Qarabağ İtkin Ailələri” İctimai Birliyi","datePublished":"2024-07-12T12:19:37+00:00","dateModified":"2024-07-12T12:19:37+00:00","mainEntityOfPage":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyi/"},"wordCount":622,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyi/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/07/ac1923c6-312a-46e9-ba94-d208e2e64fdc.jpg","articleSection":["Tədbirlər","Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyi/","url":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyi/","name":"“Qarabağ İtkin Ailələri” İctimai Birliyi - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyi/#primaryimage"},"image":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyi/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/07/ac1923c6-312a-46e9-ba94-d208e2e64fdc.jpg","datePublished":"2024-07-12T12:19:37+00:00","dateModified":"2024-07-12T12:19:37+00:00","breadcrumb":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyi/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyi/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyi/#primaryimage","url":"{{SITE}}/uploads/2024/07/ac1923c6-312a-46e9-ba94-d208e2e64fdc.jpg","contentUrl":"{{SITE}}/uploads/2024/07/ac1923c6-312a-46e9-ba94-d208e2e64fdc.jpg","width":922,"height":630},{"@type":"BreadcrumbList","@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyi/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"“Qarabağ İtkin Ailələri” İctimai Birliyi"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2024/07/ac1923c6-312a-46e9-ba94-d208e2e64fdc.jpg',
             'srcset' => <<<'HTML'
@@ -2246,6 +6750,103 @@ Möhtəşəm qələbəmizdən – 2020-ci ildə 44 günlük müharibədən sonra
 HTML,
         'description' => <<<'HTML'
 Möhtəşəm qələbəmizdən – 2020-ci ildə 44 günlük müharibədən sonra Azərbaycanın torpaqlarının işğaldan azad edilməsi bir çox problemlərin düyünü açdı. Köçkünlərin yurd həsrəti bitdi, işğaldaykən talanan sərvətlərimizin qarşısı alındı, erməni terrorçularının sayəsində xarabazarlığa çevrilmiş yurdlarımız hazırda cənnətə abad yurdsa dönüşdürülür. Ümumiyyətlə, qələbəmizin sayəsində böyük işlər gedir. Ən əsası isə həmin o möhtəşəm qələbə Birinci Qarabağ müharibəsində […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '"İtkinlərimizlə bağlı problemləri BMT-yə çatdırmaq üçün layihə başlatdıq" - MÜSAHİBƏ',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Möhtəşəm qələbəmizdən – 2020-ci ildə 44 günlük müharibədən sonra Azərbaycanın torpaqlarının işğaldan azad edilməsi bir çox problemlərin düyünü açdı. Köçkünlərin yurd həsrəti bitdi, işğaldaykən talanan sərvətlərimizin qarşısı alındı, erməni terrorçularının sayəsində xarabazarlığa çevrilmiş yurdlarımız hazırda cənnətə abad yurdsa dönüşdürülür. Ümumiyyətlə, qələbəmizin sayəsində böyük işlər gedir. Ən əsası isə həmin o möhtəşəm qələbə Birinci Qarabağ müharibəsində […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2024-07-09T13:02:18+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2024-07-09T13:04:26+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/07/dddd.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '922',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '630',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '9 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/itkinlerimizle-bagli-problemleri-bmt-ye-catdirmaq-ucun-layihe-baslatdiq-musahibe/#article","isPartOf":{"@id":"{{SITE}}/itkinlerimizle-bagli-problemleri-bmt-ye-catdirmaq-ucun-layihe-baslatdiq-musahibe/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"&#8220;İtkinlərimizlə bağlı problemləri BMT-yə çatdırmaq üçün layihə başlatdıq&#8221; &#8211; MÜSAHİBƏ","datePublished":"2024-07-09T13:02:18+00:00","dateModified":"2024-07-09T13:04:26+00:00","mainEntityOfPage":{"@id":"{{SITE}}/itkinlerimizle-bagli-problemleri-bmt-ye-catdirmaq-ucun-layihe-baslatdiq-musahibe/"},"wordCount":1751,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/itkinlerimizle-bagli-problemleri-bmt-ye-catdirmaq-ucun-layihe-baslatdiq-musahibe/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/07/dddd.jpg","articleSection":["Tədbirlər","Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/itkinlerimizle-bagli-problemleri-bmt-ye-catdirmaq-ucun-layihe-baslatdiq-musahibe/","url":"{{SITE}}/itkinlerimizle-bagli-problemleri-bmt-ye-catdirmaq-ucun-layihe-baslatdiq-musahibe/","name":"\"İtkinlərimizlə bağlı problemləri BMT-yə çatdırmaq üçün layihə başlatdıq\" - MÜSAHİBƏ - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/itkinlerimizle-bagli-problemleri-bmt-ye-catdirmaq-ucun-layihe-baslatdiq-musahibe/#primaryimage"},"image":{"@id":"{{SITE}}/itkinlerimizle-bagli-problemleri-bmt-ye-catdirmaq-ucun-layihe-baslatdiq-musahibe/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/07/dddd.jpg","datePublished":"2024-07-09T13:02:18+00:00","dateModified":"2024-07-09T13:04:26+00:00","breadcrumb":{"@id":"{{SITE}}/itkinlerimizle-bagli-problemleri-bmt-ye-catdirmaq-ucun-layihe-baslatdiq-musahibe/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/itkinlerimizle-bagli-problemleri-bmt-ye-catdirmaq-ucun-layihe-baslatdiq-musahibe/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/itkinlerimizle-bagli-problemleri-bmt-ye-catdirmaq-ucun-layihe-baslatdiq-musahibe/#primaryimage","url":"{{SITE}}/uploads/2024/07/dddd.jpg","contentUrl":"{{SITE}}/uploads/2024/07/dddd.jpg","width":922,"height":630},{"@type":"BreadcrumbList","@id":"{{SITE}}/itkinlerimizle-bagli-problemleri-bmt-ye-catdirmaq-ucun-layihe-baslatdiq-musahibe/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"&#8220;İtkinlərimizlə bağlı problemləri BMT-yə çatdırmaq üçün layihə başlatdıq&#8221; &#8211; MÜSAHİBƏ"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2024/07/dddd.jpg',
@@ -2304,6 +6905,98 @@ Ağdaban ictimaiyyəti və Azərbaycanın QHT təmsilçiləri beynəlxalq ictima
 HTML,
         'description' => <<<'HTML'
 Ağdaban ictimaiyyəti və Azərbaycanın QHT təmsilçiləri beynəlxalq ictimaiyyətə açıq məktubla müraciət ediblər. AZƏRTAC xəbər verir ki, məktubda deyilir: “Biz – 1992-ci il aprelin 7-8-də Kəlbəcərin Ağdaban kəndində Ermənistanın hərbi birləşmələrinin soyqırımına məruz qalan dinc azərbaycanlı sakinlər, kütləvi qırğının canlı şahidləri, həmin hadisədə ailə üzvlərini, doğmalarını, evlərini itirən şəxslər və Azərbaycanın vətəndaş cəmiyyətinin təmsilçiləri olaraq, sizə […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Ağdaban ictimaiyyəti və Azərbaycanın QHT təmsilçiləri beynəlxalq ictimaiyyətə müraciət ünvanlayıb',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Ağdaban ictimaiyyəti və Azərbaycanın QHT təmsilçiləri beynəlxalq ictimaiyyətə açıq məktubla müraciət ediblər. AZƏRTAC xəbər verir ki, məktubda deyilir: “Biz – 1992-ci il aprelin 7-8-də Kəlbəcərin Ağdaban kəndində Ermənistanın hərbi birləşmələrinin soyqırımına məruz qalan dinc azərbaycanlı sakinlər, kütləvi qırğının canlı şahidləri, həmin hadisədə ailə üzvlərini, doğmalarını, evlərini itirən şəxslər və Azərbaycanın vətəndaş cəmiyyətinin təmsilçiləri olaraq, sizə […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2024-04-08T08:44:11+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/04/17124671432577011085_1200x630-1.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '922',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '630',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '5 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/agdaban-ictimaiyyeti-ve-azerbaycanin-qht-temsilcileri-beynelxalq-ictimaiyyete-muraciet-unvanlayib/#article","isPartOf":{"@id":"{{SITE}}/agdaban-ictimaiyyeti-ve-azerbaycanin-qht-temsilcileri-beynelxalq-ictimaiyyete-muraciet-unvanlayib/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"Ağdaban ictimaiyyəti və Azərbaycanın QHT təmsilçiləri beynəlxalq ictimaiyyətə müraciət ünvanlayıb","datePublished":"2024-04-08T08:44:11+00:00","dateModified":"2024-04-08T08:44:11+00:00","mainEntityOfPage":{"@id":"{{SITE}}/agdaban-ictimaiyyeti-ve-azerbaycanin-qht-temsilcileri-beynelxalq-ictimaiyyete-muraciet-unvanlayib/"},"wordCount":1081,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/agdaban-ictimaiyyeti-ve-azerbaycanin-qht-temsilcileri-beynelxalq-ictimaiyyete-muraciet-unvanlayib/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/04/17124671432577011085_1200x630-1.jpg","articleSection":["Taleyi müəyyən olunmuş itkinlər","Tədbirlər","Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/agdaban-ictimaiyyeti-ve-azerbaycanin-qht-temsilcileri-beynelxalq-ictimaiyyete-muraciet-unvanlayib/","url":"{{SITE}}/agdaban-ictimaiyyeti-ve-azerbaycanin-qht-temsilcileri-beynelxalq-ictimaiyyete-muraciet-unvanlayib/","name":"Ağdaban ictimaiyyəti və Azərbaycanın QHT təmsilçiləri beynəlxalq ictimaiyyətə müraciət ünvanlayıb - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/agdaban-ictimaiyyeti-ve-azerbaycanin-qht-temsilcileri-beynelxalq-ictimaiyyete-muraciet-unvanlayib/#primaryimage"},"image":{"@id":"{{SITE}}/agdaban-ictimaiyyeti-ve-azerbaycanin-qht-temsilcileri-beynelxalq-ictimaiyyete-muraciet-unvanlayib/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/04/17124671432577011085_1200x630-1.jpg","datePublished":"2024-04-08T08:44:11+00:00","dateModified":"2024-04-08T08:44:11+00:00","breadcrumb":{"@id":"{{SITE}}/agdaban-ictimaiyyeti-ve-azerbaycanin-qht-temsilcileri-beynelxalq-ictimaiyyete-muraciet-unvanlayib/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/agdaban-ictimaiyyeti-ve-azerbaycanin-qht-temsilcileri-beynelxalq-ictimaiyyete-muraciet-unvanlayib/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/agdaban-ictimaiyyeti-ve-azerbaycanin-qht-temsilcileri-beynelxalq-ictimaiyyete-muraciet-unvanlayib/#primaryimage","url":"{{SITE}}/uploads/2024/04/17124671432577011085_1200x630-1.jpg","contentUrl":"{{SITE}}/uploads/2024/04/17124671432577011085_1200x630-1.jpg","width":922,"height":630},{"@type":"BreadcrumbList","@id":"{{SITE}}/agdaban-ictimaiyyeti-ve-azerbaycanin-qht-temsilcileri-beynelxalq-ictimaiyyete-muraciet-unvanlayib/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Ağdaban ictimaiyyəti və Azərbaycanın QHT təmsilçiləri beynəlxalq ictimaiyyətə müraciət ünvanlayıb"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2024/04/17124671432577011085_1200x630-1.jpg',
@@ -2382,6 +7075,103 @@ HTML,
         'description' => <<<'HTML'
 Xocalıda kütləvi məzarlıqda aşkar edilmiş insan qalıqlarından şəxsiyyəti müəyyən edilmiş 7 nəfər bu gün Xocalıda Şəhidlər xiyabanında dəfn olunacaq. Onların hamısı 1992-ci il Xocalı soyqırımının qurbanlarıdır. Qalıqların müayinəsi bu şəxslərin amansız üsullarla işgəncə, fiziki zorakılıq və qeyri-insani rəftara məruz qaldıqlarını üzə çıxarıb. Ermənistanın hərbi-siyasi rəhbərliyi Azərbaycan ərazilərini işğal altında saxladığı dövrdə kütləvi məzarlıqları hər vəchlə […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Tapılmış qalıqları əsasında şəxsiyyəti müəyyən edilmiş Xocalı soyqırımı itkinlərinin bir qrupu bu gün dəfn olunacaq',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Xocalıda kütləvi məzarlıqda aşkar edilmiş insan qalıqlarından şəxsiyyəti müəyyən edilmiş 7 nəfər bu gün Xocalıda Şəhidlər xiyabanında dəfn olunacaq. Onların hamısı 1992-ci il Xocalı soyqırımının qurbanlarıdır. Qalıqların müayinəsi bu şəxslərin amansız üsullarla işgəncə, fiziki zorakılıq və qeyri-insani rəftara məruz qaldıqlarını üzə çıxarıb. Ermənistanın hərbi-siyasi rəhbərliyi Azərbaycan ərazilərini işğal altında saxladığı dövrdə kütləvi məzarlıqları hər vəchlə […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2024-04-04T16:54:35+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2024-04-04T16:56:28+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/04/434363291_465434655816322_9212253985820118330_n.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '2048',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1365',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '2 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/tapilmis-qaliqlari-esasinda-sexsiyyeti-mueyyen-edilmis-xocali-soyqirimi-itkinlerinin-bir-qrupu-bu-gun-defn-olunacaq/#article","isPartOf":{"@id":"{{SITE}}/tapilmis-qaliqlari-esasinda-sexsiyyeti-mueyyen-edilmis-xocali-soyqirimi-itkinlerinin-bir-qrupu-bu-gun-defn-olunacaq/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"Tapılmış qalıqları əsasında şəxsiyyəti müəyyən edilmiş Xocalı soyqırımı itkinlərinin bir qrupu bu gün dəfn olunacaq","datePublished":"2024-04-04T16:54:35+00:00","dateModified":"2024-04-04T16:56:28+00:00","mainEntityOfPage":{"@id":"{{SITE}}/tapilmis-qaliqlari-esasinda-sexsiyyeti-mueyyen-edilmis-xocali-soyqirimi-itkinlerinin-bir-qrupu-bu-gun-defn-olunacaq/"},"wordCount":368,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/tapilmis-qaliqlari-esasinda-sexsiyyeti-mueyyen-edilmis-xocali-soyqirimi-itkinlerinin-bir-qrupu-bu-gun-defn-olunacaq/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/04/434363291_465434655816322_9212253985820118330_n.jpg","articleSection":["Tədbirlər","Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/tapilmis-qaliqlari-esasinda-sexsiyyeti-mueyyen-edilmis-xocali-soyqirimi-itkinlerinin-bir-qrupu-bu-gun-defn-olunacaq/","url":"{{SITE}}/tapilmis-qaliqlari-esasinda-sexsiyyeti-mueyyen-edilmis-xocali-soyqirimi-itkinlerinin-bir-qrupu-bu-gun-defn-olunacaq/","name":"Tapılmış qalıqları əsasında şəxsiyyəti müəyyən edilmiş Xocalı soyqırımı itkinlərinin bir qrupu bu gün dəfn olunacaq - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/tapilmis-qaliqlari-esasinda-sexsiyyeti-mueyyen-edilmis-xocali-soyqirimi-itkinlerinin-bir-qrupu-bu-gun-defn-olunacaq/#primaryimage"},"image":{"@id":"{{SITE}}/tapilmis-qaliqlari-esasinda-sexsiyyeti-mueyyen-edilmis-xocali-soyqirimi-itkinlerinin-bir-qrupu-bu-gun-defn-olunacaq/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/04/434363291_465434655816322_9212253985820118330_n.jpg","datePublished":"2024-04-04T16:54:35+00:00","dateModified":"2024-04-04T16:56:28+00:00","breadcrumb":{"@id":"{{SITE}}/tapilmis-qaliqlari-esasinda-sexsiyyeti-mueyyen-edilmis-xocali-soyqirimi-itkinlerinin-bir-qrupu-bu-gun-defn-olunacaq/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/tapilmis-qaliqlari-esasinda-sexsiyyeti-mueyyen-edilmis-xocali-soyqirimi-itkinlerinin-bir-qrupu-bu-gun-defn-olunacaq/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/tapilmis-qaliqlari-esasinda-sexsiyyeti-mueyyen-edilmis-xocali-soyqirimi-itkinlerinin-bir-qrupu-bu-gun-defn-olunacaq/#primaryimage","url":"{{SITE}}/uploads/2024/04/434363291_465434655816322_9212253985820118330_n.jpg","contentUrl":"{{SITE}}/uploads/2024/04/434363291_465434655816322_9212253985820118330_n.jpg","width":2048,"height":1365},{"@type":"BreadcrumbList","@id":"{{SITE}}/tapilmis-qaliqlari-esasinda-sexsiyyeti-mueyyen-edilmis-xocali-soyqirimi-itkinlerinin-bir-qrupu-bu-gun-defn-olunacaq/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Tapılmış qalıqları əsasında şəxsiyyəti müəyyən edilmiş Xocalı soyqırımı itkinlərinin bir qrupu bu gün dəfn olunacaq"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2024/04/434363291_465434655816322_9212253985820118330_n.jpg',
             'srcset' => <<<'HTML'
@@ -2427,6 +7217,98 @@ HTML,
         'description' => <<<'HTML'
 Qalıqları Xocalı şəhərində kütləvi məzarlıqda 32 il sonra tapılaraq eyniləşdirilən, 1992 ci ildə Xocalı şəhərində döyüşərək itkin düşən,Itkin Şəhidin nəşi ailəsinin yaşadıģı Ceyranbatan qəsəbəsindəki evinə gətirildi və vida mərasimi keçirildi.Şəhid atası ve qardaşının dəfn olunduģù qəsəbənin qəbristanlqda torpaģa tapşırldı.Itkin Şəhidimizin evində olduq,ailə üzvləri ilə gorüşdük ve dəfn mərasimində iştirak etdik..Allah rəhmət etsin..Ailəsinə və doģmalarına dərin […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Qalıqları Xocalı şəhərində kütləvi məzarlıqda 32 il sonra',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Qalıqları Xocalı şəhərində kütləvi məzarlıqda 32 il sonra tapılaraq eyniləşdirilən, 1992 ci ildə Xocalı şəhərində döyüşərək itkin düşən,Itkin Şəhidin nəşi ailəsinin yaşadıģı Ceyranbatan qəsəbəsindəki evinə gətirildi və vida mərasimi keçirildi.Şəhid atası ve qardaşının dəfn olunduģù qəsəbənin qəbristanlqda torpaģa tapşırldı.Itkin Şəhidimizin evində olduq,ailə üzvləri ilə gorüşdük ve dəfn mərasimində iştirak etdik..Allah rəhmət etsin..Ailəsinə və doģmalarına dərin […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2024-03-29T09:49:41+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/03/1.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '378',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '382',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/qaliqlari-xocali-seherinde-kutlevi-mezarliqda-32-il-sonra/#article","isPartOf":{"@id":"{{SITE}}/qaliqlari-xocali-seherinde-kutlevi-mezarliqda-32-il-sonra/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"Qalıqları Xocalı şəhərində kütləvi məzarlıqda 32 il sonra","datePublished":"2024-03-29T09:49:41+00:00","dateModified":"2024-03-29T09:49:41+00:00","mainEntityOfPage":{"@id":"{{SITE}}/qaliqlari-xocali-seherinde-kutlevi-mezarliqda-32-il-sonra/"},"wordCount":130,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/qaliqlari-xocali-seherinde-kutlevi-mezarliqda-32-il-sonra/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/03/1.jpg","articleSection":["Taleyi müəyyən olunmuş itkinlər","Tədbirlər","Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/qaliqlari-xocali-seherinde-kutlevi-mezarliqda-32-il-sonra/","url":"{{SITE}}/qaliqlari-xocali-seherinde-kutlevi-mezarliqda-32-il-sonra/","name":"Qalıqları Xocalı şəhərində kütləvi məzarlıqda 32 il sonra - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/qaliqlari-xocali-seherinde-kutlevi-mezarliqda-32-il-sonra/#primaryimage"},"image":{"@id":"{{SITE}}/qaliqlari-xocali-seherinde-kutlevi-mezarliqda-32-il-sonra/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/03/1.jpg","datePublished":"2024-03-29T09:49:41+00:00","dateModified":"2024-03-29T09:49:41+00:00","breadcrumb":{"@id":"{{SITE}}/qaliqlari-xocali-seherinde-kutlevi-mezarliqda-32-il-sonra/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/qaliqlari-xocali-seherinde-kutlevi-mezarliqda-32-il-sonra/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/qaliqlari-xocali-seherinde-kutlevi-mezarliqda-32-il-sonra/#primaryimage","url":"{{SITE}}/uploads/2024/03/1.jpg","contentUrl":"{{SITE}}/uploads/2024/03/1.jpg","width":378,"height":382},{"@type":"BreadcrumbList","@id":"{{SITE}}/qaliqlari-xocali-seherinde-kutlevi-mezarliqda-32-il-sonra/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Qalıqları Xocalı şəhərində kütləvi məzarlıqda 32 il sonra"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2024/03/1.jpg',
             'srcset' => 'uploads/2024/03/1.jpg 378w, uploads/2024/03/1-297x300.jpg 297w',
@@ -2454,6 +7336,86 @@ HTML,
         ],
         'excerpt' => '',
         'description' => '',
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Xocalıda kütləvi məzarlıqda aşkar edilmiş insan qalıqlarının sayı 18-ə çatdı',
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2024-03-17T07:41:01+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2024-03-17T07:41:25+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/03/aaa.png',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '378',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '382',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/png',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/xocalida-kutlevi-mezarliqda-askar-edilmis-insan-qaliqlarinin-sayi-18-e-catdi/#article","isPartOf":{"@id":"{{SITE}}/xocalida-kutlevi-mezarliqda-askar-edilmis-insan-qaliqlarinin-sayi-18-e-catdi/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"Xocalıda kütləvi məzarlıqda aşkar edilmiş insan qalıqlarının sayı 18-ə çatdı","datePublished":"2024-03-17T07:41:01+00:00","dateModified":"2024-03-17T07:41:25+00:00","mainEntityOfPage":{"@id":"{{SITE}}/xocalida-kutlevi-mezarliqda-askar-edilmis-insan-qaliqlarinin-sayi-18-e-catdi/"},"wordCount":32,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/xocalida-kutlevi-mezarliqda-askar-edilmis-insan-qaliqlarinin-sayi-18-e-catdi/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/03/aaa.png","articleSection":["Taleyi müəyyən olunmuş itkinlər","Tədbirlər","Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/xocalida-kutlevi-mezarliqda-askar-edilmis-insan-qaliqlarinin-sayi-18-e-catdi/","url":"{{SITE}}/xocalida-kutlevi-mezarliqda-askar-edilmis-insan-qaliqlarinin-sayi-18-e-catdi/","name":"Xocalıda kütləvi məzarlıqda aşkar edilmiş insan qalıqlarının sayı 18-ə çatdı - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/xocalida-kutlevi-mezarliqda-askar-edilmis-insan-qaliqlarinin-sayi-18-e-catdi/#primaryimage"},"image":{"@id":"{{SITE}}/xocalida-kutlevi-mezarliqda-askar-edilmis-insan-qaliqlarinin-sayi-18-e-catdi/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/03/aaa.png","datePublished":"2024-03-17T07:41:01+00:00","dateModified":"2024-03-17T07:41:25+00:00","breadcrumb":{"@id":"{{SITE}}/xocalida-kutlevi-mezarliqda-askar-edilmis-insan-qaliqlarinin-sayi-18-e-catdi/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/xocalida-kutlevi-mezarliqda-askar-edilmis-insan-qaliqlarinin-sayi-18-e-catdi/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/xocalida-kutlevi-mezarliqda-askar-edilmis-insan-qaliqlarinin-sayi-18-e-catdi/#primaryimage","url":"{{SITE}}/uploads/2024/03/aaa.png","contentUrl":"{{SITE}}/uploads/2024/03/aaa.png","width":378,"height":382},{"@type":"BreadcrumbList","@id":"{{SITE}}/xocalida-kutlevi-mezarliqda-askar-edilmis-insan-qaliqlarinin-sayi-18-e-catdi/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Xocalıda kütləvi məzarlıqda aşkar edilmiş insan qalıqlarının sayı 18-ə çatdı"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2024/03/aaa.png',
             'srcset' => 'uploads/2024/03/aaa.png 378w, uploads/2024/03/aaa-297x300.png 297w',
@@ -2481,6 +7443,98 @@ HTML,
 HTML,
         'description' => <<<'HTML'
 07.10.2022 ci ildə I ci Qarabağ müharibəsindı itkin düşən hələdə taleyi haqqında hec bir məlumat olmayan Həsrənquliyev Şirindil Cavad oglunun anım günü tədbiri Mehdiabad qəsəbəsində onu adına verilən küçənin açılısi ilə keçirildi. Həsrənquliyev Şirindil Cavad oğlu 18.09.1968 ci ildə Zəngəzur mahalının Qafan rayonunda anadan olmuşdur.Memarlıq və İncəsənət Unversitetinin tələbəsi idi,1992 ci ildə döyüşə könüllü olaraq […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Anim Günü tədbiri',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+07.10.2022 ci ildə I ci Qarabağ müharibəsindı itkin düşən hələdə taleyi haqqında hec bir məlumat olmayan Həsrənquliyev Şirindil Cavad oglunun anım günü tədbiri Mehdiabad qəsəbəsində onu adına verilən küçənin açılısi ilə keçirildi. Həsrənquliyev Şirindil Cavad oğlu 18.09.1968 ci ildə Zəngəzur mahalının Qafan rayonunda anadan olmuşdur.Memarlıq və İncəsənət Unversitetinin tələbəsi idi,1992 ci ildə döyüşə könüllü olaraq […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2023-12-04T18:19:26+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2023/12/whatsapp-image-2023-12-01-at-01.08.14.jpeg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1000',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '450',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/anim-gunu-tedbiri/#article","isPartOf":{"@id":"{{SITE}}/anim-gunu-tedbiri/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"Anim Günü tədbiri","datePublished":"2023-12-04T18:19:26+00:00","dateModified":"2023-12-04T18:19:26+00:00","mainEntityOfPage":{"@id":"{{SITE}}/anim-gunu-tedbiri/"},"wordCount":163,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/anim-gunu-tedbiri/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/12/whatsapp-image-2023-12-01-at-01.08.14.jpeg","articleSection":["Tədbirlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/anim-gunu-tedbiri/","url":"{{SITE}}/anim-gunu-tedbiri/","name":"Anim Günü tədbiri - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/anim-gunu-tedbiri/#primaryimage"},"image":{"@id":"{{SITE}}/anim-gunu-tedbiri/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/12/whatsapp-image-2023-12-01-at-01.08.14.jpeg","datePublished":"2023-12-04T18:19:26+00:00","dateModified":"2023-12-04T18:19:26+00:00","breadcrumb":{"@id":"{{SITE}}/anim-gunu-tedbiri/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/anim-gunu-tedbiri/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/anim-gunu-tedbiri/#primaryimage","url":"{{SITE}}/uploads/2023/12/whatsapp-image-2023-12-01-at-01.08.14.jpeg","contentUrl":"{{SITE}}/uploads/2023/12/whatsapp-image-2023-12-01-at-01.08.14.jpeg","width":1000,"height":450},{"@type":"BreadcrumbList","@id":"{{SITE}}/anim-gunu-tedbiri/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Anim Günü tədbiri"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2023/12/whatsapp-image-2023-12-01-at-01.08.14.jpeg',
@@ -2514,6 +7568,103 @@ HTML,
         'description' => <<<'HTML'
 30.05.2023 cü il tarixdə Siyəzən rayonunun Məşrif kəndində İtkin Şəhid pilot Cəlilov Feyruz Xanbala oğlunun anım günü tədbiri keçirildi. Feyruz Cəlilov 30.07.1957 ci ildə Siyəzən rayonunun Məşrif kəndində anadan olub və I ci Qarabağ muharibəsində qəhrəmanləqla döyüşüb, 31.081993 cu ildə Qubadlı rayonunun Mahmulu qaya səmasında Mİ-24 helikopteri düşmən tərəfindən vurulub .Tədbiri İtkin Şəhidin oğlu Qabil […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '“Qəhrəman Pilotun Anım Günü” tədbiri',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+30.05.2023 cü il tarixdə Siyəzən rayonunun Məşrif kəndində İtkin Şəhid pilot Cəlilov Feyruz Xanbala oğlunun anım günü tədbiri keçirildi. Feyruz Cəlilov 30.07.1957 ci ildə Siyəzən rayonunun Məşrif kəndində anadan olub və I ci Qarabağ muharibəsində qəhrəmanləqla döyüşüb, 31.081993 cu ildə Qubadlı rayonunun Mahmulu qaya səmasında Mİ-24 helikopteri düşmən tərəfindən vurulub .Tədbiri İtkin Şəhidin oğlu Qabil […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2023-12-04T18:17:18+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2023-12-18T18:38:42+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2023/12/whatsapp-image-2023-12-01-at-00.47.00.jpeg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1280',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '960',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/qehreman-pilotun-anim-gunu-tedbiri/#article","isPartOf":{"@id":"{{SITE}}/qehreman-pilotun-anim-gunu-tedbiri/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"“Qəhrəman Pilotun Anım Günü” tədbiri","datePublished":"2023-12-04T18:17:18+00:00","dateModified":"2023-12-18T18:38:42+00:00","mainEntityOfPage":{"@id":"{{SITE}}/qehreman-pilotun-anim-gunu-tedbiri/"},"wordCount":171,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/qehreman-pilotun-anim-gunu-tedbiri/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/12/whatsapp-image-2023-12-01-at-00.47.00.jpeg","articleSection":["İtkinlərimizi anaq","Tədbirlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/qehreman-pilotun-anim-gunu-tedbiri/","url":"{{SITE}}/qehreman-pilotun-anim-gunu-tedbiri/","name":"“Qəhrəman Pilotun Anım Günü” tədbiri - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/qehreman-pilotun-anim-gunu-tedbiri/#primaryimage"},"image":{"@id":"{{SITE}}/qehreman-pilotun-anim-gunu-tedbiri/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/12/whatsapp-image-2023-12-01-at-00.47.00.jpeg","datePublished":"2023-12-04T18:17:18+00:00","dateModified":"2023-12-18T18:38:42+00:00","breadcrumb":{"@id":"{{SITE}}/qehreman-pilotun-anim-gunu-tedbiri/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/qehreman-pilotun-anim-gunu-tedbiri/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/qehreman-pilotun-anim-gunu-tedbiri/#primaryimage","url":"{{SITE}}/uploads/2023/12/whatsapp-image-2023-12-01-at-00.47.00.jpeg","contentUrl":"{{SITE}}/uploads/2023/12/whatsapp-image-2023-12-01-at-00.47.00.jpeg","width":1280,"height":960},{"@type":"BreadcrumbList","@id":"{{SITE}}/qehreman-pilotun-anim-gunu-tedbiri/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"“Qəhrəman Pilotun Anım Günü” tədbiri"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2023/12/whatsapp-image-2023-12-01-at-00.47.00.jpeg',
             'srcset' => <<<'HTML'
@@ -2545,6 +7696,103 @@ HTML,
 HTML,
         'description' => <<<'HTML'
 25 oktyabr 2023 cü il Baki şəhəri, “İtkinlərin Anım Gunü” tədbiri keçirildi.Tədbiri Beynəlxalq Qırmzı Xaç Komitəsi və Qarabağ İtkin Ailələri İctimai Birliyi birlikdə təşkil etmişdilər. Tədbirdə Binəqədi,Yasamal,Nərimanov,Qaradağ və Nəsimi rayonlarıdan olan və I ci Qarabağ müharibəsində itkin düşən hələdə taleləri haqqıda heç bir məlumat olmayan 100 ə yaxin İtkin Şəhidlərimizin ailəsinin üzvlərinin iştirak etdilər. İtkin […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '“İtkinlərin Anım Gunü” tədbiri',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+25 oktyabr 2023 cü il Baki şəhəri, “İtkinlərin Anım Gunü” tədbiri keçirildi.Tədbiri Beynəlxalq Qırmzı Xaç Komitəsi və Qarabağ İtkin Ailələri İctimai Birliyi birlikdə təşkil etmişdilər. Tədbirdə Binəqədi,Yasamal,Nərimanov,Qaradağ və Nəsimi rayonlarıdan olan və I ci Qarabağ müharibəsində itkin düşən hələdə taleləri haqqıda heç bir məlumat olmayan 100 ə yaxin İtkin Şəhidlərimizin ailəsinin üzvlərinin iştirak etdilər. İtkin […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2023-12-04T17:19:50+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2023-12-18T18:38:46+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2023/12/whatsapp-image-2023-12-01-at-00.06.13.jpeg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1288',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '966',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/itkinlerin-anim-gunu-tedbiri/#article","isPartOf":{"@id":"{{SITE}}/itkinlerin-anim-gunu-tedbiri/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"“İtkinlərin Anım Gunü” tədbiri","datePublished":"2023-12-04T17:19:50+00:00","dateModified":"2023-12-18T18:38:46+00:00","mainEntityOfPage":{"@id":"{{SITE}}/itkinlerin-anim-gunu-tedbiri/"},"wordCount":201,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/itkinlerin-anim-gunu-tedbiri/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/12/whatsapp-image-2023-12-01-at-00.06.13.jpeg","articleSection":["İtkinlərimizi anaq","Tədbirlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/itkinlerin-anim-gunu-tedbiri/","url":"{{SITE}}/itkinlerin-anim-gunu-tedbiri/","name":"“İtkinlərin Anım Gunü” tədbiri - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/itkinlerin-anim-gunu-tedbiri/#primaryimage"},"image":{"@id":"{{SITE}}/itkinlerin-anim-gunu-tedbiri/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/12/whatsapp-image-2023-12-01-at-00.06.13.jpeg","datePublished":"2023-12-04T17:19:50+00:00","dateModified":"2023-12-18T18:38:46+00:00","breadcrumb":{"@id":"{{SITE}}/itkinlerin-anim-gunu-tedbiri/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/itkinlerin-anim-gunu-tedbiri/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/itkinlerin-anim-gunu-tedbiri/#primaryimage","url":"{{SITE}}/uploads/2023/12/whatsapp-image-2023-12-01-at-00.06.13.jpeg","contentUrl":"{{SITE}}/uploads/2023/12/whatsapp-image-2023-12-01-at-00.06.13.jpeg","width":1288,"height":966},{"@type":"BreadcrumbList","@id":"{{SITE}}/itkinlerin-anim-gunu-tedbiri/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"“İtkinlərin Anım Gunü” tədbiri"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2023/12/whatsapp-image-2023-12-01-at-00.06.13.jpeg',
@@ -2579,6 +7827,103 @@ HTML,
         'description' => <<<'HTML'
 8 may 2023 cü ildə Baki şəhəri,1992 ci ildə Şuşa şəhəri uğrunda gedən döyüşlərdə itkin düşən hələdə taleyi haqqında heç bir məlumat olmayan yeddi İtkin Şəhdin, Hüseyinov Ağası Rauf oglu, Məmmədov Vahid Şahvələd oğlu,Abbasov Rafail Sultan oğlu,Əliyev Əbülfət Fərrux oğlu,Əliyev Əlyar Fərrux oğlu,Məmmədov Əhməd Mustafa oğlu və Musayev Əli Həsən oğlu xatirəsini anmaq üçün anım […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '8 may Şuşa İtkinlərinin Anım Günü',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+8 may 2023 cü ildə Baki şəhəri,1992 ci ildə Şuşa şəhəri uğrunda gedən döyüşlərdə itkin düşən hələdə taleyi haqqında heç bir məlumat olmayan yeddi İtkin Şəhdin, Hüseyinov Ağası Rauf oglu, Məmmədov Vahid Şahvələd oğlu,Abbasov Rafail Sultan oğlu,Əliyev Əbülfət Fərrux oğlu,Əliyev Əlyar Fərrux oğlu,Məmmədov Əhməd Mustafa oğlu və Musayev Əli Həsən oğlu xatirəsini anmaq üçün anım […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2023-11-30T19:18:03+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2023-12-18T18:38:51+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2023/11/whatsapp-image-2023-11-30-at-23.17.11.jpeg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1600',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1066',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/8-may-susa-itkinlerinin-anim-gunu/#article","isPartOf":{"@id":"{{SITE}}/8-may-susa-itkinlerinin-anim-gunu/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"8 may Şuşa İtkinlərinin Anım Günü","datePublished":"2023-11-30T19:18:03+00:00","dateModified":"2023-12-18T18:38:51+00:00","mainEntityOfPage":{"@id":"{{SITE}}/8-may-susa-itkinlerinin-anim-gunu/"},"wordCount":255,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/8-may-susa-itkinlerinin-anim-gunu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/11/whatsapp-image-2023-11-30-at-23.17.11.jpeg","articleSection":["İtkinlərimizi anaq","Tədbirlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/8-may-susa-itkinlerinin-anim-gunu/","url":"{{SITE}}/8-may-susa-itkinlerinin-anim-gunu/","name":"8 may Şuşa İtkinlərinin Anım Günü - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/8-may-susa-itkinlerinin-anim-gunu/#primaryimage"},"image":{"@id":"{{SITE}}/8-may-susa-itkinlerinin-anim-gunu/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/11/whatsapp-image-2023-11-30-at-23.17.11.jpeg","datePublished":"2023-11-30T19:18:03+00:00","dateModified":"2023-12-18T18:38:51+00:00","breadcrumb":{"@id":"{{SITE}}/8-may-susa-itkinlerinin-anim-gunu/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/8-may-susa-itkinlerinin-anim-gunu/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/8-may-susa-itkinlerinin-anim-gunu/#primaryimage","url":"{{SITE}}/uploads/2023/11/whatsapp-image-2023-11-30-at-23.17.11.jpeg","contentUrl":"{{SITE}}/uploads/2023/11/whatsapp-image-2023-11-30-at-23.17.11.jpeg","width":1600,"height":1066},{"@type":"BreadcrumbList","@id":"{{SITE}}/8-may-susa-itkinlerinin-anim-gunu/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"8 may Şuşa İtkinlərinin Anım Günü"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2023/11/whatsapp-image-2023-11-30-at-23.17.11.jpeg',
             'srcset' => <<<'HTML'
@@ -2610,6 +7955,103 @@ Biz – Ermənistanın Azərbaycana hərbi təcavüzü nəticəsində itkin dü�
 HTML,
         'description' => <<<'HTML'
 Biz – Ermənistanın Azərbaycana hərbi təcavüzü nəticəsində itkin düşmüş 3890 nəfər azərbaycanlının ailə üzvlərini birləşdirən ictimai təşkilat kimi itkin ailələri adından BMT-nin Baş katibi cənab Antonio Quterreşə, BMT Baş Assambleyasının prezidenti cənab Çaba Köröşiyə, BMT-nin İnsan Hüquqları Şurasının prezidenti cənab Vatslav Balekə, BMT-nin İnsan Hüquqları üzrə Ali Komissarı cənab Volker Türkə müraciət edirik. Beynəlxalq humanitar […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '“QARABAĞ İTKİN AİLƏLƏRİ” İCTİMAİ BİRLİYİNİN BİRLƏŞMİŞ MİLLƏTLƏR TƏŞKİLATINA MÜRACİƏTİ',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Biz – Ermənistanın Azərbaycana hərbi təcavüzü nəticəsində itkin düşmüş 3890 nəfər azərbaycanlının ailə üzvlərini birləşdirən ictimai təşkilat kimi itkin ailələri adından BMT-nin Baş katibi cənab Antonio Quterreşə, BMT Baş Assambleyasının prezidenti cənab Çaba Köröşiyə, BMT-nin İnsan Hüquqları Şurasının prezidenti cənab Vatslav Balekə, BMT-nin İnsan Hüquqları üzrə Ali Komissarı cənab Volker Türkə müraciət edirik. Beynəlxalq humanitar […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2023-11-30T19:01:58+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2023-11-30T19:02:38+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2023/11/whatsapp-image-2023-11-30-at-22.57.47.jpeg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1280',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '960',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '5 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-birlesmis-milletler-teskilatina-muracieti/#article","isPartOf":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-birlesmis-milletler-teskilatina-muracieti/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"“QARABAĞ İTKİN AİLƏLƏRİ” İCTİMAİ BİRLİYİNİN BİRLƏŞMİŞ MİLLƏTLƏR TƏŞKİLATINA MÜRACİƏTİ","datePublished":"2023-11-30T19:01:58+00:00","dateModified":"2023-11-30T19:02:38+00:00","mainEntityOfPage":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-birlesmis-milletler-teskilatina-muracieti/"},"wordCount":1054,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-birlesmis-milletler-teskilatina-muracieti/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/11/whatsapp-image-2023-11-30-at-22.57.47.jpeg","articleSection":["Tədbirlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-birlesmis-milletler-teskilatina-muracieti/","url":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-birlesmis-milletler-teskilatina-muracieti/","name":"“QARABAĞ İTKİN AİLƏLƏRİ” İCTİMAİ BİRLİYİNİN BİRLƏŞMİŞ MİLLƏTLƏR TƏŞKİLATINA MÜRACİƏTİ - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-birlesmis-milletler-teskilatina-muracieti/#primaryimage"},"image":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-birlesmis-milletler-teskilatina-muracieti/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/11/whatsapp-image-2023-11-30-at-22.57.47.jpeg","datePublished":"2023-11-30T19:01:58+00:00","dateModified":"2023-11-30T19:02:38+00:00","breadcrumb":{"@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-birlesmis-milletler-teskilatina-muracieti/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-birlesmis-milletler-teskilatina-muracieti/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-birlesmis-milletler-teskilatina-muracieti/#primaryimage","url":"{{SITE}}/uploads/2023/11/whatsapp-image-2023-11-30-at-22.57.47.jpeg","contentUrl":"{{SITE}}/uploads/2023/11/whatsapp-image-2023-11-30-at-22.57.47.jpeg","width":1280,"height":960},{"@type":"BreadcrumbList","@id":"{{SITE}}/qarabag-itkin-aileleri-ictimai-birliyinin-birlesmis-milletler-teskilatina-muracieti/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"“QARABAĞ İTKİN AİLƏLƏRİ” İCTİMAİ BİRLİYİNİN BİRLƏŞMİŞ MİLLƏTLƏR TƏŞKİLATINA MÜRACİƏTİ"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2023/11/whatsapp-image-2023-11-30-at-22.57.47.jpeg',
@@ -2656,6 +8098,103 @@ XX əsrin 90-cı illərində Azərbaycanın beynəlxalq hüquqla tanınmış ər
 HTML,
         'description' => <<<'HTML'
 XX əsrin 90-cı illərində Azərbaycanın beynəlxalq hüquqla tanınmış ərazisinin 20%-i Ermənistan silahlı qüvvələri tərəfindən işğal edilmiş, nəticədə I Qarabağ müharibəsində dörd min nəfərə yaxın Azərbaycan vətəndaşı itkin düşmüşdür. Təəssüf ki, hərbi təcavüz nəticəsində hərbçilərlə yanaşı, aralarında uşaqların, qadınların və qocaların da olduğu yeddi yüzdən artıq mülki şəxs də itkin düşmüşdür. İtkin düşmüş şəxslərin ümumi sayından […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '“30 avqust beynəlxalq itkinlər günü” münasibətilə “Qarabağ İtkin Ailələri” İctimai Birliyinin bəyanatı',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+XX əsrin 90-cı illərində Azərbaycanın beynəlxalq hüquqla tanınmış ərazisinin 20%-i Ermənistan silahlı qüvvələri tərəfindən işğal edilmiş, nəticədə I Qarabağ müharibəsində dörd min nəfərə yaxın Azərbaycan vətəndaşı itkin düşmüşdür. Təəssüf ki, hərbi təcavüz nəticəsində hərbçilərlə yanaşı, aralarında uşaqların, qadınların və qocaların da olduğu yeddi yüzdən artıq mülki şəxs də itkin düşmüşdür. İtkin düşmüş şəxslərin ümumi sayından […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2023-11-30T18:57:55+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2023-11-30T18:58:30+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2023/11/whatsapp-image-2023-11-30-at-22.56.06.jpeg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '800',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '550',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '7 minutes',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati-2/#article","isPartOf":{"@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati-2/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"“30 avqust beynəlxalq itkinlər günü” münasibətilə “Qarabağ İtkin Ailələri” İctimai Birliyinin bəyanatı","datePublished":"2023-11-30T18:57:55+00:00","dateModified":"2023-11-30T18:58:30+00:00","mainEntityOfPage":{"@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati-2/"},"wordCount":1414,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati-2/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/11/whatsapp-image-2023-11-30-at-22.56.06.jpeg","articleSection":["Tədbirlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati-2/","url":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati-2/","name":"“30 avqust beynəlxalq itkinlər günü” münasibətilə “Qarabağ İtkin Ailələri” İctimai Birliyinin bəyanatı - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati-2/#primaryimage"},"image":{"@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati-2/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/11/whatsapp-image-2023-11-30-at-22.56.06.jpeg","datePublished":"2023-11-30T18:57:55+00:00","dateModified":"2023-11-30T18:58:30+00:00","breadcrumb":{"@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati-2/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati-2/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati-2/#primaryimage","url":"{{SITE}}/uploads/2023/11/whatsapp-image-2023-11-30-at-22.56.06.jpeg","contentUrl":"{{SITE}}/uploads/2023/11/whatsapp-image-2023-11-30-at-22.56.06.jpeg","width":800,"height":550},{"@type":"BreadcrumbList","@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati-2/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"“30 avqust beynəlxalq itkinlər günü” münasibətilə “Qarabağ İtkin Ailələri” İctimai Birliyinin bəyanatı"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2023/11/whatsapp-image-2023-11-30-at-22.56.06.jpeg',
@@ -2706,6 +8245,103 @@ HTML,
         'description' => <<<'HTML'
 3Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '1918-ci il azərbaycanlıların soyqırımı. Şamaxıda mart qırğınları.',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+3Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2023-11-15T17:01:33+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2023-11-15T17:56:48+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2023/11/replace-image3-1.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1022',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '876',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/1918-ci-il-azerbaycanlilarin-soyqirimi-samaxida-mart-qirginlari/#article","isPartOf":{"@id":"{{SITE}}/1918-ci-il-azerbaycanlilarin-soyqirimi-samaxida-mart-qirginlari/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"1918-ci il azərbaycanlıların soyqırımı. Şamaxıda mart qırğınları.","datePublished":"2023-11-15T17:01:33+00:00","dateModified":"2023-11-15T17:56:48+00:00","mainEntityOfPage":{"@id":"{{SITE}}/1918-ci-il-azerbaycanlilarin-soyqirimi-samaxida-mart-qirginlari/"},"wordCount":138,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/1918-ci-il-azerbaycanlilarin-soyqirimi-samaxida-mart-qirginlari/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/11/replace-image3-1.jpg","articleSection":["Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/1918-ci-il-azerbaycanlilarin-soyqirimi-samaxida-mart-qirginlari/","url":"{{SITE}}/1918-ci-il-azerbaycanlilarin-soyqirimi-samaxida-mart-qirginlari/","name":"1918-ci il azərbaycanlıların soyqırımı. Şamaxıda mart qırğınları. - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/1918-ci-il-azerbaycanlilarin-soyqirimi-samaxida-mart-qirginlari/#primaryimage"},"image":{"@id":"{{SITE}}/1918-ci-il-azerbaycanlilarin-soyqirimi-samaxida-mart-qirginlari/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/11/replace-image3-1.jpg","datePublished":"2023-11-15T17:01:33+00:00","dateModified":"2023-11-15T17:56:48+00:00","breadcrumb":{"@id":"{{SITE}}/1918-ci-il-azerbaycanlilarin-soyqirimi-samaxida-mart-qirginlari/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/1918-ci-il-azerbaycanlilarin-soyqirimi-samaxida-mart-qirginlari/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/1918-ci-il-azerbaycanlilarin-soyqirimi-samaxida-mart-qirginlari/#primaryimage","url":"{{SITE}}/uploads/2023/11/replace-image3-1.jpg","contentUrl":"{{SITE}}/uploads/2023/11/replace-image3-1.jpg","width":1022,"height":876},{"@type":"BreadcrumbList","@id":"{{SITE}}/1918-ci-il-azerbaycanlilarin-soyqirimi-samaxida-mart-qirginlari/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"1918-ci il azərbaycanlıların soyqırımı. Şamaxıda mart qırğınları."}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2023/11/replace-image3-1.jpg',
             'srcset' => 'uploads/2023/11/replace-image3-1.jpg 1022w, uploads/2023/11/replace-image3-1-300x257.jpg 300w, uploads/2023/11/replace-image3-1-768x658.jpg 768w',
@@ -2734,6 +8370,103 @@ HTML,
         'description' => <<<'HTML'
 2Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, […]
 HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Məhkəmə arxeologiyası və antropologiyası mövzusuna həsr edilmiş Beynəlxalq Konfrans',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+2Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2023-11-15T17:00:27+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2023-11-15T17:56:54+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2023/11/replace-image2-1.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1022',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '876',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/mehkeme-arxeologiyasi-ve-antropologiyasi-movzusuna-hesr-edilmis-beynelxalq-konfrans/#article","isPartOf":{"@id":"{{SITE}}/mehkeme-arxeologiyasi-ve-antropologiyasi-movzusuna-hesr-edilmis-beynelxalq-konfrans/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"Məhkəmə arxeologiyası və antropologiyası mövzusuna həsr edilmiş Beynəlxalq Konfrans","datePublished":"2023-11-15T17:00:27+00:00","dateModified":"2023-11-15T17:56:54+00:00","mainEntityOfPage":{"@id":"{{SITE}}/mehkeme-arxeologiyasi-ve-antropologiyasi-movzusuna-hesr-edilmis-beynelxalq-konfrans/"},"wordCount":137,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/mehkeme-arxeologiyasi-ve-antropologiyasi-movzusuna-hesr-edilmis-beynelxalq-konfrans/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/11/replace-image2-1.jpg","articleSection":["Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/mehkeme-arxeologiyasi-ve-antropologiyasi-movzusuna-hesr-edilmis-beynelxalq-konfrans/","url":"{{SITE}}/mehkeme-arxeologiyasi-ve-antropologiyasi-movzusuna-hesr-edilmis-beynelxalq-konfrans/","name":"Məhkəmə arxeologiyası və antropologiyası mövzusuna həsr edilmiş Beynəlxalq Konfrans - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/mehkeme-arxeologiyasi-ve-antropologiyasi-movzusuna-hesr-edilmis-beynelxalq-konfrans/#primaryimage"},"image":{"@id":"{{SITE}}/mehkeme-arxeologiyasi-ve-antropologiyasi-movzusuna-hesr-edilmis-beynelxalq-konfrans/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/11/replace-image2-1.jpg","datePublished":"2023-11-15T17:00:27+00:00","dateModified":"2023-11-15T17:56:54+00:00","breadcrumb":{"@id":"{{SITE}}/mehkeme-arxeologiyasi-ve-antropologiyasi-movzusuna-hesr-edilmis-beynelxalq-konfrans/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/mehkeme-arxeologiyasi-ve-antropologiyasi-movzusuna-hesr-edilmis-beynelxalq-konfrans/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/mehkeme-arxeologiyasi-ve-antropologiyasi-movzusuna-hesr-edilmis-beynelxalq-konfrans/#primaryimage","url":"{{SITE}}/uploads/2023/11/replace-image2-1.jpg","contentUrl":"{{SITE}}/uploads/2023/11/replace-image2-1.jpg","width":1022,"height":876},{"@type":"BreadcrumbList","@id":"{{SITE}}/mehkeme-arxeologiyasi-ve-antropologiyasi-movzusuna-hesr-edilmis-beynelxalq-konfrans/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Məhkəmə arxeologiyası və antropologiyası mövzusuna həsr edilmiş Beynəlxalq Konfrans"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2023/11/replace-image2-1.jpg',
             'srcset' => 'uploads/2023/11/replace-image2-1.jpg 1022w, uploads/2023/11/replace-image2-1-300x257.jpg 300w, uploads/2023/11/replace-image2-1-768x658.jpg 768w',
@@ -2761,6 +8494,103 @@ Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots 
 HTML,
         'description' => <<<'HTML'
 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, […]
+HTML,
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '“30 avqust beynəlxalq itkinlər günü” münasibətilə “Qarabağ İtkin Ailələri” İctimai Birliyinin bəyanatı',
+            ],
+            [
+                'p',
+                'og:description',
+                <<<'HTML'
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, […]
+HTML,
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:published_time',
+                '2023-11-15T16:59:33+00:00',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2023-11-15T17:56:58+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2023/11/replace-image-1.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1022',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '876',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'author',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Written by',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                'jgitd',
+            ],
+            [
+                'n',
+                'twitter:label2',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data2',
+                '1 minute',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati/#article","isPartOf":{"@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati/"},"author":{"name":"jgitd","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb"},"headline":"“30 avqust beynəlxalq itkinlər günü” münasibətilə “Qarabağ İtkin Ailələri” İctimai Birliyinin bəyanatı","datePublished":"2023-11-15T16:59:33+00:00","dateModified":"2023-11-15T17:56:58+00:00","mainEntityOfPage":{"@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati/"},"wordCount":142,"publisher":{"@id":"{{SITE}}/#organization"},"image":{"@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/11/replace-image-1.jpg","articleSection":["Xəbərlər"],"inLanguage":"az"},{"@type":"WebPage","@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati/","url":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati/","name":"“30 avqust beynəlxalq itkinlər günü” münasibətilə “Qarabağ İtkin Ailələri” İctimai Birliyinin bəyanatı - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati/#primaryimage"},"image":{"@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/11/replace-image-1.jpg","datePublished":"2023-11-15T16:59:33+00:00","dateModified":"2023-11-15T17:56:58+00:00","breadcrumb":{"@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati/#primaryimage","url":"{{SITE}}/uploads/2023/11/replace-image-1.jpg","contentUrl":"{{SITE}}/uploads/2023/11/replace-image-1.jpg","width":1022,"height":876},{"@type":"BreadcrumbList","@id":"{{SITE}}/30-avqust-beynelxalq-itkinler-gunu-munasibetile-qarabag-itkin-aileleri-ictimai-birliyinin-beyanati/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"“30 avqust beynəlxalq itkinlər günü” münasibətilə “Qarabağ İtkin Ailələri” İctimai Birliyinin bəyanatı"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}},{"@type":"Person","@id":"{{SITE}}/#/schema/person/c03ab98ad06c7410a10a2560d00ae3eb","name":"jgitd","sameAs":["{{SITE}}"]}]}
 HTML,
         'thumb' => [
             'url' => 'uploads/2023/11/replace-image-1.jpg',

@@ -15,6 +15,8 @@ $meta['title']      = 'İtkinlər Archive - ' . cfg('site_name');
 $meta['og_type']    = 'website';
 $meta['canonical']  = abs_url($pager['page'] > 1 ? 'itkinlr/page/' . $pager['page'] : 'itkinlr');
 $meta['body_class'] = body_class('archive post-type-archive post-type-archive-itkinlr');
+$meta['head_meta']  = data_load('archives')['itkinlr']['head_meta'] ?? [];
+$meta['schema']     = data_load('archives')['itkinlr']['schema'] ?? '';
 $meta['elementor_post'] = elementor_post_json(0, 'İtkinlər');
 
 $crumbs = [['label' => 'İtkinlər', 'href' => null]];

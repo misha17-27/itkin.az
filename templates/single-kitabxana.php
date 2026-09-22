@@ -40,6 +40,8 @@ $meta['image']       = !empty($post['thumb']['url']) ? abs_url_file($post['thumb
 $meta['canonical']   = abs_url('kitabxana-blog/' . $post['slug']);
 $meta['og_type']     = 'article';
 $meta['body_class']  = body_class('wp-singular kitabxana-blog-template-default single single-kitabxana-blog postid-' . $post['id'], false, 'elementor-page-928');
+$meta['head_meta']   = $post['head_meta'] ?? [];
+$meta['schema']      = $post['schema'] ?? '';
 $meta['schema_entry'] = $post;
 $meta['elementor_post'] = elementor_post_json($post['id'], $post['title'], $post['thumb']['url'] ?? '');
 ?>

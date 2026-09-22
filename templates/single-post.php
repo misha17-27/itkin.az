@@ -36,7 +36,15 @@ $meta['image']       = !empty($post['thumb']['url']) ? abs_url_file($post['thumb
 $meta['canonical']   = abs_url($post['slug']);
 $meta['og_type']     = 'article';
 $meta['body_class']  = body_class('wp-singular post-template-default single single-post postid-' . $post['id'] . ' single-format-standard', false, 'elementor-page-581');
+$meta['head_meta']   = $post['head_meta'] ?? [];
+$meta['schema']      = $post['schema'] ?? '';
 $meta['schema_entry'] = $post;
+
+// Məzmunda video/audio varsa MediaElement pleyeri lazımdır
+if (preg_match('/<(?:video|audio)\b|wp-(?:video|audio)-shortcode/i', $post['content'])) {
+    $meta['extra_js']  = JS_MEDIAELEMENT;
+    $meta['extra_css'] = CSS_MEDIAELEMENT;
+}
 $meta['elementor_post']  = elementor_post_json($post['id'], $post['title'], $post['thumb']['url'] ?? '');
 ?>
 <?php include __DIR__ . '/single-post.body.php'; ?>

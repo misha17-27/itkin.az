@@ -16,6 +16,8 @@ $meta['image']       = !empty($item['thumb']['url']) ? abs_url_file($item['thumb
 $meta['canonical']   = abs_url('itkinlr/' . $item['slug']);
 $meta['og_type']     = 'article';
 $meta['body_class']  = body_class('wp-singular itkinlr-template-default single single-itkinlr postid-' . $item['id']);
+$meta['head_meta']   = $item['head_meta'] ?? [];
+$meta['schema']      = $item['schema'] ?? '';
 $meta['schema_entry'] = $item + ['categories' => []];
 $meta['elementor_post'] = elementor_post_json($item['id'], $item['title'], $item['thumb']['url'] ?? '');
 ?>

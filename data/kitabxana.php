@@ -15,6 +15,86 @@ return [
         'categories' => [],
         'excerpt' => 'Esmira Orucova',
         'description' => 'Esmira Orucova',
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Bizi əsirlikdən qurtarın',
+            ],
+            [
+                'p',
+                'og:description',
+                'Esmira Orucova',
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2024-08-02T07:18:35+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/08/20220426092734_25837600.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1020',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1520',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                '1 minute',
+            ],
+            [
+                'n',
+                'description',
+                'Esmira Orucova',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"{{SITE}}/kitabxana-blog/bizi-esirlikden-qurtarin/","url":"{{SITE}}/kitabxana-blog/bizi-esirlikden-qurtarin/","name":"Bizi əsirlikdən qurtarın - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/kitabxana-blog/bizi-esirlikden-qurtarin/#primaryimage"},"image":{"@id":"{{SITE}}/kitabxana-blog/bizi-esirlikden-qurtarin/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/08/20220426092734_25837600.jpg","datePublished":"2024-08-02T07:17:55+00:00","dateModified":"2024-08-02T07:18:35+00:00","breadcrumb":{"@id":"{{SITE}}/kitabxana-blog/bizi-esirlikden-qurtarin/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/kitabxana-blog/bizi-esirlikden-qurtarin/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/kitabxana-blog/bizi-esirlikden-qurtarin/#primaryimage","url":"{{SITE}}/uploads/2024/08/20220426092734_25837600.jpg","contentUrl":"{{SITE}}/uploads/2024/08/20220426092734_25837600.jpg","width":1020,"height":1520},{"@type":"BreadcrumbList","@id":"{{SITE}}/kitabxana-blog/bizi-esirlikden-qurtarin/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Kitabxana","item":"{{SITE}}/kitabxana-blog/"},{"@type":"ListItem","position":3,"name":"Bizi əsirlikdən qurtarın"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2024/08/20220426092734_25837600.jpg',
             'srcset' => <<<'HTML'
@@ -51,6 +131,81 @@ HTML,
         'categories' => [],
         'excerpt' => 'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
         'description' => 'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '“ERMƏNİ SOYQIRIMI” REAL TARİX, YAXUD TARİXİN YALANI”',
+            ],
+            [
+                'p',
+                'og:description',
+                'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/08/20220426091642_82010300.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1020',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1520',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                '1 minute',
+            ],
+            [
+                'n',
+                'description',
+                'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"{{SITE}}/kitabxana-blog/ermeni-soyqirimi-real-tarix-yaxud-tarixin-yalani/","url":"{{SITE}}/kitabxana-blog/ermeni-soyqirimi-real-tarix-yaxud-tarixin-yalani/","name":"“ERMƏNİ SOYQIRIMI” REAL TARİX, YAXUD TARİXİN YALANI” - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/kitabxana-blog/ermeni-soyqirimi-real-tarix-yaxud-tarixin-yalani/#primaryimage"},"image":{"@id":"{{SITE}}/kitabxana-blog/ermeni-soyqirimi-real-tarix-yaxud-tarixin-yalani/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/08/20220426091642_82010300.jpg","datePublished":"2024-08-02T07:14:27+00:00","dateModified":"2024-08-02T07:14:27+00:00","breadcrumb":{"@id":"{{SITE}}/kitabxana-blog/ermeni-soyqirimi-real-tarix-yaxud-tarixin-yalani/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/kitabxana-blog/ermeni-soyqirimi-real-tarix-yaxud-tarixin-yalani/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/kitabxana-blog/ermeni-soyqirimi-real-tarix-yaxud-tarixin-yalani/#primaryimage","url":"{{SITE}}/uploads/2024/08/20220426091642_82010300.jpg","contentUrl":"{{SITE}}/uploads/2024/08/20220426091642_82010300.jpg","width":1020,"height":1520},{"@type":"BreadcrumbList","@id":"{{SITE}}/kitabxana-blog/ermeni-soyqirimi-real-tarix-yaxud-tarixin-yalani/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Kitabxana","item":"{{SITE}}/kitabxana-blog/"},{"@type":"ListItem","position":3,"name":"“ERMƏNİ SOYQIRIMI” REAL TARİX, YAXUD TARİXİN YALANI”"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2024/08/20220426091642_82010300.jpg',
             'srcset' => <<<'HTML'
@@ -87,6 +242,81 @@ HTML,
         'categories' => [],
         'excerpt' => 'Eldar Səmədov',
         'description' => 'Eldar Səmədov',
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                '"QSM-7" təsdiq edir',
+            ],
+            [
+                'p',
+                'og:description',
+                'Eldar Səmədov',
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/08/20211003203352_57015400.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '510',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '760',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                '1 minute',
+            ],
+            [
+                'n',
+                'description',
+                'Eldar Səmədov',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"{{SITE}}/kitabxana-blog/qsm-7-tesdiq-edir/","url":"{{SITE}}/kitabxana-blog/qsm-7-tesdiq-edir/","name":"\"QSM-7\" təsdiq edir - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/kitabxana-blog/qsm-7-tesdiq-edir/#primaryimage"},"image":{"@id":"{{SITE}}/kitabxana-blog/qsm-7-tesdiq-edir/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/08/20211003203352_57015400.jpg","datePublished":"2024-08-02T07:08:12+00:00","dateModified":"2024-08-02T07:08:12+00:00","breadcrumb":{"@id":"{{SITE}}/kitabxana-blog/qsm-7-tesdiq-edir/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/kitabxana-blog/qsm-7-tesdiq-edir/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/kitabxana-blog/qsm-7-tesdiq-edir/#primaryimage","url":"{{SITE}}/uploads/2024/08/20211003203352_57015400.jpg","contentUrl":"{{SITE}}/uploads/2024/08/20211003203352_57015400.jpg","width":510,"height":760},{"@type":"BreadcrumbList","@id":"{{SITE}}/kitabxana-blog/qsm-7-tesdiq-edir/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Kitabxana","item":"{{SITE}}/kitabxana-blog/"},{"@type":"ListItem","position":3,"name":"&#8220;QSM-7&#8221; təsdiq edir"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2024/08/20211003203352_57015400.jpg',
             'srcset' => 'uploads/2024/08/20211003203352_57015400.jpg 510w, uploads/2024/08/20211003203352_57015400-201x300.jpg 201w',
@@ -120,6 +350,81 @@ HTML,
         'categories' => [],
         'excerpt' => 'Eldar Səmədov, Rauf Məəmmədov',
         'description' => 'Eldar Səmədov, Rauf Məəmmədov',
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'TERROR: HADİSƏLƏR, FAKTLAR, SÜBUTLAR',
+            ],
+            [
+                'p',
+                'og:description',
+                'Eldar Səmədov, Rauf Məəmmədov',
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/08/20210826132347_85365100.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1020',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1520',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                '1 minute',
+            ],
+            [
+                'n',
+                'description',
+                'Eldar Səmədov, Rauf Məəmmədov',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"{{SITE}}/kitabxana-blog/terror-hadiseler-faktlar-subutlar/","url":"{{SITE}}/kitabxana-blog/terror-hadiseler-faktlar-subutlar/","name":"TERROR: HADİSƏLƏR, FAKTLAR, SÜBUTLAR - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/kitabxana-blog/terror-hadiseler-faktlar-subutlar/#primaryimage"},"image":{"@id":"{{SITE}}/kitabxana-blog/terror-hadiseler-faktlar-subutlar/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/08/20210826132347_85365100.jpg","datePublished":"2024-08-02T07:05:20+00:00","dateModified":"2024-08-02T07:05:20+00:00","breadcrumb":{"@id":"{{SITE}}/kitabxana-blog/terror-hadiseler-faktlar-subutlar/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/kitabxana-blog/terror-hadiseler-faktlar-subutlar/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/kitabxana-blog/terror-hadiseler-faktlar-subutlar/#primaryimage","url":"{{SITE}}/uploads/2024/08/20210826132347_85365100.jpg","contentUrl":"{{SITE}}/uploads/2024/08/20210826132347_85365100.jpg","width":1020,"height":1520},{"@type":"BreadcrumbList","@id":"{{SITE}}/kitabxana-blog/terror-hadiseler-faktlar-subutlar/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Kitabxana","item":"{{SITE}}/kitabxana-blog/"},{"@type":"ListItem","position":3,"name":"TERROR: HADİSƏLƏR, FAKTLAR, SÜBUTLAR"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2024/08/20210826132347_85365100.jpg',
             'srcset' => <<<'HTML'
@@ -156,6 +461,81 @@ HTML,
         'categories' => [],
         'excerpt' => 'İlkin Şükürbəyli, Nəsimi Faiqoğlu',
         'description' => 'İlkin Şükürbəyli, Nəsimi Faiqoğlu',
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Qətl edilmiş uşaqlar',
+            ],
+            [
+                'p',
+                'og:description',
+                'İlkin Şükürbəyli, Nəsimi Faiqoğlu',
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/08/20210826131313_47108700.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1020',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1520',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                '1 minute',
+            ],
+            [
+                'n',
+                'description',
+                'İlkin Şükürbəyli, Nəsimi Faiqoğlu',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"{{SITE}}/kitabxana-blog/qetl-edilmis-usaqlar/","url":"{{SITE}}/kitabxana-blog/qetl-edilmis-usaqlar/","name":"Qətl edilmiş uşaqlar - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/kitabxana-blog/qetl-edilmis-usaqlar/#primaryimage"},"image":{"@id":"{{SITE}}/kitabxana-blog/qetl-edilmis-usaqlar/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/08/20210826131313_47108700.jpg","datePublished":"2024-08-02T06:54:27+00:00","dateModified":"2024-08-02T06:54:27+00:00","breadcrumb":{"@id":"{{SITE}}/kitabxana-blog/qetl-edilmis-usaqlar/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/kitabxana-blog/qetl-edilmis-usaqlar/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/kitabxana-blog/qetl-edilmis-usaqlar/#primaryimage","url":"{{SITE}}/uploads/2024/08/20210826131313_47108700.jpg","contentUrl":"{{SITE}}/uploads/2024/08/20210826131313_47108700.jpg","width":1020,"height":1520},{"@type":"BreadcrumbList","@id":"{{SITE}}/kitabxana-blog/qetl-edilmis-usaqlar/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Kitabxana","item":"{{SITE}}/kitabxana-blog/"},{"@type":"ListItem","position":3,"name":"Qətl edilmiş uşaqlar"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2024/08/20210826131313_47108700.jpg',
             'srcset' => <<<'HTML'
@@ -192,6 +572,86 @@ HTML,
         'categories' => [],
         'excerpt' => 'Eldar Səmədov, Emin Vəliyev, Aygün Həsənoğlu',
         'description' => 'Eldar Səmədov, Emin Vəliyev, Aygün Həsənoğlu',
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Erməni Terroru',
+            ],
+            [
+                'p',
+                'og:description',
+                'Eldar Səmədov, Emin Vəliyev, Aygün Həsənoğlu',
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2024-07-24T19:23:48+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/07/20210826125842_39550900.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1020',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1520',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                '1 minute',
+            ],
+            [
+                'n',
+                'description',
+                'Eldar Səmədov, Emin Vəliyev, Aygün Həsənoğlu',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"{{SITE}}/kitabxana-blog/ermeni-terroru/","url":"{{SITE}}/kitabxana-blog/ermeni-terroru/","name":"Erməni Terroru - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/kitabxana-blog/ermeni-terroru/#primaryimage"},"image":{"@id":"{{SITE}}/kitabxana-blog/ermeni-terroru/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/07/20210826125842_39550900.jpg","datePublished":"2024-07-24T19:05:10+00:00","dateModified":"2024-07-24T19:23:48+00:00","breadcrumb":{"@id":"{{SITE}}/kitabxana-blog/ermeni-terroru/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/kitabxana-blog/ermeni-terroru/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/kitabxana-blog/ermeni-terroru/#primaryimage","url":"{{SITE}}/uploads/2024/07/20210826125842_39550900.jpg","contentUrl":"{{SITE}}/uploads/2024/07/20210826125842_39550900.jpg","width":1020,"height":1520},{"@type":"BreadcrumbList","@id":"{{SITE}}/kitabxana-blog/ermeni-terroru/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Kitabxana","item":"{{SITE}}/kitabxana-blog/"},{"@type":"ListItem","position":3,"name":"Erməni Terroru"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2024/07/20210826125842_39550900.jpg',
             'srcset' => <<<'HTML'
@@ -228,6 +688,86 @@ HTML,
         'categories' => [],
         'excerpt' => 'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
         'description' => 'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
+        'head_meta' => [
+            [
+                'p',
+                'og:locale',
+                'az_AZ',
+            ],
+            [
+                'p',
+                'og:type',
+                'article',
+            ],
+            [
+                'p',
+                'og:title',
+                'Erməni əsirliyində işgəncə və qətl antologiyası',
+            ],
+            [
+                'p',
+                'og:description',
+                'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
+            ],
+            [
+                'p',
+                'og:url',
+                '',
+            ],
+            [
+                'p',
+                'og:site_name',
+                'İtkin',
+            ],
+            [
+                'p',
+                'article:modified_time',
+                '2024-07-24T19:14:55+00:00',
+            ],
+            [
+                'p',
+                'og:image',
+                'uploads/2024/07/20210826124223_23290300.jpg',
+            ],
+            [
+                'p',
+                'og:image:width',
+                '1020',
+            ],
+            [
+                'p',
+                'og:image:height',
+                '1520',
+            ],
+            [
+                'p',
+                'og:image:type',
+                'image/jpeg',
+            ],
+            [
+                'n',
+                'twitter:card',
+                'summary_large_image',
+            ],
+            [
+                'n',
+                'twitter:label1',
+                'Est. reading time',
+            ],
+            [
+                'n',
+                'twitter:data1',
+                '1 minute',
+            ],
+            [
+                'n',
+                'description',
+                'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
+            ],
+        ],
+        'schema' => <<<'HTML'
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"{{SITE}}/kitabxana-blog/ermeni-esirliyinde-isgence-ve-qetl-antologiyasi/","url":"{{SITE}}/kitabxana-blog/ermeni-esirliyinde-isgence-ve-qetl-antologiyasi/","name":"Erməni əsirliyində işgəncə və qətl antologiyası - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/kitabxana-blog/ermeni-esirliyinde-isgence-ve-qetl-antologiyasi/#primaryimage"},"image":{"@id":"{{SITE}}/kitabxana-blog/ermeni-esirliyinde-isgence-ve-qetl-antologiyasi/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/07/20210826124223_23290300.jpg","datePublished":"2024-07-24T16:57:59+00:00","dateModified":"2024-07-24T19:14:55+00:00","breadcrumb":{"@id":"{{SITE}}/kitabxana-blog/ermeni-esirliyinde-isgence-ve-qetl-antologiyasi/#breadcrumb"},"inLanguage":"az","potentialAction":[{"@type":"ReadAction","target":["{{SITE}}/kitabxana-blog/ermeni-esirliyinde-isgence-ve-qetl-antologiyasi/"]}]},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/kitabxana-blog/ermeni-esirliyinde-isgence-ve-qetl-antologiyasi/#primaryimage","url":"{{SITE}}/uploads/2024/07/20210826124223_23290300.jpg","contentUrl":"{{SITE}}/uploads/2024/07/20210826124223_23290300.jpg","width":1020,"height":1520},{"@type":"BreadcrumbList","@id":"{{SITE}}/kitabxana-blog/ermeni-esirliyinde-isgence-ve-qetl-antologiyasi/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Kitabxana","item":"{{SITE}}/kitabxana-blog/"},{"@type":"ListItem","position":3,"name":"Erməni əsirliyində işgəncə və qətl antologiyası"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}}]}
+HTML,
         'thumb' => [
             'url' => 'uploads/2024/07/20210826124223_23290300.jpg',
             'srcset' => <<<'HTML'

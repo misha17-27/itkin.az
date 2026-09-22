@@ -19,6 +19,7 @@ qovluğundakı PHP massivlərində saxlanılır və şablonlar tərəfindən din
    'site_url'      => '',                 // boş = avtomatik təyin olunur
    'contact_email' => 'info@itkin.az',    // formanın gedəcəyi ünvan
    'contact_from'  => 'no-reply@itkin.az' // göndərən ünvan (domeninizdə mövcud olmalıdır)
+   'ga_id'         => 'GT-T5MGVVRX',      // Google Analytics; boş buraxsanız yüklənmir
    ```
 
 3. `mod_rewrite` aktiv olmalıdır — cPanel-də standart olaraq aktivdir.
@@ -88,9 +89,15 @@ data/                  məzmun (PHP massivləri)
   itkinlr.php          13 itkin şəxs
   categories.php       6 kateqoriya
   pages.php            8 statik səhifənin meta məlumatı
+  archives.php         itkinlr / kitabxana-blog arxivlərinin meta məlumatı
   menu.php             əsas menyu
   menu-footer-1.php    altlıqdakı birinci menyu
   menu-footer-2.php    altlıqdakı ikinci menyu
+
+Hər sətirdə məzmundan başqa iki sahə də var:
+`head_meta` — Open Graph / Twitter teqləri orijinaldakı ardıcıllıqla,
+`schema` — Yoast-ın JSON-LD qrafı (sayt ünvanı `{{SITE}}` nişanı ilə, ona görə
+domen dəyişsə belə struktur məlumat düzgün qalır).
 
 assets/
   css/                 orijinalda inline olan üslublar
@@ -146,6 +153,10 @@ Vizual olaraq fərq yoxdur. Texniki fərqlər:
   Bu, səhifələri yüngülləşdirir və üslubların bəzi səhifələrdə itməsinin qarşısını alır.
 - **WordPress-ə xas keçidlər yoxdur:** RSS (`/feed/`), oEmbed, `wp-json` — bu
   ünvanlar surətdə mövcud olmadığı üçün çıxarılıb.
+- **Skriptlər səhifədən asılıdır.** WordPress kimi, hər şablon yalnız özünə lazım
+  olan faylı yükləyir: ana səhifə `jquery-numerator` (statistika sayğacları üçün),
+  qalereya səhifələri `e-gallery`, video olan yazı isə MediaElement dəsti.
+  Siyahısı `inc/render.php`-dəki `JS_VIEW` sabitindədir.
 - **Əlaqə forması** Elementor Pro-nun AJAX emalı əvəzinə PHP `mail()` ilə işləyir;
   əlavə olaraq CSRF nişanı və spam tələsi var.
 - **Ana səhifədəki böyük inline şəkil** (441 KB base64) ayrıca fayla çıxarılıb:

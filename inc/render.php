@@ -50,10 +50,40 @@ const CSS_VIEW = [
     '404'                       => ['uploads/elementor/css/post-334.css'],
 ];
 
-/** Elementor qalereyası olan şablonlarda əlavə skript lazımdır */
+/**
+ * Şablondan asılı olan skriptlər.
+ * WordPress bunları yalnız lazım olan səhifədə yükləyir — orijinaldakı
+ * ardıcıllıq və id-lər saxlanılıb (smartmenus ilə elementor runtime arasında).
+ */
+const JS_LIB = [
+    'mediaelement-core'    => ['mediaelement-core-js',    'assets/vendor/wp-includes/js/mediaelement/mediaelement-and-player.min.js'],
+    'mediaelement-migrate' => ['mediaelement-migrate-js', 'assets/vendor/wp-includes/js/mediaelement/mediaelement-migrate.min.js'],
+    'wp-mediaelement'      => ['wp-mediaelement-js',      'assets/vendor/wp-includes/js/mediaelement/wp-mediaelement.min.js'],
+    'mediaelement-vimeo'   => ['mediaelement-vimeo-js',   'assets/vendor/wp-includes/js/mediaelement/renderers/vimeo.min.js'],
+    'imagesloaded'         => ['imagesloaded-js',         'assets/vendor/wp-includes/js/imagesloaded.min.js'],
+    'jquery-numerator'     => ['jquery-numerator-js',     'assets/vendor/plugins/elementor/assets/lib/jquery-numerator/jquery-numerator.min.js'],
+    'e-gallery'            => ['elementor-gallery-js',    'assets/vendor/plugins/elementor/assets/lib/e-gallery/js/e-gallery.min.js'],
+];
+
 const JS_VIEW = [
-    'page-haqqimizda' => ['assets/vendor/plugins/elementor/assets/lib/e-gallery/js/e-gallery.min.js'],
-    'page-sekiller'   => ['assets/vendor/plugins/elementor/assets/lib/e-gallery/js/e-gallery.min.js'],
+    // sayğac vidjetləri jquery-numerator olmadan 0-da qalır
+    'home'               => ['imagesloaded', 'jquery-numerator'],
+    'page-xeberler'      => ['imagesloaded'],
+    'page-kitabxana'     => ['imagesloaded'],
+    'page-haqqimizda'    => ['e-gallery'],
+    'page-sekiller'      => ['e-gallery'],
+    'single-post'        => ['imagesloaded'],
+    'single-kitabxana'   => ['imagesloaded'],
+    'archive-category'   => ['imagesloaded'],
+    'archive-kitabxana'  => ['imagesloaded'],
+    // itkinlr, elaqe, sənəd səhifələri və 404 əlavə skript yükləmir
+];
+
+/** Səhifədə video/audio varsa lazım olan MediaElement dəsti */
+const JS_MEDIAELEMENT = ['mediaelement-core', 'mediaelement-migrate', 'wp-mediaelement', 'mediaelement-vimeo'];
+const CSS_MEDIAELEMENT = [
+    'assets/vendor/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css',
+    'assets/vendor/wp-includes/js/mediaelement/wp-mediaelement.min.css',
 ];
 
 /**
@@ -79,6 +109,11 @@ function render(string $view, array $vars = []): void
         'body_class'  => '',
         'og_title'    => '',
         'og_type'     => 'article',
+        // şablon öz ehtiyacına görə əlavə fayl tələb edə bilər
+        'head_meta'   => [],
+        'schema'      => '',
+        'extra_js'    => [],
+        'extra_css'   => [],
     ];
 
     extract($vars, EXTR_SKIP);
@@ -88,9 +123,17 @@ function render(string $view, array $vars = []): void
     include $file;
     $content = ob_get_clean();
 
-    $styles  = array_merge(CSS_BASE, CSS_VIEW[$view] ?? []);
-    $scripts = JS_VIEW[$view] ?? [];
-    $header  = $view === 'home' ? 'header-home' : 'header-main';
+    $styles = array_merge(CSS_BASE, CSS_VIEW[$view] ?? [], $meta['extra_css']);
+
+    // Səhifəyə xas fayllar şablonun standart dəstindən əvvəl gəlir (orijinaldakı kimi)
+    $scripts = [];
+    foreach (array_merge($meta['extra_js'], JS_VIEW[$view] ?? []) as $key) {
+        if (isset(JS_LIB[$key]) && !isset($scripts[$key])) {
+            $scripts[$key] = JS_LIB[$key];
+        }
+    }
+
+    $header = $view === 'home' ? 'header-home' : 'header-main';
 
     include dirname(__DIR__) . '/inc/head.php';
     include dirname(__DIR__) . '/inc/' . $header . '.php';

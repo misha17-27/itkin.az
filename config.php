@@ -23,6 +23,9 @@ return [
         'itkinlr'   => 10,
     ],
 
+    // Google Analytics (Site Kit). Boş buraxsanız sayğac ümumiyyətlə yüklənmir.
+    'ga_id'         => 'GT-T5MGVVRX',
+
     // Əlaqə formasının müraciətlərini fayla yazmaq
     'log_contact'   => false,
     'log_file'      => __DIR__ . '/storage/contact.log',

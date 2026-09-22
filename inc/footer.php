@@ -109,8 +109,8 @@
 <script id="jquery-core-js" src="<?= asset('assets/vendor/wp-includes/js/jquery/jquery.min.js') ?>"></script>
 <script id="jquery-migrate-js" src="<?= asset('assets/vendor/wp-includes/js/jquery/jquery-migrate.min.js') ?>"></script>
 <script id="smartmenus-js" src="<?= asset('assets/vendor/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js') ?>"></script>
-<?php foreach ($scripts as $src): ?>
-<script src="<?= asset($src) ?>"></script>
+<?php foreach ($scripts as list($id, $src)): ?>
+<script id="<?= e($id) ?>" src="<?= asset($src) ?>"></script>
 <?php endforeach; ?>
 <script id="elementor-pro-webpack-runtime-js" src="<?= asset('assets/vendor/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js') ?>"></script>
 <script id="elementor-webpack-runtime-js" src="<?= asset('assets/vendor/plugins/elementor/assets/js/webpack.runtime.min.js') ?>"></script>

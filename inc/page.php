@@ -23,6 +23,8 @@ function page_setup(string $slug, array &$meta): array
     $meta['image']       = $info['image'] !== '' ? abs_url_file($info['image']) : '';
     $meta['canonical']   = abs_url($slug === 'ana-sehife' ? '' : $slug);
     $meta['body_class']  = $info['body_class'];
+    $meta['head_meta']   = $info['head_meta'] ?? [];
+    $meta['schema']      = $info['schema'] ?? '';
     $meta['elementor_post'] = elementor_post_json((int) $info['id'], $info['title']);
 
     return $info;
