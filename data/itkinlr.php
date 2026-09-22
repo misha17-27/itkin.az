@@ -15,6 +15,7 @@ return [
         'categories' => [],
         'excerpt' => '',
         'description' => '',
+        'doc_title' => 'Zeynalov Çingiz Ataş oğlu - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -91,6 +92,7 @@ HTML,
         'categories' => [],
         'excerpt' => '',
         'description' => '',
+        'doc_title' => 'Şirinov Nazim Şirin oğlu - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -167,6 +169,7 @@ HTML,
         'categories' => [],
         'excerpt' => '',
         'description' => '',
+        'doc_title' => 'Qurbanov Telman Qara oğlu - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -243,6 +246,7 @@ HTML,
         'categories' => [],
         'excerpt' => '',
         'description' => '',
+        'doc_title' => 'Qasımov Zahir İsmayıl oğlu - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -319,6 +323,7 @@ HTML,
         'categories' => [],
         'excerpt' => '',
         'description' => '',
+        'doc_title' => 'Mustafayev Telman Qarabala oğlu - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -395,6 +400,7 @@ HTML,
         'categories' => [],
         'excerpt' => '',
         'description' => '',
+        'doc_title' => 'Hüseynov Ağası Rauf oğlu - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -471,6 +477,7 @@ HTML,
         'categories' => [],
         'excerpt' => '',
         'description' => '',
+        'doc_title' => 'Həsənquliyev Şirindil Cavad oğlu - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -547,6 +554,7 @@ HTML,
         'categories' => [],
         'excerpt' => '',
         'description' => '',
+        'doc_title' => 'Fətullayev Bəhtiyyar Abdulla oğlu - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -623,6 +631,7 @@ HTML,
         'categories' => [],
         'excerpt' => '',
         'description' => '',
+        'doc_title' => 'Cəlilov Feyruz Xanbala oğlu - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -699,6 +708,7 @@ HTML,
         'categories' => [],
         'excerpt' => '',
         'description' => '',
+        'doc_title' => 'Cəbrayılov Həmid Yaşar oğlu - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -775,6 +785,7 @@ HTML,
         'categories' => [],
         'excerpt' => '',
         'description' => '',
+        'doc_title' => 'Canıyev Səxavət Xanış oğlu - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -851,6 +862,7 @@ HTML,
         'categories' => [],
         'excerpt' => '',
         'description' => '',
+        'doc_title' => 'Cabbarov Azad Pirqulu oğlu - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -927,6 +939,7 @@ HTML,
         'categories' => [],
         'excerpt' => '',
         'description' => '',
+        'doc_title' => 'Behbudov Abbas Behbud oğlu - İtkin',
         'head_meta' => [
             [
                 'p',

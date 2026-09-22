@@ -16,7 +16,7 @@ function page_setup(string $slug, array &$meta): array
         ];
     }
 
-    $meta['title']       = $info['title'] . ' - ' . cfg('site_name');
+    $meta['title']       = ($info['doc_title'] ?? '') ?: ($info['title'] . ' - ' . cfg('site_name'));
     $meta['og_title']    = $info['title'];
     $meta['og_type']     = $slug === 'ana-sehife' ? 'website' : 'article';
     $meta['description'] = $info['description'];

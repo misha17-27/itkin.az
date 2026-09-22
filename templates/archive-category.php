@@ -14,13 +14,46 @@ $pager      = paginate(posts_in_category((int) $category['id']), (int) cfg('per_
 $items      = $pager['items'];
 $pager_base = 'category/' . $category['slug'];
 
-$meta['title']       = $category['name'] . ' Archives - ' . cfg('site_name');
-$meta['og_title']    = $category['name'] . ' Archives';
+// Səhifələnmiş arxivin öz ünvanı və başlığı olur
+$paged = $pager['page'] > 1;
+$path  = $paged ? $pager_base . '/page/' . $pager['page'] : $pager_base;
+$title = $category['doc_title'] ?: ($category['name'] . ' Archives - ' . cfg('site_name'));
+if ($paged) {
+    $title = str_replace(
+        ' - ' . cfg('site_name'),
+        ' - Page ' . $pager['page'] . ' of ' . $pager['pages'] . ' - ' . cfg('site_name'),
+        $title
+    );
+}
+
+$meta['title']       = $title;
+$meta['og_title']    = preg_replace('/ - ' . preg_quote((string) cfg('site_name'), '/') . '$/u', '', $title);
 $meta['description'] = $category['description'];
-$meta['canonical']   = abs_url($pager_base);
-$meta['body_class']  = body_class('archive category category-' . $category['slug'] . ' category-' . $category['id'], true, 'elementor-page-588');
+$meta['canonical']   = abs_url($path);
+$meta['body_class']  = body_class(
+    'archive category category-' . $category['slug'] . ' category-' . $category['id']
+    . ($paged ? ' paged paged-' . $pager['page'] : ''),
+    true,
+    'elementor-page-588'
+);
 $meta['head_meta']   = $category['head_meta'] ?? [];
 $meta['schema']      = $category['schema'] ?? '';
 $meta['elementor_post'] = elementor_post_json(0, $category['name']);
+
+if ($paged) {
+    foreach ($meta['head_meta'] as $i => $tag) {
+        if ($tag[1] === 'og:title') {
+            $meta['head_meta'][$i][2] = $meta['og_title'];
+        }
+    }
+}
+
+// WordPress qonşu arxiv səhifələrinə rel="prev" / rel="next" verir
+$meta['rel_prev'] = $pager['page'] > 1
+    ? abs_url($pager['page'] - 1 > 1 ? $pager_base . '/page/' . ($pager['page'] - 1) : $pager_base)
+    : '';
+$meta['rel_next'] = $pager['page'] < $pager['pages']
+    ? abs_url($pager_base . '/page/' . ($pager['page'] + 1))
+    : '';
 ?>
 <?php include __DIR__ . '/archive-category.body.php'; ?>

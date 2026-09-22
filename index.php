@@ -76,10 +76,19 @@ if ($parts === []) {
         $vars = ['item' => $item];
     }
 
-} elseif ($parts[0] === 'category' && count($parts) === 2) {
-    if ($cat = find_category($parts[1])) {
+} elseif ($parts[0] === 'category' && count($parts) >= 2) {
+    $cat = find_category($parts[1]);
+    if ($cat && count($parts) === 2) {
         $view = 'archive-category';
         $vars = ['category' => $cat, 'page' => $page];
+    } elseif ($cat && count($parts) === 4 && $parts[2] === 'page' && ctype_digit($parts[3])) {
+        // WordPress-in standart səhifələmə ünvanı: /category/<slug>/page/2/
+        $wanted   = max(1, (int) $parts[3]);
+        $lastPage = max(1, (int) ceil(count(posts_in_category((int) $cat['id'])) / max(1, (int) cfg('per_page')['category'])));
+        if ($wanted <= $lastPage) {
+            $view = 'archive-category';
+            $vars = ['category' => $cat, 'page' => $wanted, 'paged_path' => true];
+        }
     }
 
 } elseif (count($parts) === 1) {

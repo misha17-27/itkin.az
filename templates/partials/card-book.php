@@ -6,7 +6,7 @@
 $card_extra = $card_extra ?? '';
 $card_cats  = '';
 ?>
-<div data-elementor-type="loop-item" data-elementor-id="906" class="elementor elementor-906 e-loop-item<?= $card_extra ?> e-loop-item-<?= $post['id'] ?> post-<?= $post['id'] ?> kitabxana-blog type-kitabxana-blog status-publish has-post-thumbnail hentry" data-elementor-post-type="elementor_library" data-custom-edit-handle="1">
+<div data-elementor-type="loop-item" data-elementor-id="906" class="elementor elementor-906 e-loop-item<?= $card_extra ?> e-loop-item-<?= $post['id'] ?> post-<?= $post['id'] ?> kitabxana-blog type-kitabxana-blog status-publish has-post-thumbnail hentry" data-elementor-post-type="elementor_library"<?= $card_extra !== '' ? ' role="group" aria-roledescription="slide"' : '' ?> data-custom-edit-handle="1">
 					<div class="elementor-section-wrap">
 						<a class="elementor-element elementor-element-e7841ca e-flex e-con-boxed e-con e-parent" data-id="e7841ca" data-element_type="container" href="<?= url('kitabxana-blog/' . $post['slug']) ?>">
 					<div class="e-con-inner">

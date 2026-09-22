@@ -7,7 +7,7 @@ $card_extra = $card_extra ?? '';
 $card_cats  = cat_classes($post);
 ?>
 <style id="loop-dynamic-214">.e-loop-item-<?= $post['id'] ?> .elementor-element.elementor-element-5c2c833:not(.elementor-motion-effects-element-type-background), .e-loop-item-<?= $post['id'] ?> .elementor-element.elementor-element-5c2c833 > .elementor-motion-effects-container > .elementor-motion-effects-layer{background-image:url("<?= asset($post['thumb']['url']) ?>");}</style>
-<div data-elementor-type="loop-item" data-elementor-id="214" class="elementor elementor-214 e-loop-item<?= $card_extra ?> e-loop-item-<?= $post['id'] ?> post-<?= $post['id'] ?> post type-post status-publish format-standard has-post-thumbnail hentry <?= e($card_cats) ?>" data-elementor-post-type="elementor_library" data-custom-edit-handle="1">
+<div data-elementor-type="loop-item" data-elementor-id="214" class="elementor elementor-214 e-loop-item<?= $card_extra ?> e-loop-item-<?= $post['id'] ?> post-<?= $post['id'] ?> post type-post status-publish format-standard has-post-thumbnail hentry <?= e($card_cats) ?>" data-elementor-post-type="elementor_library"<?= $card_extra !== '' ? ' role="group" aria-roledescription="slide"' : '' ?> data-custom-edit-handle="1">
 					<div class="elementor-section-wrap">
 						<a class="elementor-element elementor-element-5c2c833 e-flex e-con-boxed e-con e-parent" data-id="5c2c833" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" href="<?= url($post['slug']) ?>">
 					<div class="e-con-inner">

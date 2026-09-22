@@ -22,6 +22,12 @@
 <?php if ($meta['canonical'] !== ''): ?>
 	<link rel="canonical" href="<?= e($meta['canonical']) ?>">
 <?php endif; ?>
+<?php if ($meta['rel_prev'] !== ''): ?>
+	<link rel="prev" href="<?= e($meta['rel_prev']) ?>">
+<?php endif; ?>
+<?php if ($meta['rel_next'] !== ''): ?>
+	<link rel="next" href="<?= e($meta['rel_next']) ?>">
+<?php endif; ?>
 <?php if (!empty($meta['head_meta'])): ?>
 <?php   foreach ($meta['head_meta'] as $tag): ?>
 <?php       list($kind, $key, $val) = $tag;

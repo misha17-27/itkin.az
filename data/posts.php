@@ -21,6 +21,7 @@ HTML,
         'description' => <<<'HTML'
 Azərbaycanda akkreditə olunmuş diplomatik korpus nümayəndələrinin Qarabağ və Şərqi Zəngəzura səfəri ilə bağlı Ermənistanın siyasi dairələrinin və mediasının reaksiyaları ilk növbədə bir həqiqəti göstərir: Ermənistan hələ də sülhə hazır deyil.   Qarabağ və Şərqi Zəngəzur Azərbaycanın beynəlxalq səviyyədə tanınmış ərazisidir. Bu ərazilərə diplomatik nümayəndələrin səfərinin təşkil edilməsi Azərbaycanın daxili və xarici siyasətinin legitim istiqamətlərindən biridir […]
 HTML,
+        'doc_title' => 'Ermənistan cəmiyyətində regiondakı yeni reallıqların dərki ilə bağlı hələ də ciddi problemlər mövcuddur - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -149,6 +150,7 @@ HTML,
         'description' => <<<'HTML'
   Bakı, 18 sentyabr, AZƏRTAC Azərbaycan QHT-ləri ölkəmizdə akkreditə olunmuş diplomatik korpusun nümayəndələrinin işğaldan azad edilmiş ərazilərə səfəri ilə əlaqədar Ermənistanda başlanmış kampaniya əleyhinə bəyanat yayıb. AZƏRTAC bəyanatı təqdim edir: “Biz – Azərbaycanın vətəndaş cəmiyyəti təmsilçiləri Azərbaycanda akkreditə olunmuş diplomatik korpusun işğaldan azad edilmiş Qarabağa və Şərqi Zəngəzura sonuncu səfərinə Ermənistanın müxtəlif dairələrinin verdiyi reaksiyanı qəti şəkildə […]
 HTML,
+        'doc_title' => 'Azərbaycan QHT-ləri diplomatik korpusun azad edilmiş ərazilərə səfəri ilə bağlı Ermənistanda başlanmış kampaniyanı pisləyib - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -339,6 +341,7 @@ HTML,
         'description' => <<<'HTML'
 Bakı, 18 sentyabr, AZƏRTAC Azərbaycanda akkreditə olunmuş diplomatik korpus nümayəndələrinin Qarabağ və Şərqi Zəngəzura səfəri ilə bağlı Ermənistanın siyasi dairələrinin və mediasının reaksiyaları ilk növbədə bir həqiqəti göstərir: Ermənistan hələ də sülhə hazır deyil. Qarabağ və Şərqi Zəngəzur Azərbaycanın beynəlxalq səviyyədə tanınmış ərazisidir. Bu ərazilərə diplomatik nümayəndələrin səfərinin təşkil edilməsi Azərbaycanın daxili və xarici siyasətinin legitim […]
 HTML,
+        'doc_title' => 'Ermənistan cəmiyyətində regiondakı yeni reallıqların dərki ilə bağlı hələ də ciddi problemlər mövcuddur - RƏY - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -472,6 +475,7 @@ HTML,
         'description' => <<<'HTML'
 BMT-nin Məcburi İtkindüşmələr üzrə Komitəsinin 31-ci sessiyasına (14–24 sentyabr 2026-cı il)   Beynəlxalq Avrasiya Mətbuat Fondunun, Vətəndaşların Əmək Hüquqlarını Müdafiə Liqasının, İnsan Hüquqları üzrə Təlim və Tədqiqat İctimai Birliyinin və “Qarabağ İtkin Ailələri” İctimai Birliyinin birgə   BƏYANATI   Ermənistan dövlətinin Komitəyə təqdim etdiyi dövri hesabatda I Qarabağ müharibəsi zamanı Ermənistan silahlı qüvvələri tərəfindən əsir […]
 HTML,
+        'doc_title' => 'BMT-nin Məcburi İtkindüşmələr üzrə Komitəsinin 31-ci sessiyası - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -619,6 +623,7 @@ HTML,
         'description' => <<<'HTML'
 31 Avqust 2026 7-10 oktyabr 2026 | Azərbaycan Azərbaycanda İtkin düşmüş şəxslər üzrə Bakı Dialoqu çərçivəsində IV Beynəlxalq Konfrans keçiriləcək. Builki Konfransın əsas mövzusu: “İtkin düşmüş şəxslər məsələsinin həllində etimadın gücləndirilməsi, effektiv mexanizm və həll yollarının inkişaf etdirilməsi.” Builki müzakirələrin əsas istiqamətlərindən biri tərəflər arasında etimadın formalaşdırılması və möhkəmləndirilməsi olacaq. Təcrübə göstərir ki, itkin düşmüş […]
 HTML,
+        'doc_title' => 'Azərbaycanda İtkin düşmüş şəxslər üzrə Bakı Dialoqu çərçivəsində IV Beynəlxalq Konfrans keçiriləcək. - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -750,6 +755,7 @@ HTML,
         'description' => <<<'HTML'
 “Qarabağ İtkin Ailələri” İctimai Birliyi Sumqayıt şəhərindən olan bir qrup itkin-şəhid ailə üzvlərinin Qarabağ torpaqlarına səfərin təşkil etdi. Səfər 5 sentyabr 2026-cı ildə həyata keçirildi. Səfər Simqayıt şəhər İcra Hakimiyyətinin tərəfdaşlığl ilə baş tutdu.
 HTML,
+        'doc_title' => '“Qarabağ İtkin Ailələri” İctimai Birliyinin Qarabağa səfəri - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -871,6 +877,7 @@ HTML,
         'description' => <<<'HTML'
   Bakı, 5 sentyabr, AZƏRTAC Şuşaya səfər edən bəzi şəxslərin qayaların və daşların üzərinə müxtəlif adlar yazması ilə bağlı yayılan görüntülər biz itkin-şəhid ailələrində ciddi narahatlıq doğurur. Bu fikirləri AZƏRTAC-a açıqlaması zamanı “Qarabağ İtkin Ailələri” İctimai Birliyinin sədri Könül Behbudova deyib. Azərbaycanın müxtəlif şəhər və rayonlarında şəhidlərin xatirəsinə ucaldılmış çoxsaylı abidələr, memorial komplekslər, parklar və xiyabanlar mövcud […]
 HTML,
+        'doc_title' => 'Hər bir daş, divar, tarixi məkan xalqımızın yaddaşının parçasıdır - AÇIQLAMA - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -1003,6 +1010,7 @@ HTML,
         'description' => <<<'HTML'
 Birinci Qarabağ müharibəsi zamanı itkin düşən Azərbaycan vətəndaşlarının taleyinin müəyyənləşdirilməsi münaqişənin ən ağır humanitar nəticələrindən biridir. 2020-ci ildə Azərbaycan ərazilərinin işğaldan azad edilməsindən sonra bu suallara cavab tapılması üçün yeni imkanlar yaransa da, qarşıda hələ görüləsi böyük iş qalır.   Azərbaycanın itkin şəxslərin axtarışı üzrə apardığı işlər, işğaldan azad edilmiş ərazilərdə aşkarlanan kütləvi məzarlıqlar, DNT […]
 HTML,
+        'doc_title' => '30 ildən çoxdur cavabsız qalan sual: İtkin düşmüş 4 010 nəfərin taleyi necə araşdırılır? - ARAŞDIRMA - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -1238,6 +1246,7 @@ HTML,
         'description' => <<<'HTML'
 Prezidentin köməkçisi Hikmət Hacıyev Beynəlxalq İtkin Düşmüş Şəxslər Günü ilə bağlı paylaşım edib.O bildirib ki, 4 010 Azərbaycan vətəndaşı itkin düşmüş şəxs kimi qeydiyyatdadır. İndiyədək 32 kütləvi məzar aşkarlanıb, 328 şəxsin kimliyi müəyyən edilib.Hikmət Hacıyev Ermənistanı itkin azərbaycanlıların taleyi və onların dəfn yerləri barədə məlumat verməyə çağırıb. https://www.facebook.com/photo?fbid=1696872439113935&set=pb.100063735845602.-2207520000
 HTML,
+        'doc_title' => 'Hikmət Hacıyev Beynəlxalq İtkin Düşmüş Şəxslər Günü ilə bağlı paylaşım edib. - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -1362,6 +1371,7 @@ HTML,
         'description' => <<<'HTML'
 30 Avqust Beynəlxalq İtkin Düşmüşlər Günü. Bu gün 2010-cu il dekabrın 21-də Birləşmiş Millətlər Təşkilatının (BMT) Baş Məclisi tərəfindən təsis edilmişdir. Məqsədi: müharibələr, zorakılıqlar, təbii fəlakətlər və ya insan hüquqlarının pozulması nəticəsində itkin düşmüş şəxslərin taleyinə diqqət çəkmək, onların ailələrinin hüquqlarını və üzləşdikləri çətinlikləri ictimaiyyətə çatdırmaqdır. “Qarabağ İtkin Ailələri” İctimai Birliyi Ermənistanın Azərbaycana hərbi təcavüzü […]
 HTML,
+        'doc_title' => '30 Avqust Beynəlxalq İtkin Düşmüşlər Günü. - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -1524,6 +1534,7 @@ HTML,
         'description' => <<<'HTML'
 11.08.2026. “Qarabağ İtkin Ailələri” İctimai Birliyinin Zaqatala və Balakən rayonları şöbəsinin rəhbərii Reyhan Əhmədovanın (itkin həyat yoldaşı) və müavini Yeganə Osmanovanın ( itkin bacısı) təşəbbüsü ilə Zaqatala rayon İcra Hakimiyyətinin tərəfdaşlığı ilə Zaqatala rayonu Heydər Əliyev adına Mərkəzində “30 avqust Beynəlxalq İtkinlər Günü” nə həsr olunmuş “Anım Günü” tədbir keçirildi. Tədbirdə QİAİB-nin sədri K.Behbudova və […]
 HTML,
+        'doc_title' => '“Anım Günü” Tədbiri – Zaqatalada İtkin Şəxslərin Xatirəsi Anıldı - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -1661,6 +1672,7 @@ HTML,
         'description' => <<<'HTML'
 “Qarabağ İtkin Ailələri” İctimai Birliyi, Qeyri Hökumət Təşkilatlarına Dövlət Dəstəyi Agentliyinin maliyyə dəstəyi ilə 01.08.2026-ci il tarixdən “Yoxluğun Sədası” adlı layihənin icrasına başlayıb. QHT.az xəbər verir ki, layihənin əsas məqsədi Qarabağ müharibələri zamanı itkin düşmüş şəxslərin ailələrinin illərdir davam edən gözləntisini, yaşadıqları mənəvi-psixoloji yükü və onların öz doğmalarından xəbər almaq haqqını beynəlxalq təşkilatlara və dünya ictimaiyyətin […]
 HTML,
+        'doc_title' => '“Yoxluğun Sədası” adlı layihənin icrasına başlanılıb - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -1799,6 +1811,7 @@ HTML,
         'description' => <<<'HTML'
 İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat 21 AVQUST 2026-ci il № Soyadı, adı və atasının adı Statusu Dəfn tarixi və yeri İtkin düşmüş şəxsin fotoşəkli 1. Məmmədov Cümşüd Həsənxan oğlu mülki 21.08.2026 Saat 13:00 Laçın şəhəri, Şəhidlər xiyabanı 2. İsmayılov Sərdar Cəfər oğlu hərbçi   21.08.2026 Saat 12:00 Neftçala rayonu, Astanlı kənd qəbirstanlığı, Şəhidlər cərgəsi 3. […]
 HTML,
+        'doc_title' => 'Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyasının İtkin-şəhidlərin dəfn mərasimlərinə dair məlumatı - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -1986,6 +1999,7 @@ HTML,
         'description' => <<<'HTML'
 “Qarabağ İtkin Ailələri” İctimai Birliyi “Qarabağ İtkin Ailələri” İctimai Birliyinin, Qeyri Hökumət Təşkilatlarına Dövlət Dəstəyi Agentliyinin maliyyə dəstəyi , Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyasının  tərəfdaşlığı ilə  “İtkinlər Problemi- Təcrübə və Əməkdaşlıq, Bosniya və Hersoqovina Təcübəsi” layihəsi çərçivəsində 5-7 avqust 2026-ci il tarixində                        təşkilatın  sədri Könül Behbudovanın və təşkilatın üzvü Xocalı sakini Hüseynova Samirə Bakir […]
 HTML,
+        'doc_title' => 'Bosniya və Herseqovina görüşü. - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -2150,6 +2164,7 @@ HTML,
         'description' => <<<'HTML'
 İtkin düşmüş vətəndaşlarımızın ailə üzvlərinin təşəbbüsü ilə 2023-cü ildə “Qarabağ İtkin Ailələri” İctimai Birliyi təsis edilib və Ədliyyə Nazirliyi tərəfindən müvafiq qeydiyyata alınıb. Bu birlik Ermənistanın Azərbaycana qarşı hərbi təcavüzü nəticəsində itkin düsmüs, əsir-girov götürülmüs şəxslərin və onların ailələrinin hüquqlarının müdafiəsini qarşısına əsas məqsəd kimi qoyub AZƏRTAC xəbər verir ki, bunu “Qarabağ İtkin Ailələri” İctimai Birliyinin […]
 HTML,
+        'doc_title' => 'İctimai Birlik sədri: ICMP-nin təşəbbüsləri və Dövlət Komissiyası ilə əməkdaşlığı itkin ailələrinin ümidlərini artırır - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -2278,6 +2293,7 @@ HTML,
         'description' => <<<'HTML'
 İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat 01 iyul 2026-ci il № Soyadı, adı və atasının adı Statusu Dəfn tarixi və yeri İtkin düşmüş şəxsin fotoşəkli 1. Nuriyev Yarməmməd Maqsud oğlu hərbçi 01.07.2026 Saat 13:00 Xaçmaz rayonu, Köhnə Xudat kənd qəbiristanlığı 03 iyul 2026-ci il № Soyadı, adı və atasının adı Statusu Dəfn tarixi və yeri İtkin […]
 HTML,
+        'doc_title' => 'Əsir və itkin düşmüş, girov götürülmüş vətəndaşlarla əlaqədar Dövlət Komissiyasının İtkin-şəhidlərin dəfn mərasimlərinə dair məlumatı - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -2487,6 +2503,7 @@ HTML,
         'description' => <<<'HTML'
 Kəlbəcər rayonu Yanşaq kəndində Qızılqaya yüksəliyi uğrunda gedən döyüşdə 1994-ci il fevral ayının 10-da itkin düşən Priyev Rəşadətin nəşi 20 may 2026- cı il tarixdə Bərdə rayonu Yeni Daşkənd kəndinə gətirilərək dəfn olunmuşdur. 29 may 2026- ci ildə QİAİB- nin sədri K.Behbudova və itkin-şəhid anası, Bərdə rayonunda yaşayan itkin ailələri ilə birlikdə ziyarət etmişdir. Şəhidin […]
 HTML,
+        'doc_title' => 'Bərdə rayonu Yeni Daşkənd kəndində şəhid ailəsinə ziyarət edib, başsağlığı verilmişdir. - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -2618,6 +2635,7 @@ HTML,
         'description' => <<<'HTML'
 Qarabağ İtkin Ailələri İB- nin sədri K.Behbudova 29 may 2026- ci ildə Sabirabad rayonu Nizamikən kəndində itkin-şəhid Kərimov Xəqani Canəli oğlunun ailə üzvləri ilə görüşdü.. Kərimov Xəqani 8 mart 1974- ci ildə Saatlı rayonu Nizamikənd kəndində anadan olmuşdur..Daxili Qoşunların hərbi hissəsində xidmət edib və qoşun heyəti ilə birlikdə Qarabağ müharibəsinə yola düşmüşlər.. Vətən torpaqlarının müdafiəsində […]
 HTML,
+        'doc_title' => 'Saatlı rayonu Nizamikənd kəndində şəhid ailəsinə ziyarət edilmişdir. - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -2750,6 +2768,7 @@ HTML,
         'description' => <<<'HTML'
 15 MAY 2026-ci il № Soyadı, adı və atasının adı Statusu Dəfn tarixi və yeri İtkin düşmüş şəxsin fotoşəkli 1. Cəfərov Rafiq Şirvan oğlu hərbçi 15.05.2026 Saat 15:00 Füzuli rayonu, Əbdürrəhmanlı kənd qəbiristanlığı 2. Həziyev Ələddin Həzi oğlu hərbçi 15.05.2026 Saat 17:00 Füzuli rayonu,İşıqlı kənd qəbiristanlığı, şəhidlər cərgəsi 3. Sadıqov Zaur İmamqulu oğlu hərbçi 15.05.2026 Saat […]
 HTML,
+        'doc_title' => 'İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -2918,6 +2937,7 @@ HTML,
         'description' => <<<'HTML'
 № Soyadı, adı, atasının adı Statusu Dəfn tarixi və yeri İtkin düüşmüş şəxsin fotoşəkli 1. Vəliyev Murad Məlikməmməd oğlu həbçi 12.09.2025 saat 15:30 Quba rayonu Nütəh kənd qəbiristanlığı 2. Abdullayev Cəlal Xankişi oğlu hərbçi 12.09.2025 saat 12:00 Bakı şəhəri, Qaradağ rayonu, Qobustan qəsəbəsinin qəbiristanlığı 3. Zərbəliyev Ayaz Əsgəralı oğlu hərbçi 12.09.2025 saat 14:00 Göyçay şəhəri, […]
 HTML,
+        'doc_title' => 'İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -3096,6 +3116,7 @@ HTML,
         'description' => <<<'HTML'
 № Soyadı, adı, atasının adı Statusu Dəfn tarixi və yeri İtkin düüşmüş şəxsin fotoşəkli 1. Vəliyev Murad Məlikməmməd oğlu həbçi 12.09.2025 saat 15:30 Quba rayonu Nütəh kənd qəbiristanlığı 2. Abdullayev Cəlal Xankişi oğlu hərbçi 12.09.2025 saat 12:00 Bakı şəhəri, Qaradağ rayonu, Qobustan qəsəbəsinin qəbiristanlığı 3. Zərbəliyev Ayaz Əsgəralı oğlu hərbçi 12.09.2025 saat 14:00 Göyçay şəhəri, […]
 HTML,
+        'doc_title' => 'Taleyi müəyyən olunmuş itkinlər - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -3273,6 +3294,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 26 August 1962, Nakhchivan / Azerbaijan. Went missing at the age of 32. Place of disappearance: Fuzuli. For 31 years, there has been no news about his fate… For his loved ones, time has stood still since Etibar disappeared…
 HTML,
+        'doc_title' => 'Etibar Ahmadov - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -3402,6 +3424,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 10 April 1973, Aghdam / Azerbaijan. Went missing at the age of 19. Place of disappearance: Zangilan. For 33 long years, no news has reached his family… His mother and loved ones still wait with hope for the day he will be found…
 HTML,
+        'doc_title' => 'Abbas Behbudov - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -3530,6 +3553,7 @@ HTML,
         'description' => <<<'HTML'
 Vagif Mammadov and Afila Mammadova went missing following the Khojaly genocide on February 26, 1992, along with their children – 18-years-old Azer Mammadov, 16-years-old Jeyhun Mammadov and 14-years-old Niyammadin Mammadov… No belongings remain, only memories. Their absence is a wound that will never heal…
 HTML,
+        'doc_title' => 'The Mammadov family - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -3656,6 +3680,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 21 September 1966, Baku / Azerbaijan. Went missing at the age of 27. Place of disappearance: Aghdara. For 32 years, there has been no news about his fate… His family still prays to see him again…
 HTML,
+        'doc_title' => 'Aydin Rahimov - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -3785,6 +3810,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 19 June 1973, Neftchala / Azerbaijan Went missing at the age of 19. Place of disappearance: Aghdam. For 33  years, there has been no news about his fate… His Mom Mrs.Elmira has a wish: “May God grant me time to see my child found, see him off to his final […]
 HTML,
+        'doc_title' => 'Ilham Dadashov - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -3914,6 +3940,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 9 April 1967, Lachin / Azerbaijan Went missing at the age of 25. Place of disappearance: Khojaly.. For 33 years, there has been no news about his fate… His father spent months standing on the road in Aghdam, looking for Azad, hoping to get information about him from every passing […]
 HTML,
+        'doc_title' => 'Azad Jabbarov - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -4043,6 +4070,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 25 August 1973, Baku / Azerbaijan Went missing at the age of 20. Place of disappearance: Aghdara. For 32 years, there has been no news about his fate… His mom Mrs.Mahuru says goodbye to the years, living every day in hope of the day she would receive news that Shahin […]
 HTML,
+        'doc_title' => 'Shahin Aliyev - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -4172,6 +4200,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 9 December 1973, Baku / Azerbaijan Went missing at the age of 20. Place of disappearance: Kalbajar For 32 years, there has been no news about his fate… His mother, Mrs.Tahira, has been waiting for her son for years, but she still hasn’t received any news about him…
 HTML,
+        'doc_title' => 'Telman Mustafayev - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -4301,6 +4330,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 10 February 1957, Aghdam/Azerbaijan. Went missing at the age of 35. Place of disappearance: Shusha. For 33 years, there has been no news about his fate… His son Jeyhun, daughter Parvane and beloved wife Nazan are still waiting…
 HTML,
+        'doc_title' => 'Abulfat Aliyev - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -4430,6 +4460,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 7 March 1961, Aghdam / Azerbaijan. Went missing at the age of 31. Place of disappearance: Shusha. For 33 years, there has been no news about his fate… Silence surrounds his name, his wife and two children are still waiting with hope…
 HTML,
+        'doc_title' => 'Aliyar Aliyev - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -4559,6 +4590,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 19 September 1953, Aghdam / Azerbaijan Went missing at the age of 41. Place of disappearance: Fuzuli. For 31 years, there has been no news about his fate… Even though years have passed, his family is still waiting for news from him…
 HTML,
+        'doc_title' => 'Gurbat Hasanov - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -4688,6 +4720,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 5 August 1968, Zangilan / Azerbaijan Went missing at the age of 25. Place of disappearance: Jabrail.  For 32 years, there has been no news about his fate… His family finds comfort in his memories, and they still wait with hope for the day he will be found…
 HTML,
+        'doc_title' => 'İsmayil İsmayilov - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -4817,6 +4850,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 16 August 1975, Baku / Azerbaijan Went missing at the age of 19. Place of disappearance: Kalbajar. For 31 years, there has been no news about his fate… His notebook filled with handwriting is still preserved… as if waiting for Telman to finish the story he started. Unable to hear […]
 HTML,
+        'doc_title' => 'Telman Yusifov - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -4946,6 +4980,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 20 January 1964, Salyan / Azerbaijan. Went missing at the age of 30. Place of disappearance: Fuzuli. For 31 years, there has been no news about his fate… His wife, Mrs.Reyhan, and their two daughters have been waiting for him with hope for many years and still do not lose […]
 HTML,
+        'doc_title' => 'Sakhavat Janiyev - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -5075,6 +5110,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 18 September 1968. Went missing at the age of 24. Place of disappearance: Shusha.  For 33 years, there has been no news about his fate… The only surviving sister from this family, Ms.Nazlı is still waiting for her brother…
 HTML,
+        'doc_title' => 'Shirindil Hasanguliyev - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -5204,6 +5240,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 30 May 1957, Siyazan / Azerbaijan. Went missing at the age of 36. Place of disappearance: Gubadli. For 32 years, there has been no news about his fate… His son Qabil says he last saw his father when he was 10 years old: “My sisters were young, they don’t remember […]
 HTML,
+        'doc_title' => 'Feyruz Jalilov - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -5334,6 +5371,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 19 June 1959,  Khojaly / Azerbaijan. Went missing at the age of 33. Place of disappearance: Khojaly.           For 33 years, there has been no news about his fate… His wife Ms.Parvana: “We could not accept his absence, we waited for him, hoping    that we would receive some news, we […]
 HTML,
+        'doc_title' => 'Ogtay Mammadov - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -5464,6 +5502,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 18 December 1965. Went missing at the age of 27. Place of disappearance: Khojavand His watch stopped ticking 33 years ago… but in the hearts of his family, time still waits for Zahir’s return…
 HTML,
+        'doc_title' => 'Zahir Gasimov - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -5592,6 +5631,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 27 June, 1972,  Aghdam / Azerbaijan. Went missing at the age of 22. Place of disappearance:  Murovdagh. For more than three decades, his family has carried the pain of not knowing… His mother still keeps his photos close, whispering that her son will one day come back…
 HTML,
+        'doc_title' => 'Bafadar Mirzayev - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -5720,6 +5760,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 23 June 1974, Fuzuli / Azerbaijan. Went missing at the age of 19. Place of disappearance:  Aghdara. For 32 long years, his family has lived in uncertainty. Every day they pray that Ixtiyar’s fate will finally be revealed…
 HTML,
+        'doc_title' => 'Ikhtiyar Mammadov - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -5849,6 +5890,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 3 October 1962, Kalbajar / Azerbaijan. Went missing at the age of 31. Place of disappearance: Kalbajar. For 32 years, silence has surrounded his name… His wife Mrs.Yagut raised their children with unwavering faith, believing that one day Natiq would come back…
 HTML,
+        'doc_title' => 'Natig Malikov - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -5977,6 +6019,7 @@ HTML,
         'description' => <<<'HTML'
 Date and place of birth: 11 February 1966, Jalilabad / Azerbaijan. Went missing at the age of 26. Place of disappearance: Shusha.  For 33 years, there has been no news about his fate… Even though years have passed, his family and only daughter are waiting for news from him…
 HTML,
+        'doc_title' => 'Tayyar Aghayev - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -6107,6 +6150,7 @@ HTML,
         'description' => <<<'HTML'
 İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat 04 iyul 2025-ci il № Soyadı, adı və atasının adı Statusu Dəfn tarixi və yeri İtkin düşmüş şəxsin fotoşəkli 1. Əzizov Yusif İsmayıl oğlu hərbçi 04.07.2025 saat 15:00 Kəlbəcər şəhər qəbiristanlığı 2. Musayev Mehman Camal oğlu hərbçi 04.07.2025 saat 15:00 Kəlbəcər şəhər qəbiristanlığı   3. Qarayev Qafar Qəmbər oğlu hərbçi […]
 HTML,
+        'doc_title' => 'İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -6279,6 +6323,7 @@ HTML,
         'description' => <<<'HTML'
 20 sentyabr 2024-cü il № Soyadı, adı və atasının adı Statusu Dəfn vaxtı və yeri İtkin düşmüş şəxsin fotosu 1. Məmmədov Mübariz İlyas oğlu Hərbçi saat 12:00 Bakı şəhəri, Nizami rayonu, Keşlə qəsəbəsi Şəhidlər Xiyabanı 2. Səfərov Səfəralı Alverdi (Allahverdi) oğlu Hərbçi saat 13:00 Sumqayıt şəhəri Şəhidlər Xiyabanı 3. Rüstəmov Tərlan Kamal oğlu Hərbçi saat […]
 HTML,
+        'doc_title' => 'İtkin-şəhidlərin dəfn mərasimlərinə dair məlumat - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -6471,6 +6516,7 @@ HTML,
         'description' => <<<'HTML'
   “Qarabağ İtkin Ailələri” İctimai Birliyi Azərbaycan Respublikası Qeyri-Hökumət Təşkilatlarına Dövlət Dəstəyi Agentliyinin maliyyə dəstəyi ilə “İtkin düşmüş Azərbaycan vətəndaşlarının hüquqlarının BMT müstəvisində müdafiəsi” layihəsinin icrasını uğurla davam etdirir. Qarabağ itkin ailələri İctimai Birliyi 30 avqust – Beynəlxalq İtkinlər Günü münasibətilə bəyanat yayması da bu layihənin ən önəmli və vacib predmetlərindən biri və itkin ailələrinin […]
 HTML,
+        'doc_title' => '"Beynəlxalq İtkinlər Günü münasibətilə bəyanat yaymaq haqqımızdır" - Birliyin sədri - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -6621,6 +6667,7 @@ HTML,
         'description' => <<<'HTML'
 “Qarabağ İtkin Ailələri” İctimai Birliyi Azərbaycan Respublikasının Qeyri-Hökumət Təşkilatlarına Dövlət Dəstəyi Agentliyinin maliyyə dəstəyi ilə “İtkin düşmüş Azərbaycan vətəndaşlarının hüquqlarının BMT müstəvisində müdafiəsi” layihəsinin icrasına başlayıb. Layihə Bakı şəhərində icra ediləcək. Onu da əlavə edim ki itkin düşmüş ailələrinin üzvləri Bakı şəhərində daha çox yaşayırlar. Layihənin məqsədi BMT-nin İnsan Hüquqları Şurasının Zorakı və qeyri-iradi itkindüşmələr […]
 HTML,
+        'doc_title' => '“Qarabağ İtkin Ailələri” İctimai Birliyi - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -6751,6 +6798,7 @@ HTML,
         'description' => <<<'HTML'
 Möhtəşəm qələbəmizdən – 2020-ci ildə 44 günlük müharibədən sonra Azərbaycanın torpaqlarının işğaldan azad edilməsi bir çox problemlərin düyünü açdı. Köçkünlərin yurd həsrəti bitdi, işğaldaykən talanan sərvətlərimizin qarşısı alındı, erməni terrorçularının sayəsində xarabazarlığa çevrilmiş yurdlarımız hazırda cənnətə abad yurdsa dönüşdürülür. Ümumiyyətlə, qələbəmizin sayəsində böyük işlər gedir. Ən əsası isə həmin o möhtəşəm qələbə Birinci Qarabağ müharibəsində […]
 HTML,
+        'doc_title' => '"İtkinlərimizlə bağlı problemləri BMT-yə çatdırmaq üçün layihə başlatdıq" - MÜSAHİBƏ - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -6906,6 +6954,7 @@ HTML,
         'description' => <<<'HTML'
 Ağdaban ictimaiyyəti və Azərbaycanın QHT təmsilçiləri beynəlxalq ictimaiyyətə açıq məktubla müraciət ediblər. AZƏRTAC xəbər verir ki, məktubda deyilir: “Biz – 1992-ci il aprelin 7-8-də Kəlbəcərin Ağdaban kəndində Ermənistanın hərbi birləşmələrinin soyqırımına məruz qalan dinc azərbaycanlı sakinlər, kütləvi qırğının canlı şahidləri, həmin hadisədə ailə üzvlərini, doğmalarını, evlərini itirən şəxslər və Azərbaycanın vətəndaş cəmiyyətinin təmsilçiləri olaraq, sizə […]
 HTML,
+        'doc_title' => 'Ağdaban ictimaiyyəti və Azərbaycanın QHT təmsilçiləri beynəlxalq ictimaiyyətə müraciət ünvanlayıb - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -7075,6 +7124,7 @@ HTML,
         'description' => <<<'HTML'
 Xocalıda kütləvi məzarlıqda aşkar edilmiş insan qalıqlarından şəxsiyyəti müəyyən edilmiş 7 nəfər bu gün Xocalıda Şəhidlər xiyabanında dəfn olunacaq. Onların hamısı 1992-ci il Xocalı soyqırımının qurbanlarıdır. Qalıqların müayinəsi bu şəxslərin amansız üsullarla işgəncə, fiziki zorakılıq və qeyri-insani rəftara məruz qaldıqlarını üzə çıxarıb. Ermənistanın hərbi-siyasi rəhbərliyi Azərbaycan ərazilərini işğal altında saxladığı dövrdə kütləvi məzarlıqları hər vəchlə […]
 HTML,
+        'doc_title' => 'Tapılmış qalıqları əsasında şəxsiyyəti müəyyən edilmiş Xocalı soyqırımı itkinlərinin bir qrupu bu gün dəfn olunacaq - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -7217,6 +7267,7 @@ HTML,
         'description' => <<<'HTML'
 Qalıqları Xocalı şəhərində kütləvi məzarlıqda 32 il sonra tapılaraq eyniləşdirilən, 1992 ci ildə Xocalı şəhərində döyüşərək itkin düşən,Itkin Şəhidin nəşi ailəsinin yaşadıģı Ceyranbatan qəsəbəsindəki evinə gətirildi və vida mərasimi keçirildi.Şəhid atası ve qardaşının dəfn olunduģù qəsəbənin qəbristanlqda torpaģa tapşırldı.Itkin Şəhidimizin evində olduq,ailə üzvləri ilə gorüşdük ve dəfn mərasimində iştirak etdik..Allah rəhmət etsin..Ailəsinə və doģmalarına dərin […]
 HTML,
+        'doc_title' => 'Qalıqları Xocalı şəhərində kütləvi məzarlıqda 32 il sonra - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -7336,6 +7387,7 @@ HTML,
         ],
         'excerpt' => '',
         'description' => '',
+        'doc_title' => 'Xocalıda kütləvi məzarlıqda aşkar edilmiş insan qalıqlarının sayı 18-ə çatdı - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -7444,6 +7496,7 @@ HTML,
         'description' => <<<'HTML'
 07.10.2022 ci ildə I ci Qarabağ müharibəsindı itkin düşən hələdə taleyi haqqında hec bir məlumat olmayan Həsrənquliyev Şirindil Cavad oglunun anım günü tədbiri Mehdiabad qəsəbəsində onu adına verilən küçənin açılısi ilə keçirildi. Həsrənquliyev Şirindil Cavad oğlu 18.09.1968 ci ildə Zəngəzur mahalının Qafan rayonunda anadan olmuşdur.Memarlıq və İncəsənət Unversitetinin tələbəsi idi,1992 ci ildə döyüşə könüllü olaraq […]
 HTML,
+        'doc_title' => 'Anim Günü tədbiri - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -7568,6 +7621,7 @@ HTML,
         'description' => <<<'HTML'
 30.05.2023 cü il tarixdə Siyəzən rayonunun Məşrif kəndində İtkin Şəhid pilot Cəlilov Feyruz Xanbala oğlunun anım günü tədbiri keçirildi. Feyruz Cəlilov 30.07.1957 ci ildə Siyəzən rayonunun Məşrif kəndində anadan olub və I ci Qarabağ muharibəsində qəhrəmanləqla döyüşüb, 31.081993 cu ildə Qubadlı rayonunun Mahmulu qaya səmasında Mİ-24 helikopteri düşmən tərəfindən vurulub .Tədbiri İtkin Şəhidin oğlu Qabil […]
 HTML,
+        'doc_title' => '“Qəhrəman Pilotun Anım Günü” tədbiri - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -7697,6 +7751,7 @@ HTML,
         'description' => <<<'HTML'
 25 oktyabr 2023 cü il Baki şəhəri, “İtkinlərin Anım Gunü” tədbiri keçirildi.Tədbiri Beynəlxalq Qırmzı Xaç Komitəsi və Qarabağ İtkin Ailələri İctimai Birliyi birlikdə təşkil etmişdilər. Tədbirdə Binəqədi,Yasamal,Nərimanov,Qaradağ və Nəsimi rayonlarıdan olan və I ci Qarabağ müharibəsində itkin düşən hələdə taleləri haqqıda heç bir məlumat olmayan 100 ə yaxin İtkin Şəhidlərimizin ailəsinin üzvlərinin iştirak etdilər. İtkin […]
 HTML,
+        'doc_title' => '“İtkinlərin Anım Gunü” tədbiri - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -7827,6 +7882,7 @@ HTML,
         'description' => <<<'HTML'
 8 may 2023 cü ildə Baki şəhəri,1992 ci ildə Şuşa şəhəri uğrunda gedən döyüşlərdə itkin düşən hələdə taleyi haqqında heç bir məlumat olmayan yeddi İtkin Şəhdin, Hüseyinov Ağası Rauf oglu, Məmmədov Vahid Şahvələd oğlu,Abbasov Rafail Sultan oğlu,Əliyev Əbülfət Fərrux oğlu,Əliyev Əlyar Fərrux oğlu,Məmmədov Əhməd Mustafa oğlu və Musayev Əli Həsən oğlu xatirəsini anmaq üçün anım […]
 HTML,
+        'doc_title' => '8 may Şuşa İtkinlərinin Anım Günü - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -7956,6 +8012,7 @@ HTML,
         'description' => <<<'HTML'
 Biz – Ermənistanın Azərbaycana hərbi təcavüzü nəticəsində itkin düşmüş 3890 nəfər azərbaycanlının ailə üzvlərini birləşdirən ictimai təşkilat kimi itkin ailələri adından BMT-nin Baş katibi cənab Antonio Quterreşə, BMT Baş Assambleyasının prezidenti cənab Çaba Köröşiyə, BMT-nin İnsan Hüquqları Şurasının prezidenti cənab Vatslav Balekə, BMT-nin İnsan Hüquqları üzrə Ali Komissarı cənab Volker Türkə müraciət edirik. Beynəlxalq humanitar […]
 HTML,
+        'doc_title' => '“QARABAĞ İTKİN AİLƏLƏRİ” İCTİMAİ BİRLİYİNİN BİRLƏŞMİŞ MİLLƏTLƏR TƏŞKİLATINA MÜRACİƏTİ - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -8099,6 +8156,7 @@ HTML,
         'description' => <<<'HTML'
 XX əsrin 90-cı illərində Azərbaycanın beynəlxalq hüquqla tanınmış ərazisinin 20%-i Ermənistan silahlı qüvvələri tərəfindən işğal edilmiş, nəticədə I Qarabağ müharibəsində dörd min nəfərə yaxın Azərbaycan vətəndaşı itkin düşmüşdür. Təəssüf ki, hərbi təcavüz nəticəsində hərbçilərlə yanaşı, aralarında uşaqların, qadınların və qocaların da olduğu yeddi yüzdən artıq mülki şəxs də itkin düşmüşdür. İtkin düşmüş şəxslərin ümumi sayından […]
 HTML,
+        'doc_title' => '“30 avqust beynəlxalq itkinlər günü” münasibətilə “Qarabağ İtkin Ailələri” İctimai Birliyinin bəyanatı - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -8245,6 +8303,7 @@ HTML,
         'description' => <<<'HTML'
 3Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, […]
 HTML,
+        'doc_title' => '1918-ci il azərbaycanlıların soyqırımı. Şamaxıda mart qırğınları. - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -8370,6 +8429,7 @@ HTML,
         'description' => <<<'HTML'
 2Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, […]
 HTML,
+        'doc_title' => 'Məhkəmə arxeologiyası və antropologiyası mövzusuna həsr edilmiş Beynəlxalq Konfrans - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -8495,6 +8555,7 @@ HTML,
         'description' => <<<'HTML'
 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, […]
 HTML,
+        'doc_title' => '“30 avqust beynəlxalq itkinlər günü” münasibətilə “Qarabağ İtkin Ailələri” İctimai Birliyinin bəyanatı - İtkin',
         'head_meta' => [
             [
                 'p',

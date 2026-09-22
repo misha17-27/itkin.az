@@ -10,6 +10,7 @@ return [
         'id' => 904,
         'slug' => 'kitabxana',
         'title' => 'Kitabxana',
+        'doc_title' => 'Kitabxana - İtkin',
         'description' => 'Ana səhifə',
         'head_meta' => [
             [
@@ -96,6 +97,7 @@ HTML,
         'id' => 869,
         'slug' => 'milli-qanunvericilik',
         'title' => 'Milli qanunvericilik',
+        'doc_title' => 'Milli qanunvericilik - İtkin',
         'description' => <<<'HTML'
 Ana səhifə “Dövlət Komissiyası” haqqında Sərəncam Dövlət Komissiyasının Əsasnaməsi “Mülki şəxslərin müdafiəsi və hərbi əsirlərin hüquqlarının qorunması” haqqında Qanun Terminologiya Azərbaycan Respublikasının ərazi bütövlüyü uğrunda həlak olmuş, ölmüş və hərbi əməliyyatlarla əlaqədar xəbərsiz itkin düşdüyünə görə ölmüş elan edilmiş hərbi qulluqçuların ailə üzvlərinin sosial müdafiəsinin yaxşılaşdırılması ilə bağlı əlavə tədbirlər haqqında Azərbaycan Respublikası Prezidentinin Fərmanı
 HTML,
@@ -186,6 +188,7 @@ HTML,
         'id' => 830,
         'slug' => 'beynelxalq-senedler',
         'title' => 'Beynəlxalq sənədlər',
+        'doc_title' => 'Beynəlxalq sənədlər - İtkin',
         'description' => <<<'HTML'
 Ana səhifə 1949-CU İL 12 AVQUST TARİXLİ CENEVRƏ KONVENSİYALAR DƏNİZDƏKİ SİLAHLI QÜVVƏLƏRDƏ YARALILARIN, XƏSTƏLƏRİN VƏ GƏMİ QƏZASINA UĞRAYANLARIN VƏZİYYƏTİNİN YAXŞILAŞDIRILMASI HAQQINDA 1949-CU İL 12 AVQUST TARİXLİ CENEVRƏ KONVENSİYASI HƏRBİ ƏSİRLƏR İLƏ RƏFTARA DAİR 1949-CU İL 12 AVQUST TARİXLİ CENEVRƏ KONVENSİYASI “MÜHARİBƏ ZAMANI MÜLKİ ŞƏXSLƏRİN MÜDAFİƏSİNƏ DAİR 1949-CU İL 12 AVQUST TARİXLİ CENEVRƏ KONVENSİYASI
 HTML,
@@ -276,6 +279,7 @@ HTML,
         'id' => 662,
         'slug' => 'sekiller',
         'title' => 'Foto',
+        'doc_title' => 'Foto - İtkin',
         'description' => 'Ana səhifə',
         'head_meta' => [
             [
@@ -350,6 +354,7 @@ HTML,
         'id' => 399,
         'slug' => 'haqqimizda',
         'title' => 'Haqqımızda',
+        'doc_title' => 'Haqqımızda - İtkin',
         'description' => <<<'HTML'
 Ana səhifə “Qarabağ İtkin Ailələri” İctimai Birliyi haqqında Üzvləri tamamilə Qarabağ müharibəsi zamanı itkin düşmüş şəxslərin ailələrindən əsasəndə qadınlarldan ibarət olan “Qarabağ İtkin Ailələri” İctimai Birliyi Ermənistanın Azərbaycana qarşı hərbi təcavüzü nəticəsində itkin düşmüş, əsir-girov göturulmüs şəxslərin və onların ailələrinin hüquqlarının müdafiəsini qarşısına əsas məqsəd kimi qoymuşdur. Münaqişə nəticəsində itkin düşmüş vətəndaşlarımızın və onların ailələrinin […]
 HTML,
@@ -440,6 +445,7 @@ HTML,
         'id' => 374,
         'slug' => 'elaqe',
         'title' => 'Əlaqə',
+        'doc_title' => 'Əlaqə - İtkin',
         'description' => <<<'HTML'
 Ana səhifə Bizimlə əlaqə Sualınız var? Birbaşa soruşun, tez cavab alın: Əlaqə məlumatları +994 55 269 68 67 info@itkin.az Qaradağ rayony, Ələt qəsəbəsi, Eduard İmanov küç. ev 2, m9 Sorğu göndər
 HTML,
@@ -518,6 +524,7 @@ HTML,
         'id' => 327,
         'slug' => 'xeberler',
         'title' => 'Xəbərlər',
+        'doc_title' => 'Xəbərlər - İtkin',
         'description' => 'Ana səhifə',
         'head_meta' => [
             [
@@ -592,6 +599,7 @@ HTML,
         'id' => 23,
         'slug' => 'ana-sehife',
         'title' => 'Ana səhifə',
+        'doc_title' => 'Ana səhifə - İtkin',
         'description' => <<<'HTML'
 Birinci Qarabağ müharibəsində itkin düşən şəxslər “Qarabağ İtkin Ailələri” İctimai Birliyi Siyahıya bax “Qarabağ İtkin Ailələri” İctimai Birliyi haqqında Üzvləri tamamilə Qarabağ müharibəsi zamanı itkin düşmüş şəxslərin ailələrindən əsasəndə qadınlarldan ibarət olan “Qarabağ İtkin Ailələri” İctimai Birliyi Ermənistanın Azərbaycana qarşı hərbi təcavüzü nəticəsində itkin düşmüş, əsir-girov göturulmüs şəxslərin və onların ailələrinin hüquqlarının müdafiəsini qarşısına əsas […]
 HTML,

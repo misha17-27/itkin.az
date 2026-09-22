@@ -9,7 +9,7 @@ require_once dirname(__DIR__) . '/inc/nav.php';
 
 nav_context(['type' => 'itkinlr', 'slug' => 'itkinlr/' . $item['slug'], 'categories' => []]);
 
-$meta['title']       = $item['title'] . ' - ' . cfg('site_name');
+$meta['title']       = $item['doc_title'] ?: ($item['title'] . ' - ' . cfg('site_name'));
 $meta['og_title']    = $item['title'];
 $meta['description'] = $item['description'];
 $meta['image']       = !empty($item['thumb']['url']) ? abs_url_file($item['thumb']['url']) : '';

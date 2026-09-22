@@ -25,11 +25,12 @@ if ($cat) {
 }
 $crumbs[] = ['label' => $post['title'], 'href' => null];
 
-[$prev, $next] = post_siblings($post);
+// Siyahı yenidən köhnəyə düzülüb: "əvvəlki" daha köhnə yazıdır
+[$next, $prev] = post_siblings($post);
 $prev_base = '';
 $related   = related_posts($post, 6);
 
-$meta['title']       = $post['title'] . ' - ' . cfg('site_name');
+$meta['title']       = $post['doc_title'] ?: ($post['title'] . ' - ' . cfg('site_name'));
 $meta['og_title']    = $post['title'];
 $meta['description'] = $post['description'] !== '' ? $post['description'] : excerpt($post['content'], 30);
 $meta['image']       = !empty($post['thumb']['url']) ? abs_url_file($post['thumb']['url']) : '';

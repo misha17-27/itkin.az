@@ -15,6 +15,7 @@ return [
         'categories' => [],
         'excerpt' => 'Esmira Orucova',
         'description' => 'Esmira Orucova',
+        'doc_title' => 'Bizi əsirlikdən qurtarın - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -136,6 +137,7 @@ HTML,
         'categories' => [],
         'excerpt' => 'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
         'description' => 'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
+        'doc_title' => '“ERMƏNİ SOYQIRIMI” REAL TARİX, YAXUD TARİXİN YALANI” - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -252,6 +254,7 @@ HTML,
         'categories' => [],
         'excerpt' => 'Eldar Səmədov',
         'description' => 'Eldar Səmədov',
+        'doc_title' => '"QSM-7" təsdiq edir - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -365,6 +368,7 @@ HTML,
         'categories' => [],
         'excerpt' => 'Eldar Səmədov, Rauf Məəmmədov',
         'description' => 'Eldar Səmədov, Rauf Məəmmədov',
+        'doc_title' => 'TERROR: HADİSƏLƏR, FAKTLAR, SÜBUTLAR - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -481,6 +485,7 @@ HTML,
         'categories' => [],
         'excerpt' => 'İlkin Şükürbəyli, Nəsimi Faiqoğlu',
         'description' => 'İlkin Şükürbəyli, Nəsimi Faiqoğlu',
+        'doc_title' => 'Qətl edilmiş uşaqlar - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -597,6 +602,7 @@ HTML,
         'categories' => [],
         'excerpt' => 'Eldar Səmədov, Emin Vəliyev, Aygün Həsənoğlu',
         'description' => 'Eldar Səmədov, Emin Vəliyev, Aygün Həsənoğlu',
+        'doc_title' => 'Erməni Terroru - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -718,6 +724,7 @@ HTML,
         'categories' => [],
         'excerpt' => 'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
         'description' => 'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
+        'doc_title' => 'Erməni əsirliyində işgəncə və qətl antologiyası - İtkin',
         'head_meta' => [
             [
                 'p',

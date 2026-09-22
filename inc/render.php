@@ -218,6 +218,8 @@ function render(string $view, array $vars = []): void
         'og_type'     => 'article',
         // şablon öz ehtiyacına görə əlavə fayl tələb edə bilər
         'robots'      => 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+        'rel_prev'    => '',
+        'rel_next'    => '',
         'head_meta'   => [],
         'schema'      => '',
         'extra_js'    => [],

@@ -34,7 +34,7 @@ $related = array_values(array_filter($books, static function (array $b) use ($po
     return $b['id'] !== $post['id'];
 }));
 
-$meta['title']       = $post['title'] . ' - ' . cfg('site_name');
+$meta['title']       = $post['doc_title'] ?: ($post['title'] . ' - ' . cfg('site_name'));
 $meta['og_title']    = $post['title'];
 $meta['description'] = $post['description'] !== '' ? $post['description'] : excerpt($post['content'], 30);
 $meta['image']       = !empty($post['thumb']['url']) ? abs_url_file($post['thumb']['url']) : '';

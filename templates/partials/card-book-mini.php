@@ -5,7 +5,7 @@
  */
 $card_extra = $card_extra ?? '';
 ?>
-<div data-elementor-type="loop-item" data-elementor-id="942" class="elementor elementor-942 e-loop-item<?= $card_extra ?> e-loop-item-<?= $post['id'] ?> post-<?= $post['id'] ?> kitabxana-blog type-kitabxana-blog status-publish has-post-thumbnail hentry" data-elementor-post-type="elementor_library" data-custom-edit-handle="1">
+<div data-elementor-type="loop-item" data-elementor-id="942" class="elementor elementor-942 e-loop-item<?= $card_extra ?> e-loop-item-<?= $post['id'] ?> post-<?= $post['id'] ?> kitabxana-blog type-kitabxana-blog status-publish has-post-thumbnail hentry" data-elementor-post-type="elementor_library"<?= $card_extra !== '' ? ' role="group" aria-roledescription="slide"' : '' ?> data-custom-edit-handle="1">
 					<div class="elementor-section-wrap">
 						<div class="elementor-element elementor-element-91b697d e-flex e-con-boxed e-con e-parent" data-id="91b697d" data-element_type="container">
 					<div class="e-con-inner">

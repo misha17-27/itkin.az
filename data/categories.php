@@ -12,6 +12,7 @@ return [
         'name' => 'Həyat hekayələri',
         'description' => '',
         'count' => 22,
+        'doc_title' => 'Həyat hekayələri Archives - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -74,6 +75,7 @@ HTML,
         'name' => 'İtkinlərimizi anaq',
         'description' => '',
         'count' => 6,
+        'doc_title' => 'İtkinlərimizi anaq Archives - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -136,6 +138,7 @@ HTML,
         'name' => 'Taleyi müəyyən olunmuş itkinlər',
         'description' => '',
         'count' => 7,
+        'doc_title' => 'Taleyi müəyyən olunmuş itkinlər Archives - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -198,6 +201,7 @@ HTML,
         'name' => 'Tədbirlər',
         'description' => '',
         'count' => 24,
+        'doc_title' => 'Tədbirlər Archives - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -260,6 +264,7 @@ HTML,
         'name' => 'Xəbərlər',
         'description' => '',
         'count' => 28,
+        'doc_title' => 'Xəbərlər Archives - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -322,6 +327,7 @@ HTML,
         'name' => 'Без категории',
         'description' => '',
         'count' => 4,
+        'doc_title' => 'Без категории Archives - İtkin',
         'head_meta' => [
             [
                 'p',
