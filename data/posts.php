@@ -7386,7 +7386,7 @@ HTML,
             13,
         ],
         'excerpt' => '',
-        'description' => '',
+        'description' => 'Xocalıda kütləvi məzarlıqda aşkar edilmiş insan qalıqlarının sayı 18-ə çatdı',
         'doc_title' => 'Xocalıda kütləvi məzarlıqda aşkar edilmiş insan qalıqlarının sayı 18-ə çatdı - İtkin',
         'head_meta' => [
             [
@@ -7463,6 +7463,11 @@ HTML,
                 'n',
                 'twitter:data1',
                 'jgitd',
+            ],
+            [
+                'p',
+                'og:description',
+                'Xocalıda kütləvi məzarlıqda aşkar edilmiş insan qalıqlarının sayı 18-ə çatdı',
             ],
         ],
         'schema' => <<<'HTML'

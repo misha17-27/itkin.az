@@ -47,8 +47,11 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             'name'        => $name,
             'description' => post_str('description'),
             'count'       => (int) ($prev['count'] ?? 0),
-            'doc_title'   => $name . ' Archives - ' . cfg('site_name'),
-            'head_meta'   => admin_sync_meta($prev['head_meta'] ?? [], ['og:title' => $name . ' Archives']),
+            'doc_title'   => admin_seo_title($name . ' Archives - ' . cfg('site_name')),
+            'head_meta'   => admin_sync_meta($prev['head_meta'] ?? [], [
+                'og:title'       => $name . ' Archives',
+                'og:description' => post_str('description'),
+            ]),
             'schema'      => $prev['schema'] ?? '',
         ];
         store_save('categories', admin_upsert($rows, $saved), 'Kateqoriyalar / categories');
@@ -70,7 +73,13 @@ if ($action === 'edit') {
             'data' => 'slug-target',
             'hint' => 'Səhifənin ünvanı: <code>/category/<b>slug</b>/</code>',
         ]);
-        f_textarea('description', 'Təsvir', (string) $item['description'], ['rows' => 3]);
+        f_text('doc_title', 'SEO başlıq', (string) ($item['doc_title'] ?? ''), [
+            'hint' => 'Brauzerin başlığında və Google nəticələrində görünür. Boş buraxsanız addan avtomatik qurulur.',
+        ]);
+        f_textarea('description', 'Təsvir (meta description)', (string) $item['description'], [
+            'rows' => 3,
+            'hint' => 'Kateqoriya səhifəsinin axtarış nəticələrindəki izahı.',
+        ]);
         ?>
 	</div></div>
 	<?php f_actions(admin_url(['section' => 'categories']),

@@ -29,6 +29,19 @@
 	<link rel="next" href="<?= e($meta['rel_next']) ?>">
 <?php endif; ?>
 <?php if (!empty($meta['head_meta'])): ?>
+<?php
+        // head_meta orijinal saytdan olduğu kimi gəlir və orada çox vaxt
+        // <meta name="description"> yoxdur. Təsvir varsa, onu əlavə edirik.
+        $hasDescription = false;
+        foreach ($meta['head_meta'] as $tag) {
+            if (($tag[1] ?? '') === 'description') {
+                $hasDescription = true;
+                break;
+            }
+        }
+        if (!$hasDescription && $meta['description'] !== ''): ?>
+	<meta name="description" content="<?= e($meta['description']) ?>">
+<?php   endif; ?>
 <?php   foreach ($meta['head_meta'] as $tag): ?>
 <?php       list($kind, $key, $val) = $tag;
             if ($key === 'og:url') {

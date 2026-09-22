@@ -177,10 +177,25 @@ a { color: var(--green); }
 .errors { margin: 0 0 16px; padding: 12px 16px; border-radius: 10px; background: var(--danger-soft); color: var(--danger); }
 .errors ul { margin: 6px 0 0; padding-left: 18px; }
 
-/* şəkil seçimi */
+/* şəkil seçimi — yol göstərilmir, yalnız şəklin özü */
 .pick { display: flex; gap: 12px; align-items: flex-start; }
-.pick__preview { width: 104px; height: 78px; object-fit: cover; border-radius: 9px; border: 1px solid var(--line); background: var(--bg); flex: 0 0 auto; }
-.pick__side { flex: 1 1 auto; min-width: 0; display: grid; gap: 6px; }
+.pick__box {
+	position: relative; flex: 0 0 auto;
+	width: 132px; height: 99px; padding: 0;
+	border: 1px solid var(--line); border-radius: 9px; background: var(--bg);
+	overflow: hidden; cursor: pointer; display: block;
+}
+.pick__box:hover { border-color: var(--green); }
+.pick__box:focus-visible { outline: 2px solid var(--green-soft); border-color: var(--green); }
+.pick__preview { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pick__none {
+	position: absolute; inset: 0; display: none;
+	align-items: center; justify-content: center; text-align: center;
+	padding: 8px; font-size: 12.5px; color: var(--ink-soft);
+}
+.pick__box.is-empty .pick__none { display: flex; }
+.pick__side { flex: 1 1 auto; min-width: 0; display: grid; gap: 6px; align-content: start; }
+
 
 /* ------------------------------------------------------------ media */
 
@@ -209,3 +224,75 @@ a { color: var(--green); }
 	.grid2 { grid-template-columns: minmax(0, 1fr); }
 	.top, .content { padding-left: 16px; padding-right: 16px; }
 }
+
+/* ------------------------------------------------------------ vizual redaktor */
+
+.rich { border: 1px solid var(--line); border-radius: 10px; background: var(--card); overflow: hidden; }
+.rich:focus-within { outline: 2px solid var(--green-soft); border-color: var(--green); }
+
+.rich__bar {
+	display: flex; flex-wrap: wrap; align-items: center; gap: 4px;
+	padding: 7px 8px; border-bottom: 1px solid var(--line); background: #FAFCFB;
+}
+.rich__btn {
+	border: 1px solid transparent; border-radius: 7px; background: none;
+	padding: 5px 9px; font: inherit; font-size: 13px; color: var(--ink-soft);
+	cursor: pointer; line-height: 1.3;
+}
+.rich__btn:hover { background: var(--bg); color: var(--ink); border-color: var(--line); }
+.rich__btn.is-on { background: var(--green-soft); color: var(--green-dark); border-color: var(--green-soft); }
+.rich__btn--b { font-weight: 800; }
+.rich__btn--i { font-style: italic; }
+.rich__btn--right { margin-left: auto; }
+
+.rich__area {
+	padding: 16px 18px; min-height: 180px; max-height: 60vh; overflow-y: auto;
+	line-height: 1.65; outline: none;
+}
+.rich__area--tall { min-height: 340px; }
+.rich__area > :first-child { margin-top: 0; }
+.rich__area > :last-child { margin-bottom: 0; }
+.rich__area p { margin: 0 0 .85em; }
+.rich__area h2 { font-size: 21px; margin: 1.1em 0 .5em; }
+.rich__area h3 { font-size: 17px; margin: 1.1em 0 .5em; }
+.rich__area ul, .rich__area ol { margin: 0 0 .85em; padding-left: 22px; }
+.rich__area img, .rich__area video { max-width: 100%; height: auto; border-radius: 6px; }
+.rich__area figure { margin: 1em 0; }
+.rich__area figcaption { font-size: 13px; color: var(--ink-soft); margin-top: 6px; }
+.rich__area table { border-collapse: collapse; width: 100%; margin: 0 0 .85em; font-size: 14px; }
+.rich__area td, .rich__area th { border: 1px solid var(--line); padding: 7px 9px; vertical-align: top; }
+.rich__area a { color: var(--green); }
+
+/* HTML rejimi: kod görünür, vizual sahə gizlənir */
+.rich__code { display: none; border: 0; border-radius: 0; }
+.rich--code .rich__area { display: none; }
+.rich--code .rich__code { display: block; }
+.rich__code:focus { outline: none; }
+
+/* ------------------------------------------------------- kitabxana pəncərəsi */
+
+body.is-lib-open { overflow: hidden; }
+
+.lib {
+	position: fixed; inset: 0; z-index: 90;
+	background: rgba(22, 36, 29, .45);
+	display: flex; align-items: center; justify-content: center;
+	padding: 24px;
+}
+.lib__box {
+	width: min(1040px, 100%); max-height: 100%;
+	display: flex; flex-direction: column;
+	background: var(--bg); border-radius: var(--radius);
+	box-shadow: 0 18px 50px rgba(22, 36, 29, .28);
+	overflow: hidden;
+}
+.lib__head {
+	display: flex; align-items: center; justify-content: space-between; gap: 12px;
+	padding: 13px 18px; background: var(--card); border-bottom: 1px solid var(--line);
+}
+.lib__body { padding: 16px 18px 22px; overflow-y: auto; }
+.lib__body .card:first-child { margin-top: 0; }
+
+/* pəncərədə kart bütövlükdə basıla bilir */
+.lib__body .media-item { cursor: pointer; }
+.lib__body .media-item:hover { border-color: var(--green); }

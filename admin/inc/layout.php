@@ -80,6 +80,7 @@ function admin_shell_end(): void
 	</main>
 </div>
 <script src="<?= asset('admin/assets/admin.js') ?>"></script>
+<script src="<?= asset('admin/assets/editor.js') ?>"></script>
 </body>
 </html>
 <?php

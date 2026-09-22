@@ -45,14 +45,22 @@ function f_text(string $name, string $label, string $value, array $opt = []): vo
 	<?php
 }
 
+/**
+ * Mətn sahəsi.
+ *
+ * 'rich' => true verilsə, editor.js bu sahəni vizual redaktora çevirir.
+ * <textarea> yerində qalır və məzmunun əsl saxlandığı yer elə odur — JS
+ * işləməsə də sahə adi kod sahəsi kimi işləyir.
+ */
 function f_textarea(string $name, string $label, string $value, array $opt = []): void
 {
     $class = 'textarea' . (!empty($opt['tall']) ? ' textarea--tall' : '');
+    $rich  = !empty($opt['rich']);
     ?>
 	<div class="field">
 		<label for="f-<?= e($name) ?>"><?= e($label) ?></label>
 		<textarea class="<?= $class ?>" id="f-<?= e($name) ?>" name="<?= e($name) ?>"
-		          rows="<?= (int) ($opt['rows'] ?? 5) ?>"><?= e($value) ?></textarea>
+		          rows="<?= (int) ($opt['rows'] ?? 5) ?>"<?= $rich ? ' data-rich="' . e($label) . '"' : '' ?>><?= e($value) ?></textarea>
 		<?php if (!empty($opt['hint'])): ?><span class="field__hint"><?= $opt['hint'] ?></span><?php endif; ?>
 	</div>
 	<?php
@@ -92,18 +100,27 @@ function f_checks(string $name, string $label, array $options, array $selected):
 }
 
 /** Şəkil seçimi: yol + önizləmə + kitabxanadan seçmə düyməsi */
+/**
+ * Şəkil sahəsi.
+ *
+ * Yol istifadəçiyə göstərilmir — dəyər gizli sahədə saxlanılır, ekranda isə
+ * yalnız şəklin özü olur. Şəklə və ya düyməyə basanda kitabxana açılır,
+ * orada seçim edilən kimi pəncərə bağlanır və şəkil buraya düşür.
+ */
 function f_image(string $name, string $label, string $value, array $opt = []): void
 {
     $preview = $value !== '' ? asset($value) : '';
     ?>
 	<div class="field">
-		<label for="f-<?= e($name) ?>"><?= e($label) ?></label>
+		<label><?= e($label) ?></label>
 		<div class="pick">
-			<img class="pick__preview" id="p-<?= e($name) ?>" src="<?= e($preview) ?>" alt=""
-			     <?= $preview === '' ? 'style="visibility:hidden"' : '' ?>>
+			<button type="button" class="pick__box<?= $preview === '' ? ' is-empty' : '' ?>"
+			        data-pick="<?= e($name) ?>" title="Kitabxanadan şəkil seç">
+				<img class="pick__preview" id="p-<?= e($name) ?>" src="<?= e($preview) ?>" alt=""<?= $preview === '' ? ' hidden' : '' ?>>
+				<span class="pick__none">Şəkil seçilməyib</span>
+			</button>
+			<input type="hidden" id="f-<?= e($name) ?>" name="<?= e($name) ?>" value="<?= e($value) ?>">
 			<div class="pick__side">
-				<input class="input" type="text" id="f-<?= e($name) ?>" name="<?= e($name) ?>"
-				       value="<?= e($value) ?>" placeholder="uploads/2026/10/sekil.jpg" data-image-input>
 				<div class="actions">
 					<button type="button" class="btn btn--sm" data-pick="<?= e($name) ?>">Kitabxanadan seç</button>
 					<?php if (!empty($opt['clearable'])): ?>

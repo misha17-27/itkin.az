@@ -58,7 +58,7 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             'categories'  => [],
             'excerpt'     => post_str('excerpt'),
             'description' => post_str('description') ?: admin_excerpt($content, 28),
-            'doc_title'   => $title . ' - ' . cfg('site_name'),
+            'doc_title'   => admin_seo_title($title . ' - ' . cfg('site_name')),
             'head_meta'   => $prev['head_meta'] ?? [],
             'schema'      => $prev['schema'] ?? '',
             'thumb'       => $cover,
@@ -103,7 +103,7 @@ if ($action === 'edit') {
                 f_text('excerpt', 'Müəllif(lər)', (string) $item['excerpt'], [
                     'hint' => 'Kitab kartının altında görünür. Nümunə: <code>Eldar Səmədov, Emin Vəliyev</code>',
                 ]);
-                f_textarea('content', 'Təsvir', (string) $item['content'], ['tall' => true]);
+                f_textarea('content', 'Təsvir', (string) $item['content'], ['tall' => true, 'rich' => true]);
                 ?>
 			</div></div>
 
@@ -137,7 +137,12 @@ if ($action === 'edit') {
 			<div class="card">
 				<div class="card__head">Axtarış sistemləri</div>
 				<div class="card__body">
-					<?php f_textarea('description', 'Təsvir (meta description)', (string) $item['description'], ['rows' => 4]); ?>
+					<?php
+                    f_text('doc_title', 'SEO başlıq', (string) ($item['doc_title'] ?? ''), [
+                        'hint' => 'Brauzerin başlığında və Google nəticələrində görünür. Boş buraxsanız addan avtomatik qurulur.',
+                    ]);
+                    f_textarea('description', 'Təsvir (meta description)', (string) $item['description'], ['rows' => 4]);
+                    ?>
 				</div>
 			</div>
 		</div>

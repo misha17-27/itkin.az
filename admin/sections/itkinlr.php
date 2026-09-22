@@ -52,7 +52,7 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             'categories'  => [],
             'excerpt'     => '',
             'description' => post_str('description'),
-            'doc_title'   => $title . ' - ' . cfg('site_name'),
+            'doc_title'   => admin_seo_title($title . ' - ' . cfg('site_name')),
             'head_meta'   => $prev['head_meta'] ?? [],
             'schema'      => $prev['schema'] ?? '',
             'thumb'       => $thumb,
@@ -60,8 +60,9 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         ];
 
         $saved['head_meta'] = admin_sync_meta($saved['head_meta'], [
-            'og:title' => $title,
-            'og:image' => $thumb['url'],
+            'og:title'       => $title,
+            'og:description' => $saved['description'],
+            'og:image'       => $thumb['url'],
         ]);
 
         store_save('itkinlr', admin_upsert($rows, $saved), 'İtkin düşmüş şəxslər / missing persons');
@@ -90,7 +91,11 @@ if ($action === 'edit') {
                 f_text('slug', 'Ünvan (slug)', (string) $item['slug'], ['data' => 'slug-target']);
                 f_textarea('content', 'Əlavə məlumat', (string) $item['content'], [
                     'rows' => 8,
+                    'rich' => true,
                     'hint' => 'Orijinal saytda bu səhifələr yalnız ad və şəkildən ibarətdir — boş buraxa bilərsiniz.',
+                ]);
+                f_text('doc_title', 'SEO başlıq', (string) ($item['doc_title'] ?? ''), [
+                    'hint' => 'Brauzerin başlığında və Google nəticələrində görünür. Boş buraxsanız addan avtomatik qurulur.',
                 ]);
                 f_textarea('description', 'Təsvir (meta description)', (string) $item['description'], ['rows' => 3]);
                 ?>

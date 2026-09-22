@@ -10,61 +10,100 @@ const MEDIA_PER_PAGE = 60;
 
 $root = dirname(__DIR__, 2);
 
+/*
+ * Seçim rejimi: şəkil sahəsi bu səhifəni ayrıca pəncərədə açır və hansı
+ * sahəyə qayıdacağını ünvanda göndərir. Bu rejimdə fayl adının yanında
+ * "Yolu köçür" deyil, "Seç" düyməsi olur və seçimdən sonra pəncərə bağlanır.
+ */
+$pick = (string) ($_GET['picker'] ?? '');
+if (!preg_match('/^[A-Za-z0-9_]{1,40}$/', $pick)) {
+    $pick = '';
+}
+$keep = $pick !== '' ? ['picker' => $pick] : [];
+
+/*
+ * Fragment rejimi: şəkil sahəsi kitabxananı forma üzərindəki pəncərədə açır
+ * və yalnız bu səhifənin içini JS ilə gətirir. Ayrıca brauzer pəncərəsi
+ * açılmır — o, bloklana və ya sadəcə tab kimi açıla bilərdi.
+ */
+$fragment = $pick !== '' && isset($_GET['fragment']);
+$notice   = '';
+
+
 /* ---------------------------------------------------------------- yükləmə */
+
+/**
+ * Faylları qəbul edir və nəticə mesajını qaytarır.
+ * Səhv olanda boş sətir qaytarır və səbəbi $error-a yazır.
+ */
+function media_upload(string $root, array &$failed): int
+{
+    $files = $_FILES['files'] ?? null;
+    if (!$files || !is_array($files['name'])) {
+        return 0;
+    }
+
+    $dir = 'uploads/' . date('Y') . '/' . date('m');
+    $abs = $root . '/' . $dir;
+    if (!is_dir($abs) && !@mkdir($abs, 0775, true) && !is_dir($abs)) {
+        $failed[] = $dir . ' (qovluq yaradıla bilmədi)';
+        return 0;
+    }
+
+    $done = 0;
+    foreach ($files['name'] as $i => $name) {
+        if ((int) $files['error'][$i] !== UPLOAD_ERR_OK) {
+            continue;
+        }
+        $ext = strtolower(pathinfo((string) $name, PATHINFO_EXTENSION));
+
+        if (!in_array($ext, MEDIA_EXT, true)) {
+            $failed[] = $name . ' (icazə verilməyən format)';
+            continue;
+        }
+        if ((int) $files['size'][$i] > MEDIA_MAX) {
+            $failed[] = $name . ' (çox böyükdür)';
+            continue;
+        }
+
+        $base = store_slug(pathinfo((string) $name, PATHINFO_FILENAME)) ?: 'fayl';
+        $file = $base . '.' . $ext;
+        $n = 2;
+        while (file_exists($abs . '/' . $file)) {
+            $file = $base . '-' . $n++ . '.' . $ext;
+        }
+
+        if (@move_uploaded_file($files['tmp_name'][$i], $abs . '/' . $file)) {
+            @chmod($abs . '/' . $file, 0644);
+            $done++;
+        } else {
+            $failed[] = $name;
+        }
+    }
+
+    return $done;
+}
 
 if ($action === 'upload' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     if (!admin_token_ok()) {
-        admin_redirect(['section' => 'media'], 'Forma köhnəlib.', 'error');
-    }
-
-    $files = $_FILES['files'] ?? null;
-    $done = 0;
-    $failed = [];
-
-    if ($files && is_array($files['name'])) {
-        $dir = 'uploads/' . date('Y') . '/' . date('m');
-        $abs = $root . '/' . $dir;
-        if (!is_dir($abs) && !@mkdir($abs, 0775, true) && !is_dir($abs)) {
-            admin_redirect(['section' => 'media'], 'Qovluq yaradıla bilmədi: ' . $dir, 'error');
-        }
-
-        foreach ($files['name'] as $i => $name) {
-            if ((int) $files['error'][$i] !== UPLOAD_ERR_OK) {
-                continue;
-            }
-            $size = (int) $files['size'][$i];
-            $ext  = strtolower(pathinfo((string) $name, PATHINFO_EXTENSION));
-
-            if (!in_array($ext, MEDIA_EXT, true)) {
-                $failed[] = $name . ' (icazə verilməyən format)';
-                continue;
-            }
-            if ($size > MEDIA_MAX) {
-                $failed[] = $name . ' (çox böyükdür)';
-                continue;
-            }
-
-            $base = store_slug(pathinfo((string) $name, PATHINFO_FILENAME)) ?: 'fayl';
-            $file = $base . '.' . $ext;
-            $n = 2;
-            while (file_exists($abs . '/' . $file)) {
-                $file = $base . '-' . $n++ . '.' . $ext;
-            }
-
-            if (@move_uploaded_file($files['tmp_name'][$i], $abs . '/' . $file)) {
-                @chmod($abs . '/' . $file, 0644);
-                $done++;
-            } else {
-                $failed[] = $name;
-            }
+        $msg = 'Forma köhnəlib. Səhifəni yeniləyin.';
+        $ok  = false;
+    } else {
+        $failed = [];
+        $done   = media_upload($root, $failed);
+        $ok     = $done > 0;
+        $msg    = $ok ? $done . ' fayl yükləndi.' : 'Fayl yüklənmədi.';
+        if ($failed) {
+            $msg .= ' Alınmayanlar: ' . implode(', ', array_slice($failed, 0, 4));
         }
     }
 
-    $msg = $done > 0 ? $done . ' fayl yükləndi.' : 'Fayl yüklənmədi.';
-    if ($failed) {
-        $msg .= ' Alınmayanlar: ' . implode(', ', array_slice($failed, 0, 4));
+    // Pəncərədə açılıbsa yönləndirmirik — siyahını elə burada təzələyib qaytarırıq
+    if ($fragment) {
+        $notice = $msg;
+    } else {
+        admin_redirect(['section' => 'media'] + $keep, $msg, $ok ? 'ok' : 'error');
     }
-    admin_redirect(['section' => 'media'], $msg, $done > 0 ? 'ok' : 'error');
 }
 
 /* ---------------------------------------------------------------- siyahı */
@@ -120,13 +159,25 @@ $pages = max(1, (int) ceil(count($all) / MEDIA_PER_PAGE));
 $page  = min($page, $pages);
 $slice = array_slice($all, ($page - 1) * MEDIA_PER_PAGE, MEDIA_PER_PAGE);
 
-$isPicker = isset($_GET['picker']);
+// Şəkil sahəsi üçün yalnız şəkillər göstərilir
+if ($pick !== '') {
+    $all = array_values(array_filter($all, static function (array $f) {
+        return in_array(strtolower(pathinfo($f['path'], PATHINFO_EXTENSION)), ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'], true);
+    }));
+    $pages = max(1, (int) ceil(count($all) / MEDIA_PER_PAGE));
+    $page  = min($page, $pages);
+    $slice = array_slice($all, ($page - 1) * MEDIA_PER_PAGE, MEDIA_PER_PAGE);
+}
 
-admin_shell_start('media', 'Şəkillər və fayllar');
+// Eyni markup həm tam səhifə, həm də pəncərə üçün lazımdır — bufere yığırıq
+ob_start();
 ?>
+<?php if ($notice !== ''): ?>
+<div class="card"><div class="card__body" style="padding:12px 16px"><?= e($notice) ?></div></div>
+<?php endif; ?>
 <div class="card">
 	<div class="card__body">
-		<form method="post" action="<?= e(admin_url(['section' => 'media', 'action' => 'upload'])) ?>" enctype="multipart/form-data" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+		<form method="post" action="<?= e(admin_url(['section' => 'media', 'action' => 'upload'] + $keep)) ?>" enctype="multipart/form-data" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
 			<?= admin_token_field() ?>
 			<input class="input" type="file" name="files[]" multiple style="max-width:340px" required>
 			<button class="btn btn--primary" type="submit">Yüklə</button>
@@ -139,6 +190,9 @@ admin_shell_start('media', 'Şəkillər və fayllar');
 	<div class="card__body">
 		<form method="get" action="<?= e(admin_url()) ?>" style="display:flex;gap:8px;align-items:center">
 			<input type="hidden" name="section" value="media">
+<?php if ($pick !== ''): ?>
+			<input type="hidden" name="picker" value="<?= e($pick) ?>">
+<?php endif; ?>
 			<input class="input" type="search" name="q" value="<?= e($q) ?>" placeholder="Fayl adı ilə axtar…" style="max-width:320px">
 			<button class="btn" type="submit">Axtar</button>
 			<span class="field__hint"><?= count($all) ?> fayl</span>
@@ -158,7 +212,11 @@ admin_shell_start('media', 'Şəkillər və fayllar');
 <?php endif; ?>
 		<figcaption class="media-item__foot">
 			<span class="media-item__name" title="<?= e($file['path']) ?>"><?= e($file['name']) ?></span>
+<?php if ($pick !== ''): ?>
+			<button class="btn btn--sm btn--primary" type="button" data-choose="<?= e($file['path']) ?>">Seç</button>
+<?php else: ?>
 			<button class="btn btn--sm" type="button" data-copy="<?= e($file['path']) ?>">Yolu köçür</button>
+<?php endif; ?>
 		</figcaption>
 	</figure>
 <?php endforeach; ?>
@@ -171,10 +229,20 @@ admin_shell_start('media', 'Şəkillər və fayllar');
 <?php if ($pages > 1): ?>
 <div class="actions" style="margin-top:16px">
 <?php for ($n = 1; $n <= $pages; $n++): ?>
-	<a class="btn btn--sm<?= $n === $page ? ' btn--primary' : '' ?>" href="<?= e(admin_url(['section' => 'media', 'p' => $n] + ($q !== '' ? ['q' => $q] : []))) ?>"><?= $n ?></a>
+	<a class="btn btn--sm<?= $n === $page ? ' btn--primary' : '' ?>" href="<?= e(admin_url(['section' => 'media', 'p' => $n] + ($q !== '' ? ['q' => $q] : []) + $keep)) ?>"><?= $n ?></a>
 <?php endfor; ?>
 </div>
 <?php endif; ?>
 
 <?php
+$body = ob_get_clean();
+
+// Pəncərə üçün yalnız içi lazımdır
+if ($fragment) {
+    echo $body;
+    return;
+}
+
+admin_shell_start('media', $pick !== '' ? 'Şəkil seçin' : 'Şəkillər və fayllar');
+echo $body;
 admin_shell_end();

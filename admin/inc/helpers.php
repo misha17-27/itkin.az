@@ -125,6 +125,18 @@ function admin_require_delete(string $section): void
     }
 }
 
+/**
+ * SEO başlığı: istifadəçi yazıbsa onu, yoxsa avtomatik variantı qaytarır.
+ *
+ * Boş buraxmaq şüurlu seçimdir — bu halda başlıq yenidən addan qurulur,
+ * yəni adı dəyişəndə SEO başlığı da özü yenilənir.
+ */
+function admin_seo_title(string $fallback): string
+{
+    $given = post_str('doc_title');
+    return $given !== '' ? $given : $fallback;
+}
+
 /** Siyahıda id-yə görə sətri tapır */
 function admin_find(array $rows, int $id): ?array
 {

@@ -62,7 +62,7 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             'categories'  => post_ints('categories'),
             'excerpt'     => post_str('excerpt'),
             'description' => post_str('description') ?: admin_excerpt($content, 28),
-            'doc_title'   => $title . ' - ' . cfg('site_name'),
+            'doc_title'   => admin_seo_title($title . ' - ' . cfg('site_name')),
             'head_meta'   => $prev['head_meta'] ?? [],
             'schema'      => $prev['schema'] ?? '',
             'thumb'       => admin_thumb_from_path(post_str('thumb'), $prev['thumb'] ?? []),
@@ -119,7 +119,8 @@ if ($action === 'edit') {
                 ]);
                 f_textarea('content', 'Mətn', (string) $item['content'], [
                     'tall' => true,
-                    'hint' => 'HTML işlədə bilərsiniz: &lt;p&gt;abzas&lt;/p&gt;, &lt;strong&gt;qalın&lt;/strong&gt;, &lt;img src="uploads/..."&gt;.',
+                    'rich' => true,
+                    'hint' => 'Formatı yuxarıdakı düymələrlə verin. “HTML” düyməsi kodu açır — cədvəl, video və şəkil kimi hissələri oradan dəqiq redaktə etmək olar.',
                 ]);
                 ?>
 			</div></div>
@@ -147,6 +148,9 @@ if ($action === 'edit') {
 				<div class="card__head">Axtarış sistemləri</div>
 				<div class="card__body">
 					<?php
+                    f_text('doc_title', 'SEO başlıq', (string) ($item['doc_title'] ?? ''), [
+                        'hint' => 'Brauzerin başlığında və Google nəticələrində görünür. Boş buraxsanız addan avtomatik qurulur.',
+                    ]);
                     f_textarea('excerpt', 'Qısa mətn', (string) $item['excerpt'], ['rows' => 3]);
                     f_textarea('description', 'Təsvir (meta description)', (string) $item['description'], [
                         'rows' => 3,

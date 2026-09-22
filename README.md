@@ -59,7 +59,7 @@ Forma işləmirsə, `config.php`-də `'log_contact' => true` edin — müraciət
 | Kateqoriyalar | Ad, ünvan, təsvir. Yazısı olan kateqoriya silinmir |
 | Səhifələr | Statik səhifələrin başlıqları, düymələri və rəqəmləri |
 | Menyular | Əsas menyu və altlıqdakı iki sütun; alt bəndlərlə birlikdə |
-| Şəkillər | Fayl yükləmək və mövcud faylların yolunu köçürmək |
+| Şəkillər | Fayl yükləmək və mövcud faylların siyahısı |
 | Ayarlar | Sayt adı, əlaqə e-poçtu, səhifələmə, Google Analytics, şifrə |
 
 ### Necə işləyir
@@ -72,6 +72,60 @@ yalnız sonra yerinə keçirilir. Beləliklə yarımçıq yazı saytı sındırm
 Statik səhifələrin mətnləri ayrıca işləyir: şablonlardakı orijinal mətn
 toxunulmaz qalır, dəyişdirdikləriniz isə `data/page-texts.php` faylına
 düşür. Sahəni orijinal dəyərinə qaytarsanız, qeyd tamamilə silinir.
+
+### Mətn redaktoru
+
+Mətn sahələrində düymələr zolağı var: **B**, *I*, H2, H3, ¶, nişanlı və
+nömrəli siyahı, keçid əlavə etmək və götürmək, formatı təmizləmək.
+Sağdakı **HTML** düyməsi kodu açır.
+
+Kənar kitabxana işlədilmir — sadə `contenteditable` sahədir, ona görə
+əlavə fayl yüklənmir və internetsiz də işləyir.
+
+İki şeyi bilmək faydalıdır:
+
+1. **Toxunmadığınız mətn dəyişmir.** Redaktor `<textarea>`-nı yalnız siz
+   həqiqətən nəsə yazandan sonra yeniləyir. Yazını açıb heç nə etmədən
+   yadda saxlasanız, məzmun bayt-bayt olduğu kimi qalır.
+2. **İlk redaktədən sonra kod bir az səliqəyə salınır.** Brauzer HTML-i
+   öz qaydası ilə yazır: `&#8221;` → `”`, `<br />` → `<br>` və s. Görünüş
+   dəyişmir, cədvəl, video, şəkil və `srcset` toxunulmur — sadəcə kod
+   fərqli yazılır.
+
+Başlıq və siyahı düymələri yalnız abzas və başlıqlara toxunur. Kursor
+cədvəl xanasında və ya Elementor sarğısının içindədirsə, düymə heç nə
+etmir — quruluşu dağıtmaqdansa dinc dayanmağı seçir. Cədvəl, video və
+`<figure>` kimi hissələr üçün **HTML** düyməsini açıb kodu birbaşa
+redaktə edin.
+
+Başqa yerdən yapışdırılanda kod sadələşdirilir: `<script>`, hadisə
+atributları və artıq işarələr atılır, bu saytın şəkilləri isə yenidən
+nisbi yola (`uploads/…`) salınır.
+
+### Şəkil seçmək
+
+Şəkil sahəsində yol göstərilmir — yalnız şəklin özü görünür. Şəklə və ya
+“Kitabxanadan seç” düyməsinə basanda forma üzərində kitabxana açılır:
+orada faylın üstünə basırsınız, pəncərə bağlanır və şəkil sahəyə düşür.
+“Təmizlə” şəkli götürür.
+
+Pəncərədə axtarış, səhifələmə və fayl yükləmək də var — yeni şəkli elə
+oradan yükləyib dərhal seçmək olar. Bu pəncərədə yalnız şəkillər görünür;
+PDF və video “Şəkillər” bölməsindədir.
+
+### SEO
+
+Hər bölmədə “Axtarış sistemləri” kartı var:
+
+- **SEO başlıq** — brauzerin başlığında və Google nəticələrində görünən mətn
+  (`<title>`). Boş buraxsanız addan avtomatik qurulur, yəni adı dəyişəndə
+  başlıq da özü yenilənir.
+- **Təsvir (meta description)** — axtarış nəticələrində başlığın altındakı
+  izah. 150–160 simvol yaxşı ölçüdür. Bu mətn eyni zamanda sosial şəbəkə
+  üçün `og:description` teqinə də yazılır.
+
+Sahələr xəbərlərdə, kitabxanada, itkinlər siyahısında, kateqoriyalarda və
+statik səhifələrdə var.
 
 ### Hostinqdə
 
@@ -235,6 +289,12 @@ Menyunu dəyişmək üçün `data/menu.php`, altlıq menyularını isə
 ## Orijinaldan fərqlər
 
 Qalan hər şey vizual olaraq eynidir. Texniki fərqlər:
+
+- **`<meta name="description">` əlavə olunub.** Orijinal saytda bu teq heç bir
+  səhifədə yox idi (Yoast yalnız `og:description` verirdi, bəzi səhifələrdə
+  isə ümumiyyətlə heç nə). İndi təsvir varsa, teq də yazılır. Boş qalmış
+  təsvirlər — 13 itkin qeydi, 6 kateqoriya, 1 yazı və 2 arxiv səhifəsi —
+  doldurulub. Mövcud təsvirlərə toxunulmayıb.
 
 - **E-poçt ünvanları açıq yazılıb.** Orijinalda Cloudflare onları şifrələyir və
   JavaScript ilə açır; burada birbaşa `mailto:` keçidi var.

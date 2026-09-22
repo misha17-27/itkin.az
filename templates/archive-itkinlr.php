@@ -23,6 +23,7 @@ $meta['og_type']    = 'website';
 $meta['canonical']  = abs_url($pager['page'] > 1 ? 'itkinlr/page/' . $pager['page'] : 'itkinlr');
 $meta['body_class'] = body_class('archive post-type-archive post-type-archive-itkinlr');
 $meta['head_meta']  = data_load('archives')['itkinlr']['head_meta'] ?? [];
+$meta['description'] = (string) (data_load('archives')['itkinlr']['description'] ?? '');
 // səhifələnmiş arxivdə og:title da başlıqla birlikdə dəyişir
 if ($pager['page'] > 1) {
     foreach ($meta['head_meta'] as $i => $tag) {

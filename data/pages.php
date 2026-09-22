@@ -1,8 +1,8 @@
 <?php
 /**
- * Statik səhifələrin meta məlumatı / static page meta
+ * Statik səhifələr / static pages
  *
- * itkin.az saytından avtomatik çıxarılıb.
+ * Bu fayl admin panelindən avtomatik yazılır — əl ilə də redaktə etmək olar.
  */
 
 return [
@@ -11,7 +11,7 @@ return [
         'slug' => 'kitabxana',
         'title' => 'Kitabxana',
         'doc_title' => 'Kitabxana - İtkin',
-        'description' => 'Ana səhifə',
+        'description' => 'Birliyin kitabxanası: itkin düşmüş və əsir götürülmüş şəxslərə dair kitablar, hesabatlar və sənədlər — Azərbaycan, ingilis və rus dillərində yüklənə bilər.',
         'head_meta' => [
             [
                 'p',
@@ -31,7 +31,7 @@ return [
             [
                 'p',
                 'og:description',
-                'Ana səhifə',
+                'Birliyin kitabxanası: itkin düşmüş və əsir götürülmüş şəxslərə dair kitablar, hesabatlar və sənədlər — Azərbaycan, ingilis və rus dillərində yüklənə bilər.',
             ],
             [
                 'p',
@@ -98,9 +98,7 @@ HTML,
         'slug' => 'milli-qanunvericilik',
         'title' => 'Milli qanunvericilik',
         'doc_title' => 'Milli qanunvericilik - İtkin',
-        'description' => <<<'HTML'
-Ana səhifə “Dövlət Komissiyası” haqqında Sərəncam Dövlət Komissiyasının Əsasnaməsi “Mülki şəxslərin müdafiəsi və hərbi əsirlərin hüquqlarının qorunması” haqqında Qanun Terminologiya Azərbaycan Respublikasının ərazi bütövlüyü uğrunda həlak olmuş, ölmüş və hərbi əməliyyatlarla əlaqədar xəbərsiz itkin düşdüyünə görə ölmüş elan edilmiş hərbi qulluqçuların ailə üzvlərinin sosial müdafiəsinin yaxşılaşdırılması ilə bağlı əlavə tədbirlər haqqında Azərbaycan Respublikası Prezidentinin Fərmanı
-HTML,
+        'description' => 'İtkin düşmüş şəxslərlə bağlı milli qanunvericilik: Dövlət Komissiyası haqqında sərəncam, Komissiyanın əsasnaməsi və digər normativ sənədlər.',
         'head_meta' => [
             [
                 'p',
@@ -120,9 +118,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                <<<'HTML'
-Ana səhifə “Dövlət Komissiyası” haqqında Sərəncam Dövlət Komissiyasının Əsasnaməsi “Mülki şəxslərin müdafiəsi və hərbi əsirlərin hüquqlarının qorunması” haqqında Qanun Terminologiya Azərbaycan Respublikasının ərazi bütövlüyü uğrunda həlak olmuş, ölmüş və hərbi əməliyyatlarla əlaqədar xəbərsiz itkin düşdüyünə görə ölmüş elan edilmiş hərbi qulluqçuların ailə üzvlərinin sosial müdafiəsinin yaxşılaşdırılması ilə bağlı əlavə tədbirlər haqqında Azərbaycan Respublikası Prezidentinin Fərmanı
-HTML,
+                'İtkin düşmüş şəxslərlə bağlı milli qanunvericilik: Dövlət Komissiyası haqqında sərəncam, Komissiyanın əsasnaməsi və digər normativ sənədlər.',
             ],
             [
                 'p',
@@ -189,9 +185,7 @@ HTML,
         'slug' => 'beynelxalq-senedler',
         'title' => 'Beynəlxalq sənədlər',
         'doc_title' => 'Beynəlxalq sənədlər - İtkin',
-        'description' => <<<'HTML'
-Ana səhifə 1949-CU İL 12 AVQUST TARİXLİ CENEVRƏ KONVENSİYALAR DƏNİZDƏKİ SİLAHLI QÜVVƏLƏRDƏ YARALILARIN, XƏSTƏLƏRİN VƏ GƏMİ QƏZASINA UĞRAYANLARIN VƏZİYYƏTİNİN YAXŞILAŞDIRILMASI HAQQINDA 1949-CU İL 12 AVQUST TARİXLİ CENEVRƏ KONVENSİYASI HƏRBİ ƏSİRLƏR İLƏ RƏFTARA DAİR 1949-CU İL 12 AVQUST TARİXLİ CENEVRƏ KONVENSİYASI “MÜHARİBƏ ZAMANI MÜLKİ ŞƏXSLƏRİN MÜDAFİƏSİNƏ DAİR 1949-CU İL 12 AVQUST TARİXLİ CENEVRƏ KONVENSİYASI
-HTML,
+        'description' => 'İtkin düşmüş, əsir və girov götürülmüş şəxslərin hüquqlarına dair beynəlxalq sənədlər: 1949-cu il Cenevrə konvensiyaları və onlara əlavə protokollar.',
         'head_meta' => [
             [
                 'p',
@@ -211,9 +205,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                <<<'HTML'
-Ana səhifə 1949-CU İL 12 AVQUST TARİXLİ CENEVRƏ KONVENSİYALAR DƏNİZDƏKİ SİLAHLI QÜVVƏLƏRDƏ YARALILARIN, XƏSTƏLƏRİN VƏ GƏMİ QƏZASINA UĞRAYANLARIN VƏZİYYƏTİNİN YAXŞILAŞDIRILMASI HAQQINDA 1949-CU İL 12 AVQUST TARİXLİ CENEVRƏ KONVENSİYASI HƏRBİ ƏSİRLƏR İLƏ RƏFTARA DAİR 1949-CU İL 12 AVQUST TARİXLİ CENEVRƏ KONVENSİYASI “MÜHARİBƏ ZAMANI MÜLKİ ŞƏXSLƏRİN MÜDAFİƏSİNƏ DAİR 1949-CU İL 12 AVQUST TARİXLİ CENEVRƏ KONVENSİYASI
-HTML,
+                'İtkin düşmüş, əsir və girov götürülmüş şəxslərin hüquqlarına dair beynəlxalq sənədlər: 1949-cu il Cenevrə konvensiyaları və onlara əlavə protokollar.',
             ],
             [
                 'p',
@@ -280,7 +272,7 @@ HTML,
         'slug' => 'sekiller',
         'title' => 'Foto',
         'doc_title' => 'Foto - İtkin',
-        'description' => 'Ana səhifə',
+        'description' => '“Qarabağ İtkin Ailələri” İctimai Birliyinin tədbirlərindən və gündəlik fəaliyyətindən foto qalereya.',
         'head_meta' => [
             [
                 'p',
@@ -300,7 +292,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Ana səhifə',
+                '“Qarabağ İtkin Ailələri” İctimai Birliyinin tədbirlərindən və gündəlik fəaliyyətindən foto qalereya.',
             ],
             [
                 'p',
@@ -356,7 +348,7 @@ HTML,
         'title' => 'Haqqımızda',
         'doc_title' => 'Haqqımızda - İtkin',
         'description' => <<<'HTML'
-Ana səhifə “Qarabağ İtkin Ailələri” İctimai Birliyi haqqında Üzvləri tamamilə Qarabağ müharibəsi zamanı itkin düşmüş şəxslərin ailələrindən əsasəndə qadınlarldan ibarət olan “Qarabağ İtkin Ailələri” İctimai Birliyi Ermənistanın Azərbaycana qarşı hərbi təcavüzü nəticəsində itkin düşmüş, əsir-girov göturulmüs şəxslərin və onların ailələrinin hüquqlarının müdafiəsini qarşısına əsas məqsəd kimi qoymuşdur. Münaqişə nəticəsində itkin düşmüş vətəndaşlarımızın və onların ailələrinin […]
+“Qarabağ İtkin Ailələri” İctimai Birliyi itkin düşmüş, əsir və girov götürülmüş şəxslərin və onların ailələrinin hüquqlarının müdafiəsi ilə məşğul olur. Birliyin məqsədləri və fəaliyyəti haqqında.
 HTML,
         'head_meta' => [
             [
@@ -378,7 +370,7 @@ HTML,
                 'p',
                 'og:description',
                 <<<'HTML'
-Ana səhifə “Qarabağ İtkin Ailələri” İctimai Birliyi haqqında Üzvləri tamamilə Qarabağ müharibəsi zamanı itkin düşmüş şəxslərin ailələrindən əsasəndə qadınlarldan ibarət olan “Qarabağ İtkin Ailələri” İctimai Birliyi Ermənistanın Azərbaycana qarşı hərbi təcavüzü nəticəsində itkin düşmüş, əsir-girov göturulmüs şəxslərin və onların ailələrinin hüquqlarının müdafiəsini qarşısına əsas məqsəd kimi qoymuşdur. Münaqişə nəticəsində itkin düşmüş vətəndaşlarımızın və onların ailələrinin […]
+“Qarabağ İtkin Ailələri” İctimai Birliyi itkin düşmüş, əsir və girov götürülmüş şəxslərin və onların ailələrinin hüquqlarının müdafiəsi ilə məşğul olur. Birliyin məqsədləri və fəaliyyəti haqqında.
 HTML,
             ],
             [
@@ -446,9 +438,7 @@ HTML,
         'slug' => 'elaqe',
         'title' => 'Əlaqə',
         'doc_title' => 'Əlaqə - İtkin',
-        'description' => <<<'HTML'
-Ana səhifə Bizimlə əlaqə Sualınız var? Birbaşa soruşun, tez cavab alın: Əlaqə məlumatları +994 55 269 68 67 info@itkin.az Qaradağ rayony, Ələt qəsəbəsi, Eduard İmanov küç. ev 2, m9 Sorğu göndər
-HTML,
+        'description' => '“Qarabağ İtkin Ailələri” İctimai Birliyi ilə əlaqə: telefon, e-poçt, ünvan və müraciət forması.',
         'head_meta' => [
             [
                 'p',
@@ -468,9 +458,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                <<<'HTML'
-Ana səhifə Bizimlə əlaqə Sualınız var? Birbaşa soruşun, tez cavab alın: Əlaqə məlumatları +994 55 269 68 67 info@itkin.az Qaradağ rayony, Ələt qəsəbəsi, Eduard İmanov küç. ev 2, m9 Sorğu göndər
-HTML,
+                '“Qarabağ İtkin Ailələri” İctimai Birliyi ilə əlaqə: telefon, e-poçt, ünvan və müraciət forması.',
             ],
             [
                 'p',
@@ -525,7 +513,7 @@ HTML,
         'slug' => 'xeberler',
         'title' => 'Xəbərlər',
         'doc_title' => 'Xəbərlər - İtkin',
-        'description' => 'Ana səhifə',
+        'description' => 'İtkin düşmüş və əsir götürülmüş şəxslərlə bağlı xəbərlər, rəsmi açıqlamalar və “Qarabağ İtkin Ailələri” İctimai Birliyinin fəaliyyətinə dair məlumatlar.',
         'head_meta' => [
             [
                 'p',
@@ -545,7 +533,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Ana səhifə',
+                'İtkin düşmüş və əsir götürülmüş şəxslərlə bağlı xəbərlər, rəsmi açıqlamalar və “Qarabağ İtkin Ailələri” İctimai Birliyinin fəaliyyətinə dair məlumatlar.',
             ],
             [
                 'p',
@@ -601,7 +589,7 @@ HTML,
         'title' => 'Ana səhifə',
         'doc_title' => 'Ana səhifə - İtkin',
         'description' => <<<'HTML'
-Birinci Qarabağ müharibəsində itkin düşən şəxslər “Qarabağ İtkin Ailələri” İctimai Birliyi Siyahıya bax “Qarabağ İtkin Ailələri” İctimai Birliyi haqqında Üzvləri tamamilə Qarabağ müharibəsi zamanı itkin düşmüş şəxslərin ailələrindən əsasəndə qadınlarldan ibarət olan “Qarabağ İtkin Ailələri” İctimai Birliyi Ermənistanın Azərbaycana qarşı hərbi təcavüzü nəticəsində itkin düşmüş, əsir-girov göturulmüs şəxslərin və onların ailələrinin hüquqlarının müdafiəsini qarşısına əsas […]
+Birinci Qarabağ müharibəsində itkin düşmüş şəxslər və onların ailələri — “Qarabağ İtkin Ailələri” İctimai Birliyinin saytı: itkinlərin siyahısı, xəbərlər, sənədlər və kitabxana.
 HTML,
         'head_meta' => [
             [
@@ -623,7 +611,7 @@ HTML,
                 'p',
                 'og:description',
                 <<<'HTML'
-Birinci Qarabağ müharibəsində itkin düşən şəxslər “Qarabağ İtkin Ailələri” İctimai Birliyi Siyahıya bax “Qarabağ İtkin Ailələri” İctimai Birliyi haqqında Üzvləri tamamilə Qarabağ müharibəsi zamanı itkin düşmüş şəxslərin ailələrindən əsasəndə qadınlarldan ibarət olan “Qarabağ İtkin Ailələri” İctimai Birliyi Ermənistanın Azərbaycana qarşı hərbi təcavüzü nəticəsində itkin düşmüş, əsir-girov göturulmüs şəxslərin və onların ailələrinin hüquqlarının müdafiəsini qarşısına əsas […]
+Birinci Qarabağ müharibəsində itkin düşmüş şəxslər və onların ailələri — “Qarabağ İtkin Ailələri” İctimai Birliyinin saytı: itkinlərin siyahısı, xəbərlər, sənədlər və kitabxana.
 HTML,
             ],
             [

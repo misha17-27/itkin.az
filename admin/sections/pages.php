@@ -18,6 +18,18 @@ const ADMIN_PAGE_TITLES = [
     'xeberler'   => 'Xəbərlər səhifəsi',
 ];
 
+/** Admin açarı -> data/pages.php-dəki slug */
+const ADMIN_PAGE_SLUGS = [
+    'home'       => 'ana-sehife',
+    'haqqimizda' => 'haqqimizda',
+    'elaqe'      => 'elaqe',
+    'senedler'   => 'beynelxalq-senedler',
+    'qanun'      => 'milli-qanunvericilik',
+    'sekiller'   => 'sekiller',
+    'kitabxana'  => 'kitabxana',
+    'xeberler'   => 'xeberler',
+];
+
 const ADMIN_PAGE_URLS = [
     'home'       => '',
     'haqqimizda' => 'haqqimizda',
@@ -76,6 +88,23 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         }
 
         store_save('page-texts', $next, 'Səhifə mətnləri / page text overrides');
+
+        // SEO başlığı və təsviri data/pages.php-də saxlanılır
+        $pages = data_load('pages');
+        foreach ($pages as $i => $page) {
+            if ($page['slug'] !== ADMIN_PAGE_SLUGS[$which]) {
+                continue;
+            }
+            $desc = post_str('description');
+            $pages[$i]['doc_title']   = admin_seo_title($page['title'] . ' - ' . cfg('site_name'));
+            $pages[$i]['description'] = $desc;
+            $pages[$i]['head_meta']   = admin_sync_meta($page['head_meta'] ?? [], [
+                'og:description' => $desc,
+            ]);
+            store_save('pages', $pages, 'Statik səhifələr / static pages');
+            break;
+        }
+
         admin_redirect(['section' => 'pages', 'page' => $which], 'Səhifə yadda saxlanıldı.');
     }
 }
@@ -96,17 +125,29 @@ admin_shell_start('pages', 'Səhifələr', [
 
 <?php f_errors($errors); ?>
 
+<?php
+// SEO sahələri data/pages.php-dən gəlir
+$page = null;
+foreach (data_load('pages') as $row) {
+    if ($row['slug'] === ADMIN_PAGE_SLUGS[$which]) {
+        $page = $row;
+        break;
+    }
+}
+$page = $page ?? ['doc_title' => '', 'description' => ''];
+?>
+
+<?php f_open(['section' => 'pages', 'action' => 'edit', 'page' => $which]); ?>
+
 <?php if (empty($byPage[$which])): ?>
 <div class="card"><div class="card__body">
 	<p style="margin:0">
 		Bu səhifədə sabit mətn yoxdur — məzmunu avtomatik yığılır
 		(<?= $which === 'xeberler' ? 'xəbərlər siyahısı' : ($which === 'kitabxana' ? 'kitab siyahısı' : 'qalereya') ?>).
-		Dəyişmək üçün müvafiq bölmədən istifadə edin.
+		Dəyişmək üçün müvafiq bölmədən istifadə edin. Aşağıdakı SEO sahələri isə bu səhifəyə aiddir.
 	</p>
 </div></div>
 <?php else: ?>
-
-<?php f_open(['section' => 'pages', 'action' => 'edit', 'page' => $which]); ?>
 <div class="card">
 	<div class="card__head"><?= e(ADMIN_PAGE_TITLES[$which]) ?></div>
 	<div class="card__body">
@@ -142,13 +183,28 @@ admin_shell_start('pages', 'Səhifələr', [
 <?php endforeach; ?>
 	</div>
 </div>
+<?php endif; ?>
+
+<div class="card">
+	<div class="card__head">Axtarış sistemləri</div>
+	<div class="card__body">
+		<?php
+        f_text('doc_title', 'SEO başlıq', (string) ($page['doc_title'] ?? ''), [
+            'hint' => 'Brauzerin başlığında və Google nəticələrində görünür. Boş buraxsanız addan avtomatik qurulur.',
+        ]);
+        f_textarea('description', 'Təsvir (meta description)', (string) ($page['description'] ?? ''), [
+            'rows' => 3,
+            'hint' => 'Axtarış nəticələrində başlığın altındakı izah. 150–160 simvol yaxşı ölçüdür.',
+        ]);
+        ?>
+	</div>
+</div>
 
 <div class="actions">
 	<button class="btn btn--primary" type="submit">Yadda saxla</button>
 	<a class="btn" href="<?= e(admin_url(['section' => 'pages', 'page' => $which])) ?>">Ləğv et</a>
 </div>
 <?php f_close(); ?>
-<?php endif; ?>
 
 <?php
 admin_shell_end();
