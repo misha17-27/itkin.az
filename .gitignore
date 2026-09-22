@@ -1,0 +1,12 @@
+# Lokal qurma faylları
+.env.build
+
+# Əlaqə formasının logları
+/storage/
+
+# Redaktor və sistem faylları
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
