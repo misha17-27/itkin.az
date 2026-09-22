@@ -36,7 +36,7 @@ $meta['rel_prev']   = $pager['page'] > 1
     ? abs_url($pager['page'] - 1 > 1 ? 'itkinlr/page/' . ($pager['page'] - 1) : 'itkinlr')
     : '';
 $meta['rel_next']   = $pager['page'] < $pager['pages'] ? abs_url('itkinlr/page/' . ($pager['page'] + 1)) : '';
-$meta['elementor_post'] = elementor_post_json(0, 'İtkinlər');
+$meta['elementor_post'] = elementor_post_json(0, $meta['title']);
 
 $crumbs = [['label' => 'İtkinlər', 'href' => null]];
 ?>

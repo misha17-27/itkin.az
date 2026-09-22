@@ -38,7 +38,7 @@ $meta['body_class']  = body_class(
 );
 $meta['head_meta']   = $category['head_meta'] ?? [];
 $meta['schema']      = $category['schema'] ?? '';
-$meta['elementor_post'] = elementor_post_json(0, $category['name']);
+$meta['elementor_post'] = elementor_post_json(0, $meta['title']);
 
 if ($paged) {
     foreach ($meta['head_meta'] as $i => $tag) {

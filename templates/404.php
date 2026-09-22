@@ -17,7 +17,7 @@ $meta['canonical']  = '';                       // orijinalda 404-də canonical 
 $meta['head_meta']  = $info['head_meta'] ?? [];
 $meta['schema']     = $info['schema'] ?? '';
 $meta['body_class'] = body_class('error404');
-$meta['elementor_post'] = elementor_post_json(0, 'Səhifə tapılmadı');
+$meta['elementor_post'] = elementor_post_json(0, $meta['title']);
 ?>
 <main id="content" class="site-main">
 

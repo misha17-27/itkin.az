@@ -164,9 +164,16 @@ function body_class(string $lead, bool $fullWidth = false, string $page = '', bo
     return implode(' ', $c);
 }
 
-/** Elementor-un frontend konfiqurasiyasındakı "post" obyekti */
+/**
+ * Elementor-un frontend konfiqurasiyasındakı "post" obyekti.
+ * Tək səhifədə başlıq faiz-kodlaşdırılır və featuredImage verilir,
+ * arxivdə isə adi mətn olur və featuredImage ümumiyyətlə olmur.
+ */
 function elementor_post_json(int $id, string $title, string $image = ''): string
 {
+    if ($id === 0) {
+        return json_encode(['id' => 0, 'title' => $title, 'excerpt' => ''], JSON_UNESCAPED_SLASHES);
+    }
     return json_encode([
         'id'            => $id,
         'title'         => rawurlencode($title . ' - ' . cfg('site_name')),
@@ -207,4 +214,12 @@ function cat_classes(array $post): string
         }
     }
     return implode(' ', $out);
+}
+
+/** MediaElement pleyerinin inline konfiqurasiyası (data/mejs.php) */
+function mejs_inline(string $key): string
+{
+    $cfg = data_load('mejs');
+    $js  = (string) ($cfg[$key] ?? '');
+    return str_replace('{{MEJS}}', asset('assets/vendor/wp-includes/js/mediaelement/'), $js);
 }

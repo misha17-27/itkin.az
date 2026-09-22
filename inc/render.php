@@ -163,9 +163,9 @@ const NO_HREFLANG = ['single-itkinlr', 'archive-itkinlr', 'archive-kitabxana', '
  * ardıcıllıq və id-lər saxlanılıb (smartmenus ilə elementor runtime arasında).
  */
 const JS_LIB = [
-    'mediaelement-core'    => ['mediaelement-core-js',    'assets/vendor/wp-includes/js/mediaelement/mediaelement-and-player.min.js'],
+    'mediaelement-core'    => ['mediaelement-core-js',    'assets/vendor/wp-includes/js/mediaelement/mediaelement-and-player.min.js', 'mediaelement-core-js-before', 'l10n'],
     'mediaelement-migrate' => ['mediaelement-migrate-js', 'assets/vendor/wp-includes/js/mediaelement/mediaelement-migrate.min.js'],
-    'wp-mediaelement'      => ['wp-mediaelement-js',      'assets/vendor/wp-includes/js/mediaelement/wp-mediaelement.min.js'],
+    'wp-mediaelement'      => ['wp-mediaelement-js',      'assets/vendor/wp-includes/js/mediaelement/wp-mediaelement.min.js', 'mediaelement-js-extra', 'settings'],
     'mediaelement-vimeo'   => ['mediaelement-vimeo-js',   'assets/vendor/wp-includes/js/mediaelement/renderers/vimeo.min.js'],
     'imagesloaded'         => ['imagesloaded-js',         'assets/vendor/wp-includes/js/imagesloaded.min.js'],
     'jquery-numerator'     => ['jquery-numerator-js',     'assets/vendor/plugins/elementor/assets/lib/jquery-numerator/jquery-numerator.min.js'],

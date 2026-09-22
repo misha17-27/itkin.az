@@ -16,6 +16,6 @@ $meta['canonical']  = abs_url('kitabxana-blog');
 $meta['body_class'] = body_class('archive post-type-archive post-type-archive-kitabxana-blog', true, 'elementor-page-968');
 $meta['head_meta']  = data_load('archives')['kitabxana-blog']['head_meta'] ?? [];
 $meta['schema']     = data_load('archives')['kitabxana-blog']['schema'] ?? '';
-$meta['elementor_post'] = elementor_post_json(0, 'Kitabxana');
+$meta['elementor_post'] = elementor_post_json(0, $meta['title']);
 ?>
 <?php include __DIR__ . '/archive-kitabxana.body.php'; ?>

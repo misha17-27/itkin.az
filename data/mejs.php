@@ -1,0 +1,14 @@
+<?php
+/**
+ * MediaElement pleyerinin konfiqurasiyası — orijinaldakı iki inline skript.
+ * {{MEJS}} nişanı şablonda lokal yola çevrilir.
+ */
+
+return [
+    'l10n' => <<<'JS'
+var mejsL10n = {"language":"az","strings":{"mejs.download-file":"Fayl\u0131 endir","mejs.install-flash":"You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https://get.adobe.com/flashplayer/","mejs.fullscreen":"Tam ekran","mejs.play":"Ba\u015flat","mejs.pause":"Saxla","mejs.time-slider":"Zaman Slayderi","mejs.time-help-text":"Sol/sa\u011f d\u00fcym\u0259l\u0259ri il\u0259 bir saniy\u0259, yuxar\u0131/a\u015fa\u011f\u0131 d\u00fcym\u0259l\u0259ri il\u0259 10 saniy\u0259 ir\u0259lil\u0259din.","mejs.live-broadcast":"Live Broadcast","mejs.volume-help-text":"Yuxar\u0131/a\u015fa\u011f\u0131 d\u00fcym\u0259l\u0259ri il\u0259 s\u0259si art\u0131r\u0131n ya da azald\u0131n.","mejs.unmute":"S\u0259si geri a\u00e7","mejs.mute":"S\u0259ssiz","mejs.volume-slider":"S\u0259s Slayderi","mejs.video-player":"Video Oynad\u0131c\u0131","mejs.audio-player":"Audio Oynad\u0131c\u0131","mejs.captions-subtitles":"Ba\u015fl\u0131qlar/altyaz\u0131lar","mejs.captions-chapters":"Chapters","mejs.none":"He\u00e7 biri","mejs.afrikaans":"Afrikaans","mejs.albanian":"Albanian","mejs.arabic":"Arabic","mejs.belarusian":"Belarusian","mejs.bulgarian":"Bulgarian","mejs.catalan":"Catalan","mejs.chinese":"Chinese","mejs.chinese-simplified":"Chinese (Simplified)","mejs.chinese-traditional":"Chinese (Traditional)","mejs.croatian":"Croatian","mejs.czech":"Czech","mejs.danish":"Danish","mejs.dutch":"Dutch","mejs.english":"English","mejs.estonian":"Estonian","mejs.filipino":"Filipino","mejs.finnish":"Finnish","mejs.french":"French","mejs.galician":"Galician","mejs.german":"German","mejs.greek":"Greek","mejs.haitian-creole":"Haitian Creole","mejs.hebrew":"Hebrew","mejs.hindi":"Hindi","mejs.hungarian":"Hungarian","mejs.icelandic":"Icelandic","mejs.indonesian":"Indonesian","mejs.irish":"Irish","mejs.italian":"Italian","mejs.japanese":"Japanese","mejs.korean":"Korean","mejs.latvian":"Latvian","mejs.lithuanian":"Lithuanian","mejs.macedonian":"Macedonian","mejs.malay":"Malay","mejs.maltese":"Maltese","mejs.norwegian":"Norwegian","mejs.persian":"Persian","mejs.polish":"Polish","mejs.portuguese":"Portuguese","mejs.romanian":"Romanian","mejs.russian":"Russian","mejs.serbian":"Serbian","mejs.slovak":"Slovak","mejs.slovenian":"Slovenian","mejs.spanish":"Spanish","mejs.swahili":"Swahili","mejs.swedish":"Swedish","mejs.tagalog":"Tagalog","mejs.thai":"Thai","mejs.turkish":"Turkish","mejs.ukrainian":"Ukrainian","mejs.vietnamese":"Vietnamese","mejs.welsh":"Welsh","mejs.yiddish":"Yiddish"}};
+JS,
+    'settings' => <<<'JSX'
+var _wpmejsSettings = {"pluginPath":"{{MEJS}}","classPrefix":"mejs-","stretching":"responsive","audioShortcodeLibrary":"mediaelement","videoShortcodeLibrary":"mediaelement"};
+JSX,
+];
