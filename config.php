@@ -23,6 +23,9 @@ return [
         'itkinlr'   => 10,
     ],
 
+    // Əlaqə formasının CSRF açarı — quraşdırmadan sonra təsadüfi sətirlə əvəz edin
+    'form_secret'   => '',
+
     // Google Analytics (Site Kit). Boş buraxsanız sayğac ümumiyyətlə yüklənmir.
     'ga_id'         => 'GT-T5MGVVRX',
 

@@ -13,11 +13,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<meta name="robots" content="<?= e($meta['robots']) ?>">
+<?php if ($meta['canonical'] !== '' && $hreflang): ?>
 	<link rel="alternate" hreflang="<?= e(cfg('locale', 'az')) ?>" href="<?= e($meta['canonical']) ?>">
 	<link rel="alternate" hreflang="x-default" href="<?= e($meta['canonical']) ?>">
+<?php endif; ?>
 	<title><?= e($meta['title']) ?></title>
+<?php if ($meta['canonical'] !== ''): ?>
 	<link rel="canonical" href="<?= e($meta['canonical']) ?>">
+<?php endif; ?>
 <?php if (!empty($meta['head_meta'])): ?>
 <?php   foreach ($meta['head_meta'] as $tag): ?>
 <?php       list($kind, $key, $val) = $tag;
@@ -54,11 +58,12 @@
 	<meta name="msapplication-TileImage" content="<?= asset('uploads/2023/11/fav.png') ?>">
 
 <?php foreach ($styles as $href): ?>
-	<link rel="stylesheet" href="<?= asset($href) ?>" media="all">
+	<link rel="stylesheet" href="<?= asset($href) ?>" media="<?= e(CSS_MEDIA[$href] ?? 'all') ?>">
 <?php endforeach; ?>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic%7CRoboto+Slab:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic%7CMontserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic%7CInter:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic%7CPoppins:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&display=swap" media="all">
+<?php $ff = implode('%7C', array_map(static function ($f) { return $f . ':100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic'; }, $fonts)); ?>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=<?= $ff ?>&display=swap" media="all">
 
 <script id="wpml-cookie-js-extra">
 var wpml_cookies = {"wp-wpml_current_language":{"value":"<?= e(cfg('locale', 'az')) ?>","expires":1,"path":"/"}};

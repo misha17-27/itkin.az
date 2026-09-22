@@ -137,12 +137,16 @@ function post_siblings(array $post): array
     return [$prev, $next];
 }
 
-/** Səhifələmə köməkçisi */
+/**
+ * Səhifələmə köməkçisi.
+ * Diapazondan kənar səhifə nömrəsi boş siyahı qaytarır — orijinal saytda da
+ * Elementor siyahısı belə davranır (200 cavab, boş şəbəkə).
+ */
 function paginate(array $items, int $perPage, int $page): array
 {
     $total = count($items);
     $pages = max(1, (int) ceil($total / max(1, $perPage)));
-    $page  = max(1, min($page, $pages));
+    $page  = max(1, $page);
     return [
         'items' => array_slice($items, ($page - 1) * $perPage, $perPage),
         'page'  => $page,

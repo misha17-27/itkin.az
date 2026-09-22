@@ -12,15 +12,32 @@ const CONTACT_FIELDS = [
     'message' => 'form_fields[field_71766c7]',
 ];
 
-function contact_token(): string
+/**
+ * Formanın CSRF nişanı.
+ * Sessiya açmırıq ki, adi GET sorğusunda cookie və "no-store" başlıqları
+ * yaranmasın — nişan gizli açar və vaxt pəncərəsi əsasında hesablanır.
+ */
+function contact_token(?int $window = null): string
 {
-    if (session_status() === PHP_SESSION_NONE) {
-        @session_start();
+    $secret = (string) cfg('form_secret');
+    if ($secret === '') {
+        // Açar təyin olunmayıbsa, quraşdırmaya bağlı sabit dəyərdən istifadə edirik
+        $secret = 'itkin-' . __DIR__;
     }
-    if (empty($_SESSION['contact_token'])) {
-        $_SESSION['contact_token'] = bin2hex(random_bytes(16));
+    $window = $window ?? (int) floor(time() / 7200);
+    return hash_hmac('sha256', 'contact:' . $window, $secret);
+}
+
+/** Nişan cari və ya əvvəlki pəncərəyə uyğun gəlirmi? */
+function contact_token_valid(string $given): bool
+{
+    $now = (int) floor(time() / 7200);
+    foreach ([$now, $now - 1] as $w) {
+        if (hash_equals(contact_token($w), $given)) {
+            return true;
+        }
     }
-    return $_SESSION['contact_token'];
+    return false;
 }
 
 /**
@@ -34,7 +51,6 @@ function contact_handle(): array
 
     $posted = $_POST['form_fields'] ?? null;
     if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST' || !is_array($posted)) {
-        contact_token();
         return $state;
     }
 
@@ -59,8 +75,8 @@ function contact_handle(): array
         return $state;
     }
 
-    if (!hash_equals(contact_token(), (string) ($_POST['_token'] ?? ''))) {
-        $state['notice'] = 'Sessiyanın vaxtı bitib. Zəhmət olmasa yenidən cəhd edin.';
+    if (!contact_token_valid((string) ($_POST['_token'] ?? ''))) {
+        $state['notice'] = 'Formanın etibarlılıq müddəti bitib. Zəhmət olmasa səhifəni yeniləyib yenidən cəhd edin.';
         return $state;
     }
 
@@ -106,8 +122,6 @@ function contact_handle(): array
     if ($ok) {
         $state['sent'] = true;
         $state['values'] = [];
-        unset($_SESSION['contact_token']);
-        contact_token();
     } else {
         $state['notice'] = 'Mesaj göndərilə bilmədi. Zəhmət olmasa bizimlə birbaşa əlaqə saxlayın: ' . cfg('contact_email');
     }

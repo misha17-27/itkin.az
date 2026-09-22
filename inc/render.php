@@ -24,6 +24,33 @@ const CSS_BASE = [
     'uploads/elementor/css/post-245.css',
 ];
 
+/** Bəzi üslublar orijinalda media="screen" ilə verilir */
+const CSS_MEDIA = [
+    'assets/vendor/plugins/wpml-cms-nav/res/css/cms-navigation-base.css' => 'screen',
+    'assets/vendor/plugins/wpml-cms-nav/res/css/cms-navigation.css'      => 'screen',
+];
+
+/**
+ * Google Fonts ailələri şablona görə dəyişir (Elementor yalnız istifadə olunan
+ * şriftləri sifariş edir) — orijinaldakı siyahı və ardıcıllıq saxlanılıb.
+ */
+const FONTS_DEFAULT = ['Roboto', 'Roboto+Slab', 'Montserrat', 'Inter'];
+const FONTS_VIEW = [
+    'home'                      => ['Roboto', 'Roboto+Slab', 'Inter', 'Montserrat'],
+    'page-xeberler'             => ['Roboto', 'Roboto+Slab', 'Inter', 'Montserrat'],
+    'page-haqqimizda'           => ['Roboto', 'Roboto+Slab', 'Inter', 'Montserrat'],
+    'page-kitabxana'            => ['Roboto', 'Roboto+Slab', 'Inter', 'Montserrat'],
+    'page-milli-qanunvericilik' => ['Roboto', 'Roboto+Slab', 'Inter', 'Montserrat'],
+    'page-beynelxalq-senedler'  => ['Roboto', 'Roboto+Slab', 'Inter', 'Montserrat'],
+    'page-sekiller'             => ['Roboto', 'Roboto+Slab', 'Inter', 'Montserrat'],
+    'page-elaqe'                => ['Roboto', 'Roboto+Slab', 'Inter', 'Poppins', 'Montserrat'],
+    'single-post'               => ['Roboto', 'Roboto+Slab', 'Montserrat', 'Inter', 'Poppins'],
+    'single-kitabxana'          => ['Roboto', 'Roboto+Slab', 'Montserrat', 'Inter', 'Poppins'],
+];
+
+/** Orijinalda hreflang yalnız bu şablonlarda verilmir */
+const NO_HREFLANG = ['single-itkinlr', 'archive-itkinlr', 'archive-kitabxana', 'single-kitabxana', '404'];
+
 /** Şablona görə əlavə üslublar (Elementor şablon ID-ləri) */
 const CSS_VIEW = [
     'home' => [
@@ -110,6 +137,7 @@ function render(string $view, array $vars = []): void
         'og_title'    => '',
         'og_type'     => 'article',
         // şablon öz ehtiyacına görə əlavə fayl tələb edə bilər
+        'robots'      => 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
         'head_meta'   => [],
         'schema'      => '',
         'extra_js'    => [],
@@ -133,10 +161,38 @@ function render(string $view, array $vars = []): void
         }
     }
 
-    $header = $view === 'home' ? 'header-home' : 'header-main';
+    $header   = $view === 'home' ? 'header-home' : 'header-main';
+    $fonts    = FONTS_VIEW[$view] ?? FONTS_DEFAULT;
+    $hreflang = !in_array($view, NO_HREFLANG, true);
 
+    ob_start();
     include dirname(__DIR__) . '/inc/head.php';
     include dirname(__DIR__) . '/inc/' . $header . '.php';
     echo $content;
     include dirname(__DIR__) . '/inc/footer.php';
+    echo dedupe_stylesheets(ob_get_clean());
+}
+
+/**
+ * Eyni üslub faylı bir neçə vidjet tərəfindən çağırıla bilər; WordPress onu
+ * bir dəfə qoşur, ona görə təkrarları atırıq (ilk çağırış saxlanılır).
+ */
+function dedupe_stylesheets(string $html): string
+{
+    $seen = [];
+    return preg_replace_callback(
+        '#<link[^>]*rel=["\']stylesheet["\'][^>]*>#i',
+        static function (array $m) use (&$seen) {
+            if (!preg_match('#href=["\']([^"\']+)["\']#i', $m[0], $h)) {
+                return $m[0];
+            }
+            $key = strtok($h[1], '?');
+            if (isset($seen[$key])) {
+                return '';
+            }
+            $seen[$key] = true;
+            return $m[0];
+        },
+        $html
+    );
 }

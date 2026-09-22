@@ -56,8 +56,13 @@ if ($parts === []) {
         $vars = ['page' => 1];
     } elseif (count($parts) === 3 && $parts[1] === 'page' && ctype_digit($parts[2])) {
         // Mövzunun standart arxiv səhifələməsi: /itkinlr/page/2/
-        $view = 'archive-itkinlr';
-        $vars = ['page' => max(1, (int) $parts[2])];
+        // Mövcud olmayan səhifə orijinalda olduğu kimi 404 qaytarır
+        $wanted = max(1, (int) $parts[2]);
+        $lastPage = max(1, (int) ceil(count(all_missing()) / max(1, (int) cfg('per_page')['itkinlr'])));
+        if ($wanted <= $lastPage) {
+            $view = 'archive-itkinlr';
+            $vars = ['page' => $wanted];
+        }
     } elseif (count($parts) === 2 && ($item = find_by_slug(all_missing(), $parts[1]))) {
         $view = 'single-itkinlr';
         $vars = ['item' => $item];

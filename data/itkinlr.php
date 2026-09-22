@@ -80,10 +80,7 @@ HTML,
             'class' => 'attachment-large size-large wp-post-image',
             'home_class' => 'attachment-full size-full wp-image-731',
         ],
-        'content' => <<<'HTML'
-<div class="post-tags">
-					</div>
-HTML,
+        'content' => '',
     ],
     [
         'id' => 749,
@@ -159,10 +156,7 @@ HTML,
             'class' => 'attachment-large size-large wp-post-image',
             'home_class' => 'attachment-full size-full wp-image-729',
         ],
-        'content' => <<<'HTML'
-<div class="post-tags">
-					</div>
-HTML,
+        'content' => '',
     ],
     [
         'id' => 748,
@@ -238,10 +232,7 @@ HTML,
             'class' => 'attachment-large size-large wp-post-image',
             'home_class' => 'attachment-full size-full wp-image-727',
         ],
-        'content' => <<<'HTML'
-<div class="post-tags">
-					</div>
-HTML,
+        'content' => '',
     ],
     [
         'id' => 747,
@@ -317,10 +308,7 @@ HTML,
             'class' => 'attachment-large size-large wp-post-image',
             'home_class' => 'attachment-full size-full wp-image-725',
         ],
-        'content' => <<<'HTML'
-<div class="post-tags">
-					</div>
-HTML,
+        'content' => '',
     ],
     [
         'id' => 746,
@@ -396,10 +384,7 @@ HTML,
             'class' => 'attachment-large size-large wp-post-image',
             'home_class' => 'attachment-full size-full wp-image-723',
         ],
-        'content' => <<<'HTML'
-<div class="post-tags">
-					</div>
-HTML,
+        'content' => '',
     ],
     [
         'id' => 745,
@@ -475,10 +460,7 @@ HTML,
             'class' => 'attachment-large size-large wp-post-image',
             'home_class' => 'attachment-full size-full wp-image-721',
         ],
-        'content' => <<<'HTML'
-<div class="post-tags">
-					</div>
-HTML,
+        'content' => '',
     ],
     [
         'id' => 744,
@@ -554,10 +536,7 @@ HTML,
             'class' => 'attachment-large size-large wp-post-image',
             'home_class' => 'attachment-full size-full',
         ],
-        'content' => <<<'HTML'
-<div class="post-tags">
-					</div>
-HTML,
+        'content' => '',
     ],
     [
         'id' => 743,
@@ -633,10 +612,7 @@ HTML,
             'class' => 'attachment-large size-large wp-post-image',
             'home_class' => 'attachment-full size-full',
         ],
-        'content' => <<<'HTML'
-<div class="post-tags">
-					</div>
-HTML,
+        'content' => '',
     ],
     [
         'id' => 742,
@@ -712,10 +688,7 @@ HTML,
             'class' => 'attachment-large size-large wp-post-image',
             'home_class' => 'attachment-full size-full',
         ],
-        'content' => <<<'HTML'
-<div class="post-tags">
-					</div>
-HTML,
+        'content' => '',
     ],
     [
         'id' => 741,
@@ -791,10 +764,7 @@ HTML,
             'class' => 'attachment-large size-large wp-post-image',
             'home_class' => 'attachment-full size-full',
         ],
-        'content' => <<<'HTML'
-<div class="post-tags">
-					</div>
-HTML,
+        'content' => '',
     ],
     [
         'id' => 740,
@@ -862,18 +832,15 @@ HTML,
 HTML,
         'thumb' => [
             'url' => 'uploads/2023/12/caniyev-sexavet-xanis-oglu.jpg',
-            'srcset' => '',
-            'sizes' => '',
-            'width' => '',
-            'height' => '',
+            'srcset' => 'uploads/2023/12/caniyev-sexavet-xanis-oglu.jpg 300w, uploads/2023/12/caniyev-sexavet-xanis-oglu-243x300.jpg 243w',
+            'sizes' => '(max-width: 300px) 100vw, 300px',
+            'width' => '300',
+            'height' => '370',
             'alt' => '',
-            'class' => 'attachment-full size-full',
+            'class' => 'attachment-large size-large wp-post-image',
             'home_class' => 'attachment-full size-full',
         ],
-        'content' => <<<'HTML'
-<div class="post-tags">
-					</div>
-HTML,
+        'content' => '',
     ],
     [
         'id' => 739,
@@ -941,18 +908,15 @@ HTML,
 HTML,
         'thumb' => [
             'url' => 'uploads/2023/12/cabbarov-azad-pirqulu-oglu.jpg',
-            'srcset' => '',
-            'sizes' => '',
-            'width' => '',
-            'height' => '',
+            'srcset' => 'uploads/2023/12/cabbarov-azad-pirqulu-oglu.jpg 300w, uploads/2023/12/cabbarov-azad-pirqulu-oglu-243x300.jpg 243w',
+            'sizes' => '(max-width: 300px) 100vw, 300px',
+            'width' => '300',
+            'height' => '370',
             'alt' => '',
-            'class' => 'attachment-full size-full',
+            'class' => 'attachment-large size-large wp-post-image',
             'home_class' => 'attachment-full size-full',
         ],
-        'content' => <<<'HTML'
-<div class="post-tags">
-					</div>
-HTML,
+        'content' => '',
     ],
     [
         'id' => 712,
@@ -1020,17 +984,14 @@ HTML,
 HTML,
         'thumb' => [
             'url' => 'uploads/2023/12/behbudov-abbas-behbud-oglu.jpg',
-            'srcset' => '',
-            'sizes' => '',
-            'width' => '',
-            'height' => '',
+            'srcset' => 'uploads/2023/12/behbudov-abbas-behbud-oglu.jpg 300w, uploads/2023/12/behbudov-abbas-behbud-oglu-243x300.jpg 243w',
+            'sizes' => '(max-width: 300px) 100vw, 300px',
+            'width' => '300',
+            'height' => '370',
             'alt' => '',
-            'class' => 'attachment-full size-full',
+            'class' => 'attachment-large size-large wp-post-image',
             'home_class' => 'attachment-full size-full',
         ],
-        'content' => <<<'HTML'
-<div class="post-tags">
-					</div>
-HTML,
+        'content' => '',
     ],
 ];

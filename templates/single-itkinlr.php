@@ -25,11 +25,11 @@ $meta['elementor_post'] = elementor_post_json($item['id'], $item['title'], $item
 
 			<header class="page-header">
 			<h1 class="entry-title"><?= e($item['title']) ?></h1>		</header>
-
+	
 	<div class="page-content">
-		<?= post_content($item['content']) ?>		<div class="post-tags">
+				<?= post_content($item['content']) ?><div class="post-tags">
 					</div>
 			</div>
 
-
+	
 </main>
