@@ -34,14 +34,24 @@ function admin_flash(): ?array
 function post_str(string $key, string $default = ''): string
 {
     $value = $_POST[$key] ?? $default;
-    return is_string($value) ? trim($value) : $default;
+    return is_string($value) ? trim(admin_eol($value)) : $default;
+}
+
+/**
+ * Brauzer <textarea>-dan gələn sətir sonlarını CRLF kimi göndərir.
+ * Məzmunda LF saxlanılır — yoxsa toxunulmamış çoxsətirli mətn də
+ * orijinaldan “fərqli” görünür və boş yerə yenidən yazılır.
+ */
+function admin_eol(string $text): string
+{
+    return str_replace(["\r\n", "\r"], "\n", $text);
 }
 
 /** POST-dan HTML (məzmun sahələri) — yalnız təhlükəsiz teqlər saxlanılır */
 function post_html(string $key): string
 {
     $value = $_POST[$key] ?? '';
-    return is_string($value) ? admin_clean_html(trim($value)) : '';
+    return is_string($value) ? admin_clean_html(trim(admin_eol($value))) : '';
 }
 
 function post_int(string $key, int $default = 0): int

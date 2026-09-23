@@ -57,9 +57,9 @@ Forma işləmirsə, `config.php`-də `'log_contact' => true` edin — müraciət
 | Kitabxana | Kitablar: ad, müəllif, üz qabığı, təsvir və hər dil üçün PDF keçidi (AZ / EN / RU) |
 | İtkinlər | İtkin düşmüş şəxslərin siyahısı: ad və foto |
 | Kateqoriyalar | Ad, ünvan, təsvir. Yazısı olan kateqoriya silinmir |
-| Səhifələr | Statik səhifələrin başlıqları, düymələri və rəqəmləri |
+| Səhifələr | Statik səhifələrin siyahısı; hər səhifədə bütün mətnlər, mətn blokları, şəkillər, qalereya, fon şəkli və videosu, SEO |
 | Menyular | Əsas menyu və altlıqdakı iki sütun; alt bəndlərlə birlikdə |
-| Şəkillər | Fayl yükləmək və mövcud faylların siyahısı |
+| Şəkillər | Fayl yükləmək, axtarmaq və istifadə olunmayan faylları silmək |
 | Ayarlar | Sayt adı, əlaqə e-poçtu, səhifələmə, Google Analytics, şifrə |
 
 ### Necə işləyir
@@ -69,9 +69,44 @@ Hər yazıdan əvvəl köhnə nüsxə `storage/backups/` altında saxlanılır
 (son 20 versiya), fayl isə əvvəlcə müvəqqəti ada yazılıb yoxlanır və
 yalnız sonra yerinə keçirilir. Beləliklə yarımçıq yazı saytı sındırmır.
 
-Statik səhifələrin mətnləri ayrıca işləyir: şablonlardakı orijinal mətn
-toxunulmaz qalır, dəyişdirdikləriniz isə `data/page-texts.php` faylına
-düşür. Sahəni orijinal dəyərinə qaytarsanız, qeyd tamamilə silinir.
+Statik səhifələr ayrıca işləyir: şablonlardakı orijinal toxunulmaz qalır,
+dəyişdirdikləriniz isə `data/page-texts.php` faylına düşür.
+
+- Boşaltdığınız sahə saytda da boş qalır — abzası, başlığı, şəkli, fonu və ya
+  bütün qalereyanı götürmək olur. Şəkil, fon və video üçün «Təmizlə» düyməsi var.
+- Dəyişdirilmiş sahənin altında «Orijinala qaytar» işarəsi var: işarələyib yadda
+  saxlasanız, qeyd silinir və o hissə yenidən bayt-bayt orijinal kimi çıxır.
+- Dəyəri orijinalla eyni olan sahə üçün qeyd yaranmır — səhifəni açıb heç nəyə
+  toxunmadan yadda saxlamaq heç nəyi dəyişmir.
+
+Səhifədə nə redaktə olunur (səhifədə göründüyü ardıcıllıqla):
+
+- başlıqlar, düymələrin mətni və ünvanı, sayğacların adı və rəqəmi;
+- mətn blokları — vizual redaktorla;
+- şəkillər, karusel şəkilləri, blokların fon şəkli və ana səhifədəki fon videosu —
+  kitabxanadan seçilir; yeni şəkil qoyulanda köhnə `srcset` atılır, ölçülər yeni
+  fayldan götürülür;
+- qalereyalar (Haqqımızda — 60, Şəkillər — 69 foto): şəkil əlavə etmək (bir neçəsini
+  birdən), silmək, sürüşdürərək və ya ‹ › ilə sıralamaq. Hamısını silsəniz qalereya
+  saytda boş qalır.
+
+Telefonla çəkilmiş şəkillər çox vaxt yan saxlanılır və düz vəziyyət EXIF-dəki
+oriyentasiya ilə verilir. Qalereya bunu nəzərə alır — portret şəkil portret
+kafel alır (hostinqdə `exif` modulu olmasa da).
+
+Xəbərlər və Kitabxana səhifələrinin məzmunu avtomatik yığılır — onlarda yalnız
+SEO sahələri var, məzmun «Xəbərlər» və «Kitabxana» bölmələrindədir.
+
+### Faylı silmək
+
+«Şəkillər» bölməsində hər faylın yanında «Sil» düyməsi var. Saytda istifadə
+olunan fayllar «İstifadədə» nişanı ilə göstərilir və silinmir — yazıda, səhifədə
+və ya dizaynda qırıq şəkil qalmasın deyə. Əvvəlcə faylı yazıdan və ya
+səhifədən götürün, sonra silin.
+
+Silinən fayl birdəfəlik itmir: `storage/trash/<tarix>/uploads/…` qovluğuna
+köçürülür. Səhv silinibsə, cPanel-in File Manager-i ilə oradan geri qaytarmaq
+olar; lazım deyilsə, `storage/trash/` qovluğunu vaxtaşırı boşaldın.
 
 ### Mətn redaktoru
 
@@ -138,7 +173,12 @@ data/       uploads/       storage/
 Panelin “İcmal” səhifəsi giriş zamanı bunu özü yoxlayır və problem varsa
 xəbərdarlıq göstərir.
 
-`data/`, `storage/` və `/admin/` üçün `.htaccess` faylları repozitoriyadadır:
+`data/`, `storage/` və `/admin/` üçün `.htaccess` faylları repozitoriyadadır.
+`storage/` xüsusilə vacibdir — orada əlaqə formasının jurnalı (müraciət edənlərin
+adı, telefonu, e-poçtu), ehtiyat nüsxələr və zibil qutusu saxlanılır. Qoruyucu fayl
+nədənsə serverə düşməsə, sayt onu ilk yazıda özü yaradır. Nginx hostinqində
+`.htaccess` işləmir — orada `storage/` və `data/` üçün girişi server ayarında bağlayın.
+Qısası:
 məzmun faylları birbaşa açılmır, panel isə axtarış sistemlərinə düşmür.
 
 ### Sayt yeniləndikdə — diqqət

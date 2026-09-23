@@ -120,7 +120,7 @@ gtag("config", "<?= e($ga) ?>");
 </script>
 <!-- End Google tag (gtag.js) snippet added by Site Kit -->
 <?php endif; ?>
-</head>
+<?= page_bg_styles((string) ($meta['page_key'] ?? '')) ?></head>
 <body class="<?= e($meta['body_class']) ?>">
 
 

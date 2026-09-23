@@ -111,6 +111,7 @@ function contact_handle(): array
 
     if (cfg('log_contact')) {
         $file = (string) cfg('log_file');
+        storage_dir();   // qoruyucu .htaccess yerində olsun — jurnalda şəxsi məlumat var
         @mkdir(dirname($file), 0775, true);
         @file_put_contents(
             $file,

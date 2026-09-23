@@ -6,7 +6,7 @@
  */
 ?>
 <div data-elementor-type="wp-page" data-elementor-id="23" class="elementor elementor-23" data-elementor-post-type="page">
-				<div class="elementor-element elementor-element-0292d8d e-con-full e-flex e-con e-parent" data-id="0292d8d" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;<?= asset('uploads/2023/11/whatsapp-video-2023-11-20-at-21-online-video-cutter.com-1-1.mp4&quot;,&quot;background_play_on_mobile&quot;:&quot;yes&quot;,&quot;background_privacy_mode&quot;:&quot;yes&quot;}') ?>">
+				<div class="elementor-element elementor-element-0292d8d e-con-full e-flex e-con e-parent" data-id="0292d8d" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;<?= page_asset('home.video.1', 'uploads/2023/11/whatsapp-video-2023-11-20-at-21-online-video-cutter.com-1-1.mp4') ?>&quot;,&quot;background_play_on_mobile&quot;:&quot;yes&quot;,&quot;background_privacy_mode&quot;:&quot;yes&quot;}">
 		<div class="elementor-background-video-container">
 							<video class="elementor-background-video-hosted elementor-html5-video" autoplay muted playsinline loop></video>
 					</div>		<div class="elementor-element elementor-element-0c19d1e elementor-widget elementor-widget-spacer" data-id="0c19d1e" data-element_type="widget" data-widget_type="spacer.default">
@@ -70,7 +70,9 @@ TXT) ?></h2>		</div>
 				<div class="elementor-element elementor-element-8a9247f elementor-widget elementor-widget-text-editor" data-id="8a9247f" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
 			<style>/*! elementor - v3.21.0 - 26-05-2024 */
-.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				Üzvləri tamamilə Qarabağ müharibəsi zamanı itkin düşmüş şəxslərin ailələrindən əsasəndə qadınlarldan ibarət olan “Qarabağ İtkin Ailələri” İctimai Birliyi Ermənistanın Azərbaycana qarşı hərbi təcavüzü nəticəsində itkin düşmüş, əsir-girov göturulmüs şəxslərin və onların ailələrinin hüquqlarının müdafiəsini qarşısına əsas məqsəd kimi qoymuşdur. Münaqişə nəticəsində itkin düşmüş vətəndaşlarımızın və onların ailələrinin pozulmuş hüquqları probleminin beynəlxalq hüquq müstəvisinə daşınması, təcavüzün həm qurbanları, həm də ermənilərin xalqımıza qarşı həyata keçirdikləri vəhşiliklər nəticəsində zərərçəkən tərəf olaraq beynəlxalq humanitar hüquq normalarının pozulması faktlarının dünya ictimaiyyətin diqqətinə çatdırılması vəzifələrini təkbaşına deyil, aidiyyəti dövlət orqanları ilə koordinasiyalı şəkildə həyata keçirməyi, insan hüquqlarının müdafiəsi sahəsində tanınmış beynəlxalq təşkilatlarla yaxından əməkdaşlıq etməyi, bu sahədə keçirilən beynəlxalq tədbirlərdə fəal təmsil olunmağı planlaşdırır.						</div>
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				<?= page_html('home.html.1', <<<'TXT'
+Üzvləri tamamilə Qarabağ müharibəsi zamanı itkin düşmüş şəxslərin ailələrindən əsasəndə qadınlarldan ibarət olan “Qarabağ İtkin Ailələri” İctimai Birliyi Ermənistanın Azərbaycana qarşı hərbi təcavüzü nəticəsində itkin düşmüş, əsir-girov göturulmüs şəxslərin və onların ailələrinin hüquqlarının müdafiəsini qarşısına əsas məqsəd kimi qoymuşdur. Münaqişə nəticəsində itkin düşmüş vətəndaşlarımızın və onların ailələrinin pozulmuş hüquqları probleminin beynəlxalq hüquq müstəvisinə daşınması, təcavüzün həm qurbanları, həm də ermənilərin xalqımıza qarşı həyata keçirdikləri vəhşiliklər nəticəsində zərərçəkən tərəf olaraq beynəlxalq humanitar hüquq normalarının pozulması faktlarının dünya ictimaiyyətin diqqətinə çatdırılması vəzifələrini təkbaşına deyil, aidiyyəti dövlət orqanları ilə koordinasiyalı şəkildə həyata keçirməyi, insan hüquqlarının müdafiəsi sahəsində tanınmış beynəlxalq təşkilatlarla yaxından əməkdaşlıq etməyi, bu sahədə keçirilən beynəlxalq tədbirlərdə fəal təmsil olunmağı planlaşdırır.
+TXT) ?>						</div>
 				</div>
 				<div class="elementor-element elementor-element-d2c36c1 elementor-widget elementor-widget-button" data-id="d2c36c1" data-element_type="widget" data-widget_type="button.default">
 				<div class="elementor-widget-container">
@@ -88,7 +90,7 @@ TXT) ?></h2>		</div>
 			<style>/*! elementor - v3.21.0 - 26-05-2024 */
 .elementor-widget-image-carousel .swiper,.elementor-widget-image-carousel .swiper-container{position:static}.elementor-widget-image-carousel .swiper-container .swiper-slide figure,.elementor-widget-image-carousel .swiper .swiper-slide figure{line-height:inherit}.elementor-widget-image-carousel .swiper-slide{text-align:center}.elementor-image-carousel-wrapper:not(.swiper-container-initialized):not(.swiper-initialized) .swiper-slide{max-width:calc(100% / var(--e-image-carousel-slides-to-show, 3))}</style>		<div class="elementor-image-carousel-wrapper swiper" dir="ltr">
 			<div class="elementor-image-carousel swiper-wrapper" aria-live="off">
-								<div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="1 of 5"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="<?= asset('uploads/2023/12/whatsapp-image-2023-12-01-at-00.47.00.jpeg') ?>" alt="WhatsApp Image 2023-12-01 at 00.47.00" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="2 of 5"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="<?= asset('uploads/2023/12/whatsapp-image-2023-12-01-at-00.06.13.jpeg') ?>" alt="WhatsApp Image 2023-12-01 at 00.06.13" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="3 of 5"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="<?= asset('uploads/2023/11/whatsapp-image-2023-11-30-at-22.58.50.jpeg') ?>" alt="WhatsApp Image 2023-11-30 at 22.58.50" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="4 of 5"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="<?= asset('uploads/2023/11/whatsapp-image-2023-11-30-at-22.58.19.jpeg') ?>" alt="WhatsApp Image 2023-11-30 at 22.58.19" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="5 of 5"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="<?= asset('uploads/2023/11/whatsapp-image-2023-11-30-at-22.57.47.jpeg') ?>" alt="WhatsApp Image 2023-11-30 at 22.57.47" /></figure></div>			</div>
+								<div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="1 of 5"><figure class="swiper-slide-inner"><?php if (($__i = page_img('home.slide.1', 'swiper-slide-image', 'WhatsApp Image 2023-12-01 at 00.47.00')) !== null): ?><?= $__i ?><?php else: ?><img decoding="async" class="swiper-slide-image" src="<?= asset('uploads/2023/12/whatsapp-image-2023-12-01-at-00.47.00.jpeg') ?>" alt="WhatsApp Image 2023-12-01 at 00.47.00" /><?php endif; ?></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="2 of 5"><figure class="swiper-slide-inner"><?php if (($__i = page_img('home.slide.2', 'swiper-slide-image', 'WhatsApp Image 2023-12-01 at 00.06.13')) !== null): ?><?= $__i ?><?php else: ?><img decoding="async" class="swiper-slide-image" src="<?= asset('uploads/2023/12/whatsapp-image-2023-12-01-at-00.06.13.jpeg') ?>" alt="WhatsApp Image 2023-12-01 at 00.06.13" /><?php endif; ?></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="3 of 5"><figure class="swiper-slide-inner"><?php if (($__i = page_img('home.slide.3', 'swiper-slide-image', 'WhatsApp Image 2023-11-30 at 22.58.50')) !== null): ?><?= $__i ?><?php else: ?><img decoding="async" class="swiper-slide-image" src="<?= asset('uploads/2023/11/whatsapp-image-2023-11-30-at-22.58.50.jpeg') ?>" alt="WhatsApp Image 2023-11-30 at 22.58.50" /><?php endif; ?></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="4 of 5"><figure class="swiper-slide-inner"><?php if (($__i = page_img('home.slide.4', 'swiper-slide-image', 'WhatsApp Image 2023-11-30 at 22.58.19')) !== null): ?><?= $__i ?><?php else: ?><img decoding="async" class="swiper-slide-image" src="<?= asset('uploads/2023/11/whatsapp-image-2023-11-30-at-22.58.19.jpeg') ?>" alt="WhatsApp Image 2023-11-30 at 22.58.19" /><?php endif; ?></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="5 of 5"><figure class="swiper-slide-inner"><?php if (($__i = page_img('home.slide.5', 'swiper-slide-image', 'WhatsApp Image 2023-11-30 at 22.57.47')) !== null): ?><?= $__i ?><?php else: ?><img decoding="async" class="swiper-slide-image" src="<?= asset('uploads/2023/11/whatsapp-image-2023-11-30-at-22.57.47.jpeg') ?>" alt="WhatsApp Image 2023-11-30 at 22.57.47" /><?php endif; ?></figure></div>			</div>
 							
 									</div>
 				</div>
@@ -172,7 +174,7 @@ TXT) ?></h2>		</div>
 		<div class="elementor-element elementor-element-41b6d23 e-con-full e-flex e-con e-child" data-id="41b6d23" data-element_type="container">
 				<div class="elementor-element elementor-element-f164956 elementor-widget elementor-widget-image" data-id="f164956" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="1115" height="291" src="<?= asset('uploads/2023/11/image-4.webp') ?>" class="attachment-full size-full wp-image-303" alt="" srcset="<?= asset('uploads/2023/11/image-4.webp') ?> 1115w, <?= asset('uploads/2023/11/image-4-300x78.webp') ?> 300w, <?= asset('uploads/2023/11/image-4-1024x267.webp') ?> 1024w, <?= asset('uploads/2023/11/image-4-768x200.webp') ?> 768w" sizes="(max-width: 1115px) 100vw, 1115px" />													</div>
+													<?php if (($__i = page_img('home.img.1', 'attachment-full size-full wp-image-303', '')) !== null): ?><?= $__i ?><?php else: ?><img loading="lazy" decoding="async" width="1115" height="291" src="<?= asset('uploads/2023/11/image-4.webp') ?>" class="attachment-full size-full wp-image-303" alt="" srcset="<?= asset('uploads/2023/11/image-4.webp') ?> 1115w, <?= asset('uploads/2023/11/image-4-300x78.webp') ?> 300w, <?= asset('uploads/2023/11/image-4-1024x267.webp') ?> 1024w, <?= asset('uploads/2023/11/image-4-768x200.webp') ?> 768w" sizes="(max-width: 1115px) 100vw, 1115px" /><?php endif; ?>													</div>
 				</div>
 		<div class="elementor-element elementor-element-370b01b e-flex e-con-boxed e-con e-child" data-id="370b01b" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 					<div class="e-con-inner">
@@ -193,7 +195,7 @@ TXT) ?></h2>		</div>
 				<div class="elementor-widget-container">
 			<style>/*! elementor - v3.21.0 - 26-05-2024 */
 .elementor-counter{display:flex;justify-content:center;align-items:stretch;flex-direction:column-reverse}.elementor-counter .elementor-counter-number{flex-grow:var(--counter-number-grow,0)}.elementor-counter .elementor-counter-number-wrapper{flex:1;display:flex;font-size:69px;font-weight:600;line-height:1;text-align:center}.elementor-counter .elementor-counter-number-prefix{text-align:end;flex-grow:var(--counter-prefix-grow,1);white-space:pre-wrap}.elementor-counter .elementor-counter-number-suffix{text-align:start;flex-grow:var(--counter-suffix-grow,1);white-space:pre-wrap}.elementor-counter .elementor-counter-title{flex:1;display:flex;justify-content:center;align-items:center;margin:0;padding:0;font-size:19px;font-weight:400;line-height:2.5}</style>		<div class="elementor-counter">
-			<div class="elementor-counter-title">İtkin düşənlər</div>			<div class="elementor-counter-number-wrapper">
+			<div class="elementor-counter-title"><?= page_text('home.numtitle.1', 'İtkin düşənlər') ?></div>			<div class="elementor-counter-number-wrapper">
 				<span class="elementor-counter-number-prefix"></span>
 				<span class="elementor-counter-number" data-duration="2000" data-to-value="<?= page_text('home.num.1', '4003') ?>" data-from-value="0" data-delimiter=" ">0</span>
 				<span class="elementor-counter-number-suffix"></span>
@@ -204,7 +206,7 @@ TXT) ?></h2>		</div>
 				<div class="elementor-element elementor-element-25c3cb7 elementor-widget__width-initial elementor-widget elementor-widget-counter" data-id="25c3cb7" data-element_type="widget" data-widget_type="counter.default">
 				<div class="elementor-widget-container">
 					<div class="elementor-counter">
-			<div class="elementor-counter-title">Azad edilmişlər </div>			<div class="elementor-counter-number-wrapper">
+			<div class="elementor-counter-title"><?= page_text('home.numtitle.2', 'Azad edilmişlər') ?> </div>			<div class="elementor-counter-number-wrapper">
 				<span class="elementor-counter-number-prefix"></span>
 				<span class="elementor-counter-number" data-duration="2000" data-to-value="<?= page_text('home.num.2', '1702') ?>" data-from-value="0" data-delimiter=" ">0</span>
 				<span class="elementor-counter-number-suffix"></span>
@@ -218,7 +220,7 @@ TXT) ?></h2>		</div>
 		<div class="elementor-element elementor-element-3ce4626 e-con-full e-flex e-con e-child" data-id="3ce4626" data-element_type="container">
 				<div class="elementor-element elementor-element-fa05b73 elementor-widget elementor-widget-image" data-id="fa05b73" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="743" height="197" src="<?= asset('uploads/2023/11/image-5.webp') ?>" class="attachment-full size-full wp-image-308" alt="" srcset="<?= asset('uploads/2023/11/image-5.webp') ?> 743w, <?= asset('uploads/2023/11/image-5-300x80.webp') ?> 300w" sizes="(max-width: 743px) 100vw, 743px" />													</div>
+													<?php if (($__i = page_img('home.img.2', 'attachment-full size-full wp-image-308', '')) !== null): ?><?= $__i ?><?php else: ?><img loading="lazy" decoding="async" width="743" height="197" src="<?= asset('uploads/2023/11/image-5.webp') ?>" class="attachment-full size-full wp-image-308" alt="" srcset="<?= asset('uploads/2023/11/image-5.webp') ?> 743w, <?= asset('uploads/2023/11/image-5-300x80.webp') ?> 300w" sizes="(max-width: 743px) 100vw, 743px" /><?php endif; ?>													</div>
 				</div>
 		<div class="elementor-element elementor-element-0d6d319 e-flex e-con-boxed e-con e-child" data-id="0d6d319" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 					<div class="e-con-inner">
@@ -238,7 +240,7 @@ TXT) ?></h2>		</div>
 				<div class="elementor-element elementor-element-318b112 elementor-widget__width-initial elementor-widget elementor-widget-counter" data-id="318b112" data-element_type="widget" data-widget_type="counter.default">
 				<div class="elementor-widget-container">
 					<div class="elementor-counter">
-			<div class="elementor-counter-title">İtkin düşənlər </div>			<div class="elementor-counter-number-wrapper">
+			<div class="elementor-counter-title"><?= page_text('home.numtitle.3', 'İtkin düşənlər') ?> </div>			<div class="elementor-counter-number-wrapper">
 				<span class="elementor-counter-number-prefix"></span>
 				<span class="elementor-counter-number" data-duration="2000" data-to-value="<?= page_text('home.num.3', '6') ?>" data-from-value="0" data-delimiter=" ">0</span>
 				<span class="elementor-counter-number-suffix"></span>
@@ -249,7 +251,7 @@ TXT) ?></h2>		</div>
 				<div class="elementor-element elementor-element-397d227 elementor-widget__width-initial elementor-widget elementor-widget-counter" data-id="397d227" data-element_type="widget" data-widget_type="counter.default">
 				<div class="elementor-widget-container">
 					<div class="elementor-counter">
-			<div class="elementor-counter-title">Azad edilmişlər </div>			<div class="elementor-counter-number-wrapper">
+			<div class="elementor-counter-title"><?= page_text('home.numtitle.4', 'Azad edilmişlər') ?> </div>			<div class="elementor-counter-number-wrapper">
 				<span class="elementor-counter-number-prefix"></span>
 				<span class="elementor-counter-number" data-duration="2000" data-to-value="<?= page_text('home.num.4', '29') ?>" data-from-value="0" data-delimiter=" ">0</span>
 				<span class="elementor-counter-number-suffix"></span>
@@ -322,11 +324,11 @@ TXT) ?></h2>		</div>
 				<div class="elementor-widget-container">
 			<link rel="stylesheet" href="<?= asset('assets/vendor/plugins/elementor/assets/css/widget-icon-list.min.css') ?>">		<ul class="elementor-icon-list-items">
 							<li class="elementor-icon-list-item">
-											<a href="mailto:public.union.2022@gmail.com">
+											<a href="<?= page_text('home.itemlink.1', 'mailto:public.union.2022@gmail.com') ?>">
 
 												<span class="elementor-icon-list-icon">
 							<svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 68 68" fill="none"><path d="M44.0614 36.8225L38.3662 42.5369C36.0567 44.8545 31.9932 44.9044 29.6338 42.5369L23.9384 36.8225L3.48315 57.3442C4.24457 57.6963 5.08408 57.9064 5.97658 57.9064H62.0234C62.916 57.9064 63.7552 57.6965 64.5163 57.3443L44.0614 36.8225Z" fill="white"></path><path d="M62.0234 10.0938H5.97655C5.08405 10.0938 4.24455 10.3039 3.4834 10.6559L25.3413 32.5863C25.3427 32.5878 25.3445 32.5881 25.3459 32.5895C25.3474 32.591 25.3477 32.593 25.3477 32.593L32.4549 39.7237C33.2098 40.4786 34.7905 40.4786 35.5454 39.7237L42.6511 32.5942C42.6511 32.5942 42.6529 32.591 42.6543 32.5895C42.6543 32.5895 42.6575 32.5878 42.659 32.5863L64.5163 10.6558C63.7552 10.3036 62.9159 10.0938 62.0234 10.0938Z" fill="white"></path><path d="M0.635641 13.4421C0.241719 14.2387 0 15.123 0 16.0702V51.9296C0 52.8768 0.241453 53.7611 0.635508 54.5577L21.1262 34.0006L0.635641 13.4421Z" fill="white"></path><path d="M67.3645 13.4419L46.874 34.0006L67.3645 54.558C67.7584 53.7614 68.0001 52.8771 68.0001 51.9296V16.0703C68.0001 15.1228 67.7584 14.2385 67.3645 13.4419Z" fill="white"></path></svg>						</span>
-										<span class="elementor-icon-list-text">Məktub yaz</span>
+										<span class="elementor-icon-list-text"><?= page_text('home.item.1', 'Məktub yaz') ?></span>
 											</a>
 									</li>
 						</ul>
@@ -338,11 +340,11 @@ TXT) ?></h2>		</div>
 				<div class="elementor-widget-container">
 					<ul class="elementor-icon-list-items">
 							<li class="elementor-icon-list-item">
-											<a href="https://emuzey.dtx.gov.az/" target="_blank">
+											<a href="<?= page_text('home.itemlink.2', 'https://emuzey.dtx.gov.az/') ?>" target="_blank">
 
 												<span class="elementor-icon-list-icon">
 							<svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 68 68" fill="none"><path d="M65.9926 62.7065H2.0083V67.9999H65.9926V62.7065Z" fill="white"></path><path d="M62.5074 53.4285H5.4917V58.7218H62.5074V53.4285Z" fill="white"></path><path d="M34 0L2.00781 15.4178V19.5047H65.9923V15.4178L34 0Z" fill="white"></path><path d="M4.69971 23.489V28.4049H9.7678V49.4444H19.9986V28.4049H28.8842V49.4444H39.1149V28.4049H48.0006V49.4444H58.2313V28.4049H63.2994V23.489H4.69971Z" fill="white"></path></svg>						</span>
-										<span class="elementor-icon-list-text">Elektron Muzey</span>
+										<span class="elementor-icon-list-text"><?= page_text('home.item.2', 'Elektron Muzey') ?></span>
 											</a>
 									</li>
 						</ul>
@@ -354,11 +356,11 @@ TXT) ?></h2>		</div>
 				<div class="elementor-widget-container">
 					<ul class="elementor-icon-list-items">
 							<li class="elementor-icon-list-item">
-											<a href="https://dtx.gov.az/az/" target="_blank">
+											<a href="<?= page_text('home.itemlink.3', 'https://dtx.gov.az/az/') ?>" target="_blank">
 
 												<span class="elementor-icon-list-icon">
 							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="87" height="88" viewBox="0 0 87 88" fill="none"><rect width="87" height="88" fill="url(#pattern0)"></rect><defs><pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#image0_18_383" transform="matrix(0.00120273 0 0 0.00118906 -0.00213894 0)"></use></pattern><image id="image0_18_383" width="835" height="841" href="<?= asset('uploads/inline/481de5883ea6.png') ?>"></image></defs></svg>						</span>
-										<span class="elementor-icon-list-text">Dövlət Təhlükəsizlik Xidməti</span>
+										<span class="elementor-icon-list-text"><?= page_text('home.item.3', 'Dövlət Təhlükəsizlik Xidməti') ?></span>
 											</a>
 									</li>
 						</ul>
@@ -372,7 +374,7 @@ TXT) ?></h2>		</div>
 		<a class="elementor-element elementor-element-ab73123 e-con-full e-flex e-con e-child" data-id="ab73123" data-element_type="container" href="https://president.az/" target="_blank">
 				<div class="elementor-element elementor-element-289292a elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="289292a" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="96" height="90" src="<?= asset('uploads/2024/08/20210806192738_79238300.png') ?>" class="attachment-full size-full wp-image-976" alt="" />													</div>
+													<?php if (($__i = page_img('home.img.3', 'attachment-full size-full wp-image-976', '')) !== null): ?><?= $__i ?><?php else: ?><img loading="lazy" decoding="async" width="96" height="90" src="<?= asset('uploads/2024/08/20210806192738_79238300.png') ?>" class="attachment-full size-full wp-image-976" alt="" /><?php endif; ?>													</div>
 				</div>
 				<div class="elementor-element elementor-element-58df172 elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-id="58df172" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
@@ -382,7 +384,7 @@ TXT) ?></h2>		</div>
 		<a class="elementor-element elementor-element-bbdfc06 e-con-full e-flex e-con e-child" data-id="bbdfc06" data-element_type="container" href="https://mehriban-aliyeva.az/" target="_blank">
 				<div class="elementor-element elementor-element-c4545ef elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="c4545ef" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="96" height="90" src="<?= asset('uploads/2024/08/20210806192743_29052200.png') ?>" class="attachment-full size-full wp-image-978" alt="" />													</div>
+													<?php if (($__i = page_img('home.img.4', 'attachment-full size-full wp-image-978', '')) !== null): ?><?= $__i ?><?php else: ?><img loading="lazy" decoding="async" width="96" height="90" src="<?= asset('uploads/2024/08/20210806192743_29052200.png') ?>" class="attachment-full size-full wp-image-978" alt="" /><?php endif; ?>													</div>
 				</div>
 				<div class="elementor-element elementor-element-216228b elementor-widget elementor-widget-heading" data-id="216228b" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
@@ -392,7 +394,7 @@ TXT) ?></h2>		</div>
 		<a class="elementor-element elementor-element-0e7a620 e-con-full e-flex e-con e-child" data-id="0e7a620" data-element_type="container" href="https://heydar-aliyev-foundation.org/az" target="_blank">
 				<div class="elementor-element elementor-element-0510e61 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="0510e61" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="96" height="90" src="<?= asset('uploads/2024/08/20210806192747_52322300.png') ?>" class="attachment-full size-full wp-image-980" alt="" />													</div>
+													<?php if (($__i = page_img('home.img.5', 'attachment-full size-full wp-image-980', '')) !== null): ?><?= $__i ?><?php else: ?><img loading="lazy" decoding="async" width="96" height="90" src="<?= asset('uploads/2024/08/20210806192747_52322300.png') ?>" class="attachment-full size-full wp-image-980" alt="" /><?php endif; ?>													</div>
 				</div>
 				<div class="elementor-element elementor-element-9d55012 elementor-widget elementor-widget-heading" data-id="9d55012" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
@@ -402,7 +404,7 @@ TXT) ?></h2>		</div>
 		<a class="elementor-element elementor-element-e71a8b9 e-con-full e-flex e-con e-child" data-id="e71a8b9" data-element_type="container" href="https://www.heydaraliyevcenter.az/#main" target="_blank">
 				<div class="elementor-element elementor-element-b104d7e elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="b104d7e" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="96" height="90" src="<?= asset('uploads/2024/08/20210806192751_55844100.png') ?>" class="attachment-full size-full wp-image-982" alt="" />													</div>
+													<?php if (($__i = page_img('home.img.6', 'attachment-full size-full wp-image-982', '')) !== null): ?><?= $__i ?><?php else: ?><img loading="lazy" decoding="async" width="96" height="90" src="<?= asset('uploads/2024/08/20210806192751_55844100.png') ?>" class="attachment-full size-full wp-image-982" alt="" /><?php endif; ?>													</div>
 				</div>
 				<div class="elementor-element elementor-element-0e911eb elementor-widget elementor-widget-heading" data-id="0e911eb" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
@@ -414,7 +416,7 @@ TXT) ?></h2>		</div>
 		<div class="elementor-element elementor-element-b33dd66 e-con-full e-flex e-con e-parent" data-id="b33dd66" data-element_type="container">
 				<div class="elementor-element elementor-element-bdea0b5 elementor-widget elementor-widget-image" data-id="bdea0b5" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="2560" height="458" src="<?= asset('uploads/2023/11/image-8-scaled.webp') ?>" class="attachment-full size-full wp-image-235" alt="" srcset="<?= asset('uploads/2023/11/image-8-scaled.webp') ?> 2560w, <?= asset('uploads/2023/11/image-8-300x54.webp') ?> 300w, <?= asset('uploads/2023/11/image-8-1024x183.webp') ?> 1024w, <?= asset('uploads/2023/11/image-8-768x137.webp') ?> 768w, <?= asset('uploads/2023/11/image-8-1536x275.webp') ?> 1536w, <?= asset('uploads/2023/11/image-8-2048x366.webp') ?> 2048w" sizes="(max-width: 2560px) 100vw, 2560px" />													</div>
+													<?php if (($__i = page_img('home.img.7', 'attachment-full size-full wp-image-235', '')) !== null): ?><?= $__i ?><?php else: ?><img loading="lazy" decoding="async" width="2560" height="458" src="<?= asset('uploads/2023/11/image-8-scaled.webp') ?>" class="attachment-full size-full wp-image-235" alt="" srcset="<?= asset('uploads/2023/11/image-8-scaled.webp') ?> 2560w, <?= asset('uploads/2023/11/image-8-300x54.webp') ?> 300w, <?= asset('uploads/2023/11/image-8-1024x183.webp') ?> 1024w, <?= asset('uploads/2023/11/image-8-768x137.webp') ?> 768w, <?= asset('uploads/2023/11/image-8-1536x275.webp') ?> 1536w, <?= asset('uploads/2023/11/image-8-2048x366.webp') ?> 2048w" sizes="(max-width: 2560px) 100vw, 2560px" /><?php endif; ?>													</div>
 				</div>
 				</div>
 				</div>

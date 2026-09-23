@@ -5,6 +5,18 @@
  * (Elementor "tam en" şablonu) sarğısız verir — fərq data/pages.php-də saxlanılır.
  */
 
+/** Səhifənin slug-ı -> redaktə sahələrinin prefiksi (data/page-fields.php) */
+const PAGE_KEYS = [
+    'ana-sehife'           => 'home',
+    'haqqimizda'           => 'haqqimizda',
+    'elaqe'                => 'elaqe',
+    'beynelxalq-senedler'  => 'senedler',
+    'milli-qanunvericilik' => 'qanun',
+    'sekiller'             => 'sekiller',
+    'kitabxana'            => 'kitabxana',
+    'xeberler'             => 'xeberler',
+];
+
 /** Səhifənin məlumatı + $meta-nın doldurulması */
 function page_setup(string $slug, array &$meta): array
 {
@@ -26,6 +38,7 @@ function page_setup(string $slug, array &$meta): array
     $meta['head_meta']   = $info['head_meta'] ?? [];
     $meta['schema']      = $info['schema'] ?? '';
     $meta['elementor_post'] = elementor_post_json((int) $info['id'], $info['title']);
+    $meta['page_key']    = PAGE_KEYS[$slug] ?? '';
 
     return $info;
 }

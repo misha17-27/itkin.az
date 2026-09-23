@@ -5,27 +5,26 @@
  */
 
 const MEDIA_EXT = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'pdf', 'mp4'];
+const MEDIA_IMAGE_EXT = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'];
 const MEDIA_MAX = 20971520;   // 20 MB
 const MEDIA_PER_PAGE = 60;
 
 $root = dirname(__DIR__, 2);
 
 /*
- * Seçim rejimi: şəkil sahəsi bu səhifəni ayrıca pəncərədə açır və hansı
- * sahəyə qayıdacağını ünvanda göndərir. Bu rejimdə fayl adının yanında
- * "Yolu köçür" deyil, "Seç" düyməsi olur və seçimdən sonra pəncərə bağlanır.
+ * Seçim rejimi: formadakı şəkil/video sahəsi kitabxananı pəncərədə açır.
+ * Bu rejimdə “Yolu köçür” və “Sil” əvəzinə “Seç” düyməsi olur.
+ *   picker=1        seçim rejimi
+ *   kind=video      yalnız videolar (default: yalnız şəkillər)
+ *   fragment=1      çərçivəsiz — yalnız səhifənin içi (JS pəncərəyə qoyur)
  */
 $pick = (string) ($_GET['picker'] ?? '');
 if (!preg_match('/^[A-Za-z0-9_]{1,40}$/', $pick)) {
     $pick = '';
 }
-$keep = $pick !== '' ? ['picker' => $pick] : [];
+$kind = ($pick !== '' && ($_GET['kind'] ?? '') === 'video') ? 'video' : 'image';
+$keep = $pick !== '' ? ['picker' => $pick] + ($kind === 'video' ? ['kind' => 'video'] : []) : [];
 
-/*
- * Fragment rejimi: şəkil sahəsi kitabxananı forma üzərindəki pəncərədə açır
- * və yalnız bu səhifənin içini JS ilə gətirir. Ayrıca brauzer pəncərəsi
- * açılmır — o, bloklana və ya sadəcə tab kimi açıla bilərdi.
- */
 $fragment = $pick !== '' && isset($_GET['fragment']);
 $notice   = '';
 
@@ -33,8 +32,8 @@ $notice   = '';
 /* ---------------------------------------------------------------- yükləmə */
 
 /**
- * Faylları qəbul edir və nəticə mesajını qaytarır.
- * Səhv olanda boş sətir qaytarır və səbəbi $error-a yazır.
+ * Faylları qəbul edir, neçəsinin yükləndiyini qaytarır.
+ * Alınmayanlar səbəbi ilə birlikdə $failed-ə yazılır.
  */
 function media_upload(string $root, array &$failed): int
 {
@@ -106,6 +105,102 @@ if ($action === 'upload' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     }
 }
 
+/* ---------------------------------------------------------------- istifadə */
+
+/**
+ * Saytda istinad olunan faylların siyahısı: “2023/11/ad.jpg” => true.
+ *
+ * Yazılar, səhifə şablonları, sabit hissələr və Elementor-un CSS faylları
+ * (orada fon şəkilləri “../../2023/11/ad.webp” kimi yazılıb) bir dəfə
+ * oxunur və içindəki bütün fayl yolları yığılır. JSON-dakı “2023\/11\/…”
+ * yazılışı da tutulur.
+ */
+function media_usage(string $root): array
+{
+    static $used = null;
+    if ($used !== null) {
+        return $used;
+    }
+
+    $files = array_merge(
+        glob($root . '/data/*.php') ?: [],
+        glob($root . '/templates/*.php') ?: [],
+        glob($root . '/inc/*.php') ?: [],
+        glob($root . '/admin/inc/*.php') ?: [],
+        glob($root . '/assets/css/*.css') ?: [],
+        glob($root . '/assets/js/*.js') ?: [],
+        glob($root . '/uploads/elementor/css/*.css') ?: [],
+        [$root . '/config.php']
+    );
+
+    $used = [];
+    $name = '[^"\'\s<>()\\\\,?\#]+?\.(?:' . implode('|', MEDIA_EXT) . ')(?![A-Za-z0-9.])';
+    foreach ($files as $file) {
+        // JSON-da yollar “2023\/11\/…” kimi yazılır — adi yola çeviririk
+        $text = str_replace('\\/', '/', (string) @file_get_contents($file));
+
+        // uploads/… ilə başlayan istənilən yol (il/ay qovluğunda olmayanlar da)
+        if (preg_match_all('#uploads/(' . $name . ')#i', $text, $m)) {
+            foreach ($m[1] as $ref) {
+                $used[$ref] = true;
+            }
+        }
+        // Elementor CSS-də fon şəkilləri nisbi yazılıb: ../../2023/11/ad.webp
+        if (preg_match_all('#\.\./(\d{4}/\d{2}/' . $name . ')#i', $text, $m)) {
+            foreach ($m[1] as $ref) {
+                $used[$ref] = true;
+            }
+        }
+    }
+    return $used;
+}
+
+/** “uploads/2023/11/ad.jpg” -> “2023/11/ad.jpg” (istifadə siyahısının açarı) */
+function media_ref(string $path): string
+{
+    return strpos($path, 'uploads/') === 0 ? substr($path, 8) : $path;
+}
+
+/* ---------------------------------------------------------------- silmək */
+
+/*
+ * Fayl birdəfəlik silinmir: storage/trash/ altına köçürülür (səhv silinibsə
+ * oradan qaytarmaq olar). Saytda istifadə olunan fayl isə ümumiyyətlə
+ * silinmir — yoxsa yazıda və ya səhifədə qırıq şəkil qalar.
+ */
+if ($action === 'delete' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
+    $back = ['section' => 'media'] + array_filter([
+        'q' => trim((string) ($_POST['q'] ?? '')),
+        'p' => max(1, (int) ($_POST['p'] ?? 1)),
+    ], static function ($v) { return $v !== '' && $v !== 1; });
+
+    if (!admin_token_ok()) {
+        admin_redirect($back, 'Forma köhnəlib. Səhifəni yeniləyin.', 'error');
+    }
+
+    $path = post_str('path');
+    $abs  = $root . '/' . $path;
+    if (!page_path_ok($path) || strpos($path, 'uploads/elementor/') === 0
+        || !in_array(strtolower(pathinfo($path, PATHINFO_EXTENSION)), MEDIA_EXT, true) || !is_file($abs)) {
+        admin_redirect($back, 'Fayl tapılmadı.', 'error');
+    }
+
+    if (isset(media_usage($root)[media_ref($path)])) {
+        admin_redirect($back, '“' . basename($path) . '” saytda istifadə olunur, ona görə silinmədi. '
+            . 'Əvvəlcə onu yazıdan və ya səhifədən götürün.', 'error');
+    }
+
+    $trash = storage_dir('trash/' . date('Ymd-His') . '/' . dirname($path));
+    if (!is_dir($trash)) {
+        admin_redirect($back, 'Silmək alınmadı: storage/ qovluğuna yazmaq olmur.', 'error');
+    }
+    if (!@rename($abs, $trash . '/' . basename($path))) {
+        admin_redirect($back, 'Silmək alınmadı: faylı köçürmək olmadı.', 'error');
+    }
+
+    admin_redirect($back, '“' . basename($path) . '” silindi.');
+}
+
 /* ---------------------------------------------------------------- siyahı */
 
 /** uploads/ altındakı bütün faylları yenidən köhnəyə toplayır */
@@ -135,7 +230,7 @@ function media_files(string $root): array
         if (strpos($rel, 'uploads/elementor/') === 0) {
             continue;
         }
-        $out[] = ['path' => $rel, 'name' => $file->getFilename(), 'size' => $file->getSize(), 'time' => $file->getMTime()];
+        $out[] = ['path' => $rel, 'name' => $file->getFilename(), 'ext' => $ext, 'size' => $file->getSize(), 'time' => $file->getMTime()];
     }
 
     usort($out, static function (array $a, array $b) {
@@ -146,6 +241,13 @@ function media_files(string $root): array
 }
 
 $all = media_files($root);
+
+// Seçim pəncərəsində yalnız sahəyə uyğun fayllar
+if ($pick !== '') {
+    $all = array_values(array_filter($all, static function (array $f) use ($kind) {
+        return $kind === 'video' ? $f['ext'] === 'mp4' : in_array($f['ext'], MEDIA_IMAGE_EXT, true);
+    }));
+}
 
 $q = trim((string) ($_GET['q'] ?? ''));
 if ($q !== '') {
@@ -158,16 +260,7 @@ $page  = max(1, (int) ($_GET['p'] ?? 1));
 $pages = max(1, (int) ceil(count($all) / MEDIA_PER_PAGE));
 $page  = min($page, $pages);
 $slice = array_slice($all, ($page - 1) * MEDIA_PER_PAGE, MEDIA_PER_PAGE);
-
-// Şəkil sahəsi üçün yalnız şəkillər göstərilir
-if ($pick !== '') {
-    $all = array_values(array_filter($all, static function (array $f) {
-        return in_array(strtolower(pathinfo($f['path'], PATHINFO_EXTENSION)), ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'], true);
-    }));
-    $pages = max(1, (int) ceil(count($all) / MEDIA_PER_PAGE));
-    $page  = min($page, $pages);
-    $slice = array_slice($all, ($page - 1) * MEDIA_PER_PAGE, MEDIA_PER_PAGE);
-}
+$used  = $pick === '' ? media_usage($root) : [];
 
 // Eyni markup həm tam səhifə, həm də pəncərə üçün lazımdır — bufere yığırıq
 ob_start();
@@ -179,7 +272,8 @@ ob_start();
 	<div class="card__body">
 		<form method="post" action="<?= e(admin_url(['section' => 'media', 'action' => 'upload'] + $keep)) ?>" enctype="multipart/form-data" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
 			<?= admin_token_field() ?>
-			<input class="input" type="file" name="files[]" multiple style="max-width:340px" required>
+			<input class="input" type="file" name="files[]" multiple style="max-width:340px" required
+			       accept="<?= $kind === 'video' && $pick !== '' ? 'video/mp4' : ($pick !== '' ? 'image/*' : '') ?>">
 			<button class="btn btn--primary" type="submit">Yüklə</button>
 			<span class="field__hint">JPG, PNG, WebP, GIF, SVG, PDF, MP4 — 20 MB-a qədər. Fayllar <code>uploads/<?= date('Y/m') ?>/</code> qovluğuna düşür.</span>
 		</form>
@@ -188,35 +282,60 @@ ob_start();
 
 <div class="card">
 	<div class="card__body">
-		<form method="get" action="<?= e(admin_url()) ?>" style="display:flex;gap:8px;align-items:center">
+		<form method="get" action="<?= e(admin_url()) ?>" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
 			<input type="hidden" name="section" value="media">
-<?php if ($pick !== ''): ?>
-			<input type="hidden" name="picker" value="<?= e($pick) ?>">
-<?php endif; ?>
+<?php foreach ($keep as $k => $v): ?>
+			<input type="hidden" name="<?= e($k) ?>" value="<?= e($v) ?>">
+<?php endforeach; ?>
 			<input class="input" type="search" name="q" value="<?= e($q) ?>" placeholder="Fayl adı ilə axtar…" style="max-width:320px">
 			<button class="btn" type="submit">Axtar</button>
 			<span class="field__hint"><?= count($all) ?> fayl</span>
+<?php if ($pick === ''): ?>
+			<span class="field__hint">· <span class="badge">İstifadədə</span> olan fayllar saytda göstərilir və silinmir</span>
+<?php endif; ?>
 		</form>
 	</div>
 </div>
 
 <div class="media-grid">
 <?php foreach ($slice as $file): ?>
-	<figure class="media-item" style="margin:0">
-<?php $ext = strtolower(pathinfo($file['path'], PATHINFO_EXTENSION)); ?>
-<?php if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'], true)): ?>
-		<img src="<?= asset($file['path']) ?>" alt="" loading="lazy">
+<?php $inUse = isset($used[media_ref($file['path'])]); ?>
+	<figure class="media-item">
+		<div class="media-item__thumb">
+<?php if (in_array($file['ext'], MEDIA_IMAGE_EXT, true)): ?>
+			<img src="<?= e(asset($file['path'])) ?>" alt="" loading="lazy">
+<?php elseif ($file['ext'] === 'mp4'): ?>
+			<video src="<?= e(asset($file['path'])) ?>" muted playsinline preload="metadata"></video>
+			<span class="media-item__ext">MP4</span>
 <?php else: ?>
-		<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="" style="display:grid;place-items:center">
-		<div style="height:108px;display:grid;place-items:center;font-weight:700;color:#5B6F65"><?= e(strtoupper($ext)) ?></div>
+			<span class="media-item__ext"><?= e(strtoupper($file['ext'])) ?></span>
 <?php endif; ?>
+<?php if ($inUse): ?>
+			<span class="media-item__badge" title="Bu fayl yazıda, səhifədə və ya dizaynda istifadə olunur">İstifadədə</span>
+<?php endif; ?>
+		</div>
 		<figcaption class="media-item__foot">
 			<span class="media-item__name" title="<?= e($file['path']) ?>"><?= e($file['name']) ?></span>
+			<div class="media-item__btns">
 <?php if ($pick !== ''): ?>
-			<button class="btn btn--sm btn--primary" type="button" data-choose="<?= e($file['path']) ?>">Seç</button>
+				<button class="btn btn--sm btn--primary" type="button" data-choose="<?= e($file['path']) ?>">Seç</button>
 <?php else: ?>
-			<button class="btn btn--sm" type="button" data-copy="<?= e($file['path']) ?>">Yolu köçür</button>
+				<button class="btn btn--sm" type="button" data-copy="<?= e($file['path']) ?>">Yolu köçür</button>
+<?php if ($inUse): ?>
+				<button class="btn btn--sm btn--danger" type="button" disabled
+				        title="Saytda istifadə olunur — əvvəlcə onu yazıdan və ya səhifədən götürün">Sil</button>
+<?php else: ?>
+				<form method="post" action="<?= e(admin_url(['section' => 'media', 'action' => 'delete'])) ?>">
+					<?= admin_token_field() ?>
+					<input type="hidden" name="path" value="<?= e($file['path']) ?>">
+					<input type="hidden" name="q" value="<?= e($q) ?>">
+					<input type="hidden" name="p" value="<?= (int) $page ?>">
+					<button class="btn btn--sm btn--danger" type="submit"
+					        data-confirm="“<?= e($file['name']) ?>” silinsin?">Sil</button>
+				</form>
 <?php endif; ?>
+<?php endif; ?>
+			</div>
 		</figcaption>
 	</figure>
 <?php endforeach; ?>
@@ -227,7 +346,7 @@ ob_start();
 <?php endif; ?>
 
 <?php if ($pages > 1): ?>
-<div class="actions" style="margin-top:16px">
+<div class="actions" style="margin-top:16px;flex-wrap:wrap">
 <?php for ($n = 1; $n <= $pages; $n++): ?>
 	<a class="btn btn--sm<?= $n === $page ? ' btn--primary' : '' ?>" href="<?= e(admin_url(['section' => 'media', 'p' => $n] + ($q !== '' ? ['q' => $q] : []) + $keep)) ?>"><?= $n ?></a>
 <?php endfor; ?>

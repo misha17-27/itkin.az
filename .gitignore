@@ -5,8 +5,11 @@
 # ona görə serverdə qalmalı, repozitoriyaya düşməməlidir
 /data/settings.php
 
-# Əlaqə formasının logları
-/storage/
+# Ehtiyat nüsxələr, zibil qutusu, əlaqə jurnalı — serverdə qalır.
+# Qoruyucu .htaccess isə repozitoriyada olmalıdır, yoxsa serverdə
+# storage/ qovluğu (müraciətlərdəki şəxsi məlumatlar da daxil) açıq qalar.
+/storage/*
+!/storage/.htaccess
 
 # Redaktor və sistem faylları
 .DS_Store

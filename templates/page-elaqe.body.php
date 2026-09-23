@@ -37,7 +37,9 @@
 				<div class="elementor-element elementor-element-3dd1cbd0 elementor-widget elementor-widget-text-editor" data-id="3dd1cbd0" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
 			<style>/*! elementor - v3.21.0 - 26-05-2024 */
-.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				Sualınız var? Birbaşa soruşun, tez cavab alın:						</div>
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				<?= page_html('elaqe.html.1', <<<'TXT'
+Sualınız var? Birbaşa soruşun, tez cavab alın:
+TXT) ?>						</div>
 				</div>
 					</div>
 				</div>
@@ -53,27 +55,27 @@
 				<div class="elementor-widget-container">
 			<link rel="stylesheet" href="<?= asset('assets/vendor/plugins/elementor/assets/css/widget-icon-list.min.css') ?>">		<ul class="elementor-icon-list-items">
 							<li class="elementor-icon-list-item">
-											<a href="tel:+994552696867">
+											<a href="<?= page_text('elaqe.itemlink.1', 'tel:+994552696867') ?>">
 
 												<span class="elementor-icon-list-icon">
 							<svg aria-hidden="true" class="e-font-icon-svg e-fas-phone-alt" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"></path></svg>						</span>
-										<span class="elementor-icon-list-text">+994 55 269 68 67</span>
+										<span class="elementor-icon-list-text"><?= page_text('elaqe.item.1', '+994 55 269 68 67') ?></span>
 											</a>
 									</li>
 								<li class="elementor-icon-list-item">
-											<a href="mailto:info@itkin.az">
+											<a href="<?= page_text('elaqe.itemlink.2', 'mailto:info@itkin.az') ?>">
 
 												<span class="elementor-icon-list-icon">
 							<svg aria-hidden="true" class="e-font-icon-svg e-far-envelope" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg>						</span>
-										<span class="elementor-icon-list-text">info@itkin.az</span>
+										<span class="elementor-icon-list-text"><?= page_text('elaqe.item.2', 'info@itkin.az') ?></span>
 											</a>
 									</li>
 								<li class="elementor-icon-list-item">
-											<a href="mailto:info@itkin.az">
+											<a href="<?= page_text('elaqe.itemlink.3', 'mailto:info@itkin.az') ?>">
 
 												<span class="elementor-icon-list-icon">
 							<svg aria-hidden="true" class="e-font-icon-svg e-fas-map-marker-alt" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>						</span>
-										<span class="elementor-icon-list-text">Qaradağ rayony, Ələt qəsəbəsi, Eduard İmanov küç. ev 2, m9</span>
+										<span class="elementor-icon-list-text"><?= page_text('elaqe.item.3', 'Qaradağ rayony, Ələt qəsəbəsi, Eduard İmanov küç. ev 2, m9') ?></span>
 											</a>
 									</li>
 						</ul>
@@ -87,7 +89,9 @@
 		<div class="elementor-element elementor-element-ff31cfa e-con-full e-flex e-con e-child" data-id="ff31cfa" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 				<div class="elementor-element elementor-element-138d85f3 elementor-widget elementor-widget-text-editor" data-id="138d85f3" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-							<p>Sorğu göndər</p>						</div>
+							<?= page_html('elaqe.html.2', <<<'TXT'
+<p>Sorğu göndər</p>
+TXT) ?>						</div>
 				</div>
 				<div class="elementor-element elementor-element-4a2fb5fe elementor-button-align-center elementor-widget elementor-widget-form" data-id="4a2fb5fe" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width_tablet&quot;:&quot;100&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="contact-form.default">
 				<div class="elementor-widget-container">

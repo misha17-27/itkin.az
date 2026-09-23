@@ -78,8 +78,8 @@ function store_backup(string $name): void
     if (!is_file($file)) {
         return;
     }
-    $dir = dirname(__DIR__) . '/storage/backups';
-    if (!is_dir($dir) && !@mkdir($dir, 0775, true) && !is_dir($dir)) {
+    $dir = storage_dir('backups');
+    if (!is_dir($dir)) {
         return;
     }
     @copy($file, $dir . '/' . $name . '-' . date('Ymd-His') . '.php');
