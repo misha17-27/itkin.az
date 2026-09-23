@@ -11,16 +11,23 @@ foreach ($cats as $c) {
 
 $id = (int) ($_GET['id'] ?? 0);
 
+// Siyahı kateqoriyaya görə süzülə bilər: ?section=posts&cat=19
+$catFilter = (int) ($_GET['cat'] ?? 0);
+if (!isset($catOptions[$catFilter])) {
+    $catFilter = 0;
+}
+$listParams = ['section' => 'posts'] + ($catFilter ? ['cat' => $catFilter] : []);
+
 /* ---------------------------------------------------------------- silmək */
 
 if ($action === 'delete' && $id > 0) {
     admin_require_delete('posts');
     $item = admin_find($rows, $id);
     if (!$item) {
-        admin_redirect(['section' => 'posts'], 'Belə yazı tapılmadı — yəqin artıq silinib.', 'error');
+        admin_redirect($listParams, 'Belə yazı tapılmadı — yəqin artıq silinib.', 'error');
     }
     store_save('posts', admin_delete($rows, $id), 'Xəbərlər və yazılar / posts');
-    admin_redirect(['section' => 'posts'], '“' . ($item['title'] ?? '') . '” silindi.');
+    admin_redirect($listParams, '“' . ($item['title'] ?? '') . '” silindi.');
 }
 
 /* ---------------------------------------------------------------- yazmaq */
@@ -176,13 +183,51 @@ usort($rows, static function (array $a, array $b) {
     return strcmp($b['date'], $a['date']);
 });
 
+// hər kateqoriyada neçə xəbər var — süzgəcdə göstərmək üçün
+$total  = count($rows);
+$counts = [];
+foreach ($rows as $row) {
+    foreach ((array) ($row['categories'] ?? []) as $cid) {
+        $counts[(int) $cid] = ($counts[(int) $cid] ?? 0) + 1;
+    }
+}
+
+if ($catFilter) {
+    $rows = array_values(array_filter($rows, static function (array $row) use ($catFilter) {
+        return in_array($catFilter, array_map('intval', (array) ($row['categories'] ?? [])), true);
+    }));
+}
+
 admin_shell_start('posts', 'Xəbərlər', [
     ['href' => admin_url(['section' => 'posts', 'action' => 'edit']), 'label' => '+ Yeni xəbər', 'primary' => true],
 ]);
 ?>
+<?php if ($catFilter): ?>
+<div class="list-bar">
+	<span><strong><?= count($rows) ?></strong> xəbər «<?= e($catOptions[$catFilter]) ?>» kateqoriyasında</span>
+	<a href="<?= e(admin_url(['section' => 'posts'])) ?>">Filtri götür</a>
+</div>
+<?php endif; ?>
 <table class="table">
 	<thead>
-		<tr><th style="width:70px"></th><th>Başlıq</th><th style="width:170px">Kateqoriya</th><th style="width:120px">Tarix</th><th></th></tr>
+		<tr>
+			<th style="width:70px"></th>
+			<th>Başlıq</th>
+			<th style="width:200px">
+				<form class="th-filter" method="get" action="<?= e(admin_url()) ?>">
+					<input type="hidden" name="section" value="posts">
+					<select name="cat" data-autosubmit aria-label="Kateqoriyaya görə süz"<?= $catFilter ? ' class="is-on"' : '' ?>>
+						<option value="">Kateqoriya: hamısı (<?= $total ?>)</option>
+<?php foreach ($catOptions as $cid => $name): ?>
+						<option value="<?= (int) $cid ?>"<?= (int) $cid === $catFilter ? ' selected' : '' ?>><?= e($name) ?> (<?= $counts[(int) $cid] ?? 0 ?>)</option>
+<?php endforeach; ?>
+					</select>
+					<noscript><button class="btn btn--sm" type="submit">Süz</button></noscript>
+				</form>
+			</th>
+			<th style="width:120px">Tarix</th>
+			<th></th>
+		</tr>
 	</thead>
 	<tbody>
 <?php foreach ($rows as $row): ?>
@@ -204,7 +249,7 @@ admin_shell_start('posts', 'Xəbərlər', [
 				<div class="table__actions">
 					<a class="btn btn--sm" href="<?= e(url($row['slug'])) ?>" target="_blank" rel="noopener">Bax</a>
 					<a class="btn btn--sm" href="<?= e(admin_url(['section' => 'posts', 'action' => 'edit', 'id' => $row['id']])) ?>">Redaktə</a>
-					<form method="post" action="<?= e(admin_url(['section' => 'posts', 'action' => 'delete', 'id' => $row['id']])) ?>">
+					<form method="post" action="<?= e(admin_url(['section' => 'posts', 'action' => 'delete', 'id' => $row['id']] + ($catFilter ? ['cat' => $catFilter] : []))) ?>">
 						<?= admin_token_field() ?>
 						<button class="btn btn--sm btn--danger" type="submit"
 						        data-confirm="&#8220;<?= e(mb_strimwidth((string) $row['title'], 0, 70, '…')) ?>&#8221; silinsin? Bunu geri qaytarmaq olmur.">Sil</button>
@@ -214,7 +259,7 @@ admin_shell_start('posts', 'Xəbərlər', [
 		</tr>
 <?php endforeach; ?>
 <?php if (!$rows): ?>
-		<tr><td colspan="5" class="empty">Hələ xəbər yoxdur.</td></tr>
+		<tr><td colspan="5" class="empty"><?= $catFilter ? 'Bu kateqoriyada xəbər yoxdur.' : 'Hələ xəbər yoxdur.' ?></td></tr>
 <?php endif; ?>
 	</tbody>
 </table>

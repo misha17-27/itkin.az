@@ -360,6 +360,13 @@
 		if (e.key === 'Escape') { closeLibrary(); }
 	});
 
+	/* --- süzgəc: seçim dəyişən kimi forma göndərilir --- */
+	document.addEventListener('change', function (e) {
+		if (e.target.matches('[data-autosubmit]') && e.target.form) {
+			e.target.form.submit();
+		}
+	});
+
 	/* saytın kök ünvanı: /admin/... -> / */
 	function base() {
 		var path = window.location.pathname;
