@@ -11,19 +11,29 @@ const MEDIA_PER_PAGE = 60;
 
 $root = dirname(__DIR__, 2);
 
+require_once dirname(__DIR__) . '/inc/upload_check.php';
+
 /*
  * Seçim rejimi: formadakı şəkil/video sahəsi kitabxananı pəncərədə açır.
  * Bu rejimdə “Yolu köçür” və “Sil” əvəzinə “Seç” düyməsi olur.
  *   picker=1        seçim rejimi
- *   kind=video      yalnız videolar (default: yalnız şəkillər)
+ *   kind=video|pdf  yalnız videolar və ya PDF-lər (default: yalnız şəkillər)
+ *   json=1          yükləmə nəticəsi JSON kimi (formadakı “PDF yüklə” düyməsi üçün)
  *   fragment=1      çərçivəsiz — yalnız səhifənin içi (JS pəncərəyə qoyur)
  */
 $pick = (string) ($_GET['picker'] ?? '');
 if (!preg_match('/^[A-Za-z0-9_]{1,40}$/', $pick)) {
     $pick = '';
 }
-$kind = ($pick !== '' && ($_GET['kind'] ?? '') === 'video') ? 'video' : 'image';
-$keep = $pick !== '' ? ['picker' => $pick] + ($kind === 'video' ? ['kind' => 'video'] : []) : [];
+$kind = $pick !== '' && in_array($_GET['kind'] ?? '', ['video', 'pdf'], true) ? (string) $_GET['kind'] : 'image';
+$keep = $pick !== '' ? ['picker' => $pick] + ($kind !== 'image' ? ['kind' => $kind] : []) : [];
+
+/** Hər seçim növü üçün icazə verilən uzantılar */
+const MEDIA_KIND_EXT = [
+    'image' => MEDIA_IMAGE_EXT,
+    'video' => ['mp4'],
+    'pdf'   => ['pdf'],
+];
 
 $fragment = $pick !== '' && isset($_GET['fragment']);
 $notice   = '';
@@ -32,36 +42,43 @@ $notice   = '';
 /* ---------------------------------------------------------------- yükləmə */
 
 /**
- * Faylları qəbul edir, neçəsinin yükləndiyini qaytarır.
+ * Faylları qəbul edir, saxlananların yollarını qaytarır (uploads/…).
  * Alınmayanlar səbəbi ilə birlikdə $failed-ə yazılır.
+ * $only verilibsə yalnız həmin uzantılar qəbul olunur (məsələn yalnız PDF).
  */
-function media_upload(string $root, array &$failed): int
+function media_upload(string $root, array &$failed, array $only = []): array
 {
     $files = $_FILES['files'] ?? null;
     if (!$files || !is_array($files['name'])) {
-        return 0;
+        return [];
     }
 
     $dir = 'uploads/' . date('Y') . '/' . date('m');
     $abs = $root . '/' . $dir;
     if (!is_dir($abs) && !@mkdir($abs, 0775, true) && !is_dir($abs)) {
         $failed[] = $dir . ' (qovluq yaradıla bilmədi)';
-        return 0;
+        return [];
     }
 
-    $done = 0;
+    $saved = [];
     foreach ($files['name'] as $i => $name) {
         if ((int) $files['error'][$i] !== UPLOAD_ERR_OK) {
             continue;
         }
         $ext = strtolower(pathinfo((string) $name, PATHINFO_EXTENSION));
 
-        if (!in_array($ext, MEDIA_EXT, true)) {
+        if (!in_array($ext, MEDIA_EXT, true) || ($only && !in_array($ext, $only, true))) {
             $failed[] = $name . ' (icazə verilməyən format)';
             continue;
         }
         if ((int) $files['size'][$i] > MEDIA_MAX) {
             $failed[] = $name . ' (çox böyükdür)';
+            continue;
+        }
+        // Uzantı kifayət deyil: məzmun da həmin formatda olmalıdır, SVG-də skript olmamalıdır
+        $problem = upload_content_problem((string) $files['tmp_name'][$i], $ext);
+        if ($problem !== null) {
+            $failed[] = $name . ' (' . $problem . ')';
             continue;
         }
 
@@ -74,27 +91,41 @@ function media_upload(string $root, array &$failed): int
 
         if (@move_uploaded_file($files['tmp_name'][$i], $abs . '/' . $file)) {
             @chmod($abs . '/' . $file, 0644);
-            $done++;
+            $saved[] = $dir . '/' . $file;
         } else {
             $failed[] = $name;
         }
     }
 
-    return $done;
+    return $saved;
 }
 
 if ($action === 'upload' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
+    $saved  = [];
+    $failed = [];
     if (!admin_token_ok()) {
         $msg = 'Forma köhnəlib. Səhifəni yeniləyin.';
         $ok  = false;
     } else {
-        $failed = [];
-        $done   = media_upload($root, $failed);
-        $ok     = $done > 0;
-        $msg    = $ok ? $done . ' fayl yükləndi.' : 'Fayl yüklənmədi.';
+        // Seçim pəncərəsindən gəlirsə yalnız həmin növ qəbul olunur
+        $saved = media_upload($root, $failed, $pick !== '' ? MEDIA_KIND_EXT[$kind] : []);
+        $ok    = $saved !== [];
+        $msg   = $ok ? count($saved) . ' fayl yükləndi.' : 'Fayl yüklənmədi.';
         if ($failed) {
             $msg .= ' Alınmayanlar: ' . implode(', ', array_slice($failed, 0, 4));
         }
+    }
+
+    // Formadakı “yüklə” düyməsi nəticəni JSON kimi gözləyir
+    if (!empty($_GET['json'])) {
+        header('Content-Type: application/json; charset=UTF-8');
+        header('Cache-Control: no-store');
+        echo json_encode([
+            'ok'      => $ok,
+            'paths'   => $saved,
+            'message' => $msg,
+        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        exit;
     }
 
     // Pəncərədə açılıbsa yönləndirmirik — siyahını elə burada təzələyib qaytarırıq
@@ -245,7 +276,7 @@ $all = media_files($root);
 // Seçim pəncərəsində yalnız sahəyə uyğun fayllar
 if ($pick !== '') {
     $all = array_values(array_filter($all, static function (array $f) use ($kind) {
-        return $kind === 'video' ? $f['ext'] === 'mp4' : in_array($f['ext'], MEDIA_IMAGE_EXT, true);
+        return in_array($f['ext'], MEDIA_KIND_EXT[$kind], true);
     }));
 }
 
@@ -273,7 +304,7 @@ ob_start();
 		<form method="post" action="<?= e(admin_url(['section' => 'media', 'action' => 'upload'] + $keep)) ?>" enctype="multipart/form-data" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
 			<?= admin_token_field() ?>
 			<input class="input" type="file" name="files[]" multiple style="max-width:340px" required
-			       accept="<?= $kind === 'video' && $pick !== '' ? 'video/mp4' : ($pick !== '' ? 'image/*' : '') ?>">
+			       accept="<?= $pick === '' ? '' : ['image' => 'image/*', 'video' => 'video/mp4', 'pdf' => 'application/pdf,.pdf'][$kind] ?>">
 			<button class="btn btn--primary" type="submit">Yüklə</button>
 			<span class="field__hint">JPG, PNG, WebP, GIF, SVG, PDF, MP4 — 20 MB-a qədər. Fayllar <code>uploads/<?= date('Y/m') ?>/</code> qovluğuna düşür.</span>
 		</form>

@@ -6,6 +6,16 @@
     # Alt qovluqda işləyərkən kök yolu avtomatik tapılsın
     RewriteBase /
 
+    # Gizli fayl və qovluqlar (.git, .claude, .gitignore, .user.ini …) heç vaxt
+    # verilmir. /.well-known/ istisnadır — cPanel SSL sertifikatı üçün lazımdır.
+    RewriteRule (^|/)\.(?!well-known(/|$)) - [F,L]
+
+    # Sənədlər və lokal dev router
+    RewriteRule ^(README\.md|router\.php|error_log)$ - [F,L]
+
+    # Yalnız koddan daxil edilən PHP faylları — birbaşa açılmır
+    RewriteRule ^(inc|templates|admin/(inc|sections|views))(/|$) - [F,L]
+
     # Mövcud fayl və qovluqlar birbaşa verilir
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
@@ -17,6 +27,18 @@
 
 # Qovluq siyahısı bağlıdır
 Options -Indexes
+
+# Ehtiyat qat (mod_rewrite olmasa da): gizli fayllar və sənədlər
+RedirectMatch 404 "/\.(?!well-known/)"
+<FilesMatch "^(README\.md|router\.php|error_log|\.user\.ini|php\.ini)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
 
 <IfModule mod_headers.c>
     <FilesMatch "\.(css|js|png|jpe?g|gif|svg|webp|woff2?|ttf|eot|ico|mp4)$">

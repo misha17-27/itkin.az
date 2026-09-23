@@ -39,5 +39,5 @@ return [
 
     // Əlaqə formasının müraciətlərini fayla yazmaq
     'log_contact'   => false,
-    'log_file'      => __DIR__ . '/storage/contact.log',
+    'log_file'      => __DIR__ . '/storage/contact-log.php',   // PHP faylı: birbaşa açılsa da heç nə göstərmir
 ];

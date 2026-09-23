@@ -8,6 +8,10 @@ require __DIR__ . '/inc/data.php';
 require __DIR__ . '/inc/schema.php';
 require __DIR__ . '/inc/render.php';
 
+production_errors();       // hostinqdə xəta mətni (yollarla) ekrana çıxmasın
+force_https();             // yalnız ayarlarda https:// ünvan yazılıbsa
+send_security_headers();
+
 // ---------------------------------------------------------------- marşrutlaşdırma
 $uri  = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 $base = base_path();
@@ -27,7 +31,7 @@ if ($page < 1) {
         }
     }
 }
-$page = max(1, $page);
+$page = min(max(1, $page), 100000);   // nəhəng rəqəm tam ədəd daşmasına səbəb olmasın
 
 // Statik səhifələr üçün şablon uyğunluğu
 $PAGE_TEMPLATES = [

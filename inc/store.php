@@ -98,7 +98,7 @@ function store_backup(string $name): void
  *
  * @throws RuntimeException yazmaq mümkün olmasa
  */
-function store_save(string $name, array $rows, string $comment = ''): void
+function store_save(string $name, array $rows, string $comment = '', bool $backup = true): void
 {
     $file = store_path($name);
 
@@ -116,20 +116,36 @@ function store_save(string $name, array $rows, string $comment = ''): void
         throw new RuntimeException('Fayla yazmaq alınmadı: ' . basename($file) . '. Qovluğun yazma icazəsini yoxlayın.');
     }
 
+    store_opcache_drop($tmp);
     $check = store_validate($tmp);
     if ($check !== '') {
         @unlink($tmp);
         throw new RuntimeException('Yazılan məlumat düzgün deyil: ' . $check);
     }
 
-    store_backup($name);
+    if ($backup) {
+        store_backup($name);
+    }
 
     if (!@rename($tmp, $file)) {
         @unlink($tmp);
         throw new RuntimeException('Faylı əvəz etmək alınmadı: ' . basename($file));
     }
 
+    store_opcache_drop($file);
     store_forget($name);
+}
+
+/**
+ * OPcache faylın köhnə nüsxəsini bir neçə saniyə verə bilər (revalidate_freq).
+ * Yazıdan dərhal sonra oxunanda — məsələn şifrə dəyişəndə sessiyanın izi —
+ * köhnə məlumat götürülməsin deyə keş dərhal atılır.
+ */
+function store_opcache_drop(string $file): void
+{
+    if (function_exists('opcache_invalidate')) {
+        @opcache_invalidate($file, true);   // @: bəzi hostinqlərdə opcache.restrict_api qadağan edir
+    }
 }
 
 /** Faylın PHP kimi düzgün olduğunu yoxlayır */

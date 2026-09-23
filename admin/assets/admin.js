@@ -50,13 +50,32 @@
 
 	/* --- şəkil və video sahəsi --- */
 
-	/* Gizli sahəyə yolu yazır və önizləməni (şəkil və ya video) yeniləyir */
+	/* Gizli sahəyə yolu yazır və önizləməni (şəkil, video və ya fayl adı) yeniləyir */
 	function setMedia(field, path) {
 		var input = document.getElementById('f-' + field);
 		var preview = document.getElementById('p-' + field);
 		if (!input) { return; }
 		input.value = path;
 		if (!preview) { return; }
+
+		// Fayl sahəsi (PDF): yol yox, faylın adı göstərilir
+		if (preview.tagName === 'A') {
+			var box = preview.closest('.filepick');
+			var meta = box && box.querySelector('.filepick__meta');
+			if (meta) { meta.textContent = ''; }
+			if (path === '') {
+				preview.removeAttribute('href');
+				preview.textContent = '';
+				preview.hidden = true;
+				if (box) { box.classList.add('is-empty'); }
+				return;
+			}
+			preview.href = /^https?:\/\//i.test(path) ? path : base() + path.replace(/^\/+/, '');
+			preview.textContent = decodeURIComponent(path.split('/').pop());
+			preview.hidden = false;
+			if (box) { box.classList.remove('is-empty'); }
+			return;
+		}
 		var box = preview.closest('.pick__box');
 		if (path === '') {
 			preview.removeAttribute('src');
@@ -231,10 +250,10 @@
 	function openLibrary(opts) {
 		closeLibrary();
 
-		var kind = opts.kind === 'video' ? 'video' : 'image';
+		var kind = opts.kind === 'video' || opts.kind === 'pdf' ? opts.kind : 'image';
 		var multi = !!opts.multi;
 		var picked = [];
-		var title = kind === 'video' ? 'Video seçin' : (multi ? 'Şəkilləri seçin' : 'Şəkil seçin');
+		var title = kind === 'video' ? 'Video seçin' : (kind === 'pdf' ? 'PDF seçin' : (multi ? 'Şəkilləri seçin' : 'Şəkil seçin'));
 
 		modal = document.createElement('div');
 		modal.className = 'lib';
@@ -251,7 +270,7 @@
 		document.body.classList.add('is-lib-open');
 
 		var body = modal.querySelector('.lib__body');
-		var start = base() + 'admin/?section=media&fragment=1&picker=1' + (kind === 'video' ? '&kind=video' : '');
+		var start = base() + 'admin/?section=media&fragment=1&picker=1' + (kind !== 'image' ? '&kind=' + kind : '');
 
 		load(start);
 
@@ -358,6 +377,53 @@
 
 	document.addEventListener('keydown', function (e) {
 		if (e.key === 'Escape') { closeLibrary(); }
+	});
+
+	/* --- fayl sahəsi: “PDF yüklə” düyməsi --- */
+	document.addEventListener('change', function (e) {
+		var picker = e.target.closest && e.target.closest('[data-file-upload]');
+		if (!picker || !picker.files || !picker.files.length) { return; }
+
+		var field = picker.getAttribute('data-file-upload');
+		var kind = picker.getAttribute('data-kind') || 'pdf';
+		var box = picker.closest('.filepick');
+		var status = box && box.querySelector('.filepick__status');
+		var label = picker.closest('label');
+		var token = picker.form && picker.form.querySelector('input[name="_token"]');
+		var say = function (text, bad) {
+			if (!status) { return; }
+			status.textContent = text;
+			status.classList.toggle('is-bad', !!bad);
+		};
+
+		var data = new FormData();
+		data.append('_token', token ? token.value : '');
+		data.append('files[]', picker.files[0]);
+
+		if (label) { label.classList.add('is-busy'); }
+		say('Yüklənir… ' + picker.files[0].name);
+
+		window.fetch(base() + 'admin/?section=media&action=upload&picker=1&json=1&kind=' + encodeURIComponent(kind), {
+			method: 'POST',
+			body: data,
+			credentials: 'same-origin'
+		})
+			.then(function (r) { return r.json(); })
+			.then(function (res) {
+				if (res && res.ok && res.paths && res.paths.length) {
+					setMedia(field, res.paths[0]);
+					say('Yükləndi. Yadda saxlamağı unutmayın.');
+				} else {
+					say((res && res.message) || 'Fayl yüklənmədi.', true);
+				}
+			})
+			.catch(function () {
+				say('Fayl yüklənmədi — bağlantını yoxlayıb yenidən cəhd edin.', true);
+			})
+			.then(function () {
+				if (label) { label.classList.remove('is-busy'); }
+				picker.value = '';   // eyni faylı yenidən seçmək olsun
+			});
 	});
 
 	/* --- süzgəc: seçim dəyişən kimi forma göndərilir --- */

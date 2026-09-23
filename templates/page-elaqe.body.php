@@ -103,7 +103,7 @@ TXT) ?>						</div>
 <div class="elementor-message elementor-message-danger" role="alert"><?= e($form['notice']) ?></div>
 <?php endif; ?>
 <form class="elementor-form" method="post" action="<?= url('elaqe') ?>#elaqe-form" id="elaqe-form" name="Contact Form">
-<input type="hidden" name="_token" value="<?= e(contact_token()) ?>">
+<input type="hidden" name="_token" value="<?= e(contact_token($form['issued'] ?? null)) ?>">
 <input type="text" name="website" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
 			<input type="hidden" name="post_id" value="374"/>
 			<input type="hidden" name="form_id" value="4a2fb5fe"/>
@@ -137,7 +137,7 @@ TXT) ?>						</div>
 												<label for="form-field-field_71766c7" class="elementor-field-label elementor-screen-only">
 								Mesaj							</label>
 						<textarea class="elementor-field-textual elementor-field  elementor-size-md" name="form_fields[field_71766c7]" id="form-field-field_71766c7" rows="4" placeholder="Mesaj"><?= e(contact_value($form, 'message')) ?></textarea>				</div>
-								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons elementor-md-100">
+								<?= turnstile_on('form') ? '<div class="elementor-field-group elementor-column elementor-col-100 itkin-turnstile">' . turnstile_widget() . '</div>' : '' ?><div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons elementor-md-100">
 					<button type="submit" class="elementor-button elementor-size-md">
 						<span >
 															<span class=" elementor-button-icon">

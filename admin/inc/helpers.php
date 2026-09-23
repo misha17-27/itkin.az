@@ -136,6 +136,33 @@ function admin_require_delete(string $section): void
 }
 
 /**
+ * Paneldən dəyişdirilən ayarlar (data/settings.php) — config.php-nin üstünə düşür.
+ * Bu fayl .gitignore-dadır: şifrənin hash-i, SMTP və kapça açarları burada saxlanılır.
+ */
+function admin_settings(): array
+{
+    $file = dirname(__DIR__, 2) . '/data/settings.php';
+    $saved = is_file($file) ? include $file : [];
+    return is_array($saved) ? $saved : [];
+}
+
+/** Ayarların bir hissəsini dəyişib yazır ($changes-də null — açarı silmək) */
+function admin_settings_save(array $changes): void
+{
+    $next = admin_settings();
+    foreach ($changes as $key => $value) {
+        if ($value === null) {
+            unset($next[$key]);
+        } else {
+            $next[$key] = $value;
+        }
+    }
+    // ehtiyat nüsxə yoxdur: fayldakı şifrə və açarlar silinəndə həqiqətən silinsin
+    store_save('settings', $next, 'Sayt ayarları / site settings', false);
+    cfg_reset();
+}
+
+/**
  * SEO başlığı: istifadəçi yazıbsa onu, yoxsa avtomatik variantı qaytarır.
  *
  * Boş buraxmaq şüurlu seçimdir — bu halda başlıq yenidən addan qurulur,

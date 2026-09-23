@@ -38,7 +38,7 @@ Başqa heç bir addım lazım deyil.
 | Forma göndərir | `/elaqe/` səhifəsindən test müraciəti göndərin |
 
 Forma işləmirsə, `config.php`-də `'log_contact' => true` edin — müraciətlər
-`storage/contact.log` faylına da yazılacaq.
+`storage/contact-log.php` faylına da yazılacaq (PHP faylıdır ki, kənardan açılsa da məzmunu görünməsin; cPanel File Manager-də adi mətn kimi oxunur).
 
 ---
 
@@ -47,7 +47,9 @@ Forma işləmirsə, `config.php`-də `'log_contact' => true` edin — müraciət
 Ünvan: **`/admin/`** (məsələn `https://itkin.az/admin/`).
 
 İlk giriş: istifadəçi `admin`, şifrə `itkin2026`.
-**Girdikdən dərhal sonra “Ayarlar” bölməsindən şifrəni dəyişin.**
+**Girdikdən dərhal sonra «Mənim profilim» bölməsindən giriş adını və şifrəni dəyişin.**
+Bu şifrə README-də açıq yazıldığı üçün o dəyişənə qədər panelin yalnız «Mənim profilim»
+bölməsi açılır — digər bölmələr ora yönləndirir.
 
 ### Nə redaktə olunur
 
@@ -60,7 +62,11 @@ Forma işləmirsə, `config.php`-də `'log_contact' => true` edin — müraciət
 | Səhifələr | Statik səhifələrin siyahısı; hər səhifədə bütün mətnlər, mətn blokları, şəkillər, qalereya, fon şəkli və videosu, SEO |
 | Menyular | Əsas menyu və altlıqdakı iki sütun; alt bəndlərlə birlikdə |
 | Şəkillər | Fayl yükləmək, axtarmaq və istifadə olunmayan faylları silmək |
-| Ayarlar | Sayt adı, əlaqə e-poçtu, səhifələmə, Google Analytics, şifrə |
+| Əlaqə və sosial şəbəkələr | Altlıqdakı telefon və e-poçt, Facebook / Instagram / YouTube keçidləri |
+| Ümumi ayarlar | Sayt adı, ünvanı, səhifələmə, Google Analytics |
+| Poçt (SMTP) | Müraciətlər hara gəlsin, SMTP serveri, yoxlama məktubu |
+| Təhlükəsizlik | Cloudflare Turnstile kapçası (əlaqə forması və panelə giriş) |
+| Mənim profilim | Ad, e-poçt, giriş adı və şifrə (hazırkı şifrə ilə) |
 
 ### Necə işləyir
 
@@ -162,6 +168,68 @@ Hər bölmədə “Axtarış sistemləri” kartı var:
 Sahələr xəbərlərdə, kitabxanada, itkinlər siyahısında, kateqoriyalarda və
 statik səhifələrdə var.
 
+### Poçt
+
+Əlaqə formasının müraciətləri «Poçt (SMTP)» bölməsində göstərilən ünvana gedir.
+SMTP serveri yazılmayıbsa hostinqin `mail()` funksiyası işlənir — bəzi hostinqlərdə
+belə məktublar spama düşür və ya heç çatmır. Etibarlı yol SMTP-dir:
+
+- cPanel → **Email Accounts** → qutunun yanında **Connect Devices**: server
+  (adətən `mail.itkin.az`), port 465, SSL/TLS; istifadəçi — poçtun tam ünvanı.
+- Yadda saxladıqdan sonra həmin səhifədən **yoxlama məktubu** göndərin. Alınmasa,
+  səhifə serverin cavabını göstərir (məsələn `535 Authentication failed` — şifrə səhvdir).
+
+SMTP şifrəsi `data/settings.php`-də saxlanılır: bu fayl repozitoriyaya düşmür və
+`data/` qovluğu kənardan açılmır.
+
+### Təhlükəsizlik
+
+- **Kapça (Cloudflare Turnstile).** Açarları dash.cloudflare.com → Turnstile-dan
+  götürüb «Təhlükəsizlik»də saxlayın. Gizli açar saxlananda Cloudflare-də yoxlanılır.
+  Kapçanı formada və ya girişdə yandırmaq üçün həmin səhifədəki yoxlamanı keçmək
+  lazımdır — beləcə səhv açarla paneldən kənarda qalmaq olmur.
+  Yenə də giriş bağlanıbsa: cPanel → File Manager → `data/settings.php` faylından
+  `turnstile_login` sətrini silin.
+- **Cəhd limiti.** Bir ünvandan 15 dəqiqədə 8 səhv şifrədən sonra giriş bağlanır.
+  Sayğac IP-yə görə `storage/login-attempts.json`-da saxlanılır (əvvəl sessiyada idi
+  və cookie-ni silməklə sıfırlanırdı). Sayt Cloudflare arxasındadırsa, həqiqi ünvan
+  `CF-Connecting-IP`-dən götürülür — yalnız sorğu həqiqətən Cloudflare-dən gələndə.
+  Özünüz bağlanmısınızsa, bu faylı silin.
+- **Yüklənən fayllar** uzantısı ilə yanaşı məzmununa görə də yoxlanılır: JPG adlı mətn,
+  PNG adlı PHP kodu, skriptli SVG qəbul edilmir. `uploads/.htaccess` orada heç bir
+  skriptin işə düşməsinə imkan vermir.
+- **Sessiyalar** `storage/sessions/`-dadır: paylaşılan hostinqdə ümumi qovluğu başqa
+  saytların təmizləyicisi 24 dəqiqədən sonra boşaldır, panel isə 2 saat gözləyir.
+  Şifrə dəyişəndə bütün başqa sessiyalar (başqa brauzer, oğurlanmış cookie) bağlanır.
+- **Əlaqə forması** spama və poçt bombardmanına qarşı bir neçə qatla qorunur:
+  - görünməz tələ sahəsi — robot onu doldurur, ona uğur göstərilir, məktub getmir;
+  - hər səhifə açılışına ayrıca, **birdəfəlik** nişan (6 saat keçərli). Eyni formanı
+    ikinci dəfə göndərmək olmur; 3 saniyədən tez göndərilən forma robot sayılır;
+  - sahələrin uzunluğu məhduddur (mesaj 5000 simvol), sətir sonu ilə saxta
+    məktub başlığı əlavə etmək mümkün deyil;
+  - limit: bir ünvandan saatda 5, ümumilikdə saatda 40 müraciət
+    (`storage/contact-guard.json`). `X-Forwarded-For` kimi başlıqlarla aldatmaq olmur;
+  - istəsəniz üstəlik Turnstile kapçası.
+
+  Nişanın gizli açarı ilk dəfə avtomatik yaranır və `storage/form-secret.php`-də
+  saxlanılır (`config.php`-də `form_secret` yazsanız, o işlənir).
+- **Poçt şifrəsi** yalnız şifrələnmiş bağlantı ilə (SSL/TLS və ya STARTTLS) göndərilir;
+  yoxlama jurnalında giriş məlumatları `***` ilə gizlədilir.
+- **Brauzer başlıqları:** sayt başqa saytın çərçivəsinə (iframe) yerləşdirilə bilmir
+  (klikcekinqə qarşı), `nosniff`, `Referrer-Policy`, `Permissions-Policy`; HTTPS-də
+  `Strict-Transport-Security`. PHP versiyası (`X-Powered-By`) gizlədilir.
+- **HTTPS.** «Ümumi ayarlar»da (və ya `config.php`-də) sayt ünvanı `https://` ilə
+  yazılıbsa, `http://` sorğuları 301 ilə HTTPS-ə yönləndirilir.
+- **Host başlığı.** Keçidlər və `canonical` yalnız `itkin.az`, `www.itkin.az` və
+  sayt ünvanındakı domenlə qurulur — saxta `Host` başlığı səhifəyə düşmür. Başqa domen
+  lazımdırsa, `config.php`-də `'allowed_hosts' => ['yeni-domen.az']` əlavə edin.
+- **Birbaşa açılmayan fayllar:** gizli fayl və qovluqlar (`.git/`, `.gitignore`,
+  `.user.ini` …), `README.md`, `router.php`, `config.php`, `inc/`, `templates/`,
+  `data/`, `storage/`, `admin/inc|sections|views/` — hamısı 403 qaytarır.
+  `/.well-known/` (SSL sertifikatı üçün) açıq qalır.
+- **Xəta mətni** hostinqdə ekrana çıxmır (fayl yolları görünməsin) — `.user.ini` və
+  kodun özü bunu bağlayır; xətalar hostinqin `error_log`-una yazılır.
+
 ### Hostinqdə
 
 Bu qovluqlara yazma icazəsi lazımdır (cPanel-də 755 və ya 775):
@@ -197,14 +265,14 @@ Kod yeniləyəndə belə edin:
 Ən rahatı isə serverdə məzmunu git-dən ayırmaqdır — bir dəfə icra edin:
 
 ```bash
-git update-index --skip-worktree data/posts.php data/kitabxana.php data/itkinlr.php data/categories.php data/menu.php data/menu-footer-1.php data/menu-footer-2.php data/page-texts.php
+git update-index --skip-worktree data/posts.php data/kitabxana.php data/itkinlr.php data/categories.php data/menu.php data/menu-footer-1.php data/menu-footer-2.php data/page-texts.php data/pages.php data/archives.php
 ```
 
 Bundan sonra `git pull` bu faylları toxunmadan buraxır.
 
 Eyni səbəbdən **şifrəni dəyişəndən sonra `data/settings.php` faylını
-repozitoriyaya göndərməyin** — orada şifrənin hash-i saxlanılır. `config.php`
-faylındakı `form_secret` də serverdə öz dəyəri ilə qalmalıdır.
+repozitoriyaya göndərməyin** — orada şifrənin hash-i saxlanılır. `storage/`
+qovluğu (formanın gizli açarı, jurnal, sessiyalar) da repozitoriyaya düşmür.
 
 ---
 
@@ -335,6 +403,11 @@ Qalan hər şey vizual olaraq eynidir. Texniki fərqlər:
   isə ümumiyyətlə heç nə). İndi təsvir varsa, teq də yazılır. Boş qalmış
   təsvirlər — 13 itkin qeydi, 6 kateqoriya, 1 yazı və 2 arxiv səhifəsi —
   doldurulub. Mövcud təsvirlərə toxunulmayıb.
+
+- **Daxili səhifələrin başlığında Facebook ikonu işləyir.** Orijinalda həmin ikonun
+  keçidi yox idi (Instagram və YouTube-un da). İndi ikonlar «Əlaqə və sosial
+  şəbəkələr»dəki ünvanlara aparır; Instagram və YouTube ünvanı yazılmayınca
+  orijinaldakı kimi keçidsiz qalır.
 
 - **E-poçt ünvanları açıq yazılıb.** Orijinalda Cloudflare onları şifrələyir və
   JavaScript ilə açır; burada birbaşa `mailto:` keçidi var.

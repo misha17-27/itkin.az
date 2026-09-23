@@ -36,15 +36,29 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     $slug = store_slug(post_str('slug') ?: $title);
     $slug = store_unique_slug($rows, $slug, $id > 0 ? $id : null);
 
+    /*
+     * Yükləmə faylları: yalnız uploads/ altındakı PDF, boş dəyər və ya
+     * əvvəlki keçid olduğu kimi (bəzi kitablarda kənar saytdakı PDF-ə keçid var).
+     * Sahə gizlidir, amma sorğunu əl ilə dəyişən başqa yol yaza bilməsin.
+     */
+    $downloads = [];
+    foreach (BOOK_LANGS as $key => $lang) {
+        $value = post_str('dl_' . $key);
+        $old   = (string) ($item['downloads'][$key] ?? '');
+        $isPdf = page_path_ok($value) && strtolower(pathinfo($value, PATHINFO_EXTENSION)) === 'pdf'
+              && is_file(dirname(__DIR__, 2) . '/' . $value);
+        if ($value === '' || $value === $old || $isPdf) {
+            $downloads[$key] = $value;
+        } else {
+            $downloads[$key] = $old;
+            $errors[] = $lang . ' faylı tapılmadı — yenidən yükləyin.';
+        }
+    }
+
     if (!$errors) {
         $isNew = $id === 0;
         $newId = $isNew ? store_next_id($rows) : $id;
         $prev  = $item ?? [];
-
-        $downloads = [];
-        foreach (BOOK_LANGS as $key => $lang) {
-            $downloads[$key] = trim(post_str('dl_' . $key));
-        }
 
         $content = post_html('content');
         $cover   = admin_thumb_from_path(post_str('thumb'), $prev['thumb'] ?? []);
@@ -108,13 +122,14 @@ if ($action === 'edit') {
 			</div></div>
 
 			<div class="card">
-				<div class="card__head">Yükləmə keçidləri</div>
+				<div class="card__head">Yükləmə faylları</div>
 				<div class="card__body">
-					<p class="field__hint" style="margin-top:0">Hər dil üçün ayrıca düymə. Boş buraxsanız düymə keçidsiz görünür — orijinalda da belədir.</p>
+					<p class="field__hint" style="margin-top:0">
+						Hər dil üçün ayrıca PDF. Saytda kitabın səhifəsində “AZ / EN / RU” düymələri bu faylları açır.
+						Fayl yoxdursa düymə keçidsiz görünür — orijinalda da belədir.
+					</p>
 					<?php foreach (BOOK_LANGS as $key => $lang): ?>
-					<?php f_text('dl_' . $key, $lang . ' — PDF ünvanı', (string) ($item['downloads'][$key] ?? ''), [
-                        'placeholder' => 'uploads/2024/08/kitab.pdf  və ya  https://...',
-                    ]); ?>
+					<?php f_file('dl_' . $key, $lang . ' dilində', (string) ($item['downloads'][$key] ?? '')); ?>
 					<?php endforeach; ?>
 				</div>
 			</div>

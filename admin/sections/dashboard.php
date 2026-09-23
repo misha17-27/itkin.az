@@ -67,14 +67,22 @@ foreach ($tiles as [$label, $n, $section]): ?>
 	</table>
 </div>
 
+<?php if (password_verify('itkin2026', (string) cfg('admin_password', ''))): ?>
+<div class="errors">
+	<strong>Şifrə hələ də ilkin şifrədir.</strong>
+	<a href="<?= e(admin_url(['section' => 'profile'])) ?>">«Mənim profilim»</a> bölməsində giriş adını və şifrəni dəyişin.
+</div>
+<?php endif; ?>
+
 <div class="card">
 	<div class="card__head">Nədən başlamaq</div>
 	<div class="card__body">
 		<ul style="margin:0;padding-left:18px;line-height:1.9">
 			<li><strong>Xəbər əlavə etmək:</strong> “Xəbərlər” → “+ Yeni xəbər”. Şəkli əvvəlcə “Şəkillər” bölməsinə yükləyin.</li>
-			<li><strong>Səhifə mətnini dəyişmək:</strong> “Səhifələr” → lazım olan səhifə. Sahəni boşaltsanız orijinal mətn qayıdır.</li>
+			<li><strong>Səhifəni dəyişmək:</strong> “Səhifələr” → “Redaktə et”. Dəyişdirilmiş sahənin altında “Orijinala qaytar” var.</li>
 			<li><strong>Menyunu dəyişmək:</strong> “Menyular”. Bəndi silmək üçün adını boşaldın.</li>
-			<li><strong>Şifrəni dəyişmək:</strong> “Ayarlar” → “Şifrə”.</li>
+			<li><strong>Şifrəni dəyişmək:</strong> “Mənim profilim” → “Giriş adı və şifrə”.</li>
+			<li><strong>Müraciətlərin poçtu:</strong> “Poçt (SMTP)” — sonra yoxlama məktubu göndərin.</li>
 		</ul>
 	</div>
 </div>

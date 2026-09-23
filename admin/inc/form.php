@@ -177,6 +177,51 @@ function f_video(string $name, string $label, string $value, array $opt = []): v
 }
 
 /**
+ * Fayl sahəsi (PDF): yol göstərilmir — faylın adı, «PDF yüklə» düyməsi
+ * (kompüterdən birbaşa yükləyir), «Kitabxanadan seç» və «Təmizlə».
+ * Kənar saytdakı köhnə keçid (məsələn human.gov.az) olduğu kimi qalır və
+ * ayrıca göstərilir — yalnız yeni fayl yükləndikdə əvəzlənir.
+ */
+function f_file(string $name, string $label, string $value, array $opt = []): void
+{
+    $external = $value !== '' && preg_match('#^https?://#i', $value);
+    $href     = $value === '' ? '' : ($external ? $value : asset($value));
+    $shown    = $value === '' ? '' : rawurldecode(basename((string) parse_url($value, PHP_URL_PATH)));
+    $size     = '';
+    if ($value !== '' && !$external) {
+        $file = dirname(__DIR__, 2) . '/' . $value;
+        if (is_file($file)) {
+            $bytes = (int) filesize($file);
+            $size  = $bytes >= 1048576 ? number_format($bytes / 1048576, 1, ',', '') . ' MB' : max(1, (int) round($bytes / 1024)) . ' KB';
+        }
+    }
+    ?>
+	<div class="field">
+		<label><?= e($label) ?><?= f_badge($opt) ?></label>
+		<div class="filepick<?= $value === '' ? ' is-empty' : '' ?>" data-file-field="<?= e($name) ?>">
+			<input type="hidden" id="f-<?= e($name) ?>" name="<?= e($name) ?>" value="<?= e($value) ?>">
+			<div class="filepick__current">
+				<span class="filepick__icon" aria-hidden="true">PDF</span>
+				<a class="filepick__name" id="p-<?= e($name) ?>" href="<?= e($href) ?>" target="_blank" rel="noopener"<?= $value === '' ? ' hidden' : '' ?>><?= e($shown) ?></a>
+				<span class="filepick__meta"><?= $external ? 'kənar saytda' : e($size) ?></span>
+				<span class="filepick__none">Fayl yoxdur</span>
+			</div>
+			<div class="actions">
+				<label class="btn btn--sm btn--primary filepick__upload">
+					PDF yüklə
+					<input type="file" accept="application/pdf,.pdf" data-file-upload="<?= e($name) ?>" data-kind="pdf" hidden>
+				</label>
+				<button type="button" class="btn btn--sm" data-pick="<?= e($name) ?>" data-kind="pdf">Kitabxanadan seç</button>
+				<button type="button" class="btn btn--sm" data-clear="<?= e($name) ?>">Təmizlə</button>
+			</div>
+			<span class="filepick__status" aria-live="polite"></span>
+		</div>
+		<?php if (!empty($opt['hint'])): ?><span class="field__hint"><?= $opt['hint'] ?></span><?php endif; ?>
+	</div>
+	<?php
+}
+
+/**
  * Şəkil üçün yüngül önizləmə: WordPress-in kəsdiyi kiçik nüsxə varsa onu
  * götürür — qalereyada 60 tam ölçülü şəkil yükləməmək üçün.
  */

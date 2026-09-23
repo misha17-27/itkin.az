@@ -24,7 +24,10 @@ function site_origin(): string
  */
 function schema_from_store(string $stored): string
 {
-    return str_replace('{{SITE}}', site_origin(), $stored);
+    // Ünvan JSON sətri kimi qaçırılır: </script> və dırnaq heç vaxt qrafı qıra bilməsin
+    $origin = substr((string) json_encode(site_origin(),
+        JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT), 1, -1);
+    return str_replace('{{SITE}}', $origin, $stored);
 }
 
 /**
@@ -83,7 +86,7 @@ function schema_fallback(array $meta, array $crumbs = []): string
                 'image' => ['@id' => $home . '#/schema/logo/image/'],
             ],
         ],
-    ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG);   // başlıqdakı </script> qrafı qırmasın
 }
 
 /** <head> üçün hazır JSON-LD */

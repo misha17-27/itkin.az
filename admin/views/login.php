@@ -22,6 +22,9 @@ admin_head('Giriş');
 			<label for="f-password">Şifrə</label>
 			<input class="input" type="password" id="f-password" name="password" autocomplete="current-password" required>
 		</div>
+<?php if (turnstile_on('login')): ?>
+		<div class="field"><?= turnstile_widget() ?></div>
+<?php endif; ?>
 		<div class="actions">
 			<button class="btn btn--primary" type="submit" style="width:100%;justify-content:center">Daxil ol</button>
 		</div>

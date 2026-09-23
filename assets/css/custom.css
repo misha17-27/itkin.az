@@ -232,3 +232,6 @@
 		overflow: hidden;
 	}
 }
+
+/* Əlaqə formasında kapça (yalnız «Təhlükəsizlik»dən yandırılanda görünür) */
+.itkin-turnstile { margin-bottom: 10px; }

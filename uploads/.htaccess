@@ -1,0 +1,19 @@
+# Yüklənən fayllar yalnız statik fayl kimi verilir — burada heç bir skript işə düşmür.
+# (Panel yalnız şəkil, PDF və MP4 qəbul edir; bu, əlavə qoruma qatıdır.)
+<FilesMatch "\.(php[0-9]?|phtml|phar|pht|phps|cgi|pl|py|sh|asp|aspx|jsp)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# SVG birbaşa açılanda da içindəki skript işləməsin
+<IfModule mod_headers.c>
+    <FilesMatch "\.svg$">
+        Header set Content-Security-Policy "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'"
+        Header set X-Content-Type-Options "nosniff"
+    </FilesMatch>
+</IfModule>

@@ -35,6 +35,16 @@ function cfg_all(bool $reload = false): array
     return $cfg;
 }
 
+/** config.php-dəki ilkin dəyər — paneldə boş saxlanmış ayarın ehtiyatı üçün */
+function cfg_default(string $key)
+{
+    static $base = null;
+    if ($base === null) {
+        $base = require dirname(__DIR__) . '/config.php';
+    }
+    return $base[$key] ?? null;
+}
+
 /** Ayar dəyişdikdən sonra keşi sıfırlayır */
 function cfg_reset(): void
 {
@@ -83,8 +93,8 @@ function abs_url(string $path = ''): string
     if ($configured !== '') {
         return rtrim($configured, '/') . '/' . ltrim($path === '' ? '' : trim($path, '/') . '/', '/');
     }
-    $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-    $host   = $_SERVER['HTTP_HOST'] ?? 'itkin.az';
+    $scheme = request_is_https() ? 'https' : 'http';
+    $host   = request_host();
     return $scheme . '://' . $host . url($path);
 }
 
@@ -234,8 +244,8 @@ function abs_url_file(string $path): string
     if ($configured !== '') {
         return rtrim($configured, '/') . '/' . ltrim($path, '/');
     }
-    $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-    $host   = $_SERVER['HTTP_HOST'] ?? 'itkin.az';
+    $scheme = request_is_https() ? 'https' : 'http';
+    $host   = request_host();
     return $scheme . '://' . $host . asset($path);
 }
 
@@ -478,6 +488,61 @@ function mejs_inline(string $key): string
 }
 
 /**
+ * Saytın ümumi əlaqə məlumatları (altlıq və başlıqlar).
+ * Admin panelinin «Əlaqə və sosial şəbəkələr» bölməsi data/contacts.php-yə
+ * yazır; fayl yoxdursa orijinal saytdakı dəyərlər işlənir.
+ */
+const CONTACT_DEFAULTS = [
+    'phone'     => '(+994 12) 405 99 79',
+    'email'     => 'info@itkin.az',
+    'facebook'  => 'https://www.facebook.com/profile.php?id=61568273933212&mibextid=ZbWKwL',
+    'instagram' => '',
+    'youtube'   => '',
+];
+
+function site_contact_value(string $key): string
+{
+    static $all = null;
+    if ($all === null) {
+        $all = data_load('contacts') + CONTACT_DEFAULTS;
+    }
+    return trim((string) ($all[$key] ?? ''));
+}
+
+/**
+ * Mətn kimi çap: dəyər orijinalla eynidirsə şablondakı yazılış olduğu kimi
+ * qalır (səhifə bayt-bayt dəyişmir), yoxsa qaçırılmış yeni dəyər.
+ */
+function site_contact_text(string $key, string $original): string
+{
+    $value = site_contact_value($key);
+    return html_entity_decode($original, ENT_QUOTES | ENT_HTML5, 'UTF-8') === $value ? $original : e($value);
+}
+
+/**
+ * Sosial şəbəkə ikonunun keçidi: ' href="…"' və ya boş.
+ * $original — orijinal markupdakı ünvan (orada keçid yox idisə boş).
+ * Ünvan boşdursa ikon keçidsiz qalır — orijinal saytdakı kimi.
+ */
+function site_contact_href(string $key, string $original = ''): string
+{
+    $value = site_contact_value($key);
+    if ($value === '') {
+        return '';
+    }
+    if ($original !== '' && html_entity_decode($original, ENT_QUOTES | ENT_HTML5, 'UTF-8') === $value) {
+        return ' href="' . $original . '"';
+    }
+    return ' href="' . e($value) . '"';
+}
+
+/** Dəyər boşdursa sətri gizlədir (məsələn telefon silinibsə altlıqdakı bənd) */
+function site_contact_hide(string $key): string
+{
+    return site_contact_value($key) === '' ? ' style="display:none"' : '';
+}
+
+/**
  * storage/ altında qovluq: ehtiyat nüsxələr, zibil qutusu, əlaqə jurnalı.
  *
  * Bu qovluq brauzerdən açılmamalıdır — jurnalda müraciət edənlərin adı,
@@ -501,4 +566,208 @@ function storage_dir(string $sub = ''): string
         @mkdir($dir, 0775, true);
     }
     return $dir;
+}
+
+/* ================================================================ təhlükəsizlik */
+
+/**
+ * Sorğu HTTPS ilə gəlibmi. Cloudflare və ya başqa proksi arxasında PHP-yə
+ * adi HTTP kimi çatır — onda proksinin başlığına baxılır.
+ */
+function request_is_https(): bool
+{
+    if (!empty($_SERVER['HTTPS']) && strtolower((string) $_SERVER['HTTPS']) !== 'off') {
+        return true;
+    }
+    if ((string) ($_SERVER['SERVER_PORT'] ?? '') === '443') {
+        return true;
+    }
+    if (strtolower((string) ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '')) === 'https') {
+        return true;
+    }
+    return strpos((string) ($_SERVER['HTTP_CF_VISITOR'] ?? ''), '"https"') !== false;
+}
+
+/**
+ * Tam ünvanlar üçün host. Host başlığını istənilən adam istədiyi kimi
+ * göndərə bilər — kanonik keçid, og:url və JSON-LD-yə yad domen yazılmasın
+ * (keş zəhərlənməsi) deyə yalnız tanınan hostlar qəbul olunur.
+ */
+function request_host(): string
+{
+    $host = strtolower(trim((string) ($_SERVER['HTTP_HOST'] ?? '')));
+    $allowed = ['itkin.az', 'www.itkin.az'];
+    $configured = (string) parse_url(trim((string) cfg('site_url')), PHP_URL_HOST);
+    if ($configured !== '') {
+        $allowed[] = strtolower($configured);
+    }
+    foreach ((array) cfg('allowed_hosts', []) as $extra) {
+        $allowed[] = strtolower((string) $extra);
+    }
+    $bare = (string) preg_replace('/:\d{1,5}$/', '', $host);
+    if (in_array($bare, $allowed, true)) {
+        return $host;
+    }
+    // lokal işləmək üçün
+    if (preg_match('/^(localhost|127\.0\.0\.1|\[::1\])(:\d{1,5})?$/', $host)) {
+        return $host;
+    }
+    return $configured !== '' ? strtolower($configured) : 'itkin.az';
+}
+
+/*
+ * Cloudflare-in ünvanları. Sayt Cloudflare arxasındadırsa REMOTE_ADDR
+ * Cloudflare-in serveridir — həqiqi ünvan CF-Connecting-IP başlığındadır.
+ * Bu başlığa yalnız sorğu həqiqətən bu ünvanlardan gələndə inanılır.
+ * Mənbə: https://www.cloudflare.com/ips/
+ */
+const CF_RANGES = [
+    '173.245.48.0/20', '103.21.244.0/22', '103.22.200.0/22', '103.31.4.0/22',
+    '141.101.64.0/18', '108.162.192.0/18', '190.93.240.0/20', '188.114.96.0/20',
+    '197.234.240.0/22', '198.41.128.0/17', '162.158.0.0/15', '104.16.0.0/13',
+    '104.24.0.0/14', '172.64.0.0/13', '131.0.72.0/22',
+    '2400:cb00::/32', '2606:4700::/32', '2803:f800::/32', '2405:b500::/32',
+    '2405:8100::/32', '2a06:98c0::/29', '2c0f:f248::/32',
+];
+
+/** Sorğunu göndərənin IP-si (Cloudflare arxasında da həqiqi ünvan) */
+function client_ip(): string
+{
+    $ip = (string) ($_SERVER['REMOTE_ADDR'] ?? '');
+    $cf = (string) ($_SERVER['HTTP_CF_CONNECTING_IP'] ?? '');
+    if ($cf !== '' && filter_var($cf, FILTER_VALIDATE_IP) && ip_in_ranges($ip, CF_RANGES)) {
+        return $cf;
+    }
+    return $ip;
+}
+
+/**
+ * Limitlər üçün açar: IPv4 olduğu kimi, IPv6 isə /64 şəbəkə kimi —
+ * bir abunəçiyə adətən bütöv /64 verilir.
+ */
+function client_key(): string
+{
+    $ip  = client_ip();
+    $bin = @inet_pton($ip);
+    if ($bin !== false && strlen($bin) === 16) {
+        return 'v6:' . bin2hex(substr($bin, 0, 8)) . '::/64';
+    }
+    return $ip !== '' ? $ip : 'naməlum';
+}
+
+/** IP bu şəbəkələrdən birindədirmi (IPv4 və IPv6) */
+function ip_in_ranges(string $ip, array $ranges): bool
+{
+    $bin = @inet_pton($ip);
+    if ($bin === false) {
+        return false;
+    }
+    foreach ($ranges as $range) {
+        [$net, $bits] = explode('/', $range);
+        $netBin = @inet_pton($net);
+        if ($netBin === false || strlen($netBin) !== strlen($bin)) {
+            continue;
+        }
+        $bits  = (int) $bits;
+        $bytes = intdiv($bits, 8);
+        if (substr($bin, 0, $bytes) !== substr($netBin, 0, $bytes)) {
+            continue;
+        }
+        $rest = $bits % 8;
+        if ($rest === 0) {
+            return true;
+        }
+        $mask = chr((0xFF << (8 - $rest)) & 0xFF);
+        if (($bin[$bytes] & $mask) === ($netBin[$bytes] & $mask)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
+ * storage/ altındakı JSON cədvəl üzərində iş, kilid ilə.
+ * $change verilibsə cədvəli dəyişib yazır (eyni anda gələn sorğular bir-birinin
+ * yazdığını pozmasın deyə oxuma və yazma bir kilidin altındadır).
+ */
+function storage_json(string $name, ?callable $change = null): array
+{
+    $fh = @fopen(storage_dir() . '/' . $name, 'c+');
+    if (!$fh) {
+        return [];
+    }
+    flock($fh, $change ? LOCK_EX : LOCK_SH);
+    $data = json_decode((string) stream_get_contents($fh), true);
+    $data = is_array($data) ? $data : [];
+    if ($change) {
+        $data = $change($data);
+        ftruncate($fh, 0);
+        rewind($fh);
+        fwrite($fh, (string) json_encode($data));
+        fflush($fh);
+    }
+    flock($fh, LOCK_UN);
+    fclose($fh);
+    return $data;
+}
+
+/**
+ * Təhlükəsizlik başlıqları. PHP-dən göndərilir — hostinqdə mod_headers
+ * olmasa da işləsin. Elementor-un daxili skriptlərinə, Google Analytics-ə,
+ * Turnstile-a və YouTube/Facebook keçidlərinə mane olmayan dəyərlər seçilib:
+ * CSP yalnız çərçivəyə salınmanı, <base> və <object>-i və formanın başqa
+ * sayta göndərilməsini məhdudlaşdırır.
+ */
+function send_security_headers(bool $admin = false): void
+{
+    if (headers_sent()) {
+        return;
+    }
+    header_remove('X-Powered-By');
+    header('X-Content-Type-Options: nosniff');
+    header('X-Frame-Options: SAMEORIGIN');
+    header("Content-Security-Policy: frame-ancestors 'self'; base-uri 'self'; object-src 'none'; form-action 'self'");
+    header('Referrer-Policy: ' . ($admin ? 'same-origin' : 'strict-origin-when-cross-origin'));
+    header('Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()');
+    if (request_is_https()) {
+        header('Strict-Transport-Security: max-age=31536000');
+    }
+    if ($admin) {
+        header('X-Robots-Tag: noindex, nofollow, noarchive');
+        header('Cache-Control: no-store');
+    }
+}
+
+/**
+ * Hostinqdə xəta mətni (faylların tam yolu ilə) ekrana çıxmasın — jurnala yazılsın.
+ * Lokal dev serverdə (php -S) xətalar görünür qalır.
+ */
+function production_errors(): void
+{
+    if (PHP_SAPI === 'cli-server' || PHP_SAPI === 'cli') {
+        return;
+    }
+    ini_set('display_errors', '0');
+    ini_set('display_startup_errors', '0');
+    ini_set('log_errors', '1');
+}
+
+/**
+ * Ayarlarda sayt ünvanı https:// ilə yazılıbsa, HTTP ilə gələn sorğunu
+ * HTTPS-ə yönləndirir. Ünvan yazılmayıbsa heç nə etmir — SSL hələ
+ * qurulmamış hostinqdə sayt açılmaz qalmasın.
+ */
+function force_https(): void
+{
+    $site = trim((string) cfg('site_url'));
+    if (stripos($site, 'https://') !== 0 || request_is_https() || PHP_SAPI === 'cli-server') {
+        return;
+    }
+    $host = (string) parse_url($site, PHP_URL_HOST);
+    $uri  = (string) ($_SERVER['REQUEST_URI'] ?? '/');
+    if ($uri === '' || $uri[0] !== '/') {
+        $uri = '/';
+    }
+    header('Location: https://' . $host . $uri, true, 301);
+    exit;
 }
