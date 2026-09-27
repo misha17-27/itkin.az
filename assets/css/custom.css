@@ -357,3 +357,25 @@
 		padding-right: 12px;
 	}
 }
+
+/* ---------------------------------------------------------------- mətndəki video */
+/*
+ * Paneldəki redaktorun «Video» düyməsi mətnə MP4 (<video>) və ya YouTube / Vimeo
+ * çərçivəsi (<iframe>) qoyur. Xəbər, kitab və itkin səhifəsinin mətnində onlar
+ * ekranın enindən çıxmasın; çərçivə 16:9 nisbətini saxlasın.
+ */
+.elementor-widget-theme-post-content video,
+.itkinlr .page-content video {
+	max-width: 100%;
+	height: auto;
+}
+
+.elementor-widget-theme-post-content iframe,
+.itkinlr .page-content iframe {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	border: 0;
+}

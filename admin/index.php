@@ -22,10 +22,12 @@ if (!admin_request()) {
     exit;
 }
 
+require_once __DIR__ . '/inc/users.php';
 require_once __DIR__ . '/inc/auth.php';
 require_once __DIR__ . '/inc/helpers.php';
 require_once __DIR__ . '/inc/layout.php';
 require_once __DIR__ . '/inc/form.php';
+require_once __DIR__ . '/inc/trash.php';
 
 production_errors();
 force_https();
@@ -76,12 +78,21 @@ if (!admin_is_logged_in()) {
 }
 
 /*
- * İlkin şifrə (itkin2026) README-də açıq yazılıb və repozitoriyadadır.
- * Onunla işləmək olmaz: dəyişilənə qədər yalnız «Mənim profilim» açılır.
+ * İlkin şifrə (itkin2026) README-də açıq yazılıb; administratorun verdiyi
+ * müvəqqəti şifrəni də yalnız ikisi bilir. Dəyişilənə qədər yalnız
+ * «Mənim profilim» açılır.
  */
-if ($section !== 'profile' && admin_default_password()) {
-    admin_redirect(['section' => 'profile'], 'Əvvəlcə ilkin şifrəni dəyişin — o, hamıya məlumdur.', 'error');
+if ($section !== 'profile' && ($notice = admin_password_notice()) !== null) {
+    admin_redirect(['section' => 'profile'], $notice, 'error');
 }
+
+// Ayarlar və istifadəçilər yalnız administrator üçündür (menyuda gizlətmək kifayət deyil)
+if (!admin_can($section)) {
+    admin_redirect([], 'Bu bölmə yalnız administrator üçündür.', 'error');
+}
+
+// Zibil qutusu: 30 gündən köhnə elementlər gündə bir dəfə silinir (admin/inc/trash.php)
+trash_purge_daily();
 
 /* ---------------------------------------------------------------- bölmələr */
 

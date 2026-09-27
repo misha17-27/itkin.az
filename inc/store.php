@@ -111,13 +111,15 @@ function store_save(string $name, array $rows, string $comment = '', bool $backu
          . 'return ' . store_export($rows) . ";\n";
 
     // Yazmadan əvvəl sintaksisi yoxlayırıq ki, saytı sındırmayaq
-    $tmp = $file . '.tmp';
+    // hər yazının öz müvəqqəti faylı — eyni anda iki yazı bir-birinin faylını pozmasın
+    $tmp = $file . '.' . bin2hex(random_bytes(6)) . '.tmp';
     if (@file_put_contents($tmp, $php, LOCK_EX) === false) {
         throw new RuntimeException('Fayla yazmaq alınmadı: ' . basename($file) . '. Qovluğun yazma icazəsini yoxlayın.');
     }
 
     store_opcache_drop($tmp);
     $check = store_validate($tmp);
+    store_opcache_drop($tmp);
     if ($check !== '') {
         @unlink($tmp);
         throw new RuntimeException('Yazılan məlumat düzgün deyil: ' . $check);

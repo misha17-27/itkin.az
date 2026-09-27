@@ -14,7 +14,7 @@ return [
         'modified' => '2023-12-18T18:35:53',
         'categories' => [],
         'excerpt' => '',
-        'description' => 'Zeynalov Çingiz Ataş oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+        'description' => 'Zeynalov Çingiz Ataş oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
         'doc_title' => 'Zeynalov Çingiz Ataş oğlu - İtkin',
         'head_meta' => [
             [
@@ -70,7 +70,7 @@ return [
             [
                 'p',
                 'og:description',
-                'Zeynalov Çingiz Ataş oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+                'Zeynalov Çingiz Ataş oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -96,7 +96,7 @@ HTML,
         'modified' => '2023-12-18T18:35:10',
         'categories' => [],
         'excerpt' => '',
-        'description' => 'Şirinov Nazim Şirin oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+        'description' => 'Şirinov Nazim Şirin oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
         'doc_title' => 'Şirinov Nazim Şirin oğlu - İtkin',
         'head_meta' => [
             [
@@ -152,7 +152,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Şirinov Nazim Şirin oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+                'Şirinov Nazim Şirin oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -178,7 +178,7 @@ HTML,
         'modified' => '2023-12-18T18:34:44',
         'categories' => [],
         'excerpt' => '',
-        'description' => 'Qurbanov Telman Qara oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+        'description' => 'Qurbanov Telman Qara oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
         'doc_title' => 'Qurbanov Telman Qara oğlu - İtkin',
         'head_meta' => [
             [
@@ -234,7 +234,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Qurbanov Telman Qara oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+                'Qurbanov Telman Qara oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -260,7 +260,7 @@ HTML,
         'modified' => '2023-12-18T18:34:24',
         'categories' => [],
         'excerpt' => '',
-        'description' => 'Qasımov Zahir İsmayıl oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+        'description' => 'Qasımov Zahir İsmayıl oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
         'doc_title' => 'Qasımov Zahir İsmayıl oğlu - İtkin',
         'head_meta' => [
             [
@@ -316,7 +316,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Qasımov Zahir İsmayıl oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+                'Qasımov Zahir İsmayıl oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -342,7 +342,7 @@ HTML,
         'modified' => '2023-12-18T18:34:02',
         'categories' => [],
         'excerpt' => '',
-        'description' => 'Mustafayev Telman Qarabala oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+        'description' => 'Mustafayev Telman Qarabala oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
         'doc_title' => 'Mustafayev Telman Qarabala oğlu - İtkin',
         'head_meta' => [
             [
@@ -398,7 +398,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Mustafayev Telman Qarabala oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+                'Mustafayev Telman Qarabala oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -424,7 +424,7 @@ HTML,
         'modified' => '2023-12-18T18:33:38',
         'categories' => [],
         'excerpt' => '',
-        'description' => 'Hüseynov Ağası Rauf oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+        'description' => 'Hüseynov Ağası Rauf oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
         'doc_title' => 'Hüseynov Ağası Rauf oğlu - İtkin',
         'head_meta' => [
             [
@@ -480,7 +480,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Hüseynov Ağası Rauf oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+                'Hüseynov Ağası Rauf oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -506,7 +506,7 @@ HTML,
         'modified' => '2023-12-18T18:33:11',
         'categories' => [],
         'excerpt' => '',
-        'description' => 'Həsənquliyev Şirindil Cavad oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+        'description' => 'Həsənquliyev Şirindil Cavad oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
         'doc_title' => 'Həsənquliyev Şirindil Cavad oğlu - İtkin',
         'head_meta' => [
             [
@@ -562,7 +562,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Həsənquliyev Şirindil Cavad oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+                'Həsənquliyev Şirindil Cavad oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -588,7 +588,7 @@ HTML,
         'modified' => '2023-12-18T18:32:45',
         'categories' => [],
         'excerpt' => '',
-        'description' => 'Fətullayev Bəhtiyyar  Abdulla oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+        'description' => 'Fətullayev Bəhtiyyar Abdulla oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
         'doc_title' => 'Fətullayev Bəhtiyyar Abdulla oğlu - İtkin',
         'head_meta' => [
             [
@@ -644,7 +644,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Fətullayev Bəhtiyyar  Abdulla oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+                'Fətullayev Bəhtiyyar Abdulla oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -670,7 +670,7 @@ HTML,
         'modified' => '2023-12-18T18:32:18',
         'categories' => [],
         'excerpt' => '',
-        'description' => 'Cəlilov Feyruz Xanbala oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+        'description' => 'Cəlilov Feyruz Xanbala oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
         'doc_title' => 'Cəlilov Feyruz Xanbala oğlu - İtkin',
         'head_meta' => [
             [
@@ -726,7 +726,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Cəlilov Feyruz Xanbala oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+                'Cəlilov Feyruz Xanbala oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -752,7 +752,7 @@ HTML,
         'modified' => '2023-12-18T18:31:49',
         'categories' => [],
         'excerpt' => '',
-        'description' => 'Cəbrayılov Həmid Yaşar oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+        'description' => 'Cəbrayılov Həmid Yaşar oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
         'doc_title' => 'Cəbrayılov Həmid Yaşar oğlu - İtkin',
         'head_meta' => [
             [
@@ -808,7 +808,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Cəbrayılov Həmid Yaşar oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+                'Cəbrayılov Həmid Yaşar oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -834,7 +834,7 @@ HTML,
         'modified' => '2023-12-18T18:31:22',
         'categories' => [],
         'excerpt' => '',
-        'description' => 'Canıyev Səxavət Xanış oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+        'description' => 'Canıyev Səxavət Xanış oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
         'doc_title' => 'Canıyev Səxavət Xanış oğlu - İtkin',
         'head_meta' => [
             [
@@ -890,7 +890,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Canıyev Səxavət Xanış oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+                'Canıyev Səxavət Xanış oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -916,7 +916,7 @@ HTML,
         'modified' => '2023-12-18T18:30:31',
         'categories' => [],
         'excerpt' => '',
-        'description' => 'Cabbarov Azad Pirqulu oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+        'description' => 'Cabbarov Azad Pirqulu oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
         'doc_title' => 'Cabbarov Azad Pirqulu oğlu - İtkin',
         'head_meta' => [
             [
@@ -972,7 +972,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Cabbarov Azad Pirqulu oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+                'Cabbarov Azad Pirqulu oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -998,7 +998,7 @@ HTML,
         'modified' => '2023-12-18T18:29:27',
         'categories' => [],
         'excerpt' => '',
-        'description' => 'Behbudov Abbas Behbud oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+        'description' => 'Behbudov Abbas Behbud oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
         'doc_title' => 'Behbudov Abbas Behbud oğlu - İtkin',
         'head_meta' => [
             [
@@ -1054,7 +1054,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Behbudov Abbas Behbud oğlu — Birinci Qarabağ müharibəsində itkin düşmüş şəxs. “Qarabağ İtkin Ailələri” İctimai Birliyinin siyahısındakı məlumat.',
+                'Behbudov Abbas Behbud oğlu Birinci Qarabağ müharibəsində itkin düşüb. Səhifə “Qarabağ İtkin Ailələri” İctimai Birliyinin itkinlər siyahısına daxildir.',
             ],
         ],
         'schema' => <<<'HTML'

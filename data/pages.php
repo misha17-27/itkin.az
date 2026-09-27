@@ -10,8 +10,8 @@ return [
         'id' => 904,
         'slug' => 'kitabxana',
         'title' => 'Kitabxana',
-        'doc_title' => 'Kitabxana - İtkin',
-        'description' => 'Birliyin kitabxanası: itkin düşmüş və əsir götürülmüş şəxslərə dair kitablar, hesabatlar və sənədlər — Azərbaycan, ingilis və rus dillərində yüklənə bilər.',
+        'doc_title' => 'Kitabxana: itkin və əsirlərə dair kitablar və sənədlər - İtkin',
+        'description' => 'İtkin düşmüş, əsir və girov götürülmüş şəxslərə dair kitablar, hesabatlar və sənədlər: Azərbaycan, ingilis və rus dillərində yükləmək mümkündür.',
         'head_meta' => [
             [
                 'p',
@@ -31,7 +31,7 @@ return [
             [
                 'p',
                 'og:description',
-                'Birliyin kitabxanası: itkin düşmüş və əsir götürülmüş şəxslərə dair kitablar, hesabatlar və sənədlər — Azərbaycan, ingilis və rus dillərində yüklənə bilər.',
+                'İtkin düşmüş, əsir və girov götürülmüş şəxslərə dair kitablar, hesabatlar və sənədlər: Azərbaycan, ingilis və rus dillərində yükləmək mümkündür.',
             ],
             [
                 'p',
@@ -97,8 +97,8 @@ HTML,
         'id' => 869,
         'slug' => 'milli-qanunvericilik',
         'title' => 'Milli qanunvericilik',
-        'doc_title' => 'Milli qanunvericilik - İtkin',
-        'description' => 'İtkin düşmüş şəxslərlə bağlı milli qanunvericilik: Dövlət Komissiyası haqqında sərəncam, Komissiyanın əsasnaməsi və digər normativ sənədlər.',
+        'doc_title' => 'Milli qanunvericilik: itkin düşmüş şəxslərə dair aktlar - İtkin',
+        'description' => 'İtkin düşmüş, əsir və girov götürülmüş şəxslərlə bağlı Azərbaycan qanunvericiliyi: Dövlət Komissiyası haqqında sərəncam, əsasnamə, qanun və fərman.',
         'head_meta' => [
             [
                 'p',
@@ -118,7 +118,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'İtkin düşmüş şəxslərlə bağlı milli qanunvericilik: Dövlət Komissiyası haqqında sərəncam, Komissiyanın əsasnaməsi və digər normativ sənədlər.',
+                'İtkin düşmüş, əsir və girov götürülmüş şəxslərlə bağlı Azərbaycan qanunvericiliyi: Dövlət Komissiyası haqqında sərəncam, əsasnamə, qanun və fərman.',
             ],
             [
                 'p',
@@ -184,8 +184,8 @@ HTML,
         'id' => 830,
         'slug' => 'beynelxalq-senedler',
         'title' => 'Beynəlxalq sənədlər',
-        'doc_title' => 'Beynəlxalq sənədlər - İtkin',
-        'description' => 'İtkin düşmüş, əsir və girov götürülmüş şəxslərin hüquqlarına dair beynəlxalq sənədlər: 1949-cu il Cenevrə konvensiyaları və onlara əlavə protokollar.',
+        'doc_title' => 'Beynəlxalq sənədlər: 1949-cu il Cenevrə konvensiyaları - İtkin',
+        'description' => 'Hərbi əsirlərin, yaralıların və mülki şəxslərin müdafiəsinə dair beynəlxalq sənədlər: 12 avqust 1949-cu il tarixli Cenevrə konvensiyalarının mətnləri.',
         'head_meta' => [
             [
                 'p',
@@ -205,7 +205,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'İtkin düşmüş, əsir və girov götürülmüş şəxslərin hüquqlarına dair beynəlxalq sənədlər: 1949-cu il Cenevrə konvensiyaları və onlara əlavə protokollar.',
+                'Hərbi əsirlərin, yaralıların və mülki şəxslərin müdafiəsinə dair beynəlxalq sənədlər: 12 avqust 1949-cu il tarixli Cenevrə konvensiyalarının mətnləri.',
             ],
             [
                 'p',
@@ -271,8 +271,8 @@ HTML,
         'id' => 662,
         'slug' => 'sekiller',
         'title' => 'Foto',
-        'doc_title' => 'Foto - İtkin',
-        'description' => '“Qarabağ İtkin Ailələri” İctimai Birliyinin tədbirlərindən və gündəlik fəaliyyətindən foto qalereya.',
+        'doc_title' => 'Foto qalereya: “Qarabağ İtkin Ailələri” Birliyi - İtkin',
+        'description' => '“Qarabağ İtkin Ailələri” İctimai Birliyinin tədbirlərindən, görüşlərindən və gündəlik fəaliyyətindən çəkilmiş fotoşəkillər bir qalereyada toplanıb.',
         'head_meta' => [
             [
                 'p',
@@ -292,7 +292,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                '“Qarabağ İtkin Ailələri” İctimai Birliyinin tədbirlərindən və gündəlik fəaliyyətindən foto qalereya.',
+                '“Qarabağ İtkin Ailələri” İctimai Birliyinin tədbirlərindən, görüşlərindən və gündəlik fəaliyyətindən çəkilmiş fotoşəkillər bir qalereyada toplanıb.',
             ],
             [
                 'p',
@@ -346,10 +346,8 @@ HTML,
         'id' => 399,
         'slug' => 'haqqimizda',
         'title' => 'Haqqımızda',
-        'doc_title' => 'Haqqımızda - İtkin',
-        'description' => <<<'HTML'
-“Qarabağ İtkin Ailələri” İctimai Birliyi itkin düşmüş, əsir və girov götürülmüş şəxslərin və onların ailələrinin hüquqlarının müdafiəsi ilə məşğul olur. Birliyin məqsədləri və fəaliyyəti haqqında.
-HTML,
+        'doc_title' => 'Haqqımızda: “Qarabağ İtkin Ailələri” İctimai Birliyi - İtkin',
+        'description' => 'Üzvləri itkin düşmüş şəxslərin ailələrindən ibarət “Qarabağ İtkin Ailələri” İctimai Birliyinin məqsədləri, fəaliyyəti və hüquq müdafiəsi işi haqqında.',
         'head_meta' => [
             [
                 'p',
@@ -369,9 +367,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                <<<'HTML'
-“Qarabağ İtkin Ailələri” İctimai Birliyi itkin düşmüş, əsir və girov götürülmüş şəxslərin və onların ailələrinin hüquqlarının müdafiəsi ilə məşğul olur. Birliyin məqsədləri və fəaliyyəti haqqında.
-HTML,
+                'Üzvləri itkin düşmüş şəxslərin ailələrindən ibarət “Qarabağ İtkin Ailələri” İctimai Birliyinin məqsədləri, fəaliyyəti və hüquq müdafiəsi işi haqqında.',
             ],
             [
                 'p',
@@ -437,8 +433,8 @@ HTML,
         'id' => 374,
         'slug' => 'elaqe',
         'title' => 'Əlaqə',
-        'doc_title' => 'Əlaqə - İtkin',
-        'description' => '“Qarabağ İtkin Ailələri” İctimai Birliyi ilə əlaqə: telefon, e-poçt, ünvan və müraciət forması.',
+        'doc_title' => 'Əlaqə: “Qarabağ İtkin Ailələri” ilə telefon və e-poçt - İtkin',
+        'description' => '“Qarabağ İtkin Ailələri” İctimai Birliyi ilə əlaqə: telefon, e-poçt, Qaradağ rayonu Ələt qəsəbəsindəki ünvan və sorğu göndərmək üçün müraciət forması.',
         'head_meta' => [
             [
                 'p',
@@ -458,7 +454,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                '“Qarabağ İtkin Ailələri” İctimai Birliyi ilə əlaqə: telefon, e-poçt, ünvan və müraciət forması.',
+                '“Qarabağ İtkin Ailələri” İctimai Birliyi ilə əlaqə: telefon, e-poçt, Qaradağ rayonu Ələt qəsəbəsindəki ünvan və sorğu göndərmək üçün müraciət forması.',
             ],
             [
                 'p',
@@ -512,8 +508,8 @@ HTML,
         'id' => 327,
         'slug' => 'xeberler',
         'title' => 'Xəbərlər',
-        'doc_title' => 'Xəbərlər - İtkin',
-        'description' => 'İtkin düşmüş və əsir götürülmüş şəxslərlə bağlı xəbərlər, rəsmi açıqlamalar və “Qarabağ İtkin Ailələri” İctimai Birliyinin fəaliyyətinə dair məlumatlar.',
+        'doc_title' => 'Xəbərlər: itkin və əsir düşmüş şəxslərlə bağlı yeniliklər - İtkin',
+        'description' => 'İtkin düşmüş və əsir götürülmüş şəxslərlə bağlı xəbərlər, tədbirlər, həyat hekayələri və “Qarabağ İtkin Ailələri” İctimai Birliyinin fəaliyyəti.',
         'head_meta' => [
             [
                 'p',
@@ -533,7 +529,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'İtkin düşmüş və əsir götürülmüş şəxslərlə bağlı xəbərlər, rəsmi açıqlamalar və “Qarabağ İtkin Ailələri” İctimai Birliyinin fəaliyyətinə dair məlumatlar.',
+                'İtkin düşmüş və əsir götürülmüş şəxslərlə bağlı xəbərlər, tədbirlər, həyat hekayələri və “Qarabağ İtkin Ailələri” İctimai Birliyinin fəaliyyəti.',
             ],
             [
                 'p',
@@ -587,10 +583,8 @@ HTML,
         'id' => 23,
         'slug' => 'ana-sehife',
         'title' => 'Ana səhifə',
-        'doc_title' => 'Ana səhifə - İtkin',
-        'description' => <<<'HTML'
-Birinci Qarabağ müharibəsində itkin düşmüş şəxslər və onların ailələri — “Qarabağ İtkin Ailələri” İctimai Birliyinin saytı: itkinlərin siyahısı, xəbərlər, sənədlər və kitabxana.
-HTML,
+        'doc_title' => '“Qarabağ İtkin Ailələri”: Qarabağ müharibələrinin itkinləri - İtkin',
+        'description' => '“Qarabağ İtkin Ailələri” İctimai Birliyi: Birinci və İkinci Qarabağ müharibələrində itkin düşmüş şəxslərin siyahısı, statistika, xəbərlər və sənədlər.',
         'head_meta' => [
             [
                 'p',
@@ -610,9 +604,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                <<<'HTML'
-Birinci Qarabağ müharibəsində itkin düşmüş şəxslər və onların ailələri — “Qarabağ İtkin Ailələri” İctimai Birliyinin saytı: itkinlərin siyahısı, xəbərlər, sənədlər və kitabxana.
-HTML,
+                '“Qarabağ İtkin Ailələri” İctimai Birliyi: Birinci və İkinci Qarabağ müharibələrində itkin düşmüş şəxslərin siyahısı, statistika, xəbərlər və sənədlər.',
             ],
             [
                 'p',

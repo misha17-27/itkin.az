@@ -1,7 +1,16 @@
 <?php
 /**
- * Şəkillər bölməsi / media library.
+ * Qalereya bölməsi / media library.
  * Fayllar uploads/ qovluğunda saxlanılır, yüklənənlər uploads/YYYY/MM/ altına düşür.
+ *
+ * Yuxarıdakı süzgəc (Hamısı / Şəkillər / Videolar / PDF), axtarış və səhifələmə
+ * birlikdə işləyir. Silinən fayl birdəfəlik yox olmur — zibil qutusuna düşür
+ * (admin/inc/trash.php) və 30 gün ərzində bərpa edilə bilər.
+ *
+ * Saytda istifadə olunan faylı da silmək olar, amma yalnız harada istifadə
+ * olunduğunu (xəbər, kitab, itkin, səhifə …) göstərən təsdiqdən sonra.
+ * Dizayndakı fayllar — loqo, fon, səhifələrin orijinal şəkilləri (şablonlarda,
+ * CSS-də, sabit hissələrdə yazılıb) — silinmir: onları paneldən geri qaytarmaq olmur.
  */
 
 const MEDIA_EXT = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'pdf', 'mp4'];
@@ -35,8 +44,18 @@ const MEDIA_KIND_EXT = [
     'pdf'   => ['pdf'],
 ];
 
+/** Qalereyanın süzgəci (seçim pəncərəsində yoxdur): növ => [ad, uzantılar] */
+const MEDIA_TYPES = [
+    'image' => ['Şəkillər', MEDIA_IMAGE_EXT],
+    'video' => ['Videolar', ['mp4']],
+    'pdf'   => ['PDF', ['pdf']],
+];
+
 $fragment = $pick !== '' && isset($_GET['fragment']);
 $notice   = '';
+
+// Süzgəc: ?type=image|video|pdf (boş — hamısı)
+$type = $pick === '' && is_string($_GET['type'] ?? null) && isset(MEDIA_TYPES[$_GET['type']]) ? (string) $_GET['type'] : '';
 
 
 /* ---------------------------------------------------------------- yükləmə */
@@ -132,19 +151,93 @@ if ($action === 'upload' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     if ($fragment) {
         $notice = $msg;
     } else {
-        admin_redirect(['section' => 'media'] + $keep, $msg, $ok ? 'ok' : 'error');
+        admin_redirect(['section' => 'media'] + $keep + ($type !== '' ? ['type' => $type] : []), $msg, $ok ? 'ok' : 'error');
     }
 }
 
 /* ---------------------------------------------------------------- istifadə */
 
+/** Səhifə sahələrinin prefiksi (data/page-texts.php: “home.img.1”) => səhifənin adı */
+const MEDIA_PAGE_NAMES = [
+    'home'       => 'Ana səhifə',
+    'haqqimizda' => 'Haqqımızda',
+    'elaqe'      => 'Əlaqə',
+    'senedler'   => 'Beynəlxalq sənədlər',
+    'qanun'      => 'Milli qanunvericilik',
+    'sekiller'   => 'Şəkillər',
+    'kitabxana'  => 'Kitabxana',
+    'xeberler'   => 'Xəbərlər',
+];
+
+/** Məzmun faylları (data/<ad>.php və <ad>-en.php): ad => [yerin növü, başlıq sahəsi] */
+const MEDIA_CONTENT = [
+    'posts'      => ['Xəbər', 'title'],
+    'kitabxana'  => ['Kitab', 'title'],
+    'itkinlr'    => ['İtkin', 'title'],
+    'categories' => ['Kateqoriya', 'name'],
+    'pages'      => ['Səhifə', 'title'],
+];
+
+/** Mətndəki fayl istinadları: “2023/11/ad.jpg” kimi açarlar */
+function media_refs(string $text): array
+{
+    // JSON-da yollar “2023\/11\/…” kimi yazılır — adi yola çeviririk
+    $text = str_replace('\\/', '/', $text);
+    $name = '[^"\'\s<>()\\\\,?\#]+?\.(?:' . implode('|', MEDIA_EXT) . ')(?![A-Za-z0-9.])';
+    $refs = [];
+    // uploads/… ilə başlayan istənilən yol (il/ay qovluğunda olmayanlar da)
+    if (preg_match_all('#uploads/(' . $name . ')#i', $text, $m)) {
+        foreach ($m[1] as $ref) {
+            $refs[$ref] = true;
+        }
+    }
+    // Elementor CSS-də fon şəkilləri nisbi yazılıb: ../../2023/11/ad.webp
+    if (preg_match_all('#\.\./(\d{4}/\d{2}/' . $name . ')#i', $text, $m)) {
+        foreach ($m[1] as $ref) {
+            $refs[$ref] = true;
+        }
+    }
+    return array_keys($refs);
+}
+
+/** Qeydin (massivin) bütün mətn dəyərləri bir mətndə */
+function media_row_text($value): string
+{
+    if (!is_array($value)) {
+        return is_string($value) ? $value : '';
+    }
+    $text = '';
+    array_walk_recursive($value, static function ($v) use (&$text) {
+        if (is_string($v)) {
+            $text .= $v . "\n";
+        }
+    });
+    return $text;
+}
+
+/** Dizayn faylının oxunaqlı adı */
+function media_design_label(string $rel): string
+{
+    if ($rel === 'data/page-fields.php') {
+        return 'Səhifələrin orijinal şəkilləri (data/page-fields.php)';
+    }
+    if (strpos($rel, 'templates/') === 0) {
+        return 'Şablon: ' . $rel;
+    }
+    if (substr($rel, -4) === '.css') {
+        return 'Dizaynın CSS faylı: ' . $rel;
+    }
+    return 'Saytın sabit hissəsi: ' . $rel;
+}
+
 /**
- * Saytda istinad olunan faylların siyahısı: “2023/11/ad.jpg” => true.
+ * Saytda istinad olunan fayllar və harada:
+ *   “2023/11/ad.jpg” => ['Xəbər «…»' => false, 'Şablon: templates/home.body.php' => true, …]
+ * true — dizayn (şablon, CSS, sabit hissələr, səhifələrin orijinal sahələri): belə fayl silinmir.
  *
- * Yazılar, səhifə şablonları, sabit hissələr və Elementor-un CSS faylları
- * (orada fon şəkilləri “../../2023/11/ad.webp” kimi yazılıb) bir dəfə
- * oxunur və içindəki bütün fayl yolları yığılır. JSON-dakı “2023\/11\/…”
- * yazılışı da tutulur.
+ * Məzmun (xəbər, kitab, itkin, kateqoriya, səhifə — AZ və EN) qeyd-qeyd oxunur ki,
+ * yer adı ilə göstərilsin. Qalan fayllar bir dəfə oxunur və içindəki bütün yollar
+ * yığılır. Zibil qutusundakı qeydlər sayılmır — onlar saytda görünmür.
  */
 function media_usage(string $root): array
 {
@@ -152,36 +245,65 @@ function media_usage(string $root): array
     if ($used !== null) {
         return $used;
     }
+    $used = [];
+    $add = static function (string $text, string $place, bool $design) use (&$used) {
+        foreach (media_refs($text) as $ref) {
+            $used[$ref][$place] = !empty($used[$ref][$place]) || $design;
+        }
+    };
 
+    $seen = [];   // qeyd-qeyd oxunmuş data faylları
+    foreach (MEDIA_CONTENT as $name => [$label, $field]) {
+        $titles = [];
+        foreach (data_load($name) as $row) {
+            if (!is_array($row)) {
+                continue;
+            }
+            $title = trim((string) ($row[$field] ?? ''));
+            $title = $title !== '' ? $title : '#' . ($row['id'] ?? '?');
+            $titles[(string) ($row['id'] ?? '')] = $title;
+            $add(media_row_text($row), $label . ' «' . $title . '»', false);
+        }
+        foreach (data_load($name . '-en') as $id => $row) {
+            $add(media_row_text($row), $label . ' «' . ($titles[(string) $id] ?? '#' . $id) . '» (EN)', false);
+        }
+        $seen[$name] = $seen[$name . '-en'] = true;
+    }
+    // Səhifələrdə paneldən dəyişdirilmiş şəkillər, qalereyalar, videolar
+    foreach (['page-texts' => '', 'page-texts-en' => ' (EN)'] as $name => $suffix) {
+        foreach (data_load($name) as $key => $value) {
+            $page = explode('.', (string) $key)[0];
+            $add(media_row_text($value), 'Səhifə «' . (MEDIA_PAGE_NAMES[$page] ?? $page) . '»' . $suffix, false);
+        }
+        $seen[$name] = true;
+    }
+    // Arxiv səhifələrinin (itkinlər, kitabxana) paylaşma şəkli
+    foreach (['archives', 'archives-en'] as $name) {
+        foreach (data_load($name) as $key => $value) {
+            $add(media_row_text($value), 'Arxiv səhifəsi «' . $key . '»', false);
+        }
+        $seen[$name] = true;
+    }
+
+    // Qalan hər şey dizayndır
     $files = array_merge(
         glob($root . '/data/*.php') ?: [],
         glob($root . '/templates/*.php') ?: [],
+        glob($root . '/templates/partials/*.php') ?: [],
         glob($root . '/inc/*.php') ?: [],
         glob($root . '/admin/inc/*.php') ?: [],
+        glob($root . '/admin/views/*.php') ?: [],
         glob($root . '/assets/css/*.css') ?: [],
         glob($root . '/assets/js/*.js') ?: [],
         glob($root . '/uploads/elementor/css/*.css') ?: [],
         [$root . '/config.php']
     );
-
-    $used = [];
-    $name = '[^"\'\s<>()\\\\,?\#]+?\.(?:' . implode('|', MEDIA_EXT) . ')(?![A-Za-z0-9.])';
     foreach ($files as $file) {
-        // JSON-da yollar “2023\/11\/…” kimi yazılır — adi yola çeviririk
-        $text = str_replace('\\/', '/', (string) @file_get_contents($file));
-
-        // uploads/… ilə başlayan istənilən yol (il/ay qovluğunda olmayanlar da)
-        if (preg_match_all('#uploads/(' . $name . ')#i', $text, $m)) {
-            foreach ($m[1] as $ref) {
-                $used[$ref] = true;
-            }
+        $rel = str_replace('\\', '/', substr($file, strlen($root) + 1));
+        if (strpos($rel, 'data/') === 0 && isset($seen[basename($rel, '.php')])) {
+            continue;
         }
-        // Elementor CSS-də fon şəkilləri nisbi yazılıb: ../../2023/11/ad.webp
-        if (preg_match_all('#\.\./(\d{4}/\d{2}/' . $name . ')#i', $text, $m)) {
-            foreach ($m[1] as $ref) {
-                $used[$ref] = true;
-            }
-        }
+        $add((string) @file_get_contents($file), media_design_label($rel), true);
     }
     return $used;
 }
@@ -192,44 +314,176 @@ function media_ref(string $path): string
     return strpos($path, 'uploads/') === 0 ? substr($path, 8) : $path;
 }
 
+/** Faylın istifadə yerləri: ['yer' => dizayndırmı] */
+function media_places(string $root, string $path): array
+{
+    return media_usage($root)[media_ref($path)] ?? [];
+}
+
+/**
+ * Təsdiqin izi: silinəcək istifadədəki fayllar və onların yerləri.
+ * Təsdiq göstəriləndən sonra fayl başqa yerdə də istifadə olunubsa,
+ * iz dəyişir və təsdiq yenidən (yeni siyahı ilə) soruşulur.
+ */
+function media_sig(array $placesByPath): string
+{
+    ksort($placesByPath);
+    return substr(sha1((string) json_encode($placesByPath, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)), 0, 20);
+}
+
+/** Tək faylın «Sil» təsdiqi: harada istifadə olunur */
+function media_confirm_text(string $name, array $labels, bool $image): string
+{
+    $list = array_slice($labels, 0, 8);
+    return '“' . $name . '” saytda istifadə olunur:' . "\n• " . implode("\n• ", $list)
+        . (count($labels) > 8 ? "\n• … və daha " . (count($labels) - 8) . ' yer' : '')
+        . "\n\nSilsəniz, bu yerlərdə " . ($image ? 'şəkil görünməyəcək' : 'fayl açılmayacaq') . '. '
+        . 'Fayl zibil qutusuna düşür və ' . TRASH_DAYS . ' gün ərzində bərpa edilə bilər.' . "\n\nYenə də silinsin?";
+}
+
+/** Dizayn faylının «Sil» düyməsi üzərindəki izah ($places: yer => dizayndırmı) */
+function media_lock_text(array $places): string
+{
+    $design = array_keys(array_filter($places));
+    $other  = count($places) - count($design);
+    return 'Bu fayl saytın dizaynında istifadə olunur: ' . implode('; ', array_slice($design, 0, 3))
+        . (count($design) > 3 ? ' …' : '')
+        . ($other > 0 ? ' (həmçinin ' . $other . ' xəbər, kitab və ya səhifədə)' : '') . '. '
+        . 'Loqo, fon və səhifələrin orijinal şəkilləri şablonlarda və CSS-də yazılıb — silinsə, saytın görünüşü '
+        . 'pozular və bunu paneldən düzəltmək olmaz. Ona görə belə fayllar silinmir.';
+}
+
 /* ---------------------------------------------------------------- silmək */
 
 /*
- * Fayl birdəfəlik silinmir: storage/trash/ altına köçürülür (səhv silinibsə
- * oradan qaytarmaq olar). Saytda istifadə olunan fayl isə ümumiyyətlə
- * silinmir — yoxsa yazıda və ya səhifədə qırıq şəkil qalar.
+ * Fayl birdəfəlik silinmir: storage/trash/ altına köçürülür və zibil qutusunda
+ * 30 gün saxlanılır. Saytda istifadə olunan fayl yalnız təsdiqdən sonra silinir
+ * (təsdiqdə harada istifadə olunduğu göstərilir), dizayn faylı isə heç silinmir.
+ *   action=delete  tək fayl (path)
+ *   action=bulk    seçilənlər (paths[])
  */
-if ($action === 'delete' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
-    $back = ['section' => 'media'] + array_filter([
-        'q' => trim((string) ($_POST['q'] ?? '')),
-        'p' => max(1, (int) ($_POST['p'] ?? 1)),
-    ], static function ($v) { return $v !== '' && $v !== 1; });
+if (($action === 'delete' || $action === 'bulk') && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
+    $bq    = trim((string) ($_POST['q'] ?? ''));
+    $bp    = max(1, (int) ($_POST['p'] ?? 1));
+    $btype = is_string($_POST['type'] ?? null) && isset(MEDIA_TYPES[$_POST['type']]) ? (string) $_POST['type'] : '';
+    $back  = ['section' => 'media'] + array_filter(['type' => $btype, 'q' => $bq, 'p' => $bp],
+        static function ($v) { return $v !== '' && $v !== 1; });
 
     if (!admin_token_ok()) {
         admin_redirect($back, 'Forma köhnəlib. Səhifəni yeniləyin.', 'error');
     }
 
-    $path = post_str('path');
-    $abs  = $root . '/' . $path;
-    if (!page_path_ok($path) || strpos($path, 'uploads/elementor/') === 0
-        || !in_array(strtolower(pathinfo($path, PATHINFO_EXTENSION)), MEDIA_EXT, true) || !is_file($abs)) {
-        admin_redirect($back, 'Fayl tapılmadı.', 'error');
+    $paths = $action === 'bulk' ? (array) ($_POST['paths'] ?? []) : [post_str('path')];
+    $paths = array_values(array_unique(array_filter(array_map(static function ($p) {
+        return is_string($p) ? trim($p) : '';
+    }, $paths), 'strlen')));
+    if (!$paths) {
+        admin_redirect($back, 'Heç bir fayl seçilməyib.', 'error');
     }
 
-    if (isset(media_usage($root)[media_ref($path)])) {
-        admin_redirect($back, '“' . basename($path) . '” saytda istifadə olunur, ona görə silinmədi. '
-            . 'Əvvəlcə onu yazıdan və ya səhifədən götürün.', 'error');
+    $ok    = [];   // silinə bilən fayllar
+    $needs = [];   // onlardan saytda istifadə olunanlar: yol => yerlər
+    $skip  = [];   // silinməyənlər (səbəbi ilə)
+    foreach (array_slice($paths, 0, 300) as $path) {
+        if (!page_path_ok($path) || strpos($path, 'uploads/elementor/') === 0
+            || !in_array(strtolower(pathinfo($path, PATHINFO_EXTENSION)), MEDIA_EXT, true) || !is_file($root . '/' . $path)) {
+            $skip[] = basename($path) . ' (tapılmadı)';
+            continue;
+        }
+        $places = media_places($root, $path);
+        if (in_array(true, $places, true)) {
+            $skip[] = basename($path) . ' (saytın dizaynında istifadə olunur)';
+            continue;
+        }
+        if ($places) {
+            $needs[$path] = array_keys($places);
+        }
+        $ok[] = $path;
     }
 
-    $trash = storage_dir('trash/' . date('Ymd-His') . '/' . dirname($path));
-    if (!is_dir($trash)) {
-        admin_redirect($back, 'Silmək alınmadı: storage/ qovluğuna yazmaq olmur.', 'error');
-    }
-    if (!@rename($abs, $trash . '/' . basename($path))) {
-        admin_redirect($back, 'Silmək alınmadı: faylı köçürmək olmadı.', 'error');
+    // Tək fayl silinmirsə — səbəbi ilə geri
+    if (!$ok) {
+        admin_redirect($back, count($paths) === 1
+            ? ($skip && strpos($skip[0], 'dizayn') !== false
+                ? '“' . basename($paths[0]) . '” saytın dizaynında istifadə olunur (loqo, fon, səhifənin orijinal şəkli), ona görə silinmir.'
+                : 'Fayl tapılmadı.')
+            : 'Heç bir fayl silinmədi: ' . implode(', ', array_slice($skip, 0, 6)) . (count($skip) > 6 ? ' …' : ''), 'error');
     }
 
-    admin_redirect($back, '“' . basename($path) . '” silindi.');
+    /*
+     * İstifadədəki fayl üçün açıq təsdiq lazımdır. Kartdakı «Sil» düyməsi onu
+     * brauzerin pəncərəsində soruşur və izi göndərir; iz yoxdursa (seçilənləri
+     * silmək, JS-siz brauzer) və ya bu arada dəyişibsə — təsdiq səhifəsi.
+     */
+    if ($needs && (string) ($_POST['confirm'] ?? '') !== media_sig($needs)) {
+        $free = array_values(array_diff($ok, array_keys($needs)));
+        admin_shell_start('media', 'Silməyi təsdiqləyin');
+        ?>
+<div class="card media-confirm">
+	<div class="card__head"><?= count($needs) === 1 ? 'Bu fayl saytda istifadə olunur' : 'Bu fayllar saytda istifadə olunur' ?></div>
+	<div class="card__body">
+		<p style="margin-top:0">
+			Silsəniz, aşağıdakı yerlərdə şəkil görünməyəcək (PDF və video açılmayacaq).
+			Fayllar zibil qutusuna düşür və <?= TRASH_DAYS ?> gün ərzində oradan bərpa edilə bilər.
+		</p>
+		<ul class="media-confirm__list">
+<?php foreach ($needs as $path => $labels): ?>
+			<li>
+				<strong><?= e(basename($path)) ?></strong> <span class="table__meta"><?= e($path) ?></span>
+				<ul>
+<?php   foreach ($labels as $label): ?>
+					<li><?= e($label) ?></li>
+<?php   endforeach; ?>
+				</ul>
+			</li>
+<?php endforeach; ?>
+		</ul>
+<?php if ($free): ?>
+		<p>Həmçinin istifadə olunmayan <?= count($free) ?> fayl silinəcək: <?= e(implode(', ', array_map('basename', array_slice($free, 0, 10)))) ?><?= count($free) > 10 ? ' …' : '' ?>.</p>
+<?php endif; ?>
+<?php if ($skip): ?>
+		<p class="field__hint">Silinməyəcək: <?= e(implode(', ', array_slice($skip, 0, 10))) ?><?= count($skip) > 10 ? ' …' : '' ?>.</p>
+<?php endif; ?>
+		<form method="post" action="<?= e(admin_url(['section' => 'media', 'action' => 'bulk'])) ?>" class="actions">
+			<?= admin_token_field() ?>
+<?php foreach ($ok as $path): ?>
+			<input type="hidden" name="paths[]" value="<?= e($path) ?>">
+<?php endforeach; ?>
+			<input type="hidden" name="confirm" value="<?= e(media_sig($needs)) ?>">
+			<input type="hidden" name="q" value="<?= e($bq) ?>">
+			<input type="hidden" name="p" value="<?= (int) $bp ?>">
+			<input type="hidden" name="type" value="<?= e($btype) ?>">
+			<button class="btn btn--danger" type="submit">Bəli, zibil qutusuna köçür (<?= count($ok) ?>)</button>
+			<a class="btn" href="<?= e(admin_url($back)) ?>">Ləğv et</a>
+		</form>
+	</div>
+</div>
+        <?php
+        admin_shell_end();
+        return;
+    }
+
+    $done   = [];
+    $failed = [];
+    foreach ($ok as $path) {
+        try {
+            trash_move_file($path, $needs[$path] ?? []);
+            $done[] = basename($path);
+        } catch (RuntimeException $e) {
+            $failed[] = basename($path) . ' (' . $e->getMessage() . ')';
+        }
+    }
+    $failed = array_merge($failed, $skip);
+
+    if (!$done) {
+        admin_redirect($back, 'Silmək alınmadı: ' . implode(', ', array_slice($failed, 0, 4)), 'error');
+    }
+    $msg = count($done) === 1 ? trash_flash($done[0])
+        : count($done) . ' fayl zibil qutusuna köçürüldü. ' . TRASH_DAYS . ' gün ərzində bərpa etmək olar.';
+    if ($failed) {
+        $msg .= ' Silinmədi: ' . implode(', ', array_slice($failed, 0, 4)) . (count($failed) > 4 ? ' …' : '') . '.';
+    }
+    admin_redirect($back, $msg);
 }
 
 /* ---------------------------------------------------------------- siyahı */
@@ -287,6 +541,23 @@ if ($q !== '') {
     }));
 }
 
+// Növə görə süzgəc: saylar axtarışın nəticəsindən
+$typeCounts = ['' => count($all)];
+if ($pick === '') {
+    foreach (MEDIA_TYPES as $t => [, $exts]) {
+        $typeCounts[$t] = count(array_filter($all, static function (array $f) use ($exts) {
+            return in_array($f['ext'], $exts, true);
+        }));
+    }
+    if ($type !== '') {
+        $exts = MEDIA_TYPES[$type][1];
+        $all = array_values(array_filter($all, static function (array $f) use ($exts) {
+            return in_array($f['ext'], $exts, true);
+        }));
+    }
+}
+$typeKeep = $type !== '' ? ['type' => $type] : [];
+
 $page  = max(1, (int) ($_GET['p'] ?? 1));
 $pages = max(1, (int) ceil(count($all) / MEDIA_PER_PAGE));
 $page  = min($page, $pages);
@@ -301,7 +572,7 @@ ob_start();
 <?php endif; ?>
 <div class="card">
 	<div class="card__body">
-		<form method="post" action="<?= e(admin_url(['section' => 'media', 'action' => 'upload'] + $keep)) ?>" enctype="multipart/form-data" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+		<form method="post" action="<?= e(admin_url(['section' => 'media', 'action' => 'upload'] + $keep + $typeKeep)) ?>" enctype="multipart/form-data" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
 			<?= admin_token_field() ?>
 			<input class="input" type="file" name="files[]" multiple style="max-width:340px" required
 			       accept="<?= $pick === '' ? '' : ['image' => 'image/*', 'video' => 'video/mp4', 'pdf' => 'application/pdf,.pdf'][$kind] ?>">
@@ -313,36 +584,70 @@ ob_start();
 
 <div class="card">
 	<div class="card__body">
+<?php if ($pick === ''): ?>
+		<nav class="filter-tabs" aria-label="Fayl növü">
+			<a class="filter-tabs__tab<?= $type === '' ? ' is-active' : '' ?>" href="<?= e(admin_url(['section' => 'media'] + ($q !== '' ? ['q' => $q] : []))) ?>">Hamısı <span class="filter-tabs__n"><?= $typeCounts[''] ?></span></a>
+<?php   foreach (MEDIA_TYPES as $t => [$tLabel]): ?>
+			<a class="filter-tabs__tab<?= $type === $t ? ' is-active' : '' ?>" href="<?= e(admin_url(['section' => 'media', 'type' => $t] + ($q !== '' ? ['q' => $q] : []))) ?>"><?= e($tLabel) ?> <span class="filter-tabs__n"><?= (int) $typeCounts[$t] ?></span></a>
+<?php   endforeach; ?>
+		</nav>
+<?php endif; ?>
 		<form method="get" action="<?= e(admin_url()) ?>" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
 			<input type="hidden" name="section" value="media">
-<?php foreach ($keep as $k => $v): ?>
+<?php foreach ($keep + $typeKeep as $k => $v): ?>
 			<input type="hidden" name="<?= e($k) ?>" value="<?= e($v) ?>">
 <?php endforeach; ?>
 			<input class="input" type="search" name="q" value="<?= e($q) ?>" placeholder="Fayl adı ilə axtar…" style="max-width:320px">
 			<button class="btn" type="submit">Axtar</button>
 			<span class="field__hint"><?= count($all) ?> fayl</span>
 <?php if ($pick === ''): ?>
-			<span class="field__hint">· <span class="badge">İstifadədə</span> olan fayllar saytda göstərilir və silinmir</span>
+			<span class="field__hint">· <span class="badge">İstifadədə</span> olan faylı silmək üçün təsdiq lazımdır ·
+				<span class="badge badge--off">Dizayn</span> faylları (loqo, fon, səhifələrin orijinal şəkilləri) silinmir</span>
 <?php endif; ?>
 		</form>
 	</div>
 </div>
 
+<?php if ($pick === '' && $slice): ?>
+<form id="media-bulk" class="bulk-bar" method="post" action="<?= e(admin_url(['section' => 'media', 'action' => 'bulk'])) ?>">
+	<?= admin_token_field() ?>
+	<input type="hidden" name="q" value="<?= e($q) ?>">
+	<input type="hidden" name="p" value="<?= (int) $page ?>">
+	<input type="hidden" name="type" value="<?= e($type) ?>">
+	<button class="btn btn--sm btn--danger" type="submit"
+	        data-confirm="Seçilən fayllar zibil qutusuna köçürülsün? <?= TRASH_DAYS ?> gün ərzində bərpa etmək olar.">Seçilənləri sil</button>
+	<span class="field__hint">Kartın küncündəki qutunu işarələyin. Seçilənlər arasında saytda istifadə olunan fayl varsa, silməzdən əvvəl harada istifadə olunduğu göstəriləcək.</span>
+	<a class="bulk-bar__trash" href="<?= e(admin_url(['section' => 'trash', 'type' => 'media'])) ?>">Zibil qutusu →</a>
+</form>
+<?php endif; ?>
+
 <div class="media-grid">
 <?php foreach ($slice as $file): ?>
-<?php $inUse = isset($used[media_ref($file['path'])]); ?>
+<?php
+    $places  = $pick === '' ? ($used[media_ref($file['path'])] ?? []) : [];
+    $labels  = array_keys($places);
+    $design  = in_array(true, $places, true);
+    $isImage = in_array($file['ext'], MEDIA_IMAGE_EXT, true);
+?>
 	<figure class="media-item">
 		<div class="media-item__thumb">
-<?php if (in_array($file['ext'], MEDIA_IMAGE_EXT, true)): ?>
+<?php if ($isImage): ?>
 			<img src="<?= e(asset($file['path'])) ?>" alt="" loading="lazy">
 <?php elseif ($file['ext'] === 'mp4'): ?>
-			<video src="<?= e(asset($file['path'])) ?>" muted playsinline preload="metadata"></video>
-			<span class="media-item__ext">MP4</span>
+			<video src="<?= e(asset($file['path'])) ?>#t=0.5" preload="metadata" muted playsinline></video>
+			<span class="media-item__kind">▶ Video</span>
 <?php else: ?>
 			<span class="media-item__ext"><?= e(strtoupper($file['ext'])) ?></span>
 <?php endif; ?>
-<?php if ($inUse): ?>
-			<span class="media-item__badge" title="Bu fayl yazıda, səhifədə və ya dizaynda istifadə olunur">İstifadədə</span>
+<?php if ($design): ?>
+			<span class="media-item__badge media-item__badge--lock" title="<?= e(media_lock_text($places)) ?>">Dizayn</span>
+<?php elseif ($places): ?>
+			<span class="media-item__badge" title="<?= e('İstifadə olunur:' . "\n" . implode("\n", array_slice($labels, 0, 12)) . (count($labels) > 12 ? "\n…" : '')) ?>">İstifadədə</span>
+<?php endif; ?>
+<?php if ($pick === '' && !$design): ?>
+			<label class="media-item__check" title="Seç — «Seçilənləri sil» üçün">
+				<input type="checkbox" name="paths[]" value="<?= e($file['path']) ?>" form="media-bulk" aria-label="Seç: <?= e($file['name']) ?>">
+			</label>
 <?php endif; ?>
 		</div>
 		<figcaption class="media-item__foot">
@@ -352,17 +657,23 @@ ob_start();
 				<button class="btn btn--sm btn--primary" type="button" data-choose="<?= e($file['path']) ?>">Seç</button>
 <?php else: ?>
 				<button class="btn btn--sm" type="button" data-copy="<?= e($file['path']) ?>">Yolu köçür</button>
-<?php if ($inUse): ?>
-				<button class="btn btn--sm btn--danger" type="button" disabled
-				        title="Saytda istifadə olunur — əvvəlcə onu yazıdan və ya səhifədən götürün">Sil</button>
+<?php if ($design): ?>
+				<span class="media-item__lock" title="<?= e(media_lock_text($places)) ?>">
+					<button class="btn btn--sm btn--danger" type="button" disabled>Sil</button>
+				</span>
 <?php else: ?>
 				<form method="post" action="<?= e(admin_url(['section' => 'media', 'action' => 'delete'])) ?>">
 					<?= admin_token_field() ?>
 					<input type="hidden" name="path" value="<?= e($file['path']) ?>">
 					<input type="hidden" name="q" value="<?= e($q) ?>">
 					<input type="hidden" name="p" value="<?= (int) $page ?>">
+					<input type="hidden" name="type" value="<?= e($type) ?>">
+<?php   if ($places): ?>
+					<input type="hidden" name="confirm" value="<?= e(media_sig([$file['path'] => $labels])) ?>">
+<?php   endif; ?>
 					<button class="btn btn--sm btn--danger" type="submit"
-					        data-confirm="“<?= e($file['name']) ?>” silinsin?">Sil</button>
+					        data-confirm="<?= e($places ? media_confirm_text($file['name'], $labels, $isImage)
+                                : '“' . $file['name'] . '” silinsin? Fayl zibil qutusuna düşür və ' . TRASH_DAYS . ' gün ərzində bərpa edilə bilər.') ?>">Sil</button>
 				</form>
 <?php endif; ?>
 <?php endif; ?>
@@ -379,7 +690,7 @@ ob_start();
 <?php if ($pages > 1): ?>
 <div class="actions" style="margin-top:16px;flex-wrap:wrap">
 <?php for ($n = 1; $n <= $pages; $n++): ?>
-	<a class="btn btn--sm<?= $n === $page ? ' btn--primary' : '' ?>" href="<?= e(admin_url(['section' => 'media', 'p' => $n] + ($q !== '' ? ['q' => $q] : []) + $keep)) ?>"><?= $n ?></a>
+	<a class="btn btn--sm<?= $n === $page ? ' btn--primary' : '' ?>" href="<?= e(admin_url(['section' => 'media', 'p' => $n] + ($q !== '' ? ['q' => $q] : []) + $keep + $typeKeep)) ?>"><?= $n ?></a>
 <?php endfor; ?>
 </div>
 <?php endif; ?>
@@ -393,6 +704,8 @@ if ($fragment) {
     return;
 }
 
-admin_shell_start('media', $pick !== '' ? 'Şəkil seçin' : 'Şəkillər və fayllar');
+admin_shell_start('media', $pick !== '' ? 'Şəkil seçin' : 'Qalereya', $pick !== '' ? [] : [
+    ['href' => admin_url(['section' => 'trash', 'type' => 'media']), 'label' => 'Zibil qutusu'],
+]);
 echo $body;
 admin_shell_end();

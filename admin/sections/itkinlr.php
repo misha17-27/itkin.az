@@ -4,15 +4,14 @@
 $rows = data_load('itkinlr');
 $id   = (int) ($_GET['id'] ?? 0);
 
+// Qeyd birdəfəlik silinmir: ingiliscə tərcüməsi ilə birlikdə zibil qutusuna düşür (30 gün)
 if ($action === 'delete' && $id > 0) {
     admin_require_delete('itkinlr');
-    $item = admin_find($rows, $id);
+    $item = trash_move_record('itkinlr', $id);
     if (!$item) {
         admin_redirect(['section' => 'itkinlr'], 'Belə qeyd tapılmadı — yəqin artıq silinib.', 'error');
     }
-    store_save('itkinlr', admin_delete($rows, $id), 'İtkin düşmüş şəxslər / missing persons');
-    admin_en_save('itkinlr', $id, null);   // ingiliscə tərcüməsi də silinir
-    admin_redirect(['section' => 'itkinlr'], '“' . ($item['title'] ?? '') . '” silindi.');
+    admin_redirect(['section' => 'itkinlr'], trash_flash((string) $item['title']));
 }
 
 $errors = [];
@@ -59,7 +58,7 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
 
     if (!$errors) {
         $isNew = $id === 0;
-        $newId = $isNew ? store_next_id($rows) : $id;
+        $newId = $isNew ? admin_next_id('itkinlr', $rows) : $id;
         $prev  = $item ?? [];
 
         $thumb = admin_thumb_from_path(post_str('thumb'), $prev['thumb'] ?? []);

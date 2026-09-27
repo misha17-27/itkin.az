@@ -7,15 +7,14 @@ $id   = (int) ($_GET['id'] ?? 0);
 /* düymələrin id-ləri Elementor şablonundan gəlir: AZ / EN / RU */
 const BOOK_LANGS = ['7f9aa47' => 'AZ', '43181c2' => 'EN', '044b0d1' => 'RU'];
 
+// Kitab birdəfəlik silinmir: ingiliscə tərcüməsi ilə birlikdə zibil qutusuna düşür (30 gün)
 if ($action === 'delete' && $id > 0) {
     admin_require_delete('kitabxana');
-    $item = admin_find($rows, $id);
+    $item = trash_move_record('kitabxana', $id);
     if (!$item) {
         admin_redirect(['section' => 'kitabxana'], 'Belə kitab tapılmadı — yəqin artıq silinib.', 'error');
     }
-    store_save('kitabxana', admin_delete($rows, $id), 'Kitabxana / library books');
-    admin_en_save('kitabxana', $id, null);   // ingiliscə tərcüməsi də silinir
-    admin_redirect(['section' => 'kitabxana'], '“' . ($item['title'] ?? '') . '” silindi.');
+    admin_redirect(['section' => 'kitabxana'], trash_flash((string) $item['title']));
 }
 
 $errors = [];
@@ -82,7 +81,7 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
 
     if (!$errors) {
         $isNew = $id === 0;
-        $newId = $isNew ? store_next_id($rows) : $id;
+        $newId = $isNew ? admin_next_id('kitabxana', $rows) : $id;
         $prev  = $item ?? [];
 
         $content = post_html('content');

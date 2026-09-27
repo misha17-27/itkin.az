@@ -2,8 +2,9 @@
 /**
  * Xəbərlər bölməsi / news section
  *
- * Xəbərlər ingiliscəyə tərcümə olunmur. İstəyə görə ayrıca xəbərə ingiliscə
- * mətn yazmaq olar (data/posts-en.php) — onda o xəbər saytın /en/ versiyasına düşür.
+ * Formada iki nişan var: «AZ Azərbaycanca» və «EN English». İngiliscə başlıq
+ * yazılmış xəbər (data/posts-en.php) saytın /en/ versiyasına düşür və onda dil
+ * seçimi görünür; tərcüməsi olmayan xəbər yalnız azərbaycancadır.
  */
 
 if (!function_exists('posts_en_html')) {
@@ -13,7 +14,7 @@ if (!function_exists('posts_en_html')) {
      */
     function posts_en_html(string $html): string
     {
-        $text = strip_tags($html, '<img><video><audio><source><table><hr>');
+        $text = strip_tags($html, '<img><video><audio><source><iframe><table><hr>');
         $text = str_replace("\xC2\xA0", ' ', html_entity_decode($text, ENT_QUOTES | ENT_HTML5, 'UTF-8'));
         return trim($text) === '' ? '' : $html;
     }
@@ -51,15 +52,14 @@ $listParams = ['section' => 'posts'] + ($catFilter ? ['cat' => $catFilter] : [])
 
 /* ---------------------------------------------------------------- silmək */
 
+// Xəbər birdəfəlik silinmir: ingiliscə versiyası ilə birlikdə zibil qutusuna düşür (30 gün)
 if ($action === 'delete' && $id > 0) {
     admin_require_delete('posts');
-    $item = admin_find($rows, $id);
+    $item = trash_move_record('posts', $id);
     if (!$item) {
         admin_redirect($listParams, 'Belə yazı tapılmadı — yəqin artıq silinib.', 'error');
     }
-    store_save('posts', admin_delete($rows, $id), 'Xəbərlər və yazılar / posts');
-    admin_en_save('posts', $id, null);   // ingiliscə versiyası da silinir
-    admin_redirect($listParams, '“' . ($item['title'] ?? '') . '” silindi.');
+    admin_redirect($listParams, trash_flash((string) $item['title']));
 }
 
 /* ---------------------------------------------------------------- yazmaq */
@@ -97,7 +97,7 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
 
     if (!$errors) {
         $isNew   = $id === 0;
-        $newId   = $isNew ? store_next_id($rows) : $id;
+        $newId   = $isNew ? admin_next_id('posts', $rows) : $id;
         $prev    = $item ?? [];
         $date    = admin_datetime_store(post_str('date'), $prev['date'] ?? date('Y-m-d\TH:i:s'));
         $content = post_html('content');
@@ -143,7 +143,8 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             }
         }
 
-        admin_redirect(['section' => 'posts', 'action' => 'edit', 'id' => $newId], $flash);
+        admin_redirect(['section' => 'posts', 'action' => 'edit', 'id' => $newId]
+            + ((string) ($_POST['tab'] ?? '') === 'en' ? ['tab' => 'en'] : []), $flash);
     }
 
     // Xəta olsa formanı doldurulmuş halda göstəririk
@@ -177,10 +178,35 @@ if ($action === 'edit') {
 
     f_errors($errors);
     f_open(['section' => 'posts', 'action' => 'edit', 'id' => $id]);
+
+    // Açıq nişan: ingiliscə sahədə xəta varsa, siyahıdakı «+ EN»-dən gəlinibsə və ya
+    // ingiliscə nişanda yadda saxlanılıbsa — ingiliscə
+    $enTab = (isset($en) && $en !== null && $en['title'] === '' && implode('', $en) !== '')
+        || (string) ($_GET['tab'] ?? '') === 'en'
+        || (string) ($_POST['tab'] ?? '') === 'en';
     ?>
+	<input type="hidden" name="tab" value="<?= $enTab ? 'en' : 'az' ?>" data-lang-tab-field>
+	<div class="lang-tabs" data-lang-tabs data-active="<?= $enTab ? 'en' : 'az' ?>" role="tablist">
+		<button class="lang-tabs__btn" type="button" role="tab" data-lang-tab="az">
+			<span class="lang-flag lang-flag--az">AZ</span> Azərbaycanca
+		</button>
+		<button class="lang-tabs__btn" type="button" role="tab" data-lang-tab="en">
+			<span class="lang-flag">EN</span> English
+			<span class="lang-tabs__state<?= $enSaved ? ' is-on' : '' ?>"><?= $enSaved ? 'tərcümə var' : 'tərcümə yoxdur' ?></span>
+		</button>
+<?php if (!$isNew): ?>
+		<span class="lang-tabs__links">
+			<a class="btn btn--sm" href="<?= e(url((string) (admin_find($rows, $id)['slug'] ?? $item['slug']))) ?>" target="_blank" rel="noopener">Saytda aç ↗</a>
+<?php   if ($enView !== ''): ?>
+			<a class="btn btn--sm" href="<?= e($enView) ?>" target="_blank" rel="noopener">EN ↗</a>
+<?php   endif; ?>
+		</span>
+<?php endif; ?>
+	</div>
+
 	<div class="grid2">
 		<div>
-			<div class="card"><div class="card__body">
+			<div class="card" data-lang-pane="az"><div class="card__body">
 				<?php
                 f_text('title', 'Başlıq', (string) $item['title'], ['required' => true, 'data' => 'slug-source']);
                 f_text('slug', 'Ünvan (slug)', (string) $item['slug'], [
@@ -194,6 +220,27 @@ if ($action === 'edit') {
                 ]);
                 ?>
 			</div></div>
+
+			<div class="card card--en" data-lang-pane="en" id="en">
+				<div class="card__head"><span class="lang-flag">EN</span> İngiliscə versiya</div>
+				<div class="card__body">
+					<p class="field__hint" style="margin-top:0">
+						İngiliscə başlığı yazıb yadda saxlayan kimi xəbər saytın <code>/en/</code> versiyasında görünür
+						və xəbərin səhifəsində dil seçimi (AZ / EN) çıxır. Tərcüməsi olmayan xəbər yalnız azərbaycancadır.
+						Bütün ingiliscə sahələri boşaltsanız, ingiliscə versiya silinir.
+					</p>
+					<?php
+                    f_text('en[title]', 'Başlıq (ingiliscə)', (string) $enForm['title'], [
+                        'hint' => 'İngiliscə versiya üçün məcburidir.',
+                    ]);
+                    f_textarea('en[content]', 'Mətn (ingiliscə)', (string) $enForm['content'], [
+                        'tall' => true,
+                        'rich' => true,
+                        'hint' => 'Boş buraxsanız ingiliscə səhifədə azərbaycanca mətn göstərilir.',
+                    ]);
+                    ?>
+				</div>
+			</div>
 		</div>
 
 		<div>
@@ -204,6 +251,7 @@ if ($action === 'edit') {
                     f_text('date', 'Tarix', admin_datetime_value((string) $item['date']), ['type' => 'datetime-local']);
                     f_checks('categories', 'Kateqoriyalar', $catOptions, array_map('intval', $item['categories'] ?? []));
                     ?>
+					<p class="field__hint" style="margin:0">Tarix, kateqoriya və şəkil hər iki dil üçün eynidir.</p>
 				</div>
 			</div>
 
@@ -217,6 +265,7 @@ if ($action === 'edit') {
 			<div class="card">
 				<div class="card__head">Axtarış sistemləri</div>
 				<div class="card__body">
+					<div data-lang-pane="az">
 					<?php
                     f_text('doc_title', 'SEO başlıq', (string) ($item['doc_title'] ?? ''), [
                         'hint' => 'Brauzerin başlığında və Google nəticələrində görünür. Boş buraxsanız addan avtomatik qurulur.',
@@ -227,51 +276,20 @@ if ($action === 'edit') {
                         'hint' => 'Boş buraxsanız mətnin əvvəlindən götürüləcək.',
                     ]);
                     ?>
+					</div>
+					<div data-lang-pane="en">
+					<?php
+                    f_textarea('en[excerpt]', 'Qısa mətn (ingiliscə)', (string) $enForm['excerpt'], ['rows' => 3]);
+                    f_textarea('en[description]', 'Təsvir (meta description, ingiliscə)', (string) $enForm['description'], [
+                        'rows' => 3,
+                        'hint' => 'Boş buraxsanız ingiliscə mətnin əvvəlindən götürüləcək.',
+                    ]);
+                    ?>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<?php
-    f_en_open($enView, 'Xəbərlər ingiliscəyə tərcümə olunmur — saytın <code>/en/</code> versiyasında yalnız ingiliscə mətni yazılmış xəbərlər görünür. '
-        . 'Bu xəbəri orada göstərmək istəyirsinizsə, ən azı ingiliscə başlığı yazın: onda xəbərin səhifəsində dil düyməsi çıxacaq. '
-        . 'Boş qalan sahələrin yerində azərbaycanca mətn göstərilir. Bütün ingiliscə sahələri boşaltsanız, xəbər ingiliscə versiyadan çıxarılır.');
-    // Tərcüməsi olmayan xəbərdə sahələr bağlı qalır — “əlavə et” ilə açılır
-    $enFold = $enSaved === [];
-    ?>
-	<?php if ($enFold): ?>
-			<details<?= implode('', $enForm) !== '' ? ' open' : '' ?>>
-				<summary class="btn btn--sm">+ İngiliscə versiya əlavə et</summary>
-				<div style="margin-top:15px">
-	<?php endif; ?>
-				<div class="grid2">
-					<div>
-						<?php
-                        f_text('en[title]', 'Başlıq (ingiliscə)', (string) $enForm['title'], [
-                            'hint' => 'İngiliscə versiya üçün məcburidir.',
-                        ]);
-                        f_textarea('en[content]', 'Mətn (ingiliscə)', (string) $enForm['content'], [
-                            'tall' => true,
-                            'rich' => true,
-                            'hint' => 'Boş buraxsanız ingiliscə səhifədə azərbaycanca mətn göstərilir.',
-                        ]);
-                        ?>
-					</div>
-					<div>
-						<?php
-                        f_textarea('en[excerpt]', 'Qısa mətn (ingiliscə)', (string) $enForm['excerpt'], ['rows' => 3]);
-                        f_textarea('en[description]', 'Təsvir (meta description, ingiliscə)', (string) $enForm['description'], [
-                            'rows' => 3,
-                            'hint' => 'Boş buraxsanız ingiliscə mətnin əvvəlindən götürüləcək.',
-                        ]);
-                        ?>
-					</div>
-				</div>
-	<?php if ($enFold): ?>
-				</div>
-			</details>
-	<?php endif; ?>
-	<?php f_en_close(); ?>
 
 	<?php f_actions(admin_url(['section' => 'posts']),
         $isNew ? null : admin_url(['section' => 'posts', 'action' => 'delete', 'id' => $id])); ?>
@@ -333,7 +351,7 @@ admin_shell_start('posts', 'Xəbərlər', [
 				</form>
 			</th>
 			<th style="width:120px">Tarix</th>
-			<th style="width:44px" title="İngiliscə versiya">EN</th>
+			<th style="width:60px" title="İngiliscə versiya">EN</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -353,7 +371,13 @@ admin_shell_start('posts', 'Xəbərlər', [
                 echo e(implode(', ', $names));
             ?></td>
 			<td class="table__meta"><?= e(az_date($row['date'])) ?></td>
-			<td><?php if (isset($enRows[$row['id']])): ?><span class="lang-flag" title="İngiliscə versiyası var">EN</span><?php endif; ?></td>
+			<td>
+<?php if (isset($enRows[$row['id']])): ?>
+				<a class="lang-flag" href="<?= e(admin_url(['section' => 'posts', 'action' => 'edit', 'id' => $row['id'], 'tab' => 'en'])) ?>" title="İngiliscə versiyası var — redaktə et">EN</a>
+<?php else: ?>
+				<a class="lang-add" href="<?= e(admin_url(['section' => 'posts', 'action' => 'edit', 'id' => $row['id'], 'tab' => 'en'])) ?>" title="İngiliscə tərcümə əlavə et">+ EN</a>
+<?php endif; ?>
+			</td>
 			<td class="is-right">
 				<div class="table__actions">
 					<a class="btn btn--sm" href="<?= e(url($row['slug'])) ?>" target="_blank" rel="noopener">Bax</a>
@@ -361,7 +385,7 @@ admin_shell_start('posts', 'Xəbərlər', [
 					<form method="post" action="<?= e(admin_url(['section' => 'posts', 'action' => 'delete', 'id' => $row['id']] + ($catFilter ? ['cat' => $catFilter] : []))) ?>">
 						<?= admin_token_field() ?>
 						<button class="btn btn--sm btn--danger" type="submit"
-						        data-confirm="&#8220;<?= e(mb_strimwidth((string) $row['title'], 0, 70, '…')) ?>&#8221; silinsin? Bunu geri qaytarmaq olmur.">Sil</button>
+						        data-confirm="&#8220;<?= e(mb_strimwidth((string) $row['title'], 0, 70, '…')) ?>&#8221; zibil qutusuna köçürülsün? <?= TRASH_DAYS ?> gün ərzində bərpa etmək olar.">Sil</button>
 					</form>
 				</div>
 			</td>

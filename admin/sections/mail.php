@@ -175,7 +175,7 @@ $secure = (string) cfg('smtp_secure', 'ssl');
 		<div class="card__body">
 			<p class="field__hint" style="margin-top:0">Hazırkı ayarlarla yoxlama məktubu göndəririk — ayarların düzgün olduğuna əmin olmaq üçün.</p>
 			<div class="inline-form">
-				<?php f_text('test_to', 'Alıcının ünvanı', post_str('test_to') ?: (string) (cfg('admin_email') ?: cfg('contact_email', '')), ['type' => 'email']); ?>
+				<?php f_text('test_to', 'Alıcının ünvanı', post_str('test_to') ?: (string) ((admin_user()['email'] ?? '') ?: cfg('contact_email', '')), ['type' => 'email']); ?>
 				<button class="btn" type="submit">Yoxlama məktubu göndər</button>
 			</div>
 		</div>

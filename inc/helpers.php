@@ -818,6 +818,16 @@ function storage_json(string $name, ?callable $change = null): array
  * CSP yalnız çərçivəyə salınmanı, <base> və <object>-i və formanın başqa
  * sayta göndərilməsini məhdudlaşdırır.
  */
+/** Bu sorğunun inline skriptləri üçün birdəfəlik nonce (CSP) */
+function csp_nonce(): string
+{
+    static $nonce = null;
+    if ($nonce === null) {
+        $nonce = rtrim(strtr(base64_encode(random_bytes(18)), '+/', '-_'), '=');
+    }
+    return $nonce;
+}
+
 function send_security_headers(bool $admin = false): void
 {
     if (headers_sent()) {
@@ -826,7 +836,13 @@ function send_security_headers(bool $admin = false): void
     header_remove('X-Powered-By');
     header('X-Content-Type-Options: nosniff');
     header('X-Frame-Options: SAMEORIGIN');
-    header("Content-Security-Policy: frame-ancestors 'self'; base-uri 'self'; object-src 'none'; form-action 'self'");
+    $csp = "frame-ancestors 'self'; base-uri 'self'; object-src 'none'; form-action 'self'";
+    if ($admin) {
+        // Panel: yalnız öz skript faylları, nonce-lu inline skript və Turnstile.
+        // Məzmuna birtəhər düşmüş onerror/inline skript administratorun brauzerində işləməz.
+        $csp .= "; script-src 'self' 'nonce-" . csp_nonce() . "' https://challenges.cloudflare.com";
+    }
+    header('Content-Security-Policy: ' . $csp);
     header('Referrer-Policy: ' . ($admin ? 'same-origin' : 'strict-origin-when-cross-origin'));
     header('Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()');
     if (request_is_https()) {

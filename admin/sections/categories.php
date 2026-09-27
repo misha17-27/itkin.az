@@ -22,10 +22,19 @@ if ($action === 'delete' && $id > 0) {
         admin_redirect(['section' => 'categories'],
             'Silinmədi: bu kateqoriyada ' . $used . ' yazı var. Əvvəlcə onları başqa kateqoriyaya keçirin.', 'error');
     }
-    $item = admin_find($rows, $id);
-    store_save('categories', admin_delete($rows, $id), 'Kateqoriyalar / categories');
-    admin_en_save('categories', $id, null);   // ingiliscə tərcüməsi də silinir
-    admin_redirect(['section' => 'categories'], '“' . ($item['name'] ?? '') . '” silindi.');
+    // zibil qutusundakı xəbərlər də bu kateqoriyaya bağlıdır — bərpa olunanda yerləri qalmalıdır
+    $trashed = trash_posts_in_category($id);
+    if ($trashed > 0) {
+        admin_redirect(['section' => 'categories'],
+            'Silinmədi: zibil qutusunda bu kateqoriyanın ' . $trashed . ' xəbəri var. '
+            . 'Onları bərpa edib başqa kateqoriyaya keçirin və ya zibil qutusundan birdəfəlik silin.', 'error');
+    }
+    // birdəfəlik silinmir: ingiliscə tərcüməsi ilə birlikdə zibil qutusuna düşür (30 gün)
+    $item = trash_move_record('categories', $id);
+    if (!$item) {
+        admin_redirect(['section' => 'categories'], 'Belə kateqoriya tapılmadı — yəqin artıq silinib.', 'error');
+    }
+    admin_redirect(['section' => 'categories'], trash_flash((string) $item['title']));
 }
 
 $errors = [];
@@ -48,7 +57,7 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
 
     if (!$errors) {
         $isNew = $id === 0;
-        $newId = $isNew ? store_next_id($rows) : $id;
+        $newId = $isNew ? admin_next_id('categories', $rows) : $id;
         $prev  = $item ?? [];
         $saved = [
             'id'          => $newId,
@@ -120,8 +129,8 @@ if ($action === 'edit') {
         'Saytın <code>/en/</code> versiyasında göstərilir. Boş buraxılan sahənin yerində azərbaycanca mətn çıxır; '
         . 'hər iki sahəni boşaltsanız, tərcümə silinir. Brauzer başlığı ingiliscə addan avtomatik qurulur '
         . '(<code>… Archives - ' . e((string) cfg('site_name')) . '</code>).<br>'
-        . 'Xəbərlər tərcümə olunmadığı üçün kateqoriyanın ingiliscə səhifəsi yalnız içində ingiliscə versiyası olan '
-        . 'ən azı bir xəbər olduqda açılır; əks halda ziyarətçi azərbaycanca səhifəyə yönləndirilir.');
+        . 'Kateqoriyanın ingiliscə səhifəsi yalnız içində ingiliscə versiyası olan ən azı bir xəbər olduqda açılır; '
+        . 'əks halda ziyarətçi azərbaycanca səhifəyə yönləndirilir.');
     ?>
 		<div class="narrow">
 <?php if ($enSaved !== [] && !$enLive): ?>

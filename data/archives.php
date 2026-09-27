@@ -7,7 +7,7 @@
 
 return [
     'itkinlr' => [
-        'title' => 'İtkinlər Archive - İtkin',
+        'title' => 'İtkinlər: Birinci Qarabağ müharibəsində itkin düşənlər - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -62,16 +62,16 @@ return [
             [
                 'p',
                 'og:description',
-                'Birinci Qarabağ müharibəsində itkin düşmüş şəxslərin siyahısı — “Qarabağ İtkin Ailələri” İctimai Birliyinin topladığı məlumatlar.',
+                'Birinci Qarabağ müharibəsində itkin düşmüş şəxslərin siyahısı: “Qarabağ İtkin Ailələri” İctimai Birliyinin topladığı adlar və hər biri üçün ayrıca səhifə.',
             ],
         ],
         'schema' => <<<'HTML'
 {"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"{{SITE}}/itkinlr/","url":"{{SITE}}/itkinlr/","name":"İtkinlər Archive - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/itkinlr/#primaryimage"},"image":{"@id":"{{SITE}}/itkinlr/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2023/12/zeynalov-cingiz-atas-oglu.jpg","breadcrumb":{"@id":"{{SITE}}/itkinlr/#breadcrumb"},"inLanguage":"az"},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/itkinlr/#primaryimage","url":"{{SITE}}/uploads/2023/12/zeynalov-cingiz-atas-oglu.jpg","contentUrl":"{{SITE}}/uploads/2023/12/zeynalov-cingiz-atas-oglu.jpg","width":300,"height":370},{"@type":"BreadcrumbList","@id":"{{SITE}}/itkinlr/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"İtkinlər"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}}]}
 HTML,
-        'description' => 'Birinci Qarabağ müharibəsində itkin düşmüş şəxslərin siyahısı — “Qarabağ İtkin Ailələri” İctimai Birliyinin topladığı məlumatlar.',
+        'description' => 'Birinci Qarabağ müharibəsində itkin düşmüş şəxslərin siyahısı: “Qarabağ İtkin Ailələri” İctimai Birliyinin topladığı adlar və hər biri üçün ayrıca səhifə.',
     ],
     'kitabxana-blog' => [
-        'title' => 'Kitabxana Archive - İtkin',
+        'title' => 'Kitablar: əsir, girov və itkinlərə dair nəşrlər - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -126,13 +126,13 @@ HTML,
             [
                 'p',
                 'og:description',
-                'İtkin düşmüş və əsir götürülmüş şəxslərə dair kitablar, hesabatlar və sənədlər — Azərbaycan, ingilis və rus dillərində yüklənə bilər.',
+                'Əsir və itkin düşmüş, girov götürülmüş vətəndaşlara, erməni terroruna və müharibə cinayətlərinə dair kitablar: Eldar Səmədov və digər müəlliflərin nəşrləri.',
             ],
         ],
         'schema' => <<<'HTML'
 {"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"{{SITE}}/kitabxana-blog/","url":"{{SITE}}/kitabxana-blog/","name":"Kitabxana Archive - İtkin","isPartOf":{"@id":"{{SITE}}/#website"},"primaryImageOfPage":{"@id":"{{SITE}}/kitabxana-blog/#primaryimage"},"image":{"@id":"{{SITE}}/kitabxana-blog/#primaryimage"},"thumbnailUrl":"{{SITE}}/uploads/2024/08/20220426092734_25837600.jpg","breadcrumb":{"@id":"{{SITE}}/kitabxana-blog/#breadcrumb"},"inLanguage":"az"},{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/kitabxana-blog/#primaryimage","url":"{{SITE}}/uploads/2024/08/20220426092734_25837600.jpg","contentUrl":"{{SITE}}/uploads/2024/08/20220426092734_25837600.jpg","width":1020,"height":1520},{"@type":"BreadcrumbList","@id":"{{SITE}}/kitabxana-blog/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana səhifə","item":"{{SITE}}/"},{"@type":"ListItem","position":2,"name":"Kitabxana"}]},{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}}]}
 HTML,
-        'description' => 'İtkin düşmüş və əsir götürülmüş şəxslərə dair kitablar, hesabatlar və sənədlər — Azərbaycan, ingilis və rus dillərində yüklənə bilər.',
+        'description' => 'Əsir və itkin düşmüş, girov götürülmüş vətəndaşlara, erməni terroruna və müharibə cinayətlərinə dair kitablar: Eldar Səmədov və digər müəlliflərin nəşrləri.',
     ],
     '404' => [
         'title' => 'Səhifə tapılmadı - İtkin',
@@ -157,5 +157,6 @@ HTML,
         'schema' => <<<'HTML'
 {"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"{{SITE}}/#website","url":"{{SITE}}/","name":"İtkin","description":"İtkin","publisher":{"@id":"{{SITE}}/#organization"},"alternateName":"Qarabağ İtkin Ailələri","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"{{SITE}}/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"az"},{"@type":"Organization","@id":"{{SITE}}/#organization","name":"Qarabağ İtkin Ailələri","alternateName":"İctimai Birliyi","url":"{{SITE}}/","logo":{"@type":"ImageObject","inLanguage":"az","@id":"{{SITE}}/#/schema/logo/image/","url":"{{SITE}}/uploads/2023/11/logo.png","contentUrl":"{{SITE}}/uploads/2023/11/logo.png","width":560,"height":415,"caption":"Qarabağ İtkin Ailələri"},"image":{"@id":"{{SITE}}/#/schema/logo/image/"}}]}
 HTML,
+        'description' => 'Axtardığınız səhifə tapılmadı: ünvan dəyişdirilmiş və ya silinmiş ola bilər. Ana səhifədən, xəbərlər bölməsindən və ya itkinlər siyahısından davam edin.',
     ],
 ];

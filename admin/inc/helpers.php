@@ -69,28 +69,170 @@ function post_ints(string $key): array
     return array_values(array_unique(array_map('intval', $value)));
 }
 
+/** Tam silinən elementlər (içindəkilərlə birlikdə) */
+const ADMIN_HTML_DROP = [
+    'script', 'style', 'frame', 'frameset', 'object', 'embed', 'applet', 'param',
+    'form', 'input', 'button', 'select', 'option', 'textarea', 'base', 'meta', 'link', 'title',
+    // “xam mətn” elementləri: brauzer onları PHP-nin parserindən fərqli oxuyur —
+    // təmiz görünən kod brauzerdə skriptə çevrilə bilər (mXSS)
+    'noscript', 'noembed', 'noframes', 'xmp', 'plaintext', 'template',
+    'svg', 'math',
+];
+
 /**
- * Məzmun HTML-ini təmizləyir.
- * Skriptlər, çərçivələr və hadisə atributları (onclick və s.) atılır —
- * redaktor səhvən yapışdırsa da sayta düşməsin.
+ * Yalnız bu ünvanlardan gələn video çərçivəsi (iframe) saxlanılır — YouTube və Vimeo;
+ * qalan bütün iframe-lər atılır.
+ */
+const ADMIN_HTML_IFRAME_SRC = '#^https://(www\.)?(youtube\.com|youtube-nocookie\.com)/embed/[A-Za-z0-9_-]{6,}([?][A-Za-z0-9_=&;.%-]*)?$|^https://player\.vimeo\.com/video/[0-9]+([?][A-Za-z0-9_=&;.%-]*)?$#';
+
+/** Video çərçivəsində saxlanılan atributlar */
+const ADMIN_HTML_IFRAME_ATTRS = ['src', 'width', 'height', 'title', 'allow', 'allowfullscreen', 'frameborder', 'loading', 'referrerpolicy', 'class', 'style'];
+
+/** Ünvan saxlayan atributlar — sxemi yoxlanılır */
+const ADMIN_HTML_URL_ATTRS = ['href', 'src', 'poster', 'cite', 'background', 'longdesc', 'action', 'formaction', 'data', 'ping'];
+
+/**
+ * Məzmun HTML-ini təmizləyir (xəbər, kitab, itkin, səhifə mətni — AZ və EN).
+ *
+ * Paneldə redaktor rolu olduğu üçün bu, təhlükəsizlik sərhədidir: redaktorun
+ * yazdığı kod administratorun brauzerində (panelə baxanda) və sayt ziyarətçisində
+ * işə düşməməlidir. Ona görə kod mətn kimi yox, DOM ağacı kimi oxunur:
+ *   - skript, çərçivə, forma, “xam mətn” elementləri, şərhlər atılır;
+ *   - hadisə atributları (on…, ayırıcısı nə olursa olsun), srcdoc, xmlns/xlink atılır;
+ *   - ünvanlarda yalnız http(s), mailto, tel, nisbi yol və (şəkillər üçün) data:image qalır —
+ *     entity və boşluqla gizlədilmiş javascript: da tutulur;
+ *   - qalan hər şey (class, style, srcset, video, cədvəl …) saxlanılır —
+ *     orijinal saytdan gələn məzmun dəyişmir.
+ * Nəticə DOM-dan yenidən yazılır: brauzer onu PHP ilə eyni şəkildə oxuyur.
  */
 function admin_clean_html(string $html): string
 {
-    if ($html === '') {
+    if (trim($html) === '') {
         return '';
     }
+    if (!class_exists('DOMDocument')) {
+        return e(strip_tags($html));   // DOM yoxdursa təhlükəsiz tərəf: yalnız mətn
+    }
 
-    // <script>, <style>, <iframe>, <object>, <embed> tam silinir
-    $html = preg_replace('#<\s*(script|style|iframe|object|embed|form)\b[^>]*>.*?<\s*/\s*\1\s*>#is', '', $html);
-    $html = preg_replace('#<\s*/?\s*(script|style|iframe|object|embed|form)\b[^>]*>#i', '', $html);
+    $doc = new DOMDocument('1.0', 'UTF-8');
+    $prev = libxml_use_internal_errors(true);
+    $doc->loadHTML('<?xml encoding="UTF-8"?><html><body><div id="itkin-clean-root">' . $html . '</div></body></html>',
+        LIBXML_NONET | LIBXML_NOERROR | LIBXML_NOWARNING);
+    libxml_clear_errors();
+    libxml_use_internal_errors($prev);
 
-    // on*="..." hadisə atributları
-    $html = preg_replace('#\son[a-z]+\s*=\s*("[^"]*"|\'[^\']*\'|[^\s>]+)#i', '', $html);
+    $root = null;
+    foreach ($doc->getElementsByTagName('div') as $div) {
+        if ($div->getAttribute('id') === 'itkin-clean-root') {
+            $root = $div;
+            break;
+        }
+    }
+    if ($root === null) {
+        return e(strip_tags($html));
+    }
 
-    // javascript: ünvanları
-    $html = preg_replace('#(href|src)\s*=\s*(["\']?)\s*javascript:[^"\'>\s]*#i', '$1=$2#', $html);
+    admin_clean_node($root);
 
-    return (string) $html;
+    $out = '';
+    foreach ($root->childNodes as $child) {
+        $out .= $doc->saveHTML($child);
+    }
+    return $out;
+}
+
+/** admin_clean_html() üçün: elementi və övladlarını təmizləyir */
+function admin_clean_node(DOMNode $node): void
+{
+    // canlı siyahı dəyişəcəyi üçün əvvəlcə kopyası
+    $children = [];
+    foreach ($node->childNodes as $child) {
+        $children[] = $child;
+    }
+    foreach ($children as $child) {
+        if ($child instanceof DOMComment || $child instanceof DOMProcessingInstruction
+            || $child instanceof DOMCdataSection) {
+            $node->removeChild($child);
+            continue;
+        }
+        if (!$child instanceof DOMElement) {
+            continue;
+        }
+        $tag = strtolower($child->nodeName);
+        if (in_array($tag, ADMIN_HTML_DROP, true) || strpos($tag, ':') !== false) {
+            $node->removeChild($child);
+            continue;
+        }
+        if ($tag === 'iframe') {
+            // yalnız YouTube / Vimeo videosu; içi boşaldılır, artıq atributlar atılır
+            if (!preg_match(ADMIN_HTML_IFRAME_SRC, trim($child->getAttribute('src')))) {
+                $node->removeChild($child);
+                continue;
+            }
+            while ($child->firstChild) {
+                $child->removeChild($child->firstChild);
+            }
+            $drop = [];
+            foreach ($child->attributes as $attr) {
+                if (!in_array(strtolower($attr->nodeName), ADMIN_HTML_IFRAME_ATTRS, true)) {
+                    $drop[] = $attr->nodeName;
+                }
+            }
+            foreach ($drop as $name) {
+                $child->removeAttribute($name);
+            }
+            continue;
+        }
+
+        $remove = [];
+        foreach ($child->attributes as $attr) {
+            $name = strtolower($attr->nodeName);
+            if (strpos($name, 'on') === 0 || in_array($name, ['srcdoc', 'formaction', 'is'], true)
+                || strpos($name, 'xmlns') === 0 || strpos($name, 'xlink') === 0 || strpos($name, ':') !== false) {
+                $remove[] = $attr->nodeName;
+                continue;
+            }
+            $value = (string) $attr->nodeValue;
+            if (in_array($name, ADMIN_HTML_URL_ATTRS, true)) {
+                if (!admin_safe_url($value, $tag === 'img' || $tag === 'source')) {
+                    $remove[] = $attr->nodeName;
+                }
+            } elseif ($name === 'srcset') {
+                foreach (explode(',', $value) as $candidate) {
+                    $url = trim(preg_split('/\s+/', trim($candidate))[0] ?? '');
+                    if ($url !== '' && !admin_safe_url($url, true)) {
+                        $remove[] = $attr->nodeName;
+                        break;
+                    }
+                }
+            } elseif ($name === 'style' && preg_match('/expression\s*\(|javascript\s*:|vbscript\s*:|-moz-binding|behavior\s*:/i',
+                    preg_replace('/[\x00-\x20]+/', '', html_entity_decode($value, ENT_QUOTES | ENT_HTML5, 'UTF-8')))) {
+                $remove[] = $attr->nodeName;
+            }
+        }
+        foreach ($remove as $name) {
+            $child->removeAttribute($name);
+        }
+
+        admin_clean_node($child);
+    }
+}
+
+/**
+ * Ünvan təhlükəsizdirmi: nisbi yol, #, ?, http(s), mailto, tel və
+ * (şəkil üçün) data:image/… . Boşluq və idarəetmə simvolları atılıb yoxlanılır —
+ * “java\tscript:” və “&#106;avascript:” kimi gizlətmələr də tutulur (DOM entity-ləri açır).
+ */
+function admin_safe_url(string $url, bool $image = false): bool
+{
+    $clean = strtolower((string) preg_replace('/[\x00-\x20\x7f]+/', '', $url));
+    if ($clean === '' || !preg_match('/^([a-z][a-z0-9+.-]*):/', $clean, $m)) {
+        return true;   // nisbi ünvan, #lövbər, ?sorğu
+    }
+    if (in_array($m[1], ['http', 'https', 'mailto', 'tel'], true)) {
+        return true;
+    }
+    return $image && preg_match('#^data:image/(png|jpe?g|gif|webp|avif);#', $clean) === 1;
 }
 
 /** Tarix sahəsi üçün: 2026-09-21T07:13:58 -> 2026-09-21T07:13 */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Mənim profilim.
+ * Mənim profilim — hər istifadəçi öz hesabını burada dəyişir.
  *
  * Ad və e-poçt sadəcə göstərmək üçündür. Giriş adı və şifrə isə yalnız
  * hazırkı şifrə düzgün yazılanda dəyişir — açıq qalmış sessiyanı ələ keçirən
@@ -9,6 +9,8 @@
 
 $errors = [];
 $form   = (string) ($_POST['form'] ?? '');
+$me     = admin_user();
+$notice = admin_password_notice();   // ilkin və ya müvəqqəti şifrə — yenisi məcburidir
 
 if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     if (!admin_token_ok()) {
@@ -23,43 +25,54 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             $errors[] = 'E-poçt ünvanı düzgün deyil.';
         }
         if (!$errors) {
-            admin_settings_save(['admin_name' => $name, 'admin_email' => $email]);
+            admin_user_update($me['id'], ['name' => $name, 'email' => $email]);
             admin_redirect(['section' => 'profile'], 'Profil yadda saxlanıldı.');
         }
     } elseif ($form === 'login') {
         $current = (string) ($_POST['current'] ?? '');
-        $user    = post_str('admin_user');
+        $login   = post_str('admin_user');
         $pass1   = (string) ($_POST['password'] ?? '');
         $pass2   = (string) ($_POST['password2'] ?? '');
 
         // Hazırkı şifrənin yoxlanması da girişdəki kimi limitə tabedir —
         // yoxsa açıq qalmış sessiya şifrəni sonsuz təxmin etmək üçün işlənərdi
-        if (!admin_try_begin()) {
+        // sayğac istifadəçinin özünündür: başqasının girişini və IP-nin sayğacını sıfırlamır
+        $tryKey = 'u:' . $me['id'];
+        $passOk = false;
+        if (!admin_try_begin($tryKey)) {
             $errors[] = 'Çox sayda səhv cəhd. 15 dəqiqə gözləyin.';
         } elseif (!admin_password_ok($current)) {
             $errors[] = 'Hazırkı şifrə səhvdir.';
         } else {
-            admin_clear_failures();
+            $passOk = true;
+            admin_refund_try($tryKey);
         }
-        if (!preg_match('/^[A-Za-z0-9._@-]{3,40}$/', $user)) {
+        if (!preg_match(ADMIN_LOGIN_RE, $login)) {
             $errors[] = 'İstifadəçi adı 3–40 simvol olmalıdır: hərf, rəqəm, nöqtə, tire, @.';
+        } elseif ($passOk && admin_login_taken($login, $me['id'])) {
+            // yalnız şifrə düzgündürsə deyirik — başqalarının giriş adlarını yoxlamaq üçün işlənməsin
+            $errors[] = 'Bu istifadəçi adı artıq başqa hesabdadır.';
+        }
+        if ($notice !== null && $pass1 === '') {
+            $errors[] = 'Yeni şifrə yazın — hazırkı şifrə ilə işləmək olmaz.';
         }
         if ($pass1 !== '' || $pass2 !== '') {
-            if (strlen($pass1) < 10) {
-                $errors[] = 'Yeni şifrə ən azı 10 simvol olmalıdır.';
+            if (strlen($pass1) < ADMIN_PASSWORD_MIN) {
+                $errors[] = 'Yeni şifrə ən azı ' . ADMIN_PASSWORD_MIN . ' simvol olmalıdır.';
             } elseif ($pass1 !== $pass2) {
                 $errors[] = 'Yeni şifrələr üst-üstə düşmür.';
-            } elseif (hash_equals($pass1, $current)) {
+            } elseif (hash_equals($pass1, $current) || $pass1 === 'itkin2026') {
                 $errors[] = 'Yeni şifrə köhnəsi ilə eyni olmamalıdır.';
             }
         }
 
         if (!$errors) {
-            $changes = ['admin_user' => $user];
+            $changes = ['login' => $login];
             if ($pass1 !== '') {
-                $changes['admin_password'] = password_hash($pass1, PASSWORD_DEFAULT);
+                $changes['password']    = password_hash($pass1, PASSWORD_DEFAULT);
+                $changes['must_change'] = null;   // müvəqqəti şifrə artıq yoxdur
             }
-            admin_settings_save($changes);
+            admin_user_update($me['id'], $changes);
 
             // Bu sessiya davam edir, bütün başqa sessiyalar (başqa brauzer,
             // oğurlanmış cookie) növbəti sorğuda çıxışa düşür
@@ -73,13 +86,11 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
 
 admin_shell_start('profile', 'Mənim profilim');
 f_errors($errors);
-
-$defaultPass = password_verify('itkin2026', (string) cfg('admin_password', ''));
 ?>
-<?php if ($defaultPass): ?>
+<?php if ($notice !== null): ?>
 <div class="errors">
-	<strong>Şifrə hələ də ilkin şifrədir (itkin2026).</strong>
-	Bu şifrə README-də yazılıb — aşağıdan dərhal dəyişin.
+	<strong><?= e($notice) ?></strong>
+	Aşağıdakı «Giriş adı və şifrə» bölməsində hazırkı şifrəni və yenisini yazın.
 </div>
 <?php endif; ?>
 
@@ -91,12 +102,12 @@ $defaultPass = password_verify('itkin2026', (string) cfg('admin_password', ''));
 		<div class="card__body">
 			<?php
             f_text('admin_name', 'Ad', admin_display_name());
-            f_text('admin_email', 'E-poçt', (string) cfg('admin_email', ''), [
+            f_text('admin_email', 'E-poçt', $me['email'], [
                 'type' => 'email',
                 'hint' => 'Poçt yoxlaması üçün hazır ünvan kimi də işlənir.',
             ]);
             ?>
-			<p class="field__hint" style="margin:0 0 14px">Rol: <strong>Administrator</strong></p>
+			<p class="field__hint" style="margin:0 0 14px">Rol: <strong><?= e(ADMIN_ROLES[$me['role']] ?? '') ?></strong></p>
 			<button class="btn btn--primary" type="submit">Yadda saxla</button>
 		</div>
 	</div>
@@ -108,13 +119,14 @@ $defaultPass = password_verify('itkin2026', (string) cfg('admin_password', ''));
 		<div class="card__head">Giriş adı və şifrə</div>
 		<div class="card__body">
 			<?php
-            f_text('admin_user', 'İstifadəçi adı (giriş üçün)', (string) cfg('admin_user', 'admin'), [
+            f_text('admin_user', 'İstifadəçi adı (giriş üçün)', $me['login'], [
                 'hint' => '“admin” kimi hamının təxmin etdiyi addan qaçın.',
             ]);
             f_text('current', 'Hazırkı şifrə', '', ['type' => 'password', 'required' => true]);
             f_text('password', 'Yeni şifrə', '', [
                 'type' => 'password',
-                'hint' => 'Ən azı 10 simvol. Şifrəni dəyişmək istəmirsinizsə, boş buraxın.',
+                'hint' => 'Ən azı ' . ADMIN_PASSWORD_MIN . ' simvol.'
+                    . ($notice !== null ? '' : ' Şifrəni dəyişmək istəmirsinizsə, boş buraxın.'),
             ]);
             f_text('password2', 'Yeni şifrəni təkrarlayın', '', ['type' => 'password']);
             ?>

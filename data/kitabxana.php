@@ -14,8 +14,8 @@ return [
         'modified' => '2024-08-02T07:18:35',
         'categories' => [],
         'excerpt' => 'Esmira Orucova',
-        'description' => 'Esmira Orucova',
-        'doc_title' => 'Bizi əsirlikdən qurtarın - İtkin',
+        'description' => 'Esmira Orucovanın kitabı Ermənistanda və işğal olunmuş ərazilərdə saxlanılan azərbaycanlı əsir və girovların işgəncələrə məruz qalmasına dair faktları toplayır.',
+        'doc_title' => '“Bizi əsirlikdən qurtarın” – Esmira Orucovanın kitabı - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -35,7 +35,7 @@ return [
             [
                 'p',
                 'og:description',
-                'Esmira Orucova',
+                'Esmira Orucovanın kitabı Ermənistanda və işğal olunmuş ərazilərdə saxlanılan azərbaycanlı əsir və girovların işgəncələrə məruz qalmasına dair faktları toplayır.',
             ],
             [
                 'p',
@@ -136,8 +136,8 @@ HTML,
         'modified' => '2024-08-02T07:14:27',
         'categories' => [],
         'excerpt' => 'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
-        'description' => 'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
-        'doc_title' => '“ERMƏNİ SOYQIRIMI” REAL TARİX, YAXUD TARİXİN YALANI” - İtkin',
+        'description' => 'Dövlət Komissiyasının layihəsi əsasında 24 aprel 2017-ci ildə Bakıda keçirilmiş konfransın nəşri. Müəlliflər: Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev.',
+        'doc_title' => '“Erməni soyqırımı”: real tarix, yaxud tarixin yalanı - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -157,7 +157,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
+                'Dövlət Komissiyasının layihəsi əsasında 24 aprel 2017-ci ildə Bakıda keçirilmiş konfransın nəşri. Müəlliflər: Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev.',
             ],
             [
                 'p',
@@ -253,8 +253,8 @@ HTML,
         'modified' => '2024-08-02T07:08:12',
         'categories' => [],
         'excerpt' => 'Eldar Səmədov',
-        'description' => 'Eldar Səmədov',
-        'doc_title' => '"QSM-7" təsdiq edir - İtkin',
+        'description' => 'Eldar Səmədovun kitabı şahid ifadələri və radio əks-kəşfiyyat məlumatları ilə Ermənistanın təcavüzü zamanı törədilmiş müharibə cinayətlərini sübut edir.',
+        'doc_title' => '“QSM-7” təsdiq edir – Eldar Səmədovun kitabı - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -274,7 +274,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Eldar Səmədov',
+                'Eldar Səmədovun kitabı şahid ifadələri və radio əks-kəşfiyyat məlumatları ilə Ermənistanın təcavüzü zamanı törədilmiş müharibə cinayətlərini sübut edir.',
             ],
             [
                 'p',
@@ -367,8 +367,8 @@ HTML,
         'modified' => '2024-08-02T07:05:20',
         'categories' => [],
         'excerpt' => 'Eldar Səmədov, Rauf Məəmmədov',
-        'description' => 'Eldar Səmədov, Rauf Məəmmədov',
-        'doc_title' => 'TERROR: HADİSƏLƏR, FAKTLAR, SÜBUTLAR - İtkin',
+        'description' => 'Eldar Səmədov və Rauf Məmmədovun kitabı 1988-ci ildən Qarabağ münaqişəsi dövründə erməni dəstələrinin dinc azərbaycanlılara qarşı terror əməllərini araşdırır.',
+        'doc_title' => '“Terror: hadisələr, faktlar, sübutlar” kitabı - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -388,7 +388,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Eldar Səmədov, Rauf Məəmmədov',
+                'Eldar Səmədov və Rauf Məmmədovun kitabı 1988-ci ildən Qarabağ münaqişəsi dövründə erməni dəstələrinin dinc azərbaycanlılara qarşı terror əməllərini araşdırır.',
             ],
             [
                 'p',
@@ -484,8 +484,8 @@ HTML,
         'modified' => '2024-08-02T06:54:27',
         'categories' => [],
         'excerpt' => 'İlkin Şükürbəyli, Nəsimi Faiqoğlu',
-        'description' => 'İlkin Şükürbəyli, Nəsimi Faiqoğlu',
-        'doc_title' => 'Qətl edilmiş uşaqlar - İtkin',
+        'description' => 'İlkin Şükürbəyli və Nəsimi Faiqoğlunun sənədlər toplusu erməni təcavüzü nəticəsində həlak olmuş və itkin düşmüş uşaqların, körpələrin taleyindən bəhs edir.',
+        'doc_title' => '“Qətl edilmiş uşaqlar” – Şükürbəyli və Faiqoğlunun kitabı - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -505,7 +505,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'İlkin Şükürbəyli, Nəsimi Faiqoğlu',
+                'İlkin Şükürbəyli və Nəsimi Faiqoğlunun sənədlər toplusu erməni təcavüzü nəticəsində həlak olmuş və itkin düşmüş uşaqların, körpələrin taleyindən bəhs edir.',
             ],
             [
                 'p',
@@ -601,8 +601,8 @@ HTML,
         'modified' => '2024-07-24T19:23:48',
         'categories' => [],
         'excerpt' => 'Eldar Səmədov, Emin Vəliyev, Aygün Həsənoğlu',
-        'description' => 'Eldar Səmədov, Emin Vəliyev, Aygün Həsənoğlu',
-        'doc_title' => 'Erməni Terroru - İtkin',
+        'description' => 'Eldar Səmədov, Emin Vəliyev və Aygün Həsənoğlunun Dövlət Komissiyası tərəfindən hazırlanmış kitabı erməni terrorizmi haqqında həqiqətləri dünyaya çatdırır.',
+        'doc_title' => '“Erməni terroru” – Dövlət Komissiyasının nəşri - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -622,7 +622,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Eldar Səmədov, Emin Vəliyev, Aygün Həsənoğlu',
+                'Eldar Səmədov, Emin Vəliyev və Aygün Həsənoğlunun Dövlət Komissiyası tərəfindən hazırlanmış kitabı erməni terrorizmi haqqında həqiqətləri dünyaya çatdırır.',
             ],
             [
                 'p',
@@ -723,7 +723,7 @@ HTML,
         'modified' => '2024-07-24T19:14:55',
         'categories' => [],
         'excerpt' => 'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
-        'description' => 'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
+        'description' => 'Eldar Səmədov, Emin Vəliyev və Cəmilağa Ağayevin kitabı erməni əsirliyində olmuş qadın, uşaq, qoca, mülki şəxs və hərbçilərin xatirələri əsasında tərtib edilib.',
         'doc_title' => 'Erməni əsirliyində işgəncə və qətl antologiyası - İtkin',
         'head_meta' => [
             [
@@ -744,7 +744,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Eldar Səmədov, Emin Vəliyev, Cəmilağa Ağayev',
+                'Eldar Səmədov, Emin Vəliyev və Cəmilağa Ağayevin kitabı erməni əsirliyində olmuş qadın, uşaq, qoca, mülki şəxs və hərbçilərin xatirələri əsasında tərtib edilib.',
             ],
             [
                 'p',

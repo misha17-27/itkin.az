@@ -36,6 +36,8 @@
 		{ list: 'OL', label: '1. siyahı', title: 'Nömrəli siyahı' },
 		{ act: 'link', label: '🔗', title: 'Keçid əlavə et' },
 		{ act: 'unlink', label: 'keçidi sil', title: 'Keçidi götür' },
+		{ act: 'image', label: 'Şəkil', title: 'Şəkil əlavə et', cls: 'rich__btn--media' },
+		{ act: 'video', label: 'Video', title: 'Video əlavə et', cls: 'rich__btn--media rich__btn--video' },
 		{ act: 'clear', label: 'təmizlə', title: 'Formatı götür' },
 		{ act: 'code', label: 'HTML', title: 'HTML kodunu göstər', right: true }
 	];
@@ -134,7 +136,7 @@
 			var to = pair.split(':')[1];
 			var old = clone.querySelectorAll(from);
 			Array.prototype.forEach.call(old, function (el) {
-				var fresh = document.createElement(to);
+				var fresh = el.ownerDocument.createElement(to);
 				while (el.firstChild) {
 					fresh.appendChild(el.firstChild);
 				}
@@ -146,9 +148,16 @@
 		});
 	}
 
+	/*
+	 * Nüsxə “ölü” sənəddə qurulur. Canlı sənəddəki nüsxədə fold() yolları nisbi
+	 * hala salan kimi brauzer video və şəkli panelin ünvanına görə
+	 * (/mguliyev/uploads/…) yükləməyə çalışırdı — hər hərfdə boş yerə 404 sorğusu.
+	 */
+	var SCRATCH = document.implementation.createHTMLDocument('');
+
 	/* Redaktordakı görüntünü saxlanacaq HTML-ə çevirir */
 	function toStore(area) {
-		var clone = area.cloneNode(true);
+		var clone = SCRATCH.importNode(area, true);
 		fold(clone);
 		dropEmptySpans(clone);
 		unify(clone);
@@ -160,13 +169,112 @@
 	/* ------------------------------------------------------ yapışdırmaq */
 
 	var OK_TAGS = ('p br strong b em i u sub sup ul ol li a h2 h3 h4 blockquote '
-		+ 'table thead tbody tr td th img figure figcaption').split(' ');
+		+ 'table thead tbody tr td th img figure figcaption video source iframe div').split(' ');
 	var OK_ATTRS = 'href src alt title target rel colspan rowspan width height srcset sizes'.split(' ');
+	/* Redaktorun öz bloklarının (şəkil, video, YouTube/Vimeo) əlavə atributları —
+	   kəsib-yapışdıranda bloklar itməsin */
+	var TAG_ATTRS = {
+		img: ['class', 'loading', 'decoding'],
+		figure: ['class'],
+		div: ['class'],
+		video: ['controls', 'preload', 'poster', 'playsinline', 'muted', 'loop'],
+		source: ['type'],
+		iframe: ['allow', 'allowfullscreen', 'loading', 'referrerpolicy', 'frameborder', 'class']
+	};
+
+	/*
+	 * Kod “ölü” sənəddə (DOMParser) oxunur: orada brauzer şəkil yükləmir,
+	 * onerror və skriptlər işə düşmür. Canlı səhifəyə yalnız təmizlənmiş düyünlər
+	 * keçir — redaktorun (və ya yapışdırılan saytın) yazdığı zərərli kod
+	 * administratorun brauzerində işləməsin. Qaydalar serverdəki
+	 * admin_clean_html() ilə eynidir (admin/inc/helpers.php).
+	 */
+	var DROP_TAGS = 'script,style,frame,frameset,object,embed,applet,param,form,input,button,select,option,'
+		+ 'textarea,base,meta,link,title,noscript,noembed,noframes,xmp,plaintext,template,svg,math';
+	var IFRAME_OK = /^https:\/\/(www\.)?(youtube\.com|youtube-nocookie\.com)\/embed\/[A-Za-z0-9_-]{6,}([?][A-Za-z0-9_=&;.%-]*)?$|^https:\/\/player\.vimeo\.com\/video\/[0-9]+([?][A-Za-z0-9_=&;.%-]*)?$/;
+	// Adı URL_ATTRS-dan fərqlidir: eyni adlı “var” yuxarıdakı siyahını (unfold/fold) əvəz edirdi
+	// və srcset redaktorda tam ünvana çevrilmirdi — belə şəkillər paneldə görünmürdü.
+	var SAFE_URL_ATTRS = ['href', 'src', 'poster', 'cite', 'background', 'longdesc', 'action', 'formaction', 'data', 'ping'];
+
+	function safeUrl(value, image) {
+		var v = String(value).replace(/[\u0000-\u0020\u007f]+/g, '').toLowerCase();
+		var m = v.match(/^([a-z][a-z0-9+.-]*):/);
+		if (!m || ['http', 'https', 'mailto', 'tel'].indexOf(m[1]) >= 0) {
+			return true;
+		}
+		return !!image && /^data:image\/(png|jpe?g|gif|webp|avif);/.test(v);
+	}
+
+	function badAttr(tag, name, value) {
+		if (name.indexOf('on') === 0 || name === 'srcdoc' || name === 'formaction'
+			|| name.indexOf('xmlns') === 0 || name.indexOf('xlink') === 0 || name.indexOf(':') >= 0) {
+			return true;
+		}
+		if (SAFE_URL_ATTRS.indexOf(name) >= 0) {
+			return !safeUrl(value, tag === 'img' || tag === 'source');
+		}
+		if (name === 'srcset') {
+			return value.split(',').some(function (c) {
+				var u = c.trim().split(/\s+/)[0];
+				return u && !safeUrl(u, true);
+			});
+		}
+		if (name === 'style') {
+			return /expression\(|javascript:|vbscript:|-moz-binding|behavior:/i.test(value.replace(/[\u0000-\u0020]+/g, ''));
+		}
+		return false;
+	}
+
+	/** Kodu ölü sənəddə oxuyub təmizləyir, <body>-ni qaytarır */
+	function inert(html) {
+		var doc = new DOMParser().parseFromString('<!doctype html><body>' + html, 'text/html');
+		var body = doc.body;
+		Array.prototype.forEach.call(body.querySelectorAll(DROP_TAGS), function (el) {
+			if (el.parentNode) {
+				el.parentNode.removeChild(el);
+			}
+		});
+		Array.prototype.forEach.call(body.querySelectorAll('iframe'), function (el) {
+			if (!IFRAME_OK.test((el.getAttribute('src') || '').trim())) {
+				el.parentNode.removeChild(el);
+			} else {
+				while (el.firstChild) {
+					el.removeChild(el.firstChild);
+				}
+			}
+		});
+		Array.prototype.forEach.call(body.querySelectorAll('*'), function (el) {
+			var tag = el.tagName.toLowerCase();
+			for (var i = el.attributes.length - 1; i >= 0; i--) {
+				var a = el.attributes[i];
+				if (badAttr(tag, a.name.toLowerCase(), a.value)) {
+					el.removeAttribute(a.name);
+				}
+			}
+		});
+		var walker = doc.createTreeWalker(body, NodeFilter.SHOW_COMMENT);
+		var comments = [];
+		while (walker.nextNode()) {
+			comments.push(walker.currentNode);
+		}
+		comments.forEach(function (c) {
+			c.parentNode.removeChild(c);
+		});
+		return body;
+	}
+
+	/** Redaktorun sahəsinə kod yükləyir — yalnız ölü sənəddə təmizlənmiş düyünlər */
+	function setHtml(area, html) {
+		var body = inert(html);
+		area.textContent = '';
+		while (body.firstChild) {
+			area.appendChild(document.adoptNode(body.firstChild));
+		}
+	}
 
 	/* Kənardan (Word, sayt) gələn kodu sadələşdirir */
 	function clean(html) {
-		var box = document.createElement('div');
-		box.innerHTML = html;
+		var box = inert(html);
 		Array.prototype.forEach.call(box.querySelectorAll('script, style, meta, link'), function (el) {
 			el.parentNode.removeChild(el);
 		});
@@ -175,7 +283,8 @@
 		for (var i = all.length - 1; i >= 0; i--) {
 			var el = all[i];
 			var tag = el.tagName.toLowerCase();
-			if (OK_TAGS.indexOf(tag) < 0) {
+			// div yalnız video çərçivəsinin sarğısı kimi saxlanılır
+			if (OK_TAGS.indexOf(tag) < 0 || (tag === 'div' && el.className !== 'wp-block-embed__wrapper')) {
 				while (el.firstChild) {
 					el.parentNode.insertBefore(el.firstChild, el);
 				}
@@ -185,7 +294,8 @@
 			for (var a = el.attributes.length - 1; a >= 0; a--) {
 				var name = el.attributes[a].name.toLowerCase();
 				var value = el.attributes[a].value;
-				if (OK_ATTRS.indexOf(name) < 0 || /^\s*javascript:/i.test(value)) {
+				if ((OK_ATTRS.indexOf(name) < 0 && (TAG_ATTRS[tag] || []).indexOf(name) < 0)
+					|| /^\s*javascript:/i.test(value)) {
 					el.removeAttribute(el.attributes[a].name);
 					continue;
 				}
@@ -197,6 +307,12 @@
 				}
 			}
 		}
+		// təmizlənəndən sonra içi boş qalan figure yapışdırılmasın
+		Array.prototype.forEach.call(box.querySelectorAll('figure'), function (f) {
+			if (!f.querySelector('img, video, iframe') && !/\S/.test(f.textContent)) {
+				f.parentNode.removeChild(f);
+			}
+		});
 		return box.innerHTML;
 	}
 
@@ -402,6 +518,324 @@
 		reselect(area, [list]);
 	}
 
+	/* ------------------------------------------------------ şəkil və video */
+
+	/*
+	 * Şəkil və video məzmuna WordPress-in blok quruluşu ilə düşür (figure …),
+	 * saytın köhnə məzmunu da belədir. Yollar nisbi qalır ("uploads/…") —
+	 * redaktorda göstərmək üçün unfold() onları tam ünvana çevirir, saxlayanda
+	 * toStore() geri qaytarır. Elementlər DOM ilə yığılır: mətn heç vaxt HTML
+	 * kimi oxunmur (alt mətni, link).
+	 */
+
+	/* Kursor bunların içindədirsə, yeni blok onlardan SONRA qoyulur */
+	var MEDIA_BLOCKS = 'figure, video, iframe, audio';
+	/* İçinə blok qoymaq olan qablar (qalanları kursorun yerində ikiyə bölünür) */
+	var HOSTS = 'div, li, td, th, blockquote, section, article, aside, dd, details';
+
+	/* Elementdə görünən nəsə varmı (mətn və ya şəkil/video/cədvəl) */
+	function hasContent(node) {
+		if (node.nodeType === 3) {
+			return /[^\s ​]/.test(node.data);
+		}
+		if (node.nodeType !== 1) {
+			return false;
+		}
+		if (/^(IMG|VIDEO|IFRAME|AUDIO|TABLE|HR|FIGURE)$/.test(node.tagName)) {
+			return true;
+		}
+		return /[^\s ​]/.test(node.textContent)
+			|| !!node.querySelector('img, video, iframe, audio, table, hr, figure');
+	}
+
+	/*
+	 * Bloku (figure) kursorun yerinə qoyur və ondan sonrakı abzası qaytarır —
+	 * kursor ora keçir ki, yazmağa davam etmək olsun.
+	 *
+	 * Abzasın ortasındadırsa, abzas ikiyə bölünür: “Salam |dünya” ->
+	 * <p>Salam</p><figure>…</figure><p>dünya</p>. Kursordan sonra heç nə
+	 * yoxdursa, boş abzas (<p><br></p>) əlavə olunur. Boş qalan abzas silinir.
+	 * Kursor redaktorda deyilsə (hələ basılmayıb) — mətnin sonuna.
+	 */
+	function placeBlock(area, block, range) {
+		var next = document.createElement('p');
+		next.appendChild(document.createElement('br'));
+
+		if (!range || !area.contains(range.endContainer)) {
+			area.appendChild(block);
+			area.appendChild(next);
+			return next;
+		}
+
+		// seçim varsa, onun sonuna qoyulur — seçilmiş mətn silinmir
+		range = range.cloneRange();
+		range.collapse(false);
+
+		var node = range.endContainer;
+		var el = node.nodeType === 1 ? node : node.parentNode;
+
+		// şəklin, videonun içindədir — ondan sonra
+		var media = el.closest(MEDIA_BLOCKS);
+		if (media && media !== area && area.contains(media)) {
+			media.parentNode.insertBefore(block, media.nextSibling);
+			media.parentNode.insertBefore(next, block.nextSibling);
+			return next;
+		}
+
+		// kursor cədvəlin və ya siyahının özündədir (xananın/bəndin içində yox) — bölmə, ondan sonra qoy
+		if (/^(TABLE|THEAD|TBODY|TFOOT|TR|COLGROUP|UL|OL|DL)$/.test(el.tagName)) {
+			var boxEl = /^(UL|OL|DL)$/.test(el.tagName) ? el : el.closest('table');
+			if (boxEl && boxEl !== area && area.contains(boxEl)) {
+				boxEl.parentNode.insertBefore(block, boxEl.nextSibling);
+				boxEl.parentNode.insertBefore(next, block.nextSibling);
+				return next;
+			}
+		}
+
+		var host = el.closest(HOSTS);
+		if (!host || !area.contains(host)) {
+			host = area;
+		}
+
+		// host-un kursoru saxlayan birbaşa övladı (abzas, başlıq, mətn …)
+		var top = node === host ? null : node;
+		while (top && top.parentNode !== host) {
+			top = top.parentNode;
+		}
+
+		var ref;
+		if (!top) {
+			ref = host.childNodes[range.endOffset] || null;
+		} else {
+			// kursordan sonrakı hissə eyni teqli yeni elementə keçir
+			var cut = document.createRange();
+			cut.setStart(range.endContainer, range.endOffset);
+			cut.setEndAfter(top);
+			var tail = cut.extractContents().firstChild;
+			ref = top.nextSibling;
+			if (!hasContent(top)) {
+				host.removeChild(top);
+			}
+			if (tail && hasContent(tail)) {
+				next = tail;
+			}
+		}
+		host.insertBefore(block, ref);
+		host.insertBefore(next, ref);
+		return next;
+	}
+
+	/* Kursoru elementin əvvəlinə qoyur */
+	function caretAt(node) {
+		try {
+			var range = document.createRange();
+			range.setStart(node, 0);
+			range.collapse(true);
+			var sel = window.getSelection();
+			sel.removeAllRanges();
+			sel.addRange(range);
+		} catch (err) { /* vacib deyil */ }
+	}
+
+	/*
+	 * Təmizlənmiş HTML-i kursorun yerinə yapışdırır.
+	 *
+	 * Şəkil/video blokları (figure) insertHTML ilə abzasın içinə düşəndə
+	 * brauzer onları açıb abzasa yayır və YouTube çərçivəsi sarğısını itirir.
+	 * Ona görə figure-lar düyməylə qoyulan bloklar kimi ayrıca yerləşdirilir,
+	 * aradakı mətn isə adi qaydada yapışdırılır.
+	 */
+	function pasteHtml(area, markup) {
+		var nodes = Array.prototype.slice.call(inert(markup).childNodes);
+		var isFigure = function (n) {
+			return n.nodeType === 1 && n.tagName === 'FIGURE';
+		};
+		if (!nodes.some(isFigure)) {
+			document.execCommand('insertHTML', false, markup);
+			return;
+		}
+		var chunk = document.createElement('div');
+		var flush = function () {
+			if (chunk.firstChild) {
+				document.execCommand('insertHTML', false, chunk.innerHTML);
+				chunk = document.createElement('div');
+			}
+		};
+		nodes.forEach(function (n) {
+			if (isFigure(n)) {
+				flush();
+				caretAt(placeBlock(area, document.adoptNode(n), currentRange()));
+			} else {
+				chunk.appendChild(document.adoptNode(n));
+			}
+		});
+		flush();
+	}
+
+	/* Kitabxanadan gələn yol: yalnız öz uploads/ qovluğumuz */
+	function uploadPath(path) {
+		path = typeof path === 'string' ? path.trim() : '';
+		return (path.indexOf('uploads/') === 0 && path.indexOf('..') < 0) ? path : '';
+	}
+
+	/*
+	 * Redaktorda fayl tam ünvanla göstərilir, nisbi yol isə yanında saxlanılır —
+	 * unfold() ilə eyni iş; toStore() saxlayanda "uploads/…" yolunu geri qoyur.
+	 */
+	function keepUrl(el, attr, path) {
+		el.setAttribute(KEEP + '-' + attr, path);
+	}
+
+	/* <figure class="wp-block-image size-large"><img …></figure> */
+	function imageFigure(path, alt) {
+		var fig = document.createElement('figure');
+		fig.className = 'wp-block-image size-large';
+		var img = document.createElement('img');
+		img.setAttribute('src', absolutise(path));
+		img.setAttribute('alt', alt);
+		img.setAttribute('loading', 'lazy');
+		img.setAttribute('decoding', 'async');
+		keepUrl(img, 'src', path);
+		fig.appendChild(img);
+		return fig;
+	}
+
+	/* <figure class="wp-block-video"><video controls …></video></figure> */
+	function videoFigure(path) {
+		var fig = document.createElement('figure');
+		fig.className = 'wp-block-video';
+		var video = document.createElement('video');
+		video.setAttribute('controls', '');
+		video.setAttribute('preload', 'metadata');
+		video.setAttribute('src', absolutise(path));
+		keepUrl(video, 'src', path);
+		fig.appendChild(video);
+		return fig;
+	}
+
+	function makeButton(label, cls) {
+		var btn = document.createElement('button');
+		btn.type = 'button';
+		btn.className = cls;
+		btn.textContent = label;
+		return btn;
+	}
+
+	/* YouTube / Vimeo çərçivəsi — WordPress-in “embed” bloku kimi */
+	function embedFigure(embed) {
+		var fig = document.createElement('figure');
+		fig.className = 'wp-block-embed is-type-video is-provider-' + embed.provider + ' wp-block-embed-' + embed.provider;
+		var box = document.createElement('div');
+		box.className = 'wp-block-embed__wrapper';
+		var frame = document.createElement('iframe');
+		frame.setAttribute('src', embed.src);
+		frame.setAttribute('width', '560');
+		frame.setAttribute('height', '315');
+		frame.setAttribute('title', embed.title);
+		frame.setAttribute('allow', embed.allow);
+		frame.setAttribute('allowfullscreen', '');
+		frame.setAttribute('loading', 'lazy');
+		// Panel “Referrer-Policy: same-origin” göndərir; YouTube isə ünvansız
+		// (referrer-siz) çərçivədə videonu açmır (xəta 153)
+		frame.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+		box.appendChild(frame);
+		fig.appendChild(box);
+		return fig;
+	}
+
+	/* “90”, “90s”, “1m30s”, “1h2m3s” -> saniyə */
+	function seconds(value) {
+		value = String(value || '').trim();
+		if (/^\d+s?$/.test(value)) {
+			return parseInt(value, 10);
+		}
+		var m = /^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/.exec(value);
+		return m ? (+m[1] || 0) * 3600 + (+m[2] || 0) * 60 + (+m[3] || 0) : 0;
+	}
+
+	/*
+	 * YouTube / Vimeo linkindən çərçivənin ünvanı. Tanınmayan link — null.
+	 *   youtube.com/watch?v=ID, youtu.be/ID, youtube.com/shorts/ID, /embed/ID, /live/ID
+	 *   vimeo.com/ID, vimeo.com/ID/HASH (gizli video), player.vimeo.com/video/ID
+	 * Bütöv <iframe …> kodu yapışdırılsa, onun src-i götürülür.
+	 */
+	function videoEmbed(raw) {
+		var text = String(raw || '').trim();
+		var src = /^<iframe[\s>]/i.test(text) && text.match(/\ssrc\s*=\s*["']([^"']+)["']/i);
+		if (src) {
+			text = src[1].replace(/&amp;/g, '&');
+		}
+		if (/^\/\//.test(text)) {
+			text = 'https:' + text;
+		} else if (!/^[a-z][a-z0-9+.-]*:/i.test(text)) {
+			text = 'https://' + text;
+		}
+
+		var url;
+		try {
+			url = new URL(text);
+		} catch (err) {
+			return null;
+		}
+		if (url.protocol !== 'https:' && url.protocol !== 'http:') {
+			return null;
+		}
+		var host = url.hostname.toLowerCase().replace(/^(www|m|music)\./, '');
+		var parts = url.pathname.split('/').filter(Boolean);
+		var id = null;
+		var out = null;
+
+		if (host === 'youtu.be') {
+			id = parts[0];
+		} else if (host === 'youtube.com' || host === 'youtube-nocookie.com') {
+			if (parts[0] === 'watch') {
+				id = url.searchParams.get('v');
+			} else if (['shorts', 'embed', 'live', 'v'].indexOf(parts[0]) >= 0) {
+				id = parts[1];
+			}
+		}
+
+		if (id !== null) {
+			// /embed/videoseries (pleylist) və /embed/live_stream — tək videonun id-si deyil
+			if (!/^[A-Za-z0-9_-]{11}$/.test(id || '') || id === 'videoseries' || id === 'live_stream') {
+				return null;
+			}
+			var hash = /(?:^#|&)t=([0-9hms]+)/.exec(url.hash);
+			var start = seconds(url.searchParams.get('t') || url.searchParams.get('start') || (hash && hash[1]));
+			out = {
+				provider: 'youtube',
+				src: 'https://www.' + (host === 'youtube-nocookie.com' ? 'youtube-nocookie.com' : 'youtube.com')
+					+ '/embed/' + id + (start ? '?start=' + start : ''),
+				title: 'YouTube video',
+				allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+			};
+		} else if ((host === 'vimeo.com' || host === 'player.vimeo.com')
+			&& ['showcase', 'album', 'user', 'event'].indexOf(parts[0]) < 0) {
+			var at = -1;
+			for (var i = 0; i < parts.length; i++) {
+				if (/^\d+$/.test(parts[i])) {
+					at = i;
+					break;
+				}
+			}
+			if (at < 0) {
+				return null;
+			}
+			// gizli (unlisted) videonun açarı: vimeo.com/ID/HASH və ya ?h=HASH
+			var key = url.searchParams.get('h') || parts[at + 1] || '';
+			key = /^[0-9a-f]{6,}$/i.test(key) ? key : '';
+			out = {
+				provider: 'vimeo',
+				src: 'https://player.vimeo.com/video/' + parts[at] + (key ? '?h=' + key : ''),
+				title: 'Vimeo video',
+				allow: 'autoplay; fullscreen; picture-in-picture; clipboard-write'
+			};
+		}
+
+		// serverdəki admin_clean_html() də eyni qaydanı yoxlayır — keçməyən çərçivə saxlanılmaz
+		return out && IFRAME_OK.test(out.src) ? out : null;
+	}
+
 	/* ------------------------------------------------------------ qurmaq */
 
 	try {
@@ -427,7 +861,7 @@
 		}
 
 		// Boş sahədə yazılan mətn abzassız qalmasın deyə hazır bir <p> qoyulur
-		area.innerHTML = textarea.value.trim() === '' ? '<p><br></p>' : textarea.value;
+		setHtml(area, textarea.value.trim() === '' ? '<p><br></p>' : textarea.value);
 		unfold(area);
 
 		textarea.parentNode.insertBefore(wrap, textarea);
@@ -436,7 +870,7 @@
 		wrap.appendChild(textarea);
 		textarea.className += ' rich__code';
 
-		var state = { dirty: false, code: false };
+		var state = { dirty: false, code: false, last: null };
 
 		/* --- düymələr --- */
 		TOOLS.forEach(function (tool) {
@@ -467,6 +901,19 @@
 			if (state.code) {
 				return; // HTML rejimində düymələr işləmir
 			}
+			if (tool.act === 'image' || tool.act === 'video') {
+				remember();
+				if (tool.act === 'image') {
+					closeVideo(false);
+					pickImage();
+				} else if (pop.hidden) {
+					openVideo();
+				} else {
+					closeVideo(true);
+				}
+				return;
+			}
+			closeVideo(false);
 			area.focus();
 			if (tool.list) {
 				toList(area, tool.list);
@@ -487,11 +934,195 @@
 			touched();
 		}
 
+		/* --- kursorun son yeri --- */
+
+		/*
+		 * Kitabxana pəncərəsi və ya video linki sahəsi açılanda seçim redaktordan
+		 * çıxır. Şəkil/video kursorun sonuncu yerinə düşsün deyə onu yadda
+		 * saxlayırıq (Range canlıdır — mətn dəyişəndə özü uyğunlaşır).
+		 */
+		function remember() {
+			var range = currentRange();
+			if (range && area.contains(range.commonAncestorContainer)) {
+				state.last = range.cloneRange();
+			}
+		}
+		document.addEventListener('selectionchange', remember);
+
+		/* Bloku yadda qalan kursorun yerinə qoyur, kursoru ondan sonrakı abzasa aparır */
+		function insertBlock(block) {
+			var next = placeBlock(area, block, state.last);
+			area.focus();
+			caretAt(next);
+			remember();
+			if (block.scrollIntoView) {
+				block.scrollIntoView({ block: 'nearest' });
+			}
+			touched();
+		}
+
+		/* --- şəkil: kitabxanadan (orada yükləmək də olur) --- */
+		function pickImage() {
+			var open = window.ITKIN && window.ITKIN.openLibrary;
+			if (typeof open !== 'function') {
+				window.alert('Şəkil kitabxanası açılmadı. Səhifəni yeniləyib yenidən cəhd edin.');
+				return;
+			}
+			open({
+				kind: 'image',
+				multi: false,
+				done: function (paths) {
+					var path = uploadPath(paths && paths[0]);
+					if (!path) {
+						return;
+					}
+					var alt = window.prompt('Şəklin qısa təsviri (alt mətni) — görmə imkanı məhdud olanlar və '
+						+ 'axtarış sistemləri üçün. Boş buraxmaq olar:', '');
+					insertBlock(imageFigure(path, (alt || '').trim()));
+				}
+			});
+		}
+
+		/* --- video: kitabxanadan MP4 və ya YouTube / Vimeo linki --- */
+		var pop = document.createElement('div');
+		pop.className = 'rich__pop';
+		pop.hidden = true;
+
+		var popRow = document.createElement('div');
+		popRow.className = 'rich__pop-row';
+		var fromLib = makeButton('Kitabxanadan MP4 seç', 'btn btn--sm');
+		var popOr = document.createElement('span');
+		popOr.className = 'rich__pop-or';
+		popOr.textContent = 'və ya';
+		// type="url" deyil: yarımçıq link formanın özünün göndərilməsini dayandırardı.
+		// name yoxdur — sahə formayla birlikdə göndərilmir.
+		var link = document.createElement('input');
+		link.type = 'text';
+		link.className = 'input rich__pop-input';
+		link.placeholder = 'YouTube və ya Vimeo linki, məs. https://youtu.be/…';
+		link.setAttribute('inputmode', 'url');
+		link.setAttribute('autocomplete', 'off');
+		link.setAttribute('spellcheck', 'false');
+		link.setAttribute('aria-label', 'YouTube və ya Vimeo linki');
+		var addLink = makeButton('Əlavə et', 'btn btn--sm btn--primary');
+		var closeBtn = makeButton('Bağla', 'btn btn--sm');
+		[fromLib, popOr, link, addLink, closeBtn].forEach(function (el) {
+			popRow.appendChild(el);
+		});
+
+		var popHint = document.createElement('div');
+		popHint.className = 'field__hint rich__pop-hint';
+		popHint.textContent = 'YouTube: youtube.com/watch?v=…, youtu.be/…, youtube.com/shorts/… · Vimeo: vimeo.com/…';
+		var popMsg = document.createElement('div');
+		popMsg.className = 'rich__pop-msg';
+		popMsg.setAttribute('role', 'alert');
+
+		pop.appendChild(popRow);
+		pop.appendChild(popHint);
+		pop.appendChild(popMsg);
+		wrap.insertBefore(pop, area);
+
+		var videoBtn = bar.querySelector('.rich__btn--video');
+
+		function say(text) {
+			popMsg.textContent = text;
+		}
+
+		function openVideo() {
+			pop.hidden = false;
+			if (videoBtn) {
+				videoBtn.classList.add('is-on');
+			}
+			say('');
+			link.focus();
+		}
+
+		/* back — kursoru redaktora qaytarmaq (Bağla, Esc) */
+		function closeVideo(back) {
+			if (pop.hidden) {
+				return;
+			}
+			pop.hidden = true;
+			if (videoBtn) {
+				videoBtn.classList.remove('is-on');
+			}
+			link.value = '';
+			say('');
+			if (back) {
+				var last = state.last;
+				area.focus();
+				if (last && area.contains(last.startContainer)) {
+					var sel = window.getSelection();
+					sel.removeAllRanges();
+					sel.addRange(last);
+				}
+			}
+		}
+
+		function addVideoLink() {
+			var value = link.value.trim();
+			if (value === '') {
+				say('Videonun linkini yapışdırın (YouTube və ya Vimeo).');
+				link.focus();
+				return;
+			}
+			var embed = videoEmbed(value);
+			if (!embed) {
+				say('Bu link tanınmadı. Yalnız YouTube (youtube.com/watch?v=…, youtu.be/…, youtube.com/shorts/…) '
+					+ 'və Vimeo (vimeo.com/…) videolarını əlavə etmək olar. Başqa video üçün MP4 faylını kitabxanadan seçin.');
+				link.focus();
+				link.select();
+				return;
+			}
+			closeVideo(false);
+			insertBlock(embedFigure(embed));
+		}
+
+		fromLib.addEventListener('click', function () {
+			var open = window.ITKIN && window.ITKIN.openLibrary;
+			closeVideo(false);
+			if (typeof open !== 'function') {
+				window.alert('Kitabxana açılmadı. Səhifəni yeniləyib yenidən cəhd edin.');
+				return;
+			}
+			open({
+				kind: 'video',
+				multi: false,
+				done: function (paths) {
+					var path = uploadPath(paths && paths[0]);
+					if (path) {
+						insertBlock(videoFigure(path));
+					}
+				}
+			});
+		});
+
+		addLink.addEventListener('click', addVideoLink);
+
+		closeBtn.addEventListener('click', function () {
+			closeVideo(true);
+		});
+
+		link.addEventListener('input', function () {
+			say('');
+		});
+
+		link.addEventListener('keydown', function (e) {
+			if (e.key === 'Enter') {
+				e.preventDefault();   // Enter bütöv formanı göndərməsin
+				addVideoLink();
+			} else if (e.key === 'Escape') {
+				e.preventDefault();
+				closeVideo(true);
+			}
+		});
+
 		/* --- HTML / vizual arasında keçid --- */
 		function toggleCode(btn) {
 			state.code = !state.code;
 			wrap.className = 'rich' + (state.code ? ' rich--code' : '');
 			btn.className = 'rich__btn rich__btn--right' + (state.code ? ' is-on' : '');
+			closeVideo(false);
 			if (state.code) {
 				// vizualdan koda: yalnız redaktə olunubsa yenilə
 				if (state.dirty) {
@@ -500,7 +1131,7 @@
 				textarea.focus();
 			} else {
 				// koddan vizuala: yazılanı göstəririk
-				area.innerHTML = textarea.value;
+				setHtml(area, textarea.value);
 				unfold(area);
 				area.focus();
 			}
@@ -518,7 +1149,7 @@
 			var text = data.getData('text/plain');
 			e.preventDefault();
 			if (html) {
-				document.execCommand('insertHTML', false, clean(html));
+				pasteHtml(area, clean(html));
 				unfold(area);   // yeni gələn şəkillər də göstərilə bilsin
 			} else if (text) {
 				document.execCommand('insertText', false, text);

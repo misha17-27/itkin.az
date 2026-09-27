@@ -375,6 +375,11 @@
 		document.body.classList.remove('is-lib-open');
 	}
 
+	// Vizual redaktor (editor.js) da mətnə şəkil/video qoymaq üçün kitabxananı açır.
+	// window.ITKIN-i layout.php qurur — əvəz etmirik, yalnız əlavə edirik.
+	window.ITKIN = window.ITKIN || {};
+	window.ITKIN.openLibrary = openLibrary;
+
 	document.addEventListener('keydown', function (e) {
 		if (e.key === 'Escape') { closeLibrary(); }
 	});
@@ -431,6 +436,47 @@
 		if (e.target.matches('[data-autosubmit]') && e.target.form) {
 			e.target.form.submit();
 		}
+	});
+
+	/*
+	 * Dil nişanları (AZ / EN): eyni formada iki dilin sahələri. JS olmasa hər iki
+	 * dil görünür. Seçilmiş nişan gizli sahədə saxlanılır — yadda saxlayandan
+	 * sonra səhifə həmin nişanda açılır.
+	 */
+	Array.prototype.forEach.call(document.querySelectorAll('[data-lang-tabs]'), function (bar) {
+		var form = bar.closest('form') || document;
+		var field = form.querySelector('[data-lang-tab-field]');
+
+		function show(lang) {
+			Array.prototype.forEach.call(bar.querySelectorAll('[data-lang-tab]'), function (b) {
+				var on = b.getAttribute('data-lang-tab') === lang;
+				b.classList.toggle('is-active', on);
+				b.setAttribute('aria-selected', on ? 'true' : 'false');
+			});
+			Array.prototype.forEach.call(form.querySelectorAll('[data-lang-pane]'), function (p) {
+				p.hidden = p.getAttribute('data-lang-pane') !== lang;
+			});
+			if (field) {
+				field.value = lang;
+			}
+		}
+
+		bar.addEventListener('click', function (e) {
+			var b = e.target.closest('[data-lang-tab]');
+			if (b) {
+				show(b.getAttribute('data-lang-tab'));
+			}
+		});
+
+		// gizli nişandakı məcburi sahə boşdursa, brauzer həmin nişanı göstərsin
+		form.addEventListener('invalid', function (e) {
+			var pane = e.target.closest && e.target.closest('[data-lang-pane]');
+			if (pane && pane.hidden) {
+				show(pane.getAttribute('data-lang-pane'));
+			}
+		}, true);
+
+		show(window.location.hash === '#en' ? 'en' : (bar.getAttribute('data-active') || 'az'));
 	});
 
 	/* saytın kök ünvanı və panelin ünvanı — layout.php window.ITKIN-də verir */

@@ -37,8 +37,8 @@ $enStats = [
     ['categories', 'Kateqoriyalar', $enCount('categories', $cats), count($cats),
         'Saytda yalnız ingiliscə xəbəri olanlar görünür — indi ' . $enCatsOnSite . '.'],
     ['posts', 'Xəbərlər', $enPosts, count($posts),
-        $enPosts === 0 ? 'Tərcümə olunmur. Xəbərə ingiliscə mətn yazsanız, o, ingiliscə versiyaya düşür.'
-                       : 'Yalnız ingiliscə mətni yazılmış xəbərlər ingiliscə versiyada görünür.'],
+        'Xəbəri tərcümə etmək üçün onu açıb «EN English» nişanında ingiliscə başlığı yazın. '
+        . 'Yalnız tərcümə olunmuş xəbərlərdə dil seçimi görünür.'],
 ];
 
 /* yazma icazələrini yoxlayırıq — cPanel-də ən çox rast gəlinən problem */
@@ -53,13 +53,14 @@ admin_shell_start('dashboard', 'İcmal', [
     ['href' => admin_url(['section' => 'posts', 'action' => 'edit']), 'label' => '+ Yeni xəbər', 'primary' => true],
 ]);
 ?>
-<div class="media-grid" style="grid-template-columns:repeat(auto-fill,minmax(190px,1fr));margin-bottom:18px">
+<div class="media-grid tiles" style="grid-template-columns:repeat(auto-fill,minmax(190px,1fr));margin-bottom:18px">
 <?php
 $tiles = [
     ['Xəbərlər',      count($posts), 'posts'],
     ['Kitablar',      count($books), 'kitabxana'],
     ['İtkinlər',      count($miss),  'itkinlr'],
     ['Kateqoriyalar', count($cats),  'categories'],
+    ['Zibil qutusunda', trash_count(), 'trash'],   // 30 gün ərzində bərpa etmək olar
 ];
 foreach ($tiles as [$label, $n, $section]): ?>
 	<a class="card" style="text-decoration:none;display:block" href="<?= e(admin_url(['section' => $section])) ?>">
@@ -121,9 +122,9 @@ foreach ($tiles as [$label, $n, $section]): ?>
 	</table>
 </div>
 
-<?php if (password_verify('itkin2026', (string) cfg('admin_password', ''))): ?>
+<?php if (($pwNotice = admin_password_notice()) !== null): ?>
 <div class="errors">
-	<strong>Şifrə hələ də ilkin şifrədir.</strong>
+	<strong><?= e($pwNotice) ?></strong>
 	<a href="<?= e(admin_url(['section' => 'profile'])) ?>">«Mənim profilim»</a> bölməsində giriş adını və şifrəni dəyişin.
 </div>
 <?php endif; ?>
@@ -132,8 +133,9 @@ foreach ($tiles as [$label, $n, $section]): ?>
 	<div class="card__head">Nədən başlamaq</div>
 	<div class="card__body">
 		<ul style="margin:0;padding-left:18px;line-height:1.9">
-			<li><strong>Xəbər əlavə etmək:</strong> “Xəbərlər” → “+ Yeni xəbər”. Şəkli əvvəlcə “Şəkillər” bölməsinə yükləyin.</li>
+			<li><strong>Xəbər əlavə etmək:</strong> “Xəbərlər” → “+ Yeni xəbər”. Şəkli əvvəlcə “Qalereya” bölməsinə yükləyin.</li>
 			<li><strong>Səhifəni dəyişmək:</strong> “Səhifələr” → “Redaktə et”. Dəyişdirilmiş sahənin altında “Orijinala qaytar” var.</li>
+			<li><strong>Səhvən silinəni qaytarmaq:</strong> “Zibil qutusu” → “Bərpa et”. Silinən xəbər, kitab, itkin, kateqoriya və fayl orada 30 gün saxlanılır.</li>
 			<li><strong>Menyunu dəyişmək:</strong> “Menyular”. Bəndi silmək üçün adını boşaldın.</li>
 			<li><strong>İngiliscə mətn:</strong> redaktə səhifəsindəki “İngiliscə versiya” kartında. Boş sahənin yerində saytda azərbaycanca mətn çıxır.</li>
 			<li><strong>Şifrəni dəyişmək:</strong> “Mənim profilim” → “Giriş adı və şifrə”.</li>

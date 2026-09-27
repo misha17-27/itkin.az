@@ -55,6 +55,35 @@ təxmin etmək çətinləşir. Ünvanı dəyişmək üçün yalnız `admin_path`
 Bu şifrə README-də açıq yazıldığı üçün o dəyişənə qədər panelin yalnız «Mənim profilim»
 bölməsi açılır — digər bölmələr ora yönləndirir.
 
+### İstifadəçilər və rollar
+
+Panelə bir neçə nəfər öz hesabı ilə daxil ola bilər («Ayarlar» → «İstifadəçilər»).
+
+| Rol | Nə edə bilər |
+|---|---|
+| Administrator | Hər şey, o cümlədən istifadəçilər, ümumi ayarlar, poçt və təhlükəsizlik |
+| Redaktor | Yalnız məzmun: xəbərlər, kitabxana, itkinlər, kateqoriyalar, səhifələr, menyular, qalereya, zibil qutusu, əlaqə məlumatları — və öz profili |
+
+- Yeni istifadəçiyə administrator **müvəqqəti şifrə** verir və onu özü çatdırır.
+  İlk girişdə istifadəçi öz şifrəsini yazmalıdır — o vaxta qədər yalnız «Mənim profilim» açılır.
+- Şifrə sıfırlananda, giriş adı dəyişəndə və ya istifadəçi silinəndə onun açıq
+  sessiyaları dərhal bağlanır. Rol dəyişikliyi növbəti səhifədə qüvvəyə minir.
+- Öz rolunuzu dəyişmək və özünüzü silmək olmur — sistemdə həmişə ən azı bir
+  administrator qalır. Öz şifrənizi «Mənim profilim»də dəyişin.
+- Ayarlar bölmələri redaktordan yalnız menyuda gizlədilmir — birbaşa ünvanla da açılmır.
+- İstifadəçilər `data/users.php` faylında saxlanılır (şifrələr hash şəklində). Bu fayl
+  repozitoriyaya düşmür (`.gitignore`) və brauzerdən açılmır. Fayl kilid altında yazılır —
+  eyni anda edilən dəyişikliklər bir-birini silmir. Son giriş vaxtları ayrıca,
+  `storage/user-logins.json`-dadır.
+- Əvvəlki tək hesab (`config.php` / `data/settings.php`-dəki `admin_user`, `admin_password`)
+  ilk administrator olur — şifrəsi dəyişmir. Fayl ilk istifadəçi əlavə olunanda və ya
+  profil yadda saxlananda yaranır.
+
+**Hamı paneldən kənarda qalıbsa** (şifrə unudulub): cPanel → File Manager →
+`data/users.php` faylını silin (əvvəlcə nüsxəsini götürün). Giriş yenidən köhnə tək
+hesabla açılacaq — `data/settings.php`-dəki son şifrə və ya ilkin `admin` / `itkin2026`.
+Sonra istifadəçiləri yenidən əlavə edin.
+
 ### İngiliscə versiya
 
 Saytın ingiliscə versiyası `/en/` ünvanındadır: `https://itkin.az/en/`,
@@ -69,8 +98,10 @@ Başlıqda qlobuslu dil seçimi (AZ / EN) var.
   onun `/en/...` ünvanı azərbaycanca səhifəyə yönləndirilir, ingiliscə səhifələrdəki
   keçidlər də birbaşa azərbaycanca versiyaya aparır. «Xəbərlər» siyahısı və
   kateqoriyalar da buna görə yalnız azərbaycancadır.
-- İstənilən xəbərə paneldə ingiliscə başlıq və mətn yazsanız, o xəbər (və onun
-  kateqoriyası, «Xəbərlər» siyahısı) ingiliscə versiyada avtomatik görünür.
+- Xəbəri tərcümə etmək üçün onu paneldə açıb «EN English» nişanında ingiliscə başlığı
+  (və mətni) yazın; siyahıdakı «+ EN» düyməsi birbaşa həmin nişanı açır. Bundan sonra
+  xəbər (və onun kateqoriyası, «Xəbərlər» siyahısı) ingiliscə versiyada görünür və
+  onda dil seçimi çıxır.
 - Paneldə hər bölmənin redaktə səhifəsində «İngiliscə versiya» kartı var; statik
   səhifələrdə hər mətn sahəsinin altında ingiliscə variantı. Boş buraxılan sahənin
   yerində azərbaycanca mətn çıxır.
@@ -88,17 +119,19 @@ Harada saxlanılır:
 
 | Bölmə | Nə edir |
 |---|---|
-| Xəbərlər | Yazı əlavə etmək, dəyişmək, silmək: başlıq, ünvan, tarix, kateqoriya, şəkil, mətn |
+| Xəbərlər | Yazı əlavə etmək, dəyişmək, silmək: başlıq, ünvan, tarix, kateqoriya, şəkil, mətn (içində foto və video); «AZ / EN» nişanında ingiliscə tərcümə; «Saytda aç ↗» yazını saytda göstərir |
 | Kitabxana | Kitablar: ad, müəllif, üz qabığı, təsvir və hər dil üçün PDF keçidi (AZ / EN / RU) |
 | İtkinlər | İtkin düşmüş şəxslərin siyahısı: ad və foto |
-| Kateqoriyalar | Ad, ünvan, təsvir. Yazısı olan kateqoriya silinmir |
+| Kateqoriyalar | Ad, ünvan, təsvir. Yazısı olan kateqoriya silinmir (zibil qutusundakı yazılar da sayılır) |
 | Səhifələr | Statik səhifələrin siyahısı; hər səhifədə bütün mətnlər, mətn blokları, şəkillər, qalereya, fon şəkli və videosu, SEO |
 | Menyular | Əsas menyu və altlıqdakı iki sütun; alt bəndlərlə birlikdə |
-| Şəkillər | Fayl yükləmək, axtarmaq və istifadə olunmayan faylları silmək |
+| Qalereya | Sayta yüklənmiş bütün şəkillər, videolar və PDF-lər: yükləmək, növə görə süzmək, axtarmaq, silmək (bir-bir və ya seçib birdən) |
+| Zibil qutusu | Silinən xəbər, kitab, itkin, kateqoriya və fayllar — 30 gün ərzində bərpa etmək olar, sonra avtomatik silinir |
 | Əlaqə və sosial şəbəkələr | Altlıqdakı telefon və e-poçt, Facebook / Instagram / YouTube keçidləri |
 | Ümumi ayarlar | Sayt adı, ünvanı, səhifələmə, Google Analytics |
 | Poçt (SMTP) | Müraciətlər hara gəlsin, SMTP serveri, yoxlama məktubu |
 | Təhlükəsizlik | Cloudflare Turnstile kapçası (əlaqə forması və panelə giriş) |
+| İstifadəçilər | Panelin istifadəçiləri və rolları (yalnız administrator) — bax: «İstifadəçilər və rollar» |
 | Mənim profilim | Ad, e-poçt, giriş adı və şifrə (hazırkı şifrə ilə) |
 
 ### Necə işləyir
@@ -136,22 +169,44 @@ kafel alır (hostinqdə `exif` modulu olmasa da).
 Xəbərlər və Kitabxana səhifələrinin məzmunu avtomatik yığılır — onlarda yalnız
 SEO sahələri var, məzmun «Xəbərlər» və «Kitabxana» bölmələrindədir.
 
-### Faylı silmək
+### Qalereya
 
-«Şəkillər» bölməsində hər faylın yanında «Sil» düyməsi var. Saytda istifadə
-olunan fayllar «İstifadədə» nişanı ilə göstərilir və silinmir — yazıda, səhifədə
-və ya dizaynda qırıq şəkil qalmasın deyə. Əvvəlcə faylı yazıdan və ya
-səhifədən götürün, sonra silin.
+«Qalereya» bölməsində sayta yüklənmiş bütün fayllar var: yuxarıdakı nişanlarla
+yalnız şəkilləri, videoları və ya PDF-ləri göstərmək, adla axtarmaq olar.
+Videoların kiçik önizləməsi görünür.
 
-Silinən fayl birdəfəlik itmir: `storage/trash/<tarix>/uploads/…` qovluğuna
-köçürülür. Səhv silinibsə, cPanel-in File Manager-i ilə oradan geri qaytarmaq
-olar; lazım deyilsə, `storage/trash/` qovluğunu vaxtaşırı boşaldın.
+- Hər faylın «Sil» düyməsi var; qutucuqlarla bir neçəsini seçib birdən silmək də olur.
+- Saytda istifadə olunan fayl «İstifadədə» nişanı ilə göstərilir. Onu silmək üçün
+  təsdiq soruşulur və harada işlədiyi (hansı xəbər, kitab, itkin, səhifə) yazılır —
+  silinsə, orada şəkil görünməyəcək.
+- Saytın dizaynındakı fayllar (loqo, fonlar, səhifələrin orijinal şəkilləri) silinmir.
+
+### Zibil qutusu
+
+Paneldə silinən heç nə dərhal itmir — «Zibil qutusu»na düşür: xəbərlər (ingiliscə
+tərcüməsi ilə birlikdə), kitablar, itkinlər, kateqoriyalar və qalereyadan silinən fayllar.
+
+- **Bərpa et** elementi əvvəlki yerinə qaytarır. Bu arada eyni ünvanlı (slug) yeni
+  yazı yaranıbsa, bərpa olunana yeni ünvan verilir — heç nə üst-üstə düşmür.
+- **Birdəfəlik sil** və **Zibil qutusunu boşalt** — geri qaytarmaq olmur.
+- **30 gündən köhnə** elementlər avtomatik silinir (panel açılanda, gündə bir dəfə
+  yoxlanılır). Hər elementin yanında neçə gün qaldığı yazılır.
+- Hamısı `storage/trash/` qovluğundadır (`items/*.json` — qeydlər, `<tarix>/uploads/…` —
+  fayllar). Bu qovluq brauzerdən açılmır.
 
 ### Mətn redaktoru
 
 Mətn sahələrində düymələr zolağı var: **B**, *I*, H2, H3, ¶, nişanlı və
-nömrəli siyahı, keçid əlavə etmək və götürmək, formatı təmizləmək.
-Sağdakı **HTML** düyməsi kodu açır.
+nömrəli siyahı, keçid əlavə etmək və götürmək, formatı təmizləmək,
+**Şəkil** və **Video**. Sağdakı **HTML** düyməsi kodu açır.
+
+- **Şəkil** kitabxananı açır (orada yeni şəkil yükləmək də olur); seçilən şəkil
+  kursorun yerinə ayrıca blok kimi düşür, alt mətni soruşulur.
+- **Video** — kitabxanadan MP4 faylı və ya YouTube / Vimeo linki (`youtu.be/…`,
+  `youtube.com/watch?v=…`, `vimeo.com/…`). Link saytda ekranın eninə uyğunlaşan
+  video çərçivəsi olur. Başqa saytların çərçivələri (iframe) qəbul edilmir.
+- Abzasın ortasında əlavə olunan şəkil/video abzası ikiyə bölür, cədvəlin və ya
+  siyahının içində isə onlardan sonra qoyulur.
 
 Kənar kitabxana işlədilmir — sadə `contenteditable` sahədir, ona görə
 əlavə fayl yüklənmir və internetsiz də işləyir.
@@ -174,7 +229,8 @@ redaktə edin.
 
 Başqa yerdən yapışdırılanda kod sadələşdirilir: `<script>`, hadisə
 atributları və artıq işarələr atılır, bu saytın şəkilləri isə yenidən
-nisbi yola (`uploads/…`) salınır.
+nisbi yola (`uploads/…`) salınır. Redaktorun öz şəkil və video blokları
+kəsilib-yapışdırılanda olduğu kimi qalır.
 
 ### Şəkil seçmək
 
@@ -185,7 +241,7 @@ orada faylın üstünə basırsınız, pəncərə bağlanır və şəkil sahəy�
 
 Pəncərədə axtarış, səhifələmə və fayl yükləmək də var — yeni şəkli elə
 oradan yükləyib dərhal seçmək olar. Bu pəncərədə yalnız şəkillər görünür;
-PDF və video “Şəkillər” bölməsindədir.
+PDF və videolar “Qalereya” bölməsindədir.
 
 ### SEO
 
@@ -200,6 +256,12 @@ Hər bölmədə “Axtarış sistemləri” kartı var:
 
 Sahələr xəbərlərdə, kitabxanada, itkinlər siyahısında, kateqoriyalarda və
 statik səhifələrdə var.
+
+Bütün mövcud səhifələrə, xəbərlərə, kitablara, itkinlərə, kateqoriyalara və
+arxiv səhifələrinə SEO başlıq və təsvir artıq yazılıb (başlıq ~60, təsvir
+~150–160 simvol, açar sözlər mətnin özündən). Yeni əlavə olunan yazıda sahələr
+boşdursa, başlıq addan, təsvir mətnin əvvəlindən avtomatik götürülür —
+amma əl ilə yazmaq daha yaxşıdır.
 
 ### Poçt
 
@@ -227,7 +289,16 @@ SMTP şifrəsi `data/settings.php`-də saxlanılır: bu fayl repozitoriyaya dü�
   Sayğac IP-yə görə `storage/login-attempts.json`-da saxlanılır (əvvəl sessiyada idi
   və cookie-ni silməklə sıfırlanırdı). Sayt Cloudflare arxasındadırsa, həqiqi ünvan
   `CF-Connecting-IP`-dən götürülür — yalnız sorğu həqiqətən Cloudflare-dən gələndə.
+  Uğurlu giriş əvvəlki səhvləri silmir (yalnız öz cəhdini qaytarır) — bir hesabla girib
+  başqa hesabın şifrəsini sonsuz təxmin etmək olmur. Profildə hazırkı şifrənin
+  yoxlanmasının hər istifadəçi üçün ayrıca sayğacı var.
   Özünüz bağlanmısınızsa, bu faylı silin.
+- **Mətn redaktorundakı kod** (xəbər, kitab, itkin, səhifə mətni — AZ və EN) serverdə
+  DOM ağacı kimi təmizlənir: skript, forma, “xam mətn” elementləri, hadisə atributları
+  (`onerror` və s.) və `javascript:` ünvanları atılır; iframe yalnız YouTube və Vimeo
+  videosu üçün saxlanılır. Redaktor rolunda olan biri administratorun brauzerində kod
+  işlədə bilməsin deyə panelin öz redaktoru da kodu əvvəlcə “ölü” sənəddə oxuyur, panel
+  səhifələri isə `Content-Security-Policy: script-src` ilə yalnız öz skriptlərinə icazə verir.
 - **Yüklənən fayllar** uzantısı ilə yanaşı məzmununa görə də yoxlanılır: JPG adlı mətn,
   PNG adlı PHP kodu, skriptli SVG qəbul edilmir. `uploads/.htaccess` orada heç bir
   skriptin işə düşməsinə imkan vermir.
@@ -311,8 +382,8 @@ paneldə ingiliscə mətnləri dəyişəcəksinizsə, onları da ayırın:
 git update-index --skip-worktree data/pages-en.php data/kitabxana-en.php data/itkinlr-en.php data/categories-en.php data/menu-en.php data/menu-footer-1-en.php data/menu-footer-2-en.php data/archives-en.php data/mejs-en.php
 ```
 
-Eyni səbəbdən **şifrəni dəyişəndən sonra `data/settings.php` faylını
-repozitoriyaya göndərməyin** — orada şifrənin hash-i saxlanılır. `storage/`
+Eyni səbəbdən **şifrəni dəyişəndən sonra `data/settings.php` və `data/users.php`
+fayllarını repozitoriyaya göndərməyin** — orada şifrələrin hash-i saxlanılır. `storage/`
 qovluğu (formanın gizli açarı, jurnal, sessiyalar) da repozitoriyaya düşmür.
 
 ---

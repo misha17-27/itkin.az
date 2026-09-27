@@ -39,24 +39,32 @@ function admin_session_start(): void
     session_start();
 }
 
-function admin_user(): ?string
+/**
+ * Daxil olmuş istifadəçi (admin/inc/users.php) və ya null.
+ *
+ * Sessiyada yalnız istifadəçinin id-si və giriş məlumatlarının izi saxlanılır;
+ * rol və ad hər sorğuda siyahıdan oxunur — dəyişiklik dərhal qüvvəyə minir.
+ */
+function admin_user(): ?array
 {
-    if (empty($_SESSION[ADMIN_SESSION]['user'])) {
+    $s = $_SESSION[ADMIN_SESSION] ?? null;
+    if (!is_array($s) || empty($s['uid'])) {
         return null;
     }
-    $seen = (int) ($_SESSION[ADMIN_SESSION]['seen'] ?? 0);
+    $seen = (int) ($s['seen'] ?? 0);
     if ($seen > 0 && time() - $seen > ADMIN_IDLE_LIMIT) {
         admin_logout();
         return null;
     }
-    // Giriş adı və ya şifrə dəyişibsə köhnə sessiyalar etibarsızdır —
-    // oğurlanmış sessiya şifrəni dəyişəndən sonra da açıq qalmasın
-    if (!hash_equals(admin_credentials_mark(), (string) ($_SESSION[ADMIN_SESSION]['cred'] ?? ''))) {
+    // İstifadəçi silinibsə, giriş adı və ya şifrəsi dəyişibsə köhnə sessiyalar
+    // etibarsızdır — oğurlanmış sessiya şifrə dəyişəndən sonra açıq qalmasın
+    $user = admin_user_get((int) $s['uid']);
+    if ($user === null || !hash_equals(admin_credentials_mark($user), (string) ($s['cred'] ?? ''))) {
         admin_logout();
         return null;
     }
     $_SESSION[ADMIN_SESSION]['seen'] = time();
-    return (string) $_SESSION[ADMIN_SESSION]['user'];
+    return $user;
 }
 
 function admin_is_logged_in(): bool
@@ -64,40 +72,64 @@ function admin_is_logged_in(): bool
     return admin_user() !== null;
 }
 
-/** Hazırkı giriş adı və şifrə hash-indən alınan iz — sessiyada saxlanılır */
-function admin_credentials_mark(): string
+/** İstifadəçinin id, giriş adı və şifrə hash-indən alınan iz — sessiyada saxlanılır */
+function admin_credentials_mark(array $user): string
 {
-    return hash_hmac('sha256', (string) cfg('admin_user', 'admin') . "\n" . (string) cfg('admin_password', ''), 'itkin-admin-sessiya');
+    return hash_hmac('sha256', $user['id'] . "\n" . $user['login'] . "\n" . $user['password'], 'itkin-admin-sessiya');
 }
 
-/** Giriş məlumatları dəyişəndən sonra bu sessiyanı yeni izlə davam etdirir */
+/** Öz giriş məlumatlarını dəyişəndən sonra bu sessiyanı yeni izlə davam etdirir */
 function admin_session_renew(): void
 {
+    $user = admin_user_get((int) ($_SESSION[ADMIN_SESSION]['uid'] ?? 0));
+    if ($user === null) {
+        return;
+    }
     session_regenerate_id(true);
-    $_SESSION[ADMIN_SESSION]['user'] = (string) cfg('admin_user', 'admin');
-    $_SESSION[ADMIN_SESSION]['cred'] = admin_credentials_mark();
+    $_SESSION[ADMIN_SESSION]['cred'] = admin_credentials_mark($user);
+}
+
+/** Daxil olmuş istifadəçinin rolu ('admin' / 'editor') */
+function admin_role(): string
+{
+    $user = admin_user();
+    return $user['role'] ?? 'editor';
+}
+
+/** Bu bölməni aça bilərmi (ayarlar və istifadəçilər — yalnız administrator) */
+function admin_can(string $section): bool
+{
+    return !in_array($section, ADMIN_ONLY_SECTIONS, true) || admin_role() === 'admin';
 }
 
 /**
- * İlkin şifrə hələ də istifadədədirmi. bcrypt yoxlaması baha olduğu üçün
- * nəticə sessiyada giriş məlumatlarının izi ilə birlikdə saxlanılır.
+ * Şifrəni dəyişmək məcburidirmi: ilkin şifrədir (itkin2026 — README-də açıq
+ * yazılıb) və ya administrator müvəqqəti şifrə verib. Mesaj, yoxsa null.
+ * bcrypt yoxlaması baha olduğu üçün nəticə sessiyada izlə birlikdə saxlanılır.
  */
-function admin_default_password(): bool
+function admin_password_notice(): ?string
 {
-    $mark = admin_credentials_mark();
+    $user = admin_user();
+    if ($user === null) {
+        return null;
+    }
+    if (!empty($user['must_change'])) {
+        return 'Administrator sizə müvəqqəti şifrə verib — əvvəlcə öz şifrənizi yazın.';
+    }
+    $mark = admin_credentials_mark($user);
     $seen = $_SESSION['itkin_admin_default'] ?? null;
     if (!is_array($seen) || ($seen[0] ?? '') !== $mark) {
-        $seen = [$mark, password_verify('itkin2026', (string) cfg('admin_password', ''))];
+        $seen = [$mark, $user['password'] !== '' && password_verify('itkin2026', $user['password'])];
         $_SESSION['itkin_admin_default'] = $seen;
     }
-    return (bool) $seen[1];
+    return $seen[1] ? 'Əvvəlcə ilkin şifrəni dəyişin — o, hamıya məlumdur.' : null;
 }
 
-/** Profildə göstərilən ad (giriş adı deyil) */
+/** Profildə və yan menyuda göstərilən ad (giriş adı deyil) */
 function admin_display_name(): string
 {
-    $name = trim((string) cfg('admin_name', ''));
-    return $name !== '' ? $name : 'Administrator';
+    $user = admin_user();
+    return $user ? admin_user_label($user) : 'Administrator';
 }
 
 /* ---------------------------------------------------------------- cəhd limiti */
@@ -170,11 +202,16 @@ function admin_throttled(): bool
  * Şifrəni yoxlamazdan əvvəl cəhdi “sifariş edir”: limit dolubsa false,
  * yoxsa sayğacı artırıb true. Yoxlama və artırma bir kilid altında olur —
  * eyni anda göndərilən onlarla sorğu da limitdən artıq cəhd ala bilmir.
- * Uğurlu girişdən sonra admin_clear_failures() sayğacı sıfırlayır.
+ *
+ * $key boşdursa — IP (girişdə); profildə hazırkı şifrənin yoxlanması üçün
+ * istifadəçinin öz açarı ('u:<id>') verilir.
+ * Uğurlu yoxlamadan sonra admin_refund_try() yalnız bu bir cəhdi geri qaytarır:
+ * əvvəlki səhvlər qalır — bir hesabla uğurla girmək başqa hesabın şifrəsini
+ * təxmin edən sayğacı sıfırlaya bilməz.
  */
-function admin_try_begin(): bool
+function admin_try_begin(string $key = ''): bool
 {
-    $key = admin_throttle_key();
+    $key = $key !== '' ? $key : admin_throttle_key();
     $allowed = false;
     $ran = false;
     admin_attempts(static function (array $data) use ($key, &$allowed, &$ran) {
@@ -194,25 +231,36 @@ function admin_try_begin(): bool
     // storage/ yazılmır — hamını bayırda qoymaq əvəzinə köhnə qayda ilə
     // sessiyada sayırıq (İcmal səhifəsi girişdən sonra qovluq barədə xəbərdarlıq edir)
     error_log('itkin admin: storage/login-attempts.json açılmır — cəhdlər sessiyada sayılır');
-    $row = $_SESSION['itkin_admin_tries'] ?? [0, time()];
+    $row = $_SESSION['itkin_admin_tries'][$key] ?? [0, time()];
     if (!is_array($row) || time() - (int) ($row[1] ?? 0) > ADMIN_TRY_WINDOW) {
         $row = [0, time()];
     }
     if ((int) $row[0] >= ADMIN_MAX_TRIES) {
         return false;
     }
-    $_SESSION['itkin_admin_tries'] = [(int) $row[0] + 1, (int) $row[1]];
+    $_SESSION['itkin_admin_tries'][$key] = [(int) $row[0] + 1, (int) $row[1]];
     return true;
 }
 
-function admin_clear_failures(): void
+/** Uğurlu yoxlamadan sonra admin_try_begin()-in götürdüyü bir cəhdi qaytarır */
+function admin_refund_try(string $key = ''): void
 {
-    $key = admin_throttle_key();
+    $key = $key !== '' ? $key : admin_throttle_key();
     admin_attempts(static function (array $data) use ($key) {
-        unset($data[$key]);
+        if (isset($data[$key])) {
+            $n = max(0, (int) $data[$key][0] - 1);
+            if ($n === 0) {
+                unset($data[$key]);
+            } else {
+                $data[$key] = [$n, (int) $data[$key][1]];
+            }
+        }
         return $data;
     });
-    unset($_SESSION['itkin_admin_tries']);
+    $row = $_SESSION['itkin_admin_tries'][$key] ?? null;
+    if (is_array($row)) {
+        $_SESSION['itkin_admin_tries'][$key] = [max(0, (int) $row[0] - 1), (int) ($row[1] ?? time())];
+    }
 }
 
 /* ---------------------------------------------------------------- giriş */
@@ -220,28 +268,44 @@ function admin_clear_failures(): void
 /**
  * Giriş. Cəhd əvvəlcədən admin_try_begin() ilə sayılmış olmalıdır.
  */
-function admin_login(string $user, string $password): bool
+function admin_login(string $login, string $password): bool
 {
-    $expectedUser = (string) cfg('admin_user', 'admin');
-    $hash         = (string) cfg('admin_password', '');
+    $user = admin_user_by_login($login);
+    $hash = $user['password'] ?? '';
 
-    $userOk = hash_equals($expectedUser, $user);
-    $passOk = $hash !== '' && password_verify($password, $hash);
-
-    if (!$userOk || !$passOk) {
+    if ($hash === '') {
+        // Belə istifadəçi yoxdur. Cavab müddətindən bunu bilmək olmasın deyə
+        // həqiqi yoxlama qədər vaxt aparan iş görülür (PHP 8.4-də bcrypt “cost” 12-dir)
+        password_hash($password, PASSWORD_DEFAULT);
+        return false;
+    }
+    if (!password_verify($password, $hash)) {
         return false;
     }
 
+    // Köhnə “cost” ilə yaradılmış hash yenilənir — bütün hesablar eyni vaxt aparsın
+    if (is_file(admin_users_file()) && password_needs_rehash($hash, PASSWORD_DEFAULT)) {
+        try {
+            admin_user_update($user['id'], ['password' => password_hash($password, PASSWORD_DEFAULT)]);
+            $user = admin_user_get($user['id']) ?? $user;
+        } catch (Throwable $e) {
+            // yazmaq alınmasa da giriş davam edir
+        }
+    }
+
     session_regenerate_id(true);
-    admin_clear_failures();
-    $_SESSION[ADMIN_SESSION] = ['user' => $expectedUser, 'seen' => time(), 'cred' => admin_credentials_mark()];
+    admin_refund_try();
+    $_SESSION[ADMIN_SESSION] = ['uid' => $user['id'], 'seen' => time(), 'cred' => admin_credentials_mark($user)];
+    unset($_SESSION['itkin_admin_default']);
+    admin_last_login_set($user['id']);
     return true;
 }
 
-/** Hazırkı şifrəni yoxlayır (profildə giriş məlumatlarını dəyişmək üçün) */
+/** Daxil olmuş istifadəçinin hazırkı şifrəsini yoxlayır (profildə dəyişiklik üçün) */
 function admin_password_ok(string $password): bool
 {
-    $hash = (string) cfg('admin_password', '');
+    $user = admin_user();
+    $hash = $user['password'] ?? '';
     return $hash !== '' && password_verify($password, $hash);
 }
 

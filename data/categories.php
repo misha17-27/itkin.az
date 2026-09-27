@@ -10,9 +10,9 @@ return [
         'id' => 22,
         'slug' => 'heyat-hekayeleri',
         'name' => 'Həyat hekayələri',
-        'description' => 'İtkin düşmüş şəxslərin ailələrinin danışdığı həyat hekayələri: gözləyiş illəri, axtarışlar və “Qarabağ İtkin Ailələri” İctimai Birliyinin dəstək fəaliyyəti.',
+        'description' => 'İtkin düşmüş şəxslərin ailələrinin həyat hekayələri: illərlə davam edən gözləyiş, axtarışlar və “Qarabağ İtkin Ailələri” İctimai Birliyinin dəstəyi.',
         'count' => 22,
-        'doc_title' => 'Həyat hekayələri Archives - İtkin',
+        'doc_title' => 'Həyat hekayələri: itkin düşənlərin ailələri danışır - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -67,7 +67,7 @@ return [
             [
                 'p',
                 'og:description',
-                'İtkin düşmüş şəxslərin ailələrinin danışdığı həyat hekayələri: gözləyiş illəri, axtarışlar və “Qarabağ İtkin Ailələri” İctimai Birliyinin dəstək fəaliyyəti.',
+                'İtkin düşmüş şəxslərin ailələrinin həyat hekayələri: illərlə davam edən gözləyiş, axtarışlar və “Qarabağ İtkin Ailələri” İctimai Birliyinin dəstəyi.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -78,9 +78,9 @@ HTML,
         'id' => 21,
         'slug' => 'itkinlerimizi-anaq',
         'name' => 'İtkinlərimizi anaq',
-        'description' => 'İtkin düşmüş vətəndaşlarımızın xatirəsinə həsr olunmuş yazılar və anım materialları.',
+        'description' => 'Qarabağ müharibələrində itkin düşmüş vətəndaşlarımızın xatirəsinə həsr olunmuş yazılar və anım materialları – “Qarabağ İtkin Ailələri” İctimai Birliyindən.',
         'count' => 6,
-        'doc_title' => 'İtkinlərimizi anaq Archives - İtkin',
+        'doc_title' => 'İtkinlərimizi anaq: itkin vətəndaşların xatirəsi - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -135,7 +135,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'İtkin düşmüş vətəndaşlarımızın xatirəsinə həsr olunmuş yazılar və anım materialları.',
+                'Qarabağ müharibələrində itkin düşmüş vətəndaşlarımızın xatirəsinə həsr olunmuş yazılar və anım materialları – “Qarabağ İtkin Ailələri” İctimai Birliyindən.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -146,9 +146,9 @@ HTML,
         'id' => 20,
         'slug' => 'taleyi-mueyyen-olunmus-itkinler',
         'name' => 'Taleyi müəyyən olunmuş itkinlər',
-        'description' => 'Qalıqları aşkar edilərək kimliyi müəyyənləşdirilmiş itkin şəxslər və dəfn mərasimlərinə dair məlumatlar.',
+        'description' => 'Qalıqları aşkar edilərək kimliyi müəyyənləşdirilmiş itkin düşmüş şəxslər və onların dəfn mərasimləri haqqında xəbərlər, məlumatlar və fotoşəkillər.',
         'count' => 7,
-        'doc_title' => 'Taleyi müəyyən olunmuş itkinlər Archives - İtkin',
+        'doc_title' => 'Taleyi müəyyən olunmuş itkinlər və dəfn mərasimləri - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -203,7 +203,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Qalıqları aşkar edilərək kimliyi müəyyənləşdirilmiş itkin şəxslər və dəfn mərasimlərinə dair məlumatlar.',
+                'Qalıqları aşkar edilərək kimliyi müəyyənləşdirilmiş itkin düşmüş şəxslər və onların dəfn mərasimləri haqqında xəbərlər, məlumatlar və fotoşəkillər.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -214,9 +214,9 @@ HTML,
         'id' => 19,
         'slug' => 'tedbirler',
         'name' => 'Tədbirlər',
-        'description' => '“Qarabağ İtkin Ailələri” İctimai Birliyinin keçirdiyi və iştirak etdiyi tədbirlər, görüşlər, konfranslar və beynəlxalq təşəbbüslər.',
+        'description' => '“Qarabağ İtkin Ailələri” İctimai Birliyinin keçirdiyi və iştirak etdiyi tədbirlər: görüşlər, konfranslar, anım mərasimləri və beynəlxalq təşəbbüslər.',
         'count' => 24,
-        'doc_title' => 'Tədbirlər Archives - İtkin',
+        'doc_title' => 'Tədbirlər: “Qarabağ İtkin Ailələri” Birliyinin görüşləri - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -271,7 +271,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                '“Qarabağ İtkin Ailələri” İctimai Birliyinin keçirdiyi və iştirak etdiyi tədbirlər, görüşlər, konfranslar və beynəlxalq təşəbbüslər.',
+                '“Qarabağ İtkin Ailələri” İctimai Birliyinin keçirdiyi və iştirak etdiyi tədbirlər: görüşlər, konfranslar, anım mərasimləri və beynəlxalq təşəbbüslər.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -282,9 +282,9 @@ HTML,
         'id' => 13,
         'slug' => 'xeberler',
         'name' => 'Xəbərlər',
-        'description' => 'İtkin düşmüş və əsir götürülmüş şəxslərlə bağlı son xəbərlər, rəsmi açıqlamalar və Birliyin fəaliyyətinə dair məlumatlar.',
+        'description' => 'İtkin düşmüş, əsir və girov götürülmüş şəxslərlə bağlı son xəbərlər, rəsmi açıqlamalar və “Qarabağ İtkin Ailələri” İctimai Birliyinin elanları.',
         'count' => 28,
-        'doc_title' => 'Xəbərlər Archives - İtkin',
+        'doc_title' => 'Xəbərlər: itkinlər və əsirlərlə bağlı rəsmi açıqlamalar - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -339,7 +339,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'İtkin düşmüş və əsir götürülmüş şəxslərlə bağlı son xəbərlər, rəsmi açıqlamalar və Birliyin fəaliyyətinə dair məlumatlar.',
+                'İtkin düşmüş, əsir və girov götürülmüş şəxslərlə bağlı son xəbərlər, rəsmi açıqlamalar və “Qarabağ İtkin Ailələri” İctimai Birliyinin elanları.',
             ],
         ],
         'schema' => <<<'HTML'
@@ -350,9 +350,9 @@ HTML,
         'id' => 1,
         'slug' => 'bez-kategorii',
         'name' => 'Без категории',
-        'description' => 'Ayrıca kateqoriyaya aid edilməmiş yazılar.',
+        'description' => '“Qarabağ İtkin Ailələri” İctimai Birliyinin ayrıca kateqoriyaya aid edilməyən digər xəbərləri, elanları və itkin düşmüş şəxslərlə bağlı yazıları.',
         'count' => 4,
-        'doc_title' => 'Без категории Archives - İtkin',
+        'doc_title' => 'Birliyin digər xəbərləri və yazıları - İtkin',
         'head_meta' => [
             [
                 'p',
@@ -407,7 +407,7 @@ HTML,
             [
                 'p',
                 'og:description',
-                'Ayrıca kateqoriyaya aid edilməmiş yazılar.',
+                '“Qarabağ İtkin Ailələri” İctimai Birliyinin ayrıca kateqoriyaya aid edilməyən digər xəbərləri, elanları və itkin düşmüş şəxslərlə bağlı yazıları.',
             ],
         ],
         'schema' => <<<'HTML'
