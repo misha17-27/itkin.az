@@ -262,7 +262,104 @@ function render(string $view, array $vars = []): void
     include dirname(__DIR__) . '/inc/' . $header . '.php';
     echo $content;
     include dirname(__DIR__) . '/inc/footer.php';
-    echo dedupe_stylesheets(ob_get_clean());
+    echo speed_hints(dedupe_stylesheets(ob_get_clean()));
+}
+
+/**
+ * Səhifənin açılışını sürətləndirən və “sıçrayışı” aradan qaldıran əlavələr
+ * (surətə xasdır, orijinalda yoxdur):
+ *
+ * 1) Elementor vidjetlərin skriptlərini (menyu, karusel, sayğac …) səhifə hazır
+ *    olandan sonra zəncirlə yükləyir: əvvəl vidjetin faylı, sonra Swiper. Hər
+ *    addım əvvəlkini gözləyir. Bu fayllar <head>-də əvvəlcədən istənir (preload) —
+ *    brauzer onları CSS ilə eyni vaxtda endirir.
+ * 2) <body> içindəki üslub faylları (menyu, karusel, ikon siyahısı) da əvvəlcədən istənir.
+ * 3) Karusel Swiper işə düşənə qədər hər slaydı bütün enə açır: ana səhifədəki
+ *    itkinlər karuseli 1485px hündürlükdən 363px-ə düşür və səhifə sıçrayır.
+ *    İşə düşməmiş karuselə son görünüşünün enini əvvəlcədən veririk
+ *    (slayd sayı və aralıq vidjetin öz data-settings-indən).
+ */
+function speed_hints(string $html): string
+{
+    $headEnd = strpos($html, '</head>');
+    if ($headEnd === false) {
+        return $html;
+    }
+    $body  = substr($html, $headEnd);
+    $hints = [];
+
+    // 2) body-dəki üslub faylları
+    if (preg_match_all('#<link rel="stylesheet" href="([^"]+)"#', $body, $m)) {
+        foreach (array_unique($m[1]) as $href) {
+            $hints[] = '<link rel="preload" as="style" href="' . $href . '">';
+        }
+    }
+
+    // 1) vidjet skriptləri: assets/vendor/plugins/<plugin>/assets/js/<vidjet>.<hash>.bundle.min.js
+    $types = preg_match_all('#data-widget_type="([a-z0-9-]+)\.#', $html, $w) ? array_unique($w[1]) : [];
+    $names = $types;
+    // vidjetin faylı özü də əlavə fayl çağırır
+    $extra = [
+        'loop-carousel' => ['loop'],
+        'loop-grid'     => ['loop', 'load-more', 'ajax-pagination'],
+        'gallery'       => ['lightbox'],
+    ];
+    foreach ($extra as $type => $more) {
+        if (in_array($type, $types, true)) {
+            $names = array_merge($names, $more);
+        }
+    }
+    $vendor = dirname(__DIR__) . '/assets/vendor/plugins/';
+    foreach (array_unique($names) as $name) {
+        foreach (['elementor', 'elementor-pro'] as $plugin) {
+            foreach (glob($vendor . $plugin . '/assets/js/' . $name . '.*.bundle.min.js') ?: [] as $file) {
+                $hints[] = '<link rel="preload" as="script" href="'
+                    . asset('assets/vendor/plugins/' . $plugin . '/assets/js/' . basename($file)) . '">';
+            }
+        }
+    }
+    if (array_intersect($types, ['loop-carousel', 'image-carousel'])) {
+        $hints[] = '<link rel="preload" as="script" href="'
+            . asset('assets/vendor/plugins/elementor/assets/lib/swiper/v8/swiper.min.js') . '?ver=8.4.5">';
+    }
+
+    // 3) işə düşməmiş karuselin slayd eni
+    $css = '';
+    $re  = '#<div class="elementor-element elementor-element-([0-9a-f]+)[^"]*elementor-widget-(?:loop|image)-carousel[^"]*"[^>]*data-settings="([^"]*)"#';
+    if (preg_match_all($re, $html, $cm, PREG_SET_ORDER)) {
+        foreach ($cm as $c) {
+            $set = json_decode(html_entity_decode($c[2], ENT_QUOTES, 'UTF-8'), true);
+            if (!is_array($set)) {
+                continue;
+            }
+            $sel = '.elementor-element-' . $c[1] . ' .swiper:not(.swiper-initialized) .swiper-slide';
+            $gap = 10;
+            foreach (['' => '', '(max-width:1024px)' => '_tablet', '(max-width:767px)' => '_mobile'] as $mq => $sfx) {
+                $size = $set['image_spacing_custom' . $sfx]['size'] ?? '';
+                if (is_numeric($size)) {
+                    $gap = (int) $size;      // boşdursa böyük ekranın aralığı qalır
+                }
+                $n = (int) ($set['slides_to_show' . $sfx] ?? 0);
+                if ($n < 1) {
+                    continue;
+                }
+                $rule = $sel . '{width:calc((100% - ' . (($n - 1) * $gap) . 'px) / ' . $n . ');margin-right:' . $gap . 'px}';
+                $css .= $mq === '' ? $rule : '@media' . $mq . '{' . $rule . '}';
+            }
+        }
+    }
+
+    if ($hints) {
+        // ilk üslub faylından əvvəl — brauzer <head>-i oxuyan kimi endirməyə başlasın
+        $at = strpos($html, "\t<link rel=\"stylesheet\"");
+        if ($at !== false && $at < $headEnd) {
+            $html = substr($html, 0, $at) . "\t" . implode("\n\t", array_unique($hints)) . "\n" . substr($html, $at);
+        }
+    }
+    if ($css !== '') {
+        $html = preg_replace('#</head>#', '<style id="itkin-carousel-preinit">' . $css . "</style>\n</head>", $html, 1);
+    }
+    return $html;
 }
 
 /**

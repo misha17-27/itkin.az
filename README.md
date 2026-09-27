@@ -473,6 +473,15 @@ Qalan hər şey vizual olaraq eynidir. Texniki fərqlər:
   olan səhifələrdə başlıqda dil seçimi və `hreflang="en"` var; itkinlər və kitabxana
   səhifələrində də indi `hreflang` verilir (orijinalda WPML onları tərcümə etmədiyi
   üçün verilmirdi). Xəbərlər, kateqoriyalar və «Xəbərlər» siyahısı orijinaldakı kimidir.
+- **Açılış sürətləndirilib** (`inc/render.php`, `speed_hints()`):
+  - Elementor karusel, menyu və sayğac skriptlərini səhifə hazır olandan sonra
+    zəncirlə yükləyirdi (əvvəl vidjetin faylı, sonra Swiper). İndi bu fayllar
+    `<head>`-də əvvəlcədən istənir (`rel="preload"`) və CSS ilə eyni vaxtda endirilir.
+  - Karusellər JS işə düşənə qədər slaydı bütün enə açırdı — ana səhifədəki itkinlər
+    karuseli əvvəl 1485px, sonra 363px olurdu və səhifə “sıçrayırdı”. İndi işə
+    düşməmiş karusel də son enindədir (slayd sayı vidjetin öz ayarlarından götürülür).
+  - Ana səhifənin fon videosu yenidən sıxılıb: 6,3 MB → 2,8 MB (səssiz, eyni ölçü və
+    uzunluq, görünüş fərqi yoxdur).
 - **Surətə xas `custom.css` və `mobile-menu.js`** versiya parametri ilə yüklənir
   (`?ver=<faylın vaxtı>`) — yenilənəndə brauzer köhnə nüsxəni keşdən götürmür.
 - **Ana səhifədəki böyük inline şəkil** (441 KB base64) ayrıca fayla çıxarılıb:
