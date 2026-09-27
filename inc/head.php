@@ -8,15 +8,17 @@
  */
 ?>
 <!doctype html>
-<html lang="<?= e(cfg('locale', 'az')) ?>">
+<html lang="<?= e(lang()) ?>">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<meta name="robots" content="<?= e($meta['robots']) ?>">
 <?php if ($meta['canonical'] !== '' && $hreflang): ?>
-	<link rel="alternate" hreflang="<?= e(cfg('locale', 'az')) ?>" href="<?= e($meta['canonical']) ?>">
-	<link rel="alternate" hreflang="x-default" href="<?= e($meta['canonical']) ?>">
+<?php   foreach (lang_versions() as $code): ?>
+	<link rel="alternate" hreflang="<?= e($code) ?>" href="<?= e(lang_swap_url($meta['canonical'], $code)) ?>">
+<?php   endforeach; ?>
+	<link rel="alternate" hreflang="x-default" href="<?= e(lang_swap_url($meta['canonical'], LANG_DEFAULT)) ?>">
 <?php endif; ?>
 	<title><?= e($meta['title']) ?></title>
 <?php if ($meta['canonical'] !== ''): ?>
@@ -42,7 +44,7 @@
         if (!$hasDescription && $meta['description'] !== ''): ?>
 	<meta name="description" content="<?= e($meta['description']) ?>">
 <?php   endif; ?>
-<?php   foreach ($meta['head_meta'] as $tag): ?>
+<?php   foreach (i18n_head_meta($meta['head_meta'], $meta) as $tag): ?>
 <?php       list($kind, $key, $val) = $tag;
             if ($key === 'og:url') {
                 $val = $meta['canonical'];
@@ -56,7 +58,7 @@
 <?php   if ($meta['description'] !== ''): ?>
 	<meta name="description" content="<?= e($meta['description']) ?>">
 <?php   endif; ?>
-	<meta property="og:locale" content="az_AZ">
+	<meta property="og:locale" content="<?= e(LANGS[lang()]['locale']) ?>">
 	<meta property="og:type" content="<?= e($meta['og_type']) ?>">
 	<meta property="og:title" content="<?= e($meta['og_title'] !== '' ? $meta['og_title'] : $meta['title']) ?>">
 <?php   if ($meta['description'] !== ''): ?>
@@ -100,12 +102,12 @@ foreach ($styles as $href) {
 ";
 }
 // surətə xas üslub — həmişə sonuncu
-echo "	<link rel=\"stylesheet\" href=\"" . e(asset(CSS_CUSTOM)) . "\" media=\"all\">
+echo "	<link rel=\"stylesheet\" href=\"" . e(asset_ver(CSS_CUSTOM)) . "\" media=\"all\">
 ";
 ?>
 
 <script id="wpml-cookie-js-extra">
-var wpml_cookies = {"wp-wpml_current_language":{"value":"<?= e(cfg('locale', 'az')) ?>","expires":1,"path":"/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"<?= e(lang()) ?>","expires":1,"path":"/"}};
 </script>
 <script id="wpml-cookie-js" src="<?= asset('assets/vendor/plugins/sitepress-multilingual-cms/res/js/cookies/language-cookie.js') ?>"></script>
 <?php $ga = trim((string) cfg('ga_id')); if ($ga !== ''): ?>

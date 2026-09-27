@@ -11,6 +11,14 @@
  *   - boşaldılmış sahə saytda da boş qalır (abzası, şəkli, qalereyanı götürmək olur);
  *   - «Orijinala qaytar» qeydi silir və o hissə yenidən bayt-bayt orijinal kimi çıxır;
  *   - dəyəri orijinalla eyni olan sahə üçün qeyd saxlanılmır.
+ *
+ * İngiliscə versiya:
+ *   - hər mətn sahəsinin (başlıq, mətn, mətn bloku) altında EN sahəsi var; ilkin
+ *     dəyəri orijinalın lüğətdəki tərcüməsidir (inc/lang/en/*.php). Ondan fərqli
+ *     yazılan mətn data/page-texts-en.php faylına düşür, «İngiliscə tərcüməyə qaytar»
+ *     qeydi silir. Şəkil, qalereya, video, keçid və rəqəm hər iki dildə eynidir;
+ *   - səhifənin ingiliscə adı, SEO başlığı və təsviri data/pages-en.php-dədir.
+ *     Ad boş qalsa, səhifənin ingiliscə versiyası söndürülür (inc/i18n.php → lang_has()).
  */
 
 /** açar (data/page-fields.php-dəki prefiks) => [ad, data/pages.php slug-ı, saytdakı ünvan] */
@@ -31,9 +39,13 @@ const ADMIN_PAGE_SOURCES = [
     'xeberler'  => ['posts', 'Xəbərlər'],
 ];
 
-$fields = data_load('page-fields');
-$texts  = data_load('page-texts');
-$root   = dirname(__DIR__, 2);
+/** Dilə görə tərcümə olunan sahələr; qalanları (şəkil, keçid, rəqəm …) hər iki dildə eynidir */
+const ADMIN_PAGE_EN_TYPES = ['heading', 'text', 'html'];
+
+$fields  = data_load('page-fields');
+$texts   = data_load('page-texts');
+$textsEn = data_load('page-texts-en');
+$root    = dirname(__DIR__, 2);
 
 $byPage = [];
 foreach ($fields as $field) {
@@ -154,6 +166,30 @@ function admin_page_default(array $field)
 }
 
 /**
+ * İngiliscə sahənin qeydsiz dəyəri — saytın ingiliscə versiyasında göründüyü kimi:
+ * orijinalın lüğətdəki tərcüməsi. Azərbaycancada boşaldılmış sahə isə ingiliscədə
+ * də boş qalır (inc/helpers.php → page_override_text()).
+ */
+function admin_page_en_value(array $field, array $texts): string
+{
+    if (array_key_exists($field['key'], $texts) && $texts[$field['key']] === '') {
+        return '';
+    }
+    // tərcüməsi olmayan (dildən asılı olmayan) sahə saytda azərbaycanca dəyişikliyi göstərir
+    $orig = (string) $field['value'];
+    if (t_lang($orig, 'en') === $orig && is_string($texts[$field['key']] ?? null)) {
+        return $texts[$field['key']];
+    }
+    return t_lang($orig, 'en');
+}
+
+/** Həmin dəyər — müqayisə üçün azərbaycanca sahələrlə eyni qaydadan keçirilmiş */
+function admin_page_en_default(array $field, array $texts): string
+{
+    return trim(admin_clean_html(trim(admin_page_en_value($field, $texts))));
+}
+
+/**
  * Ekranda göstərmək üçün sıra: keçid sahəsi (düymənin ünvanı, bəndin keçidi)
  * markupda mətnindən əvvəl gəlir, amma oxumaq üçün mətn birinci olmalıdır.
  */
@@ -202,6 +238,38 @@ if ($which !== '' && $action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET')
 
         store_save('page-texts', $next, 'Səhifə mətnləri / page text overrides');
 
+        // İngiliscə mətnlər: lüğətdəki tərcümədən fərqlidirsə data/page-texts-en.php-yə yazılır
+        $givenEn  = (array) ($_POST['en'] ?? []);
+        $resetsEn = (array) ($_POST['reset_en'] ?? []);
+        $nextEn   = $textsEn;
+
+        foreach ($byPage[$which] ?? [] as $field) {
+            $key = $field['key'];
+            if (!in_array($field['type'], ADMIN_PAGE_EN_TYPES, true)) {
+                continue;
+            }
+            // «İngiliscə tərcüməyə qaytar» — qeyd silinir, saytda yenə lüğətdəki tərcümə çıxır
+            if (!empty($resetsEn[$key])) {
+                unset($nextEn[$key]);
+                continue;
+            }
+            if (!isset($givenEn[$key]) || !is_string($givenEn[$key])) {
+                continue;   // sahə formada yox idi
+            }
+            $value = post_en($key, true);
+            // Formada göstərilən ilkin dəyərlə eynidirsə qeyd lazım deyil; boş dəyər isə
+            // saxlanılır — “ingiliscə saytda boş qalsın”
+            if ($value === admin_page_en_default($field, $texts)) {
+                unset($nextEn[$key]);
+            } else {
+                $nextEn[$key] = $value;
+            }
+        }
+
+        if ($nextEn !== $textsEn) {
+            store_save('page-texts-en', $nextEn, 'Səhifə mətnləri, ingiliscə / English page text overrides');
+        }
+
         // SEO başlığı və təsviri data/pages.php-də saxlanılır
         $pages = data_load('pages');
         foreach ($pages as $i => $page) {
@@ -218,8 +286,32 @@ if ($which !== '' && $action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET')
             break;
         }
 
+        // İngiliscə ad, SEO başlığı və təsvir — data/pages-en.php.
+        // Forma bu sahələrsiz gəlibsə (köhnə səhifədən), ingiliscə versiyaya toxunmuruq.
+        $enNote = '';
+        $record = admin_page_record(ADMIN_PAGES[$which][1]);
+        if (isset($record['id']) && array_key_exists('title', $givenEn)) {
+            $pageId = (int) $record['id'];
+            $hadEn  = admin_en_get('pages', $pageId) !== [];
+            $enSeo  = [
+                'title'       => post_en('title'),
+                'doc_title'   => post_en('doc_title'),
+                'description' => post_en('description'),
+            ];
+            // «Xəbərlər»in ingiliscə versiyası addan yox, xəbərlərin tərcüməsindən asılıdır
+            if ($enSeo['title'] === '' && $record['slug'] !== 'xeberler') {
+                admin_en_save('pages', $pageId, null);
+                if ($hadEn || $enSeo['doc_title'] !== '' || $enSeo['description'] !== '') {
+                    $enNote = 'İngiliscə ad boş olduğu üçün səhifənin ingiliscə versiyası söndürüldü.';
+                }
+            } else {
+                admin_en_save('pages', $pageId, $enSeo);
+            }
+        }
+
         admin_redirect(['section' => 'pages', 'page' => $which],
-            $warnings ? 'Yadda saxlanıldı, amma: ' . implode('; ', $warnings) . '.' : 'Səhifə yadda saxlanıldı.',
+            ($warnings ? 'Yadda saxlanıldı, amma: ' . implode('; ', $warnings) . '.' : 'Səhifə yadda saxlanıldı.')
+            . ($enNote !== '' ? ' ' . $enNote : ''),
             $warnings ? 'error' : 'ok');
     }
 }
@@ -236,10 +328,12 @@ if ($which === '') {
 		<p class="pages-note">
 			Səhifənin mətnləri, şəkilləri, qalereyası və SEO-su «Redaktə et» ilə açılır.
 			Xəbərlər, kitablar və itkinlər öz bölmələrində redaktə olunur.
+			<span class="lang-flag">EN</span> — səhifənin saytda ingiliscə versiyası var (<code>/en/…</code>);
+			onun mətnləri də «Redaktə et»dədir.
 		</p>
 		<table class="table">
 			<thead>
-				<tr><th>Səhifə</th><th>Ünvan</th><th style="width:90px">Məzmun</th><th style="width:70px">SEO</th><th></th></tr>
+				<tr><th>Səhifə</th><th>Ünvan</th><th style="width:90px">Məzmun</th><th style="width:70px">SEO</th><th style="width:60px">EN</th><th></th></tr>
 			</thead>
 			<tbody>
 <?php foreach (ADMIN_PAGES as $key => [$label, $slug, $path]): ?>
@@ -251,6 +345,7 @@ if ($which === '') {
     $record  = admin_page_record($slug);
     $seoOk   = trim((string) $record['doc_title']) !== '' && trim((string) $record['description']) !== '';
     $auto    = ADMIN_PAGE_SOURCES[$key] ?? null;
+    $enOn    = lang_has($path, 'en');
 ?>
 				<tr>
 					<td>
@@ -270,10 +365,22 @@ if ($which === '') {
 					<td>
 						<span class="dot<?= $seoOk ? '' : ' dot--warn' ?>" title="<?= $seoOk ? 'SEO başlıq və təsvir var' : 'SEO təsviri yoxdur' ?>"></span>
 					</td>
+					<td>
+<?php if ($enOn): ?>
+						<span class="lang-flag" title="İngiliscə versiyası var">EN</span>
+<?php else: ?>
+						<span class="lang-flag lang-flag--off" title="<?= $slug === 'xeberler'
+                            ? 'İngiliscə versiyası yoxdur — heç bir xəbərin ingiliscə mətni yoxdur'
+                            : 'İngiliscə versiyası yoxdur — səhifənin ingiliscə adı yazılmayıb' ?>">—</span>
+<?php endif; ?>
+					</td>
 					<td class="is-right">
 						<div class="table__actions">
 							<a class="btn btn--sm" href="<?= e(admin_url(['section' => 'pages', 'page' => $key])) ?>">Redaktə et</a>
 							<a class="btn btn--sm" href="<?= e(url($path)) ?>" target="_blank" rel="noopener">Aç</a>
+<?php if ($enOn): ?>
+							<a class="btn btn--sm" href="<?= e(url_lang($path, 'en')) ?>" target="_blank" rel="noopener">EN ↗</a>
+<?php endif; ?>
 						</div>
 					</td>
 				</tr>
@@ -292,11 +399,17 @@ if ($which === '') {
 [$pageLabel, $pageSlug, $pagePath] = ADMIN_PAGES[$which];
 $record = admin_page_record($pageSlug);
 $list   = admin_page_order($byPage[$which] ?? []);
+$enOn   = lang_has($pagePath, 'en');
+$enSeo  = isset($record['id']) ? admin_en_get('pages', (int) $record['id']) : [];
 
-admin_shell_start('pages', $pageLabel, [
+$top = [
     ['href' => admin_url(['section' => 'pages']), 'label' => '← Bütün səhifələr'],
     ['href' => url($pagePath), 'label' => 'Saytda bax ↗'],
-]);
+];
+if ($enOn) {
+    $top[] = ['href' => url_lang($pagePath, 'en'), 'label' => 'Saytda bax (EN) ↗'];
+}
+admin_shell_start('pages', $pageLabel, $top);
 f_errors($errors);
 f_open(['section' => 'pages', 'action' => 'edit', 'page' => $which]);
 ?>
@@ -314,6 +427,14 @@ f_open(['section' => 'pages', 'action' => 'edit', 'page' => $which]);
 		<p class="field__hint" style="margin-top:0">
 			Sahələr səhifədə göründüyü ardıcıllıqladır. Boşaltdığınız sahə saytda da boş qalır.
 			Dəyişdirilmiş sahənin altında «Orijinala qaytar» var — əvvəlki mətn və ya şəkil geri gəlir.
+		</p>
+		<p class="field__hint">
+			Mətnlərin altındakı <span class="lang-flag">EN</span> sahəsi saytın ingiliscə versiyası üçündür;
+			orada hazır tərcümə yazılıb. Şəkillər, qalereya, video, keçidlər və rəqəmlər hər iki dildə eynidir.
+<?php if (!$enOn): ?>
+			<strong>Bu səhifənin ingiliscə versiyası hazırda söndürülüb</strong> — EN mətnləri saytda görünmür,
+			ta ki aşağıda «İngiliscə versiya» kartında səhifənin ingiliscə adı yazılana qədər.
+<?php endif; ?>
 		</p>
 <?php foreach ($list as $field): ?>
 <?php
@@ -378,6 +499,39 @@ f_open(['section' => 'pages', 'action' => 'edit', 'page' => $which]);
 				<input type="checkbox" name="reset[<?= e($key) ?>]" value="1"> Orijinala qaytar
 			</label>
 <?php endif; ?>
+<?php if (in_array($type, ADMIN_PAGE_EN_TYPES, true)): ?>
+<?php
+    $enChanged = array_key_exists($key, $textsEn);
+    $enValue   = $enChanged ? (string) $textsEn[$key] : admin_page_en_value($field, $texts);
+    $enId      = 'f-en-' . $key;
+    $enName    = 'en[' . $key . ']';
+    $enMulti   = $type !== 'html' && (!empty($multi) || strpos($enValue, "\n") !== false
+        || ($type === 'heading' && mb_strlen($enValue) > 60));
+    $enDict    = t_lang((string) $field['value'], 'en');
+?>
+			<div class="pf__en">
+				<div class="field">
+					<label for="<?= e($enId) ?>"><span class="lang-flag">EN</span><?= f_badge($enChanged ? ['badge' => 'dəyişdirilib'] : []) ?></label>
+<?php if ($type === 'html'): ?>
+					<textarea class="textarea" id="<?= e($enId) ?>" name="<?= e($enName) ?>" rows="8" data-rich="<?= e($field['label']) ?> (ingiliscə)" lang="en"><?= e($enValue) ?></textarea>
+<?php elseif ($enMulti): ?>
+					<textarea class="textarea" id="<?= e($enId) ?>" name="<?= e($enName) ?>" rows="2" style="min-height:64px" lang="en"><?= e($enValue) ?></textarea>
+<?php else: ?>
+					<input class="input" type="text" id="<?= e($enId) ?>" name="<?= e($enName) ?>" value="<?= e($enValue) ?>" lang="en">
+<?php endif; ?>
+<?php if ($enChanged): ?>
+					<span class="field__hint">Lüğətdəki tərcümə: <?= e(mb_strimwidth(strip_tags($enDict), 0, 120, '…')) ?></span>
+<?php elseif ($enValue === '' && $enDict !== ''): ?>
+					<span class="field__hint">Azərbaycanca sahə boşaldıldığı üçün ingiliscədə də boşdur. Mətn yazsanız, ingiliscə saytda görünəcək.</span>
+<?php endif; ?>
+				</div>
+<?php if ($enChanged): ?>
+				<label class="check check--reset">
+					<input type="checkbox" name="reset_en[<?= e($key) ?>]" value="1"> İngiliscə tərcüməyə qaytar
+				</label>
+<?php endif; ?>
+			</div>
+<?php endif; ?>
 		</div>
 <?php endforeach; ?>
 <?php endif; ?>
@@ -398,6 +552,30 @@ f_open(['section' => 'pages', 'action' => 'edit', 'page' => $which]);
         ?>
 	</div>
 </div>
+
+<?php
+$enTitle    = (string) ($enSeo['title'] ?? '');
+$enSiteName = trim((string) cfg('site_name_en', '')) !== '' ? trim((string) cfg('site_name_en')) : (string) cfg('site_name', '');
+f_en_open($enOn ? url_lang($pagePath, 'en') : '', $pageSlug === 'xeberler'
+    ? '«Xəbərlər» səhifəsinin ingiliscə versiyası ən azı bir xəbərə ingiliscə mətn yazılanda avtomatik açılır'
+      . ' («<a href="' . e(admin_url(['section' => 'posts'])) . '">Xəbərlər</a>» bölməsində). Burada onun ingiliscə adı'
+      . ' və SEO-su yazılır; boş buraxılan sahənin yerində azərbaycanca mətn çıxır.'
+    : 'Saytın <code>/en/</code> versiyası üçün. Səhifənin ingiliscə adı brauzerin başlığında, «Home › …» yolunda'
+      . ' və paylaşma önizləməsində (og:title) işlənir. <strong>Adı boş buraxsanız, səhifənin ingiliscə versiyası'
+      . ' söndürülür</strong>: <code>/en/…</code> ünvanı azərbaycanca səhifəyə yönləndirilir, dil düyməsi görünmür.');
+f_text('en[title]', 'Səhifənin ingiliscə adı', $enTitle, [
+    'hint' => $pageSlug === 'xeberler' ? 'Boş buraxsanız «' . e((string) $record['title']) . '» göstərilir.' : '',
+]);
+f_text('en[doc_title]', 'SEO başlıq (ingiliscə)', (string) ($enSeo['doc_title'] ?? ''), ($enTitle !== ''
+    ? ['placeholder' => $enTitle . ' - ' . $enSiteName] : []) + [
+    'hint' => 'Boş buraxsanız ingiliscə addan avtomatik qurulur («Ad - ' . e($enSiteName) . '»).',
+]);
+f_textarea('en[description]', 'Təsvir (ingiliscə)', (string) ($enSeo['description'] ?? ''), [
+    'rows' => 3,
+    'hint' => 'Axtarış nəticələrində və paylaşma önizləməsində. Boş buraxsanız azərbaycanca təsvir göstərilir.',
+]);
+f_en_close();
+?>
 
 <div class="actions">
 	<button class="btn btn--primary" type="submit">Yadda saxla</button>

@@ -10,14 +10,22 @@ declare(strict_types=1);
 
 $root = dirname(__DIR__);
 
-require $root . '/inc/helpers.php';
-require $root . '/inc/data.php';
-require $root . '/inc/store.php';
-require $root . '/inc/turnstile.php';
-require __DIR__ . '/inc/auth.php';
-require __DIR__ . '/inc/helpers.php';
-require __DIR__ . '/inc/layout.php';
-require __DIR__ . '/inc/form.php';
+require_once $root . '/inc/helpers.php';
+require_once $root . '/inc/data.php';
+require_once $root . '/inc/store.php';
+require_once $root . '/inc/turnstile.php';
+
+// Panel yalnız öz ünvanında açılır (config.php → admin_path, məsələn /mguliyev/).
+// Qovluğun adı ilə (/admin/) gələn sorğu saytın adi 404 səhifəsini görür.
+if (!admin_request()) {
+    require $root . '/index.php';
+    exit;
+}
+
+require_once __DIR__ . '/inc/auth.php';
+require_once __DIR__ . '/inc/helpers.php';
+require_once __DIR__ . '/inc/layout.php';
+require_once __DIR__ . '/inc/form.php';
 
 production_errors();
 force_https();

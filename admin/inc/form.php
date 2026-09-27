@@ -312,3 +312,28 @@ function f_actions(string $backHref, ?string $deleteHref = null): void
 	</div>
 	<?php
 }
+
+/**
+ * «İngiliscə versiya» kartının başlığı. Sahələrin adları en[...] olmalıdır.
+ * $viewUrl — saytın ingiliscə səhifəsi (yeni qeyd üçün boş).
+ */
+function f_en_open(string $viewUrl = '', string $hint = ''): void
+{
+    ?>
+	<div class="card card--en" id="en">
+		<div class="card__head">
+			<span class="lang-flag">EN</span> İngiliscə versiya
+<?php if ($viewUrl !== ''): ?>
+			<a class="card__link" href="<?= e($viewUrl) ?>" target="_blank" rel="noopener">Saytda bax ↗</a>
+<?php endif; ?>
+		</div>
+		<div class="card__body">
+			<p class="field__hint" style="margin-top:0"><?= $hint !== '' ? $hint
+                : 'Saytın <code>/en/</code> versiyasında göstərilir. Boş buraxılan sahənin yerində azərbaycanca mətn çıxır.' ?></p>
+	<?php
+}
+
+function f_en_close(): void
+{
+    echo "\t\t</div>\n\t</div>\n";
+}

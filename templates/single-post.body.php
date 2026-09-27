@@ -51,12 +51,12 @@
 <div class="elementor-post-navigation">
 <?php if ($prev): ?>
 			<div class="elementor-post-navigation__prev elementor-post-navigation__link">
-				<a href="<?= url($prev_base . $prev['slug']) ?>" rel="prev"><span class="elementor-post-navigation__link__prev"><span class="post-navigation__prev--label">Geri</span></span></a>
+				<a href="<?= url($prev_base . $prev['slug']) ?>" rel="prev"><span class="elementor-post-navigation__link__prev"><span class="post-navigation__prev--label"><?= t('Geri') ?></span></span></a>
 			</div>
 <?php endif; ?>
 <?php if ($next): ?>
 			<div class="elementor-post-navigation__next elementor-post-navigation__link">
-				<a href="<?= url($prev_base . $next['slug']) ?>" rel="next"><span class="elementor-post-navigation__link__next"><span class="post-navigation__next--label">Növbəti</span></span></a>
+				<a href="<?= url($prev_base . $next['slug']) ?>" rel="next"><span class="elementor-post-navigation__link__next"><span class="post-navigation__next--label"><?= t('Növbəti') ?></span></span></a>
 			</div>
 <?php endif; ?>
 		</div>
@@ -65,7 +65,7 @@
 		<div class="elementor-element elementor-element-4e62081b e-con-full e-flex e-con e-child" data-id="4e62081b" data-element_type="container">
 				<div class="elementor-element elementor-element-756965d0 elementor-widget elementor-widget-heading" data-id="756965d0" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<span class="elementor-heading-title elementor-size-default">Paylaş:</span>		</div>
+			<span class="elementor-heading-title elementor-size-default"><?= t('Paylaş:') ?></span>		</div>
 				</div>
 				<div class="elementor-element elementor-element-11308e8b elementor-share-buttons--view-icon elementor-share-buttons--skin-minimal elementor-share-buttons--color-custom elementor-share-buttons--shape-square elementor-grid-0 elementor-widget elementor-widget-share-buttons" data-id="11308e8b" data-element_type="widget" data-widget_type="share-buttons.default">
 				<div class="elementor-widget-container">
@@ -113,7 +113,7 @@
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-73a6f6d2 elementor-widget elementor-widget-heading" data-id="73a6f6d2" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Oxşar xəbərlər</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= t('Oxşar xəbərlər') ?></h2>		</div>
 				</div>
 		<div class="elementor-element elementor-element-58b2bed e-flex e-con-boxed e-con e-child" data-id="58b2bed" data-element_type="container">
 					<div class="e-con-inner">

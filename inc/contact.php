@@ -26,8 +26,11 @@ const CONTACT_FIELDS = [
 /** Sahələrin maksimum uzunluğu (simvol) */
 const CONTACT_MAX = ['name' => 100, 'surname' => 100, 'email' => 254, 'phone' => 32, 'message' => 5000];
 
-/** Xəta mesajlarında sahənin adı */
-const CONTACT_LABELS = ['name' => 'Ad', 'surname' => 'Soyad', 'email' => 'E-poçt', 'phone' => 'Telefon', 'message' => 'Mesaj'];
+/** Xəta mesajlarında sahənin adı (cari dildə) */
+function contact_labels(): array
+{
+    return ['name' => t('Ad'), 'surname' => t('Soyad'), 'email' => t('E-poçt'), 'phone' => t('Telefon'), 'message' => t('Mesaj')];
+}
 
 const CONTACT_MIN_SECONDS = 3;       // bundan tez doldurulan forma robotdur
 const CONTACT_MAX_AGE     = 21600;   // nişan 6 saat keçərlidir
@@ -222,7 +225,7 @@ function contact_handle(): array
 
     if ($token === 'bad') {
         // yeni nişan artıq formadadır — yenidən basmaq kifayətdir
-        $state['notice'] = 'Formanın etibarlılıq müddəti bitmişdi. Zəhmət olmasa yenidən göndərin.';
+        $state['notice'] = t('Formanın etibarlılıq müddəti bitmişdi. Zəhmət olmasa yenidən göndərin.');
         return $state;
     }
     if ($token === 'fast') {
@@ -233,45 +236,49 @@ function contact_handle(): array
         return $state;
     }
 
-    if ($values['name'] === '')    { $state['errors']['name']    = 'Adınızı yazın.'; }
-    if ($values['surname'] === '') { $state['errors']['surname'] = 'Soyadınızı yazın.'; }
+    if ($values['name'] === '')    { $state['errors']['name']    = t('Adınızı yazın.'); }
+    if ($values['surname'] === '') { $state['errors']['surname'] = t('Soyadınızı yazın.'); }
     if (!filter_var($values['email'], FILTER_VALIDATE_EMAIL)) {
-        $state['errors']['email'] = 'Düzgün e-poçt ünvanı yazın.';
+        $state['errors']['email'] = t('Düzgün e-poçt ünvanı yazın.');
     }
-    if ($values['phone'] === '')   { $state['errors']['phone']   = 'Telefon nömrənizi yazın.'; }
+    if ($values['phone'] === '')   { $state['errors']['phone']   = t('Telefon nömrənizi yazın.'); }
     foreach (CONTACT_MAX as $key => $max) {
         if (mb_strlen($values[$key], 'UTF-8') > $max) {
-            $state['errors'][$key] = CONTACT_LABELS[$key] . ' çox uzundur (ən çoxu ' . $max . ' simvol).';
+            $state['errors'][$key] = strtr(t('{label} çox uzundur (ən çoxu {max} simvol).'),
+                ['{label}' => contact_labels()[$key], '{max}' => (string) $max]);
             $state['values'][$key] = mb_substr($values[$key], 0, $max, 'UTF-8');
         }
     }
 
     if ($state['errors']) {
         // Şablonda sahələrin yanında yer yoxdur — səbəblər ümumi mesajda sadalanır
-        $state['notice'] = 'Zəhmət olmasa sahələri düzgün doldurun: ' . implode(' ', $state['errors']);
+        $state['notice'] = t('Zəhmət olmasa sahələri düzgün doldurun: ') . implode(' ', $state['errors']);
         return $state;
     }
 
     // Kapça yalnız qalan hər şey düzgün olanda soruşulur — cavab birdəfəlikdir
     if (turnstile_on('form') && !turnstile_verify(client_ip())) {
-        $state['notice'] = 'Zəhmət olmasa “robot deyiləm” yoxlamasını keçin və yenidən göndərin.';
+        $state['notice'] = t('Zəhmət olmasa “robot deyiləm” yoxlamasını keçin və yenidən göndərin.');
         return $state;
     }
 
     $why = '';
     if (!contact_take_slot($nonce, client_key(), $why)) {
         $state['notice'] = $why === 'reused'
-            ? 'Bu forma artıq göndərilib. Yeni müraciət üçün səhifəni yeniləyin.'
-            : 'Hazırda çox sayda müraciət var. Bir az sonra yenidən cəhd edin və ya birbaşa yazın: ' . cfg('contact_email');
+            ? t('Bu forma artıq göndərilib. Yeni müraciət üçün səhifəni yeniləyin.')
+            : t('Hazırda çox sayda müraciət var. Bir az sonra yenidən cəhd edin və ya birbaşa yazın: ') . cfg('contact_email');
         return $state;
     }
 
     $to      = (string) cfg('contact_email');
     $subject = 'Yeni müraciət — ' . cfg('site_name');
+    // Məktub təşkilata gedir — həmişə azərbaycanca; ingiliscə səhifədən gələndə dili qeyd olunur
     $body    = "Ad: {$values['name']}\n"
              . "Soyad: {$values['surname']}\n"
              . "E-poçt: {$values['email']}\n"
-             . "Telefon: {$values['phone']}\n\n"
+             . "Telefon: {$values['phone']}\n"
+             . (lang() !== LANG_DEFAULT ? 'Dil: ' . LANGS[lang()]['short'] . "\n" : '')
+             . "\n"
              . "Mesaj:\n{$values['message']}\n";
 
     // SMTP ayarlanıbsa onun üzərindən, yoxsa hostinqin mail() funksiyası ilə
@@ -287,7 +294,7 @@ function contact_handle(): array
         $state['values'] = [];
         $state['issued'] = null;
     } else {
-        $state['notice'] = 'Mesaj göndərilə bilmədi. Zəhmət olmasa bizimlə birbaşa əlaqə saxlayın: ' . cfg('contact_email');
+        $state['notice'] = t('Mesaj göndərilə bilmədi. Zəhmət olmasa bizimlə birbaşa əlaqə saxlayın: ') . cfg('contact_email');
     }
 
     return $state;

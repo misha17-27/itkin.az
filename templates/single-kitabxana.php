@@ -13,7 +13,7 @@ $current = $post;
 nav_context(['type' => 'kitabxana-blog', 'slug' => 'kitabxana-blog/' . $post['slug'], 'categories' => []]);
 
 $crumbs = [
-    ['label' => 'Kitabxana', 'href' => url('kitabxana-blog'), 'rel' => 'tag'],
+    ['label' => t('Kitabxana'), 'href' => url('kitabxana-blog'), 'rel' => 'tag'],
     ['label' => $post['title'], 'href' => null],
 ];
 

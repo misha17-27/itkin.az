@@ -14,7 +14,7 @@ function site_origin(): string
     if ($configured !== '') {
         return rtrim($configured, '/');
     }
-    return rtrim(abs_url(), '/');
+    return rtrim(abs_url_lang('', LANG_DEFAULT), '/');
 }
 
 /**
@@ -37,14 +37,20 @@ function schema_fallback(array $meta, array $crumbs = []): string
 {
     $home = site_origin() . '/';
     $url  = $meta['canonical'];
-    $lang = cfg('locale', 'az');
+    $lang = lang();
 
-    $list = [['@type' => 'ListItem', 'position' => 1, 'name' => 'Ana səhifə', 'item' => $home]];
+    // Qraf saytın özünü (WebSite, Organization) kök ünvanla, səhifəni isə cari dildə təsvir edir
+    $list = [['@type' => 'ListItem', 'position' => 1, 'name' => t('Ana səhifə'), 'item' => abs_url('')]];
     $pos = 2;
     foreach ($crumbs as $crumb) {
         $item = ['@type' => 'ListItem', 'position' => $pos++, 'name' => $crumb['label']];
         if (!empty($crumb['href'])) {
-            $item['item'] = abs_url(trim(str_replace(base_path(), '', $crumb['href']), '/'));
+            // keçid url() ilə qurulub — dil prefiksi artıq içindədir, yalnız sayt ünvanı əlavə olunur
+            $href = $crumb['href'];
+            if (base_path() !== '' && strpos($href, base_path()) === 0) {
+                $href = substr($href, strlen(base_path()));
+            }
+            $item['item'] = abs_url_file(ltrim($href, '/'));
         }
         $list[] = $item;
     }
@@ -76,7 +82,7 @@ function schema_fallback(array $meta, array $crumbs = []): string
             ],
             [
                 '@type' => 'Organization', '@id' => $home . '#organization',
-                'name' => cfg('site_tagline'), 'alternateName' => 'İctimai Birliyi', 'url' => $home,
+                'name' => cfg('site_tagline'), 'alternateName' => t('İctimai Birliyi'), 'url' => $home,
                 'logo' => [
                     '@type' => 'ImageObject', 'inLanguage' => $lang,
                     '@id' => $home . '#/schema/logo/image/',
@@ -92,6 +98,7 @@ function schema_fallback(array $meta, array $crumbs = []): string
 /** <head> üçün hazır JSON-LD */
 function schema_graph(array $meta, array $crumbs = []): string
 {
-    $stored = (string) ($meta['schema'] ?? '');
+    // Saxlanılmış qraf orijinal saytdandır (azərbaycanca) — ingiliscə səhifə öz qrafını qurur
+    $stored = lang() === LANG_DEFAULT ? (string) ($meta['schema'] ?? '') : '';
     return $stored !== '' ? schema_from_store($stored) : schema_fallback($meta, $crumbs);
 }

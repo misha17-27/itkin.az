@@ -160,8 +160,11 @@ const FONTS_VIEW = [
     'single-kitabxana'          => ['Roboto', 'Roboto+Slab', 'Montserrat', 'Inter', 'Poppins'],
 ];
 
-/** Orijinalda hreflang yalnız bu şablonlarda verilmir */
-const NO_HREFLANG = ['single-itkinlr', 'archive-itkinlr', 'archive-kitabxana', 'single-kitabxana', '404'];
+/**
+ * hreflang verilməyən şablonlar. Orijinalda itkinlər və kitabxana da burada idi
+ * (WPML onları tərcümə etmirdi); indi onların ingiliscə versiyası var.
+ */
+const NO_HREFLANG = ['404'];
 
 
 /**
@@ -219,7 +222,7 @@ function render(string $view, array $vars = []): void
         'title'       => cfg('site_name'),
         'description' => '',
         'image'       => '',
-        'canonical'   => abs_url(ltrim(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '', '/')),
+        'canonical'   => abs_url(route_path()),
         'body_class'  => '',
         'og_title'    => '',
         'og_type'     => 'article',

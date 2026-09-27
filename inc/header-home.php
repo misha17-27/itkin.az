@@ -29,7 +29,8 @@
 					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
 				<?php nav_menu('menu-2-5a3c43c', true, 'menu'); ?>			</nav>
 				</div>
-				</div>
+				</div><?= lang_switcher() ?>
+
 				<div class="elementor-element elementor-element-52d39a5 elementor-shape-circle elementor-hidden-tablet elementor-hidden-mobile elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons" data-id="52d39a5" data-element_type="widget" data-widget_type="social-icons.default">
 				<div class="elementor-widget-container">
 			<style>/*! elementor - v3.21.0 - 26-05-2024 */

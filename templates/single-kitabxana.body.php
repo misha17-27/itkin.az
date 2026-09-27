@@ -94,7 +94,8 @@
 		<div class="elementor-element elementor-element-e8f5336 e-con-full e-flex e-con e-child" data-id="e8f5336" data-element_type="container">
 				<div class="elementor-element elementor-element-310aa3a elementor-widget elementor-widget-heading" data-id="310aa3a" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Digər ədəbiyyat
+			<h2 class="elementor-heading-title elementor-size-default"><?= t('Digər ədəbiyyat') ?>
+
 </h2>		</div>
 				</div>
 				<div class="elementor-element elementor-element-7ec3dac elementor-grid-2 elementor-grid-mobile-2 elementor-grid-tablet-2 elementor-widget elementor-widget-loop-grid" data-id="7ec3dac" data-element_type="widget" data-settings="{&quot;template_id&quot;:942,&quot;columns&quot;:2,&quot;columns_mobile&quot;:2,&quot;_skin&quot;:&quot;post&quot;,&quot;columns_tablet&quot;:&quot;2&quot;,&quot;edit_handle_selector&quot;:&quot;[data-elementor-type=\&quot;loop-item\&quot;]&quot;,&quot;row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;row_gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;row_gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="loop-grid.post">
@@ -121,12 +122,12 @@
 <div class="elementor-post-navigation">
 <?php if ($prev): ?>
 			<div class="elementor-post-navigation__prev elementor-post-navigation__link">
-				<a href="<?= url($prev_base . $prev['slug']) ?>" rel="prev"><span class="elementor-post-navigation__link__prev"><span class="post-navigation__prev--label">Geri</span></span></a>
+				<a href="<?= url($prev_base . $prev['slug']) ?>" rel="prev"><span class="elementor-post-navigation__link__prev"><span class="post-navigation__prev--label"><?= t('Geri') ?></span></span></a>
 			</div>
 <?php endif; ?>
 <?php if ($next): ?>
 			<div class="elementor-post-navigation__next elementor-post-navigation__link">
-				<a href="<?= url($prev_base . $next['slug']) ?>" rel="next"><span class="elementor-post-navigation__link__next"><span class="post-navigation__next--label">Növbəti</span></span></a>
+				<a href="<?= url($prev_base . $next['slug']) ?>" rel="next"><span class="elementor-post-navigation__link__next"><span class="post-navigation__next--label"><?= t('Növbəti') ?></span></span></a>
 			</div>
 <?php endif; ?>
 		</div>
@@ -135,7 +136,7 @@
 		<div class="elementor-element elementor-element-482a6dc9 e-con-full e-flex e-con e-child" data-id="482a6dc9" data-element_type="container">
 				<div class="elementor-element elementor-element-3367337f elementor-widget elementor-widget-heading" data-id="3367337f" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<span class="elementor-heading-title elementor-size-default">Paylaş:</span>		</div>
+			<span class="elementor-heading-title elementor-size-default"><?= t('Paylaş:') ?></span>		</div>
 				</div>
 				<div class="elementor-element elementor-element-33174ff2 elementor-share-buttons--view-icon elementor-share-buttons--skin-minimal elementor-share-buttons--color-custom elementor-share-buttons--shape-square elementor-grid-0 elementor-widget elementor-widget-share-buttons" data-id="33174ff2" data-element_type="widget" data-widget_type="share-buttons.default">
 				<div class="elementor-widget-container">

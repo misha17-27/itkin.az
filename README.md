@@ -44,12 +44,45 @@ Forma işləmirsə, `config.php`-də `'log_contact' => true` edin — müraciət
 
 ## İdarə paneli
 
-Ünvan: **`/admin/`** (məsələn `https://itkin.az/admin/`).
+Ünvan: **`/mguliyev/`** — `https://itkin.az/mguliyev/`.
+
+Ünvan `config.php`-dəki `admin_path` ayarındadır (hərf, rəqəm, `-`, `_`). Qovluğun
+öz adı ilə (`/admin/`) gələn sorğu saytın adi 404 səhifəsini görür — panelin yerini
+təxmin etmək çətinləşir. Ünvanı dəyişmək üçün yalnız `admin_path`-ı dəyişin.
 
 İlk giriş: istifadəçi `admin`, şifrə `itkin2026`.
 **Girdikdən dərhal sonra «Mənim profilim» bölməsindən giriş adını və şifrəni dəyişin.**
 Bu şifrə README-də açıq yazıldığı üçün o dəyişənə qədər panelin yalnız «Mənim profilim»
 bölməsi açılır — digər bölmələr ora yönləndirir.
+
+### İngiliscə versiya
+
+Saytın ingiliscə versiyası `/en/` ünvanındadır: `https://itkin.az/en/`,
+`https://itkin.az/en/haqqimizda/` və s. — ünvanların qalanı azərbaycancadakı kimidir.
+Başlıqda qlobuslu dil seçimi (AZ / EN) var.
+
+- **Tərcümə olunub:** bütün statik səhifələr (ana səhifə, Haqqımızda, Əlaqə, sənədlər,
+  qanunvericilik, Foto, Kitabxana), menyular, kateqoriyaların adları, kitablar, itkin
+  düşmüş şəxslərin səhifələri, başlıq və altlıqdakı sabit mətnlər, əlaqə formasının
+  mesajları.
+- **Xəbərlər tərcümə olunmur.** Tərcüməsi olmayan səhifədə dil seçimi göstərilmir;
+  onun `/en/...` ünvanı azərbaycanca səhifəyə yönləndirilir, ingiliscə səhifələrdəki
+  keçidlər də birbaşa azərbaycanca versiyaya aparır. «Xəbərlər» siyahısı və
+  kateqoriyalar da buna görə yalnız azərbaycancadır.
+- İstənilən xəbərə paneldə ingiliscə başlıq və mətn yazsanız, o xəbər (və onun
+  kateqoriyası, «Xəbərlər» siyahısı) ingiliscə versiyada avtomatik görünür.
+- Paneldə hər bölmənin redaktə səhifəsində «İngiliscə versiya» kartı var; statik
+  səhifələrdə hər mətn sahəsinin altında ingiliscə variantı. Boş buraxılan sahənin
+  yerində azərbaycanca mətn çıxır.
+
+Harada saxlanılır:
+
+| Fayl | Nə var |
+|---|---|
+| `data/<ad>-en.php` | məzmunun tərcüməsi: `pages-en`, `kitabxana-en`, `itkinlr-en`, `categories-en`, `menu-en`, `menu-footer-1-en`, `menu-footer-2-en`, `archives-en`, `mejs-en` (və paneldə yazılsa `posts-en`) |
+| `data/page-texts-en.php` | statik səhifələrin paneldən dəyişdirilmiş ingiliscə mətnləri |
+| `inc/lang/en/*.php` | şablonlardakı sabit mətnlərin lüğəti (açar — azərbaycanca mətn) |
+| `inc/i18n.php` | dil məntiqi: `/en/` prefiksi, `t()`, tərcümələrin üst-üstə yazılması, dil seçimi |
 
 ### Nə redaktə olunur
 
@@ -270,6 +303,14 @@ git update-index --skip-worktree data/posts.php data/kitabxana.php data/itkinlr.
 
 Bundan sonra `git pull` bu faylları toxunmadan buraxır.
 
+İngiliscə versiyanın faylları (`data/*-en.php`) ilk dəfə adi `git pull` ilə gəlir —
+onlar yeni fayllardır və yuxarıdakı əmr onlara aid deyil. Serverə gəldikdən sonra
+paneldə ingiliscə mətnləri dəyişəcəksinizsə, onları da ayırın:
+
+```bash
+git update-index --skip-worktree data/pages-en.php data/kitabxana-en.php data/itkinlr-en.php data/categories-en.php data/menu-en.php data/menu-footer-1-en.php data/menu-footer-2-en.php data/archives-en.php data/mejs-en.php
+```
+
 Eyni səbəbdən **şifrəni dəyişəndən sonra `data/settings.php` faylını
 repozitoriyaya göndərməyin** — orada şifrənin hash-i saxlanılır. `storage/`
 qovluğu (formanın gizli açarı, jurnal, sessiyalar) da repozitoriyaya düşmür.
@@ -305,6 +346,8 @@ inc/
   page.php             statik səhifələr üçün ümumi məntiq
   schema.php           Schema.org JSON-LD
   contact.php          əlaqə formasının emalı
+  i18n.php             dillər: /en/ prefiksi, t(), tərcümələrin üst-üstə yazılması, dil seçimi
+  lang/en/*.php        ingiliscə lüğət (şablonlardakı sabit mətnlər)
 
 templates/
   home.php             ana səhifə
@@ -323,6 +366,7 @@ data/                  məzmun (PHP massivləri)
   itkinlr.php          13 itkin şəxs
   categories.php       6 kateqoriya
   pages.php            8 statik səhifənin meta məlumatı
+  *-en.php             ingiliscə tərcümələr (id => sahələr)
   archives.php         itkinlr / kitabxana-blog arxivlərinin meta məlumatı
   menu.php             əsas menyu
   menu-footer-1.php    altlıqdakı birinci menyu
@@ -424,6 +468,13 @@ Qalan hər şey vizual olaraq eynidir. Texniki fərqlər:
   əlavə olaraq CSRF nişanı və spam tələsi var. Vidjetin `data-widget_type` dəyəri
   `contact-form.default`-a dəyişdirilib ki, Elementor Pro-nun JavaScript emalı
   formanı ələ keçirməsin — CSS sinifləri toxunulmazdır.
+- **İngiliscə versiya əlavə olunub** (`/en/`). Orijinalda WPML quraşdırılmışdı, amma
+  ingiliscə versiya dərc olunmamışdı (`/en/` ana səhifəyə yönləndirirdi). Tərcüməsi
+  olan səhifələrdə başlıqda dil seçimi və `hreflang="en"` var; itkinlər və kitabxana
+  səhifələrində də indi `hreflang` verilir (orijinalda WPML onları tərcümə etmədiyi
+  üçün verilmirdi). Xəbərlər, kateqoriyalar və «Xəbərlər» siyahısı orijinaldakı kimidir.
+- **Surətə xas `custom.css` və `mobile-menu.js`** versiya parametri ilə yüklənir
+  (`?ver=<faylın vaxtı>`) — yenilənəndə brauzer köhnə nüsxəni keşdən götürmür.
 - **Ana səhifədəki böyük inline şəkil** (441 KB base64) ayrıca fayla çıxarılıb:
   `uploads/inline/`.
 - `itkinlr` siyahısı mövzunun standart şablonu ilə səhifələnir (`/itkinlr/page/2/`),

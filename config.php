@@ -27,6 +27,9 @@ return [
     // Admin panelinə giriş: /admin/
     // Şifrəni dəyişmək üçün panelin "Ayarlar" bölməsindən istifadə edin
     // və ya burada password_hash('yeni-şifrə', PASSWORD_DEFAULT) nəticəsini yazın.
+    // İdarə panelinin ünvanı: https://itkin.az/mguliyev/  (hərf, rəqəm, "-" və "_")
+    // /admin/ ünvanı 404 qaytarır — panelin yerini təxmin etmək çətinləşsin
+    'admin_path'     => 'mguliyev',
     'admin_user'     => 'admin',
     // Standart şifrə: itkin2026 — İLK GİRİŞDƏN SONRA MÜTLƏQ DƏYİŞİN
     'admin_password' => '$2y$10$mPlw9fbIJo0W4CN7wF7N4ucWKNuTRwspN0guCEmDL5EimguQrDsMG',

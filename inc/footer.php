@@ -28,7 +28,7 @@
 		<div class="elementor-element elementor-element-274cbae e-con-full e-flex e-con e-child" data-id="274cbae" data-element_type="container">
 				<div class="elementor-element elementor-element-ba981f0 elementor-widget elementor-widget-heading" data-id="ba981f0" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Yararlı linklər</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= t('Yararlı linklər') ?></h2>		</div>
 				</div>
 				<div class="elementor-element elementor-element-e204b45 elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="e204b45" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
 				<div class="elementor-widget-container">
@@ -56,7 +56,7 @@
 		<div class="elementor-element elementor-element-87eb3f4 e-con-full e-flex e-con e-child" data-id="87eb3f4" data-element_type="container">
 				<div class="elementor-element elementor-element-baf5769 elementor-widget elementor-widget-heading" data-id="baf5769" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Bizimlə əlaqə</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= t('Bizimlə əlaqə') ?></h2>		</div>
 				</div>
 				<div class="elementor-element elementor-element-50599fa elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="50599fa" data-element_type="widget" data-widget_type="icon-list.default">
 				<div class="elementor-widget-container">
@@ -95,7 +95,7 @@
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-945746c elementor-widget elementor-widget-heading" data-id="945746c" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">© 2025. Bütün hüquqlar qorunur.</h2>		</div>
+			<h2 class="elementor-heading-title elementor-size-default"><?= t('© 2025. Bütün hüquqlar qorunur.') ?></h2>		</div>
 				</div>
 					</div>
 				</div>
@@ -151,6 +151,6 @@ var JetHamburgerPanelSettings = {"ajaxurl":"<?= url('wp-admin/admin-ajax.php') ?
 //# sourceURL=jet-blocks-js-extra
 </script>
 <script id="jet-blocks-js" src="<?= asset('assets/vendor/plugins/jet-blocks/assets/js/jet-blocks.min.js') ?>"></script>
-<script id="itkin-mobile-menu-js" src="<?= asset(JS_CUSTOM) ?>"></script>
+<script id="itkin-mobile-menu-js" src="<?= e(asset_ver(JS_CUSTOM)) ?>"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 /** Panel daxilində ünvan: admin_url(['section' => 'posts']) */
 function admin_url(array $params = []): string
 {
-    $base = base_path() . '/admin/';
+    $base = base_path() . '/' . admin_path() . '/';
     return $params ? $base . '?' . http_build_query($params) : $base;
 }
 
@@ -364,4 +364,53 @@ function admin_sync_meta(array $meta, array $updates): array
     }
 
     return array_values($meta);
+}
+
+/* ---------------------------------------------------------------- ingiliscə versiya */
+
+/**
+ * Məzmunun ingiliscə tərcüməsi: data/<ad>-en.php, id => sahələr.
+ * Tərcüməsi olmayan sahə saytın ingiliscə versiyasında azərbaycanca göstərilir.
+ */
+function admin_en_get(string $name, $id): array
+{
+    $rows = data_load($name . '-en');
+    return (array) ($rows[$id] ?? []);
+}
+
+/**
+ * Tərcüməni yazır. Boş sahələr saxlanılmır; hamısı boşdursa (və ya $fields null)
+ * qeyd silinir. Heç nə dəyişməyibsə fayla toxunulmur.
+ */
+function admin_en_save(string $name, $id, ?array $fields): void
+{
+    $rows = data_load($name . '-en');
+    $next = $rows;
+    $clean = [];
+    foreach ((array) $fields as $key => $value) {
+        if (is_string($value) && trim($value) !== '') {
+            $clean[$key] = $value;
+        }
+    }
+    if ($clean) {
+        $next[$id] = $clean;
+    } else {
+        unset($next[$id]);
+    }
+    if ($next === $rows) {
+        return;
+    }
+    ksort($next);
+    store_save($name . '-en', $next, 'İngiliscə tərcümə / English translation (id => sahələr)');
+}
+
+/** Formadakı ingiliscə sahə: en[<açar>] */
+function post_en(string $key, bool $html = false): string
+{
+    $value = $_POST['en'][$key] ?? '';
+    if (!is_string($value)) {
+        return '';
+    }
+    $value = admin_eol($value);
+    return $html ? trim(admin_clean_html($value)) : trim($value);
 }

@@ -19,7 +19,9 @@ function data_load(string $name, bool $reload = false): array
     }
     $file = dirname(__DIR__) . '/data/' . $name . '.php';
     // require_once işlətmirik: yenidən oxumaq lazım ola bilər
-    return $cache[$name] = is_file($file) ? (array) include $file : [];
+    $rows = is_file($file) ? (array) include $file : [];
+    // ingiliscə səhifədə tərcümə orijinalın üstünə yazılır (inc/i18n.php)
+    return $cache[$name] = i18n_merge($name, $rows);
 }
 
 /** Sıralanmış siyahıların keşini sıfırlayır */

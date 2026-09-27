@@ -5,6 +5,10 @@
  *
  * Şifrə «Mənim profilim», əlaqə formasının poçtu «Poçt (SMTP)», kapça isə
  * «Təhlükəsizlik» bölməsindədir.
+ *
+ * İngiliscə versiya üçün təşkilatın və saytın adı <açar>_en kimi saxlanılır
+ * (inc/i18n.php → I18N_CFG). Boş buraxılsa açar silinir və sayt ilkin dəyəri
+ * işlədir: təşkilatın adı lüğətdəki tərcümədən, saytın adı azərbaycancadan.
  */
 
 $errors = [];
@@ -24,7 +28,7 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     }
 
     if (!$errors) {
-        admin_settings_save([
+        $changes = [
             'site_name'    => post_str('site_name') ?: 'İtkin',
             'site_tagline' => post_str('site_tagline'),
             'site_url'     => $siteUrl,
@@ -35,7 +39,15 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
                 'kitabxana' => max(1, post_int('pp_kitabxana', 12)),
                 'itkinlr'   => max(1, post_int('pp_itkinlr', 10)),
             ],
-        ]);
+        ];
+        // İngiliscə adlar: boş — açar silinir (null), sayt ilkin dəyəri işlədir.
+        // Forma bu sahələrsiz gəlibsə (köhnə səhifədən), yazılmış dəyərə toxunmuruq.
+        foreach (['site_tagline_en', 'site_name_en'] as $key) {
+            if (isset($_POST[$key])) {
+                $changes[$key] = post_str($key) !== '' ? post_str($key) : null;
+            }
+        }
+        admin_settings_save($changes);
         admin_redirect(['section' => 'settings'], 'Ayarlar yadda saxlanıldı.');
     }
 }
@@ -65,6 +77,22 @@ $perPage = (array) cfg('per_page', []);
                 ?>
 			</div>
 		</div>
+
+		<?php
+        $taglineEn = t_lang((string) cfg('site_tagline', ''), 'en');
+        $nameAz    = (string) cfg('site_name', '');
+        f_en_open(lang_has('', 'en') ? url_lang('', 'en') : '',
+            'Saytın <code>/en/</code> versiyasında işlənir. Boş buraxılan sahənin yerində boz yazılan ilkin dəyər çıxır.');
+        f_text('site_tagline_en', 'Təşkilatın adı (ingiliscə)', (string) cfg('site_tagline_en', ''), [
+            'placeholder' => $taglineEn,
+            'hint' => 'Boş buraxsanız azərbaycanca adın hazır tərcüməsi işlənir.',
+        ]);
+        f_text('site_name_en', 'Saytın adı (ingiliscə)', (string) cfg('site_name_en', ''), [
+            'placeholder' => $nameAz !== '' ? $nameAz : 'İtkin',
+            'hint' => 'Marka adıdır — adətən hər iki dildə eyni qalır. Boş buraxsanız azərbaycancadakı ad işlənir.',
+        ]);
+        f_en_close();
+        ?>
 
 		<div class="card">
 			<div class="card__head">Statistika</div>

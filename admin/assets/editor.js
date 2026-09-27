@@ -40,11 +40,9 @@
 		{ act: 'code', label: 'HTML', title: 'HTML kodunu göstər', right: true }
 	];
 
-	/* Saytın kök ünvanı: /admin/... -> / */
+	/* Saytın kök ünvanı — layout.php window.ITKIN-də verir (panelin ünvanı dəyişə bilər) */
 	function base() {
-		var path = window.location.pathname;
-		var at = path.indexOf('/admin/');
-		return at >= 0 ? path.slice(0, at + 1) : '/';
+		return (window.ITKIN && window.ITKIN.base) || '/';
 	}
 
 	var ROOT = base();

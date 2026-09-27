@@ -11,7 +11,7 @@ nav_context(['type' => '404', 'slug' => '', 'categories' => []]);
 
 $info = data_load('archives')['404'] ?? [];
 
-$meta['title']      = $info['title'] ?? ('Səhifə tapılmadı - ' . cfg('site_name'));
+$meta['title']      = $info['title'] ?? (t('Səhifə tapılmadı - ') . cfg('site_name'));
 $meta['robots']     = $info['robots'] ?? 'noindex, follow';
 $meta['canonical']  = '';                       // orijinalda 404-də canonical verilmir
 $meta['head_meta']  = $info['head_meta'] ?? [];

@@ -3,10 +3,16 @@
  * itkin.az — ön nəzarətçi / front controller
  */
 
-require __DIR__ . '/inc/helpers.php';
-require __DIR__ . '/inc/data.php';
-require __DIR__ . '/inc/schema.php';
-require __DIR__ . '/inc/render.php';
+require_once __DIR__ . '/inc/helpers.php';
+require_once __DIR__ . '/inc/data.php';
+require_once __DIR__ . '/inc/schema.php';
+require_once __DIR__ . '/inc/render.php';
+
+// İdarə paneli: /<admin_path>/ (config.php) — admin/index.php işləyir
+if (admin_request()) {
+    require __DIR__ . '/admin/index.php';
+    exit;
+}
 
 production_errors();       // hostinqdə xəta mətni (yollarla) ekrana çıxmasın
 force_https();             // yalnız ayarlarda https:// ünvan yazılıbsa
@@ -20,6 +26,21 @@ if ($base !== '' && strpos($uri, $base) === 0) {
 }
 $path  = trim(rawurldecode($uri), '/');
 $parts = $path === '' ? [] : explode('/', $path);
+
+// Dil: /en/... ingiliscə versiyadır; prefiks çıxılır, qalan marşrut eynidir
+$raw = ltrim($uri, '/');
+if ($parts !== [] && $parts[0] !== LANG_DEFAULT && isset(LANGS[$parts[0]])) {
+    lang(array_shift($parts));
+    $raw = (string) substr($raw, strcspn($raw, '/'));   // kodlaşdırılmış olsa da (/%65n/)
+}
+route_path($raw);
+
+// Bu səhifənin ingiliscə versiyası yoxdursa (tərcümə olunmayıb) — azərbaycancaya
+if (lang() !== LANG_DEFAULT && !lang_has($raw, lang())) {
+    $query = (string) ($_SERVER['QUERY_STRING'] ?? '');
+    header('Location: ' . url_lang('', LANG_DEFAULT) . route_path() . ($query !== '' ? '?' . $query : ''), true, 302);
+    exit;
+}
 
 // Səhifə nömrəsi: ?sehife=2 və ya Elementor-un orijinal ?e-page-XXXX=2 parametri
 $page = (int) ($_GET['sehife'] ?? 0);

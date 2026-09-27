@@ -235,3 +235,125 @@
 
 /* Əlaqə formasında kapça (yalnız «Təhlükəsizlik»dən yandırılanda görünür) */
 .itkin-turnstile { margin-bottom: 10px; }
+
+/* ---------------------------------------------------------------- dil seçimi (başlıq) */
+.itk-lang {
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex: 0 0 auto;
+	margin: 0 6px 0 10px;
+	z-index: 60;
+	font-family: "Inter", "Roboto", sans-serif;
+}
+
+.itk-lang__btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 7px 9px;
+	border: 0;
+	border-radius: 8px;
+	background: transparent;
+	color: #fff;
+	font: 600 15px/1 "Inter", "Roboto", sans-serif;
+	letter-spacing: .02em;
+	cursor: pointer;
+	transition: background-color .2s;
+}
+
+.itk-lang__btn:hover,
+.itk-lang__btn:focus-visible,
+.itk-lang.is-open .itk-lang__btn {
+	background: rgba(255, 255, 255, .12);
+	color: #fff;
+}
+
+/* Hello mövzusu fokusda düyməyə sistem halqası və moruq rəngli fon (#c36) verir — saytın rəngi ilə əvəz olunur */
+.itk-lang__btn:focus { outline: none; background: transparent; color: #fff; }
+.itk-lang__btn:hover:focus,
+.itk-lang.is-open .itk-lang__btn:focus { background: rgba(255, 255, 255, .12); }
+.itk-lang__btn:focus-visible { outline: 2px solid #73BB95; outline-offset: 2px; }
+
+.itk-lang__globe { width: 19px; height: 19px; flex: none; }
+.itk-lang__chev  { width: 14px; height: 14px; flex: none; opacity: .8; transition: transform .2s; }
+.itk-lang.is-open .itk-lang__chev { transform: rotate(180deg); }
+
+.itk-lang__menu {
+	position: absolute;
+	top: calc(100% + 10px);
+	right: 0;
+	min-width: 212px;
+	margin: 0;
+	padding: 8px;
+	list-style: none;
+	background: #fff;
+	border: 1px solid #E3EDE7;
+	border-radius: 14px;
+	box-shadow: 0 14px 34px rgba(40, 50, 47, .18), 0 2px 6px rgba(40, 50, 47, .08);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-4px);
+	transition: opacity .15s, transform .15s, visibility .15s;
+}
+
+/* JS yoxdursa fokusla açılır; JS varsa yalnız .is-open ilə */
+.itk-lang:not(.is-ready):focus-within .itk-lang__menu,
+.itk-lang.is-open .itk-lang__menu {
+	opacity: 1;
+	visibility: visible;
+	transform: none;
+}
+
+.itk-lang__menu li { margin: 0; padding: 0; list-style: none; }
+.itk-lang__menu li + li { margin-top: 4px; }
+
+.itk-lang__item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	padding: 11px 14px;
+	border-radius: 10px;
+	color: #3F7B60;
+	font: 500 16px/1.2 "Inter", "Roboto", sans-serif;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background-color .15s, color .15s;
+}
+
+.itk-lang__item:hover,
+.itk-lang__item:focus-visible { background: #F3F8F5; color: #28322F; outline: none; }
+
+.itk-lang__item.is-current { background: #E9F4EE; color: #28322F; }
+
+.itk-lang__tag {
+	font: 700 12px/1 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+	letter-spacing: .14em;
+	color: #ABCBBA;
+}
+
+.itk-lang__item.is-current .itk-lang__tag { color: #4E9270; }
+
+/* Planşet və telefon: qlobus menyu düyməsinin solunda */
+@media (max-width: 1024px) {
+	.elementor-location-header .itk-lang { order: 2; margin: 0 4px 0 auto; }
+	.elementor-location-header .elementor-widget-nav-menu { order: 3; }
+	.itk-lang__btn { padding: 7px 6px; font-size: 14px; }
+	.itk-lang__menu { min-width: 196px; }
+}
+
+/* Dar masaüstü: menyu və ikonlar bir sətirdə qalsın — dil seçimi yığcam */
+@media (min-width: 1025px) and (max-width: 1280px) {
+	.itk-lang { margin: 0 2px 0 4px; }
+	.itk-lang__btn { gap: 4px; padding: 6px 5px; font-size: 14px; }
+	.itk-lang__globe { width: 17px; height: 17px; }
+	.itk-lang__chev { width: 12px; height: 12px; }
+}
+@media (min-width: 1025px) and (max-width: 1180px) {
+	/* dil seçimi üçün yer: menyu bəndlərinin yan boşluğu bir az kiçilir */
+	.elementor-location-header .elementor-widget-nav-menu .elementor-nav-menu--main .elementor-item.elementor-item {
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+}

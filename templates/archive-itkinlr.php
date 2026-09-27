@@ -11,7 +11,7 @@ nav_context(['type' => 'itkinlr', 'slug' => 'itkinlr', 'categories' => []]);
 $pager = paginate(all_missing(), (int) cfg('per_page')['itkinlr'], $page ?? 1);
 $items = $pager['items'];
 
-$base = data_load('archives')['itkinlr']['title'] ?? ('İtkinlər Archive - ' . cfg('site_name'));
+$base = data_load('archives')['itkinlr']['title'] ?? (t('İtkinlər Archive - ') . cfg('site_name'));
 // WordPress səhifələnmiş arxivə " - Page N of M" əlavə edir
 if ($pager['page'] > 1) {
     $base = str_replace(' - ' . cfg('site_name'),
@@ -39,12 +39,12 @@ $meta['rel_prev']   = $pager['page'] > 1
 $meta['rel_next']   = $pager['page'] < $pager['pages'] ? abs_url('itkinlr/page/' . ($pager['page'] + 1)) : '';
 $meta['elementor_post'] = elementor_post_json(0, $meta['title']);
 
-$crumbs = [['label' => 'İtkinlər', 'href' => null]];
+$crumbs = [['label' => t('İtkinlər'), 'href' => null]];
 ?>
 <main id="content" class="site-main">
 
 			<header class="page-header">
-			<h1 class="entry-title">Archives: <span>İtkinlər</span></h1>		</header>
+			<h1 class="entry-title">Archives: <span><?= t('İtkinlər') ?></span></h1>		</header>
 	
 	<div class="page-content">
 <?php foreach ($items as $item): $t = $item['thumb'] ?? null; ?>

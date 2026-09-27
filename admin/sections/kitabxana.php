@@ -14,6 +14,7 @@ if ($action === 'delete' && $id > 0) {
         admin_redirect(['section' => 'kitabxana'], 'Belə kitab tapılmadı — yəqin artıq silinib.', 'error');
     }
     store_save('kitabxana', admin_delete($rows, $id), 'Kitabxana / library books');
+    admin_en_save('kitabxana', $id, null);   // ingiliscə tərcüməsi də silinir
     admin_redirect(['section' => 'kitabxana'], '“' . ($item['title'] ?? '') . '” silindi.');
 }
 
@@ -23,6 +24,11 @@ if ($id > 0 && !$item) {
     admin_redirect(['section' => 'kitabxana'], 'Belə kitab tapılmadı.', 'error');
 }
 
+/* İngiliscə versiya (data/kitabxana-en.php): saxlanılmış tərcümə və formada göstəriləcək dəyərlər */
+$enSaved = $item ? admin_en_get('kitabxana', $id) : [];
+$en      = $enSaved;
+$enForm  = false;
+
 if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     if (!admin_token_ok()) {
         $errors[] = 'Forma köhnəlib. Səhifəni yeniləyin.';
@@ -31,6 +37,25 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     $title = post_str('title');
     if ($title === '') {
         $errors[] = 'Kitabın adı boş ola bilməz.';
+    }
+
+    /*
+     * İngiliscə sahələr. Kart formada yoxdursa (məsələn bu dəyişiklikdən əvvəl
+     * açılmış köhnə səhifədən gələn sorğu) tərcüməyə toxunulmur.
+     * Sıra fayldakı kimidir — dəyişiklik olmayanda fayl yenidən yazılmasın.
+     */
+    $enForm = is_array($_POST['en'] ?? null);
+    if ($enForm) {
+        $en = [
+            'title'       => post_en('title'),
+            'excerpt'     => post_en('excerpt'),
+            'description' => post_en('description'),
+            'content'     => post_en('content', true),
+            'doc_title'   => post_en('doc_title'),
+        ];
+        if ($en['title'] === '' && implode('', $en) !== '') {
+            $errors[] = 'İngiliscə versiya üçün başlıq yazın.';
+        }
     }
 
     $slug = store_slug(post_str('slug') ?: $title);
@@ -88,8 +113,27 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         ]);
 
         store_save('kitabxana', admin_upsert($rows, $saved), 'Kitabxana / library books');
-        admin_redirect(['section' => 'kitabxana', 'action' => 'edit', 'id' => $newId],
-            $isNew ? 'Kitab əlavə olundu.' : 'Dəyişikliklər yadda saxlanıldı.');
+
+        $flash = $isNew ? 'Kitab əlavə olundu.' : 'Dəyişikliklər yadda saxlanıldı.';
+        if ($enForm) {
+            // azərbaycanca kimi: meta description boşdursa təsvirin əvvəlindən qurulur
+            if ($en['description'] === '' && $en['content'] !== '') {
+                $en['description'] = admin_excerpt($en['content'], 28);
+            }
+            // avtomatik başlığın özü saxlanılmır — ad dəyişəndə o da yenilənsin
+            if ($en['doc_title'] === $en['title'] . ' - ' . cfg('site_name')) {
+                $en['doc_title'] = '';
+            }
+            admin_en_save('kitabxana', $newId, $en);
+            $enNow = admin_en_get('kitabxana', $newId);
+            if ($enSaved && !$enNow) {
+                $flash .= ' İngiliscə versiya silindi.';
+            } elseif (!$enSaved && $enNow && !$isNew) {
+                $flash .= ' İngiliscə versiya əlavə olundu.';
+            }
+        }
+
+        admin_redirect(['section' => 'kitabxana', 'action' => 'edit', 'id' => $newId], $flash);
     }
 }
 
@@ -120,6 +164,26 @@ if ($action === 'edit') {
                 f_textarea('content', 'Təsvir', (string) $item['content'], ['tall' => true, 'rich' => true]);
                 ?>
 			</div></div>
+
+			<?php
+            f_en_open($isNew || !$enSaved ? '' : url_lang('kitabxana-blog/' . $item['slug'], 'en'),
+                'Kitabın ingiliscə səhifəsi (<code>/en/kitabxana-blog/…/</code>) başlıq yazılanda yaranır. '
+                . 'Boş buraxılan sahənin yerində azərbaycanca mətn çıxır. Bütün sahələri boşaltsanız ingiliscə versiya silinir — '
+                . 'ingiliscə ünvan azərbaycanca səhifəyə yönləndirilir.');
+            f_text('en[title]', 'Kitabın adı', (string) ($en['title'] ?? ''));
+            f_text('en[excerpt]', 'Müəllif(lər)', (string) ($en['excerpt'] ?? ''), [
+                'hint' => 'Latın hərfləri ilə. Nümunə: <code>Eldar Samadov, Emin Valiyev</code>',
+            ]);
+            f_textarea('en[content]', 'Təsvir', (string) ($en['content'] ?? ''), ['tall' => true, 'rich' => true]);
+            f_text('en[doc_title]', 'SEO başlıq', (string) ($en['doc_title'] ?? ''), [
+                'hint' => 'Boş buraxsanız ingiliscə addan avtomatik qurulur.',
+            ]);
+            f_textarea('en[description]', 'Təsvir (meta description)', (string) ($en['description'] ?? ''), [
+                'rows' => 3,
+                'hint' => 'Boş buraxsanız ingiliscə təsvirin əvvəlindən götürülür.',
+            ]);
+            f_en_close();
+            ?>
 
 			<div class="card">
 				<div class="card__head">Yükləmə faylları</div>
@@ -174,11 +238,13 @@ if ($action === 'edit') {
 admin_shell_start('kitabxana', 'Kitabxana', [
     ['href' => admin_url(['section' => 'kitabxana', 'action' => 'edit']), 'label' => '+ Yeni kitab', 'primary' => true],
 ]);
+$enRows = data_load('kitabxana-en');
 ?>
 <table class="table">
-	<thead><tr><th style="width:70px"></th><th>Ad</th><th style="width:230px">Müəllif</th><th style="width:110px">PDF</th><th></th></tr></thead>
+	<thead><tr><th style="width:70px"></th><th>Ad</th><th style="width:230px">Müəllif</th><th style="width:110px">PDF</th><th style="width:60px">EN</th><th></th></tr></thead>
 	<tbody>
 <?php foreach ($rows as $row): ?>
+<?php $enRow = (array) ($enRows[$row['id']] ?? []); ?>
 		<tr>
 			<td><?php if (!empty($row['card_thumb']['url'])): ?><img class="table__thumb" src="<?= asset($row['card_thumb']['url']) ?>" alt=""><?php endif; ?></td>
 			<td>
@@ -187,13 +253,14 @@ admin_shell_start('kitabxana', 'Kitabxana', [
 			</td>
 			<td class="table__meta"><?= e($row['excerpt']) ?></td>
 			<td class="table__meta"><?= count(array_filter($row['downloads'] ?? [])) ?> fayl</td>
+			<td><?php if ($enRow): ?><span class="lang-flag" title="<?= e('İngiliscə: ' . ($enRow['title'] ?? '')) ?>">EN</span><?php else: ?><span class="lang-flag lang-flag--off" title="İngiliscə versiya yoxdur">EN</span><?php endif; ?></td>
 			<td class="is-right"><div class="table__actions">
 				<a class="btn btn--sm" href="<?= e(url('kitabxana-blog/' . $row['slug'])) ?>" target="_blank" rel="noopener">Bax</a>
 				<a class="btn btn--sm" href="<?= e(admin_url(['section' => 'kitabxana', 'action' => 'edit', 'id' => $row['id']])) ?>">Redaktə</a>
 			</div></td>
 		</tr>
 <?php endforeach; ?>
-<?php if (!$rows): ?><tr><td colspan="5" class="empty">Hələ kitab yoxdur.</td></tr><?php endif; ?>
+<?php if (!$rows): ?><tr><td colspan="6" class="empty">Hələ kitab yoxdur.</td></tr><?php endif; ?>
 	</tbody>
 </table>
 <?php

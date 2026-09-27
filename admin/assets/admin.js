@@ -270,7 +270,7 @@
 		document.body.classList.add('is-lib-open');
 
 		var body = modal.querySelector('.lib__body');
-		var start = base() + 'admin/?section=media&fragment=1&picker=1' + (kind !== 'image' ? '&kind=' + kind : '');
+		var start = adminUrl() + '?section=media&fragment=1&picker=1' + (kind !== 'image' ? '&kind=' + kind : '');
 
 		load(start);
 
@@ -358,7 +358,7 @@
 			}
 
 			var params = new URLSearchParams(new FormData(form));
-			load(base() + 'admin/?' + params.toString() + '&fragment=1');
+			load(adminUrl() + '?' + params.toString() + '&fragment=1');
 		});
 
 		/* Ünvanda fragment=1 olmasa əlavə edirik */
@@ -403,7 +403,7 @@
 		if (label) { label.classList.add('is-busy'); }
 		say('Yüklənir… ' + picker.files[0].name);
 
-		window.fetch(base() + 'admin/?section=media&action=upload&picker=1&json=1&kind=' + encodeURIComponent(kind), {
+		window.fetch(adminUrl() + '?section=media&action=upload&picker=1&json=1&kind=' + encodeURIComponent(kind), {
 			method: 'POST',
 			body: data,
 			credentials: 'same-origin'
@@ -433,10 +433,12 @@
 		}
 	});
 
-	/* saytın kök ünvanı: /admin/... -> / */
+	/* saytın kök ünvanı və panelin ünvanı — layout.php window.ITKIN-də verir */
 	function base() {
-		var path = window.location.pathname;
-		var at = path.indexOf('/admin/');
-		return at >= 0 ? path.slice(0, at + 1) : '/';
+		return (window.ITKIN && window.ITKIN.base) || '/';
+	}
+
+	function adminUrl() {
+		return (window.ITKIN && window.ITKIN.admin) || window.location.pathname;
 	}
 })();

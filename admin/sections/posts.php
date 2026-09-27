@@ -1,5 +1,36 @@
 <?php
-/** Xəbərlər bölməsi / news section */
+/**
+ * Xəbərlər bölməsi / news section
+ *
+ * Xəbərlər ingiliscəyə tərcümə olunmur. İstəyə görə ayrıca xəbərə ingiliscə
+ * mətn yazmaq olar (data/posts-en.php) — onda o xəbər saytın /en/ versiyasına düşür.
+ */
+
+if (!function_exists('posts_en_html')) {
+    /**
+     * Vizual redaktorun “boş” məzmunu (<p><br></p>, &nbsp; və s.) boş sayılır —
+     * yoxsa ingiliscə səhifədə azərbaycanca mətnin yerinə boş sahə çıxardı.
+     */
+    function posts_en_html(string $html): string
+    {
+        $text = strip_tags($html, '<img><video><audio><source><table><hr>');
+        $text = str_replace("\xC2\xA0", ' ', html_entity_decode($text, ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+        return trim($text) === '' ? '' : $html;
+    }
+}
+
+if (!function_exists('posts_en_post')) {
+    /** Formadakı ingiliscə sahələr: en[title], en[excerpt], en[description], en[content] */
+    function posts_en_post(): array
+    {
+        return [
+            'title'       => post_en('title'),
+            'excerpt'     => post_en('excerpt'),
+            'description' => post_en('description'),
+            'content'     => posts_en_html(post_en('content', true)),
+        ];
+    }
+}
 
 $rows = data_load('posts');
 $cats = data_load('categories');
@@ -27,6 +58,7 @@ if ($action === 'delete' && $id > 0) {
         admin_redirect($listParams, 'Belə yazı tapılmadı — yəqin artıq silinib.', 'error');
     }
     store_save('posts', admin_delete($rows, $id), 'Xəbərlər və yazılar / posts');
+    admin_en_save('posts', $id, null);   // ingiliscə versiyası da silinir
     admin_redirect($listParams, '“' . ($item['title'] ?? '') . '” silindi.');
 }
 
@@ -52,6 +84,16 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     $slug = post_str('slug');
     $slug = store_slug($slug !== '' ? $slug : $title);
     $slug = store_unique_slug($rows, $slug, $id > 0 ? $id : null);
+
+    /*
+     * İngiliscə versiya istəyə bağlıdır, amma yazılıbsa başlığı olmalıdır.
+     * Formada ingiliscə kart yoxdursa (məsələn bu dəyişiklikdən əvvəl açılmış
+     * köhnə səhifədən gələn sorğu) tərcüməyə toxunulmur.
+     */
+    $en = is_array($_POST['en'] ?? null) ? posts_en_post() : null;
+    if ($en !== null && $en['title'] === '' && implode('', $en) !== '') {
+        $errors[] = 'İngiliscə versiya üçün başlıq yazın.';
+    }
 
     if (!$errors) {
         $isNew   = $id === 0;
@@ -84,8 +126,24 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         ]);
 
         store_save('posts', admin_upsert($rows, $saved), 'Xəbərlər və yazılar / posts');
-        admin_redirect(['section' => 'posts', 'action' => 'edit', 'id' => $newId],
-            $isNew ? 'Yeni xəbər əlavə olundu.' : 'Dəyişikliklər yadda saxlanıldı.');
+
+        $flash = $isNew ? 'Yeni xəbər əlavə olundu.' : 'Dəyişikliklər yadda saxlanıldı.';
+        if ($en !== null) {
+            // Təsvir boşdursa — azərbaycanca kimi, ingiliscə mətnin əvvəlindən
+            if ($en['description'] === '' && $en['content'] !== '') {
+                $en['description'] = admin_excerpt($en['content'], 28);
+            }
+            $enHad = $isNew ? [] : admin_en_get('posts', $newId);
+            admin_en_save('posts', $newId, $en);
+            $enNow = admin_en_get('posts', $newId);
+            if ($enHad && !$enNow) {
+                $flash .= ' İngiliscə versiya silindi.';
+            } elseif (!$enHad && $enNow && !$isNew) {
+                $flash .= ' İngiliscə versiya əlavə olundu.';
+            }
+        }
+
+        admin_redirect(['section' => 'posts', 'action' => 'edit', 'id' => $newId], $flash);
     }
 
     // Xəta olsa formanı doldurulmuş halda göstəririk
@@ -107,6 +165,11 @@ if ($action === 'edit') {
         'categories' => [], 'excerpt' => '', 'description' => '',
         'thumb' => admin_empty_thumb(), 'content' => '',
     ];
+
+    // İngiliscə versiya: saxlanılmış tərcümə; xəta olubsa formada yazılan
+    $enSaved = $isNew ? [] : admin_en_get('posts', $id);
+    $enForm  = isset($en) ? $en : $enSaved + ['title' => '', 'excerpt' => '', 'description' => '', 'content' => ''];
+    $enView  = $enSaved !== [] ? url_lang((string) (admin_find($rows, $id)['slug'] ?? ''), 'en') : '';
 
     admin_shell_start('posts', $isNew ? 'Yeni xəbər' : 'Xəbəri redaktə et', $isNew ? [] : [
         ['href' => url($item['slug']), 'label' => 'Saytda bax ↗'],
@@ -169,6 +232,47 @@ if ($action === 'edit') {
 		</div>
 	</div>
 
+	<?php
+    f_en_open($enView, 'Xəbərlər ingiliscəyə tərcümə olunmur — saytın <code>/en/</code> versiyasında yalnız ingiliscə mətni yazılmış xəbərlər görünür. '
+        . 'Bu xəbəri orada göstərmək istəyirsinizsə, ən azı ingiliscə başlığı yazın: onda xəbərin səhifəsində dil düyməsi çıxacaq. '
+        . 'Boş qalan sahələrin yerində azərbaycanca mətn göstərilir. Bütün ingiliscə sahələri boşaltsanız, xəbər ingiliscə versiyadan çıxarılır.');
+    // Tərcüməsi olmayan xəbərdə sahələr bağlı qalır — “əlavə et” ilə açılır
+    $enFold = $enSaved === [];
+    ?>
+	<?php if ($enFold): ?>
+			<details<?= implode('', $enForm) !== '' ? ' open' : '' ?>>
+				<summary class="btn btn--sm">+ İngiliscə versiya əlavə et</summary>
+				<div style="margin-top:15px">
+	<?php endif; ?>
+				<div class="grid2">
+					<div>
+						<?php
+                        f_text('en[title]', 'Başlıq (ingiliscə)', (string) $enForm['title'], [
+                            'hint' => 'İngiliscə versiya üçün məcburidir.',
+                        ]);
+                        f_textarea('en[content]', 'Mətn (ingiliscə)', (string) $enForm['content'], [
+                            'tall' => true,
+                            'rich' => true,
+                            'hint' => 'Boş buraxsanız ingiliscə səhifədə azərbaycanca mətn göstərilir.',
+                        ]);
+                        ?>
+					</div>
+					<div>
+						<?php
+                        f_textarea('en[excerpt]', 'Qısa mətn (ingiliscə)', (string) $enForm['excerpt'], ['rows' => 3]);
+                        f_textarea('en[description]', 'Təsvir (meta description, ingiliscə)', (string) $enForm['description'], [
+                            'rows' => 3,
+                            'hint' => 'Boş buraxsanız ingiliscə mətnin əvvəlindən götürüləcək.',
+                        ]);
+                        ?>
+					</div>
+				</div>
+	<?php if ($enFold): ?>
+				</div>
+			</details>
+	<?php endif; ?>
+	<?php f_en_close(); ?>
+
 	<?php f_actions(admin_url(['section' => 'posts']),
         $isNew ? null : admin_url(['section' => 'posts', 'action' => 'delete', 'id' => $id])); ?>
     <?php
@@ -191,6 +295,9 @@ foreach ($rows as $row) {
         $counts[(int) $cid] = ($counts[(int) $cid] ?? 0) + 1;
     }
 }
+
+// ingiliscə versiyası olan xəbərlər (çoxu yoxdur — nişan yalnız onlarda)
+$enRows = data_load('posts-en');
 
 if ($catFilter) {
     $rows = array_values(array_filter($rows, static function (array $row) use ($catFilter) {
@@ -226,6 +333,7 @@ admin_shell_start('posts', 'Xəbərlər', [
 				</form>
 			</th>
 			<th style="width:120px">Tarix</th>
+			<th style="width:44px" title="İngiliscə versiya">EN</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -245,6 +353,7 @@ admin_shell_start('posts', 'Xəbərlər', [
                 echo e(implode(', ', $names));
             ?></td>
 			<td class="table__meta"><?= e(az_date($row['date'])) ?></td>
+			<td><?php if (isset($enRows[$row['id']])): ?><span class="lang-flag" title="İngiliscə versiyası var">EN</span><?php endif; ?></td>
 			<td class="is-right">
 				<div class="table__actions">
 					<a class="btn btn--sm" href="<?= e(url($row['slug'])) ?>" target="_blank" rel="noopener">Bax</a>
@@ -259,7 +368,7 @@ admin_shell_start('posts', 'Xəbərlər', [
 		</tr>
 <?php endforeach; ?>
 <?php if (!$rows): ?>
-		<tr><td colspan="5" class="empty"><?= $catFilter ? 'Bu kateqoriyada xəbər yoxdur.' : 'Hələ xəbər yoxdur.' ?></td></tr>
+		<tr><td colspan="6" class="empty"><?= $catFilter ? 'Bu kateqoriyada xəbər yoxdur.' : 'Hələ xəbər yoxdur.' ?></td></tr>
 <?php endif; ?>
 	</tbody>
 </table>

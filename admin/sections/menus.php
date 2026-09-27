@@ -3,7 +3,25 @@
  * Menyular bölməsi.
  * Üç menyu var: əsas menyu və altlıqdakı iki sütun.
  * Bəndlər iki səviyyəlidir.
+ * Bəndlərin ingiliscə adları data/<menyu>-en.php-də bəndin id-sinə görə saxlanılır.
  */
+
+if (!function_exists('menus_en_save')) {
+    /**
+     * Menyunun ingiliscə adlarını yazır ([bəndin id-si => ['label' => …]]).
+     * Heç nə dəyişməyibsə fayla toxunulmur.
+     */
+    function menus_en_save(string $menu, array $next): void
+    {
+        $old = data_load($menu . '-en');
+        ksort($old);
+        ksort($next);
+        if ($next === $old) {
+            return;
+        }
+        store_save($menu . '-en', $next, 'Menyu — ingiliscə tərcümə (id => sahələr; boş sahə azərbaycancanı saxlayır)');
+    }
+}
 
 const ADMIN_MENUS = [
     'menu'          => 'Əsas menyu',
@@ -30,6 +48,19 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         $parents = (array) ($_POST['parent'] ?? []);
         $ids     = (array) ($_POST['mid'] ?? []);
 
+        // Yeni bəndlər üçün boş id: mövcud və formadakı bütün id-lərdən böyük.
+        // İngiliscə adlar id-yə görə saxlanılır — iki bənd eyni id-ni almamalıdır.
+        $used = array_map('intval', array_values($ids));
+        $walk = static function (array $nodes) use (&$walk, &$used): void {
+            foreach ($nodes as $n) {
+                $used[] = (int) ($n['id'] ?? 0);
+                $walk((array) ($n['children'] ?? []));
+            }
+        };
+        $walk($items);
+        $nextId = max(899, max($used ?: [0])) + 1;
+        $taken  = [];
+
         // 1) boş olmayan sətirlərdən düz siyahı
         $flat = [];
         foreach ($labels as $key => $label) {
@@ -38,11 +69,16 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
                 continue;                       // boş ad = silinmiş bənd
             }
             $raw = trim((string) ($paths[$key] ?? ''));
+            $mid = (int) ($ids[$key] ?? 0);
+            if ($mid <= 0 || isset($taken[$mid])) {
+                $mid = $nextId++;               // yeni bənd (və ya köhnəlmiş formada təkrar id)
+            }
+            $taken[$mid] = true;
             $flat[(string) $key] = [
                 'key'    => (string) $key,
                 'parent' => (string) ($parents[$key] ?? ''),
                 'node'   => [
-                    'id'       => (int) ($ids[$key] ?? 0) ?: (900 + (int) $key),
+                    'id'       => $mid,
                     'type'     => admin_menu_type($raw),
                     'object'   => admin_menu_object($raw),
                     'label'    => $label,
@@ -79,6 +115,22 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         }
 
         store_save($which, admin_menu_attach_pages($tree), ADMIN_MENUS[$which] . ' / navigation');
+
+        // 4) ingiliscə adlar — yalnız qalan bəndlərin, boş ad saxlanılmır.
+        //    Formada bu sahələr yoxdursa (köhnə səhifədən gələn sorğu) tərcüməyə toxunulmur.
+        if (is_array($_POST['en_label'] ?? null)) {
+            $enLabels = $_POST['en_label'];
+            $enNext   = [];
+            foreach ($flat as $key => $row) {
+                $en = $enLabels[$key] ?? '';
+                $en = is_string($en) ? trim(admin_eol($en)) : '';
+                if ($en !== '') {
+                    $enNext[(int) $row['node']['id']] = ['label' => $en];
+                }
+            }
+            menus_en_save($which, $enNext);
+        }
+
         admin_redirect(['section' => 'menus', 'menu' => $which], 'Menyu yadda saxlanıldı.');
     }
 }
@@ -103,16 +155,25 @@ foreach ($flatRows as $row) {
     }
 }
 
-$renderRow = static function (array $row) use ($parentOptions) {
+// ingiliscə adlar: bəndin id-si => ['label' => …]
+$enMap = data_load($which . '-en');
+
+$renderRow = static function (array $row) use ($parentOptions, $enMap) {
     $it   = $row['item'];
     $idx  = $row['i'];
     $href = ($it['path'] ?? null) === null ? ($it['label'] === '' ? '' : '#') : (string) $it['path'];
+    $en   = (int) ($it['id'] ?? 0) > 0 ? (string) ($enMap[(int) $it['id']]['label'] ?? '') : '';
     ?>
 			<tr>
 				<td>
 					<input type="hidden" name="mid[<?= $idx ?>]" value="<?= (int) ($it['id'] ?? 0) ?>">
 					<input class="input" type="text" name="label[<?= $idx ?>]" value="<?= e((string) ($it['label'] ?? '')) ?>"
 					       placeholder="<?= $it['label'] === '' ? 'Yeni bənd…' : '' ?>">
+					<div class="pf__en" style="display:flex;gap:8px;align-items:center;margin-top:6px">
+						<span class="lang-flag" aria-hidden="true">EN</span>
+						<input class="input" type="text" name="en_label[<?= $idx ?>]" value="<?= e($en) ?>" lang="en"
+						       placeholder="İngiliscə ad" aria-label="İngiliscə ad">
+					</div>
 				</td>
 				<td><input class="input" type="text" name="path[<?= $idx ?>]" value="<?= e($href) ?>" placeholder="haqqimizda"></td>
 				<td>
@@ -145,6 +206,11 @@ admin_shell_start('menus', 'Menyular');
 			Ünvan sahəsinə saytın daxili yolunu yazın (<code>haqqimizda</code>, <code>category/tedbirler</code>),
 			tam ünvanı (<code>https://…</code>) və ya açılan siyahı üçün <code>#</code>.
 			Bəndi silmək üçün adını boşaldın. Alt bənd etmək üçün “Valideyn” sütununda üst bəndi seçin.
+		</p>
+		<p class="field__hint">
+			<span class="lang-flag">EN</span> sahəsi — bəndin saytın ingiliscə versiyasındakı adı. Boş buraxsanız
+			(məsələn, yeni bənddə), ingiliscə versiyada azərbaycanca ad göstərilir. Ünvan və sıra hər iki dildə eynidir;
+			səhifənin ingiliscə versiyası yoxdursa, keçid azərbaycanca səhifəyə aparır.
 		</p>
 
 		<table class="table">

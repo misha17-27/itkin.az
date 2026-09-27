@@ -3,6 +3,8 @@
  * Köməkçi funksiyalar / helper functions
  */
 
+require_once __DIR__ . '/i18n.php';
+
 /**
  * Ayarlar iki yerdən gəlir:
  *   config.php      — quraşdırma ayarları (ünvan, admin girişi)
@@ -12,6 +14,18 @@
 function cfg(string $key, $default = null)
 {
     $all = cfg_all();
+
+    // Dildən asılı ayar (saytın adı, şüarı): ingiliscədə <açar>_en
+    if (isset(I18N_CFG[$key]) && lang() !== LANG_DEFAULT) {
+        $local = trim((string) ($all[$key . '_' . lang()] ?? ''));
+        if ($local !== '') {
+            return $local;
+        }
+        if (I18N_CFG[$key] && isset($all[$key])) {
+            return t((string) $all[$key]);
+        }
+    }
+
     return $all[$key] ?? $default;
 }
 
@@ -73,11 +87,33 @@ function base_path(): string
     return $base = $dir;
 }
 
-/** Daxili ünvan qurur: url('xeberler') => /xeberler/ */
+/** İdarə panelinin ünvanı (config.php → admin_path), məsələn "mguliyev" */
+function admin_path(): string
+{
+    $path = trim((string) cfg('admin_path', 'admin'), '/');
+    return preg_match('/^[A-Za-z0-9][A-Za-z0-9_-]{1,63}$/', $path) ? $path : 'admin';
+}
+
+/** Sorğu idarə panelinə gəlibmi: /<admin_path>/... */
+function admin_request(): bool
+{
+    $path = (string) parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $base = base_path();
+    if ($base !== '' && strpos($path, $base) === 0) {
+        $path = (string) substr($path, strlen($base));
+    }
+    return explode('/', trim(rawurldecode($path), '/'))[0] === admin_path();
+}
+
+/**
+ * Daxili ünvan qurur: url('haqqimizda') => /haqqimizda/
+ * İngiliscə səhifədə dil prefiksi də əlavə olunur: /en/haqqimizda/ — əgər o
+ * səhifənin ingiliscə versiyası varsa; yoxdursa (məsələn xəbər) keçid birbaşa
+ * azərbaycanca versiyaya aparır (lang_has()).
+ */
 function url(string $path = ''): string
 {
-    $path = trim($path, '/');
-    return base_path() . '/' . ($path === '' ? '' : $path . '/');
+    return url_lang($path, lang_for($path));
 }
 
 /** Statik fayl ünvanı: asset('assets/css/a.css') => /assets/css/a.css */
@@ -86,16 +122,20 @@ function asset(string $path): string
     return base_path() . '/' . ltrim($path, '/');
 }
 
-/** Tam (mütləq) ünvan — paylaşma düymələri və meta teqlər üçün */
+/**
+ * Surətə xas fayl (custom.css, mobile-menu.js) versiya ilə: fayl dəyişəndə
+ * ünvan da dəyişir və brauzer köhnə nüsxəni keşdən götürmür.
+ */
+function asset_ver(string $path): string
+{
+    $file = dirname(__DIR__) . '/' . ltrim($path, '/');
+    return asset($path) . (is_file($file) ? '?ver=' . filemtime($file) : '');
+}
+
+/** Tam (mütləq) ünvan — paylaşma düymələri və meta teqlər üçün (cari dildə) */
 function abs_url(string $path = ''): string
 {
-    $configured = trim((string) cfg('site_url'));
-    if ($configured !== '') {
-        return rtrim($configured, '/') . '/' . ltrim($path === '' ? '' : trim($path, '/') . '/', '/');
-    }
-    $scheme = request_is_https() ? 'https' : 'http';
-    $host   = request_host();
-    return $scheme . '://' . $host . url($path);
+    return abs_url_lang($path, lang_for($path));
 }
 
 function e(?string $s): string
@@ -103,7 +143,7 @@ function e(?string $s): string
     return htmlspecialchars((string) $s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
-/** Azərbaycan dilində tarix: 21 Sentyabr 2026 */
+/** Cari dildə tarix: 21 Sentyabr 2026 / September 21, 2026 */
 function az_date(string $iso): string
 {
     static $months = [
@@ -113,6 +153,9 @@ function az_date(string $iso): string
     $ts = strtotime($iso);
     if ($ts === false) {
         return '';
+    }
+    if (lang() !== LANG_DEFAULT) {
+        return date('F j, Y', $ts);
     }
     return date('j', $ts) . ' ' . $months[(int) date('n', $ts)] . ' ' . date('Y', $ts);
 }
@@ -258,9 +301,9 @@ function abs_url_file(string $path): string
  */
 function page_text(string $key, string $default = ''): string
 {
-    $value = page_override($key);
+    $value = page_text_value($key, $default);
     if (!is_string($value)) {
-        return $default;
+        return t($default);
     }
     // Şəkil və fayl yolları saytın ünvanına uyğunlaşdırılır
     return strpos($value, 'uploads/') === 0 ? asset($value) : $value;
@@ -282,11 +325,68 @@ function page_override(string $key)
     return array_key_exists($key, $texts) ? $texts[$key] : null;
 }
 
+/**
+ * Mətn sahəsinin paneldən dəyişdirilmiş dəyəri — cari dildə.
+ *
+ * İngiliscə: data/page-texts-en.php-dəki dəyər; yoxdursa mətn sahələri üçün
+ * null (şablondakı orijinalın tərcüməsi göstərilir), ünvan, rəqəm kimi
+ * dildən asılı olmayan sahələr üçün isə azərbaycanca dəyişiklik.
+ * Azərbaycanca versiyada paneldə boşaldılmış mətn ingiliscədə də boş qalır.
+ */
+function page_override_text(string $key)
+{
+    if (lang() === LANG_DEFAULT) {
+        return page_override($key);
+    }
+    static $local = null;
+    if ($local === null) {
+        $local = data_load('page-texts-' . lang());
+    }
+    if (array_key_exists($key, $local)) {
+        return $local[$key];
+    }
+    $az = page_override($key);
+    if ($az === '' || $az === [] || !page_field_translatable($key)) {
+        return $az;
+    }
+    return null;
+}
+
+/** Sahə dilə görə tərcümə olunurmu (başlıq, mətn, HTML) — data/page-fields.php */
+function page_field_translatable(string $key): bool
+{
+    static $types = null;
+    if ($types === null) {
+        $types = [];
+        foreach (data_load('page-fields') as $field) {
+            $types[$field['key']] = $field['type'];
+        }
+    }
+    return in_array($types[$key] ?? 'text', ['heading', 'text', 'html'], true);
+}
+
 /** Mətn bloku (HTML). Paneldən gələn mətndə yollar nisbidir — post_content() düzəldir. */
 function page_html(string $key, string $default): string
 {
-    $value = page_override($key);
-    return is_string($value) ? post_content($value) : $default;
+    $value = page_text_value($key, $default);
+    return is_string($value) ? post_content($value) : t($default);
+}
+
+/**
+ * Mətn sahəsinin cari dildəki dəyişdirilmiş dəyəri (page_override_text()).
+ * İngiliscədə orijinalın tərcüməsi yoxdursa (telefon, e-poçt, illər — dildən asılı
+ * deyil), azərbaycanca versiyada edilmiş dəyişiklik ingiliscəyə də keçir.
+ */
+function page_text_value(string $key, string $default)
+{
+    $value = page_override_text($key);
+    if ($value === null && lang() !== LANG_DEFAULT && t($default) === $default) {
+        $az = page_override($key);
+        if (is_string($az)) {
+            return $az;
+        }
+    }
+    return $value;
 }
 
 /**

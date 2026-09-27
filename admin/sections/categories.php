@@ -1,5 +1,10 @@
 <?php
-/** Kateqoriyalar bölməsi */
+/**
+ * Kateqoriyalar bölməsi
+ *
+ * İngiliscə ad və təsvir data/categories-en.php-də saxlanılır. Kateqoriyanın
+ * ingiliscə səhifəsi yalnız içində ingiliscə versiyası olan xəbər olduqda açılır.
+ */
 
 $rows = data_load('categories');
 $id   = (int) ($_GET['id'] ?? 0);
@@ -19,6 +24,7 @@ if ($action === 'delete' && $id > 0) {
     }
     $item = admin_find($rows, $id);
     store_save('categories', admin_delete($rows, $id), 'Kateqoriyalar / categories');
+    admin_en_save('categories', $id, null);   // ingiliscə tərcüməsi də silinir
     admin_redirect(['section' => 'categories'], '“' . ($item['name'] ?? '') . '” silindi.');
 }
 
@@ -36,6 +42,9 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
 
     $slug = store_slug(post_str('slug') ?: $name);
     $slug = store_unique_slug($rows, $slug, $id > 0 ? $id : null);
+
+    // Formada ingiliscə kart yoxdursa (köhnə səhifədən gələn sorğu) tərcüməyə toxunulmur
+    $en = is_array($_POST['en'] ?? null) ? ['name' => post_en('name'), 'description' => post_en('description')] : null;
 
     if (!$errors) {
         $isNew = $id === 0;
@@ -55,13 +64,37 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             'schema'      => $prev['schema'] ?? '',
         ];
         store_save('categories', admin_upsert($rows, $saved), 'Kateqoriyalar / categories');
-        admin_redirect(['section' => 'categories'], $isNew ? 'Kateqoriya əlavə olundu.' : 'Yadda saxlanıldı.');
+
+        $flash = $isNew ? 'Kateqoriya əlavə olundu.' : 'Yadda saxlanıldı.';
+        if ($en !== null) {
+            // Brauzer başlığı ingiliscə addan qurulur — azərbaycancadakı kimi “… Archives - sayt”
+            if ($en['name'] !== '') {
+                $en['doc_title'] = $en['name'] . ' Archives - ' . cfg('site_name');
+            }
+            $enHad = $isNew ? [] : admin_en_get('categories', $newId);
+            admin_en_save('categories', $newId, $en);
+            $enNow = admin_en_get('categories', $newId);
+            if ($enHad && !$enNow) {
+                $flash .= ' İngiliscə versiya silindi.';
+            } elseif (!$enHad && $enNow && !$isNew) {
+                $flash .= ' İngiliscə versiya əlavə olundu.';
+            }
+        }
+
+        admin_redirect(['section' => 'categories'], $flash);
     }
 }
 
 if ($action === 'edit') {
     $isNew = $id === 0;
     $item  = $item ?? ['id' => 0, 'name' => '', 'slug' => '', 'description' => ''];
+
+    // İngiliscə versiya: saxlanılmış tərcümə; xəta olubsa formada yazılan
+    $enSaved = $isNew ? [] : admin_en_get('categories', $id);
+    $enForm  = isset($en) ? $en : $enSaved + ['name' => '', 'description' => ''];
+    $enPath  = 'category/' . (string) (admin_find($rows, $id)['slug'] ?? '');
+    $enLive  = $enSaved !== [] && lang_has($enPath, 'en');
+
     admin_shell_start('categories', $isNew ? 'Yeni kateqoriya' : 'Kateqoriyanı redaktə et');
     f_errors($errors);
     f_open(['section' => 'categories', 'action' => 'edit', 'id' => $id]);
@@ -82,6 +115,25 @@ if ($action === 'edit') {
         ]);
         ?>
 	</div></div>
+	<?php
+    f_en_open($enLive ? url_lang($enPath, 'en') : '',
+        'Saytın <code>/en/</code> versiyasında göstərilir. Boş buraxılan sahənin yerində azərbaycanca mətn çıxır; '
+        . 'hər iki sahəni boşaltsanız, tərcümə silinir. Brauzer başlığı ingiliscə addan avtomatik qurulur '
+        . '(<code>… Archives - ' . e((string) cfg('site_name')) . '</code>).<br>'
+        . 'Xəbərlər tərcümə olunmadığı üçün kateqoriyanın ingiliscə səhifəsi yalnız içində ingiliscə versiyası olan '
+        . 'ən azı bir xəbər olduqda açılır; əks halda ziyarətçi azərbaycanca səhifəyə yönləndirilir.');
+    ?>
+		<div class="narrow">
+<?php if ($enSaved !== [] && !$enLive): ?>
+			<p class="field__hint" style="margin-top:0"><span class="lang-flag lang-flag--off">EN</span>
+				Hazırda bu kateqoriyada ingiliscə versiyası olan xəbər yoxdur — ingiliscə səhifə açılmır.</p>
+<?php endif; ?>
+			<?php
+            f_text('en[name]', 'Ad (ingiliscə)', (string) $enForm['name']);
+            f_textarea('en[description]', 'Təsvir (meta description, ingiliscə)', (string) $enForm['description'], ['rows' => 3]);
+            ?>
+		</div>
+	<?php f_en_close(); ?>
 	<?php f_actions(admin_url(['section' => 'categories']),
         $isNew ? null : admin_url(['section' => 'categories', 'action' => 'delete', 'id' => $id])); ?>
     <?php
@@ -97,18 +149,28 @@ foreach (data_load('posts') as $p) {
     }
 }
 
+$enRows = data_load('categories-en');
+
 admin_shell_start('categories', 'Kateqoriyalar', [
     ['href' => admin_url(['section' => 'categories', 'action' => 'edit']), 'label' => '+ Yeni kateqoriya', 'primary' => true],
 ]);
 ?>
 <table class="table">
-	<thead><tr><th>Ad</th><th style="width:220px">Ünvan</th><th style="width:100px">Yazı</th><th></th></tr></thead>
+	<thead><tr><th>Ad</th><th style="width:220px">Ünvan</th><th style="width:100px">Yazı</th><th style="width:44px" title="İngiliscə versiya">EN</th><th></th></tr></thead>
 	<tbody>
 <?php foreach ($rows as $row): ?>
 		<tr>
 			<td><a class="table__title" href="<?= e(admin_url(['section' => 'categories', 'action' => 'edit', 'id' => $row['id']])) ?>"><?= e($row['name']) ?></a></td>
 			<td class="table__meta">/category/<?= e($row['slug']) ?>/</td>
 			<td class="table__meta"><?= (int) ($counts[$row['id']] ?? 0) ?></td>
+			<td><?php
+            // tərcümə var: səhifə açılırsa göy nişan, içində ingiliscə xəbər yoxdursa boz
+            if (isset($enRows[$row['id']])) {
+                echo lang_has('category/' . $row['slug'], 'en')
+                    ? '<span class="lang-flag" title="İngiliscə versiyası var">EN</span>'
+                    : '<span class="lang-flag lang-flag--off" title="Tərcüməsi var, amma içində ingiliscə versiyası olan xəbər yoxdur — ingiliscə səhifə açılmır">EN</span>';
+            }
+            ?></td>
 			<td class="is-right"><div class="table__actions">
 				<a class="btn btn--sm" href="<?= e(url('category/' . $row['slug'])) ?>" target="_blank" rel="noopener">Bax</a>
 				<a class="btn btn--sm" href="<?= e(admin_url(['section' => 'categories', 'action' => 'edit', 'id' => $row['id']])) ?>">Redaktə</a>

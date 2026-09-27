@@ -101,6 +101,7 @@ function admin_shell_end(): void
 		</div>
 	</main>
 </div>
+<script>window.ITKIN = <?= json_encode(['base' => base_path() . '/', 'admin' => admin_url()], JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) ?>;</script>
 <script src="<?= asset('admin/assets/admin.js') ?>"></script>
 <script src="<?= asset('admin/assets/editor.js') ?>"></script>
 </body>
