@@ -49,6 +49,12 @@ $checks = [
     'storage/'         => is_dir($root . '/storage') ? is_writable($root . '/storage') : is_writable($root),
 ];
 
+/* PHP modulları: dom — redaktordakı mətnin təmizlənməsi (yoxdursa format itir), mbstring — mətnlərin kəsilməsi */
+$modules = [
+    'dom'      => class_exists('DOMDocument'),
+    'mbstring' => function_exists('mb_strlen'),
+];
+
 admin_shell_start('dashboard', 'İcmal', [
     ['href' => admin_url(['section' => 'posts', 'action' => 'edit']), 'label' => '+ Yeni xəbər', 'primary' => true],
 ]);
@@ -78,6 +84,18 @@ foreach ($tiles as [$label, $n, $section]): ?>
 	<ul>
 <?php foreach ($checks as $dir => $ok): if ($ok) { continue; } ?>
 		<li><code><?= e($dir) ?></code> — hostinqdə bu qovluğa yazma icazəsi verin (755 və ya 775).</li>
+<?php endforeach; ?>
+	</ul>
+</div>
+<?php endif; ?>
+
+<?php if (in_array(false, $modules, true)): ?>
+<div class="errors">
+	<strong>Diqqət: serverdə PHP-nin lazımi modulu yoxdur.</strong>
+	<ul>
+<?php foreach ($modules as $name => $ok): if ($ok) { continue; } ?>
+		<li><code><?= e($name) ?></code> — cPanel → «Select PHP Version» → «Extensions»-da onu yandırın.
+			<?= $name === 'dom' ? 'O olmasa, mətn redaktorunda yadda saxlanan yazının formatı (qalın, başlıq, şəkil, video) itir.' : '' ?></li>
 <?php endforeach; ?>
 	</ul>
 </div>
