@@ -51,10 +51,22 @@ const ADMIN_MENUS = [
     'menu-footer-2' => 'Altlıq — ikinci sütun',
 ];
 
-$which = (string) ($_GET['menu'] ?? 'menu');
-if (!isset(ADMIN_MENUS[$which])) {
-    $which = 'menu';
+/*
+ * Bu fayl «Altlıq» bölməsindən də qoşulur (admin/sections/footer.php) — altlığın iki
+ * sütununun keçidləri orada redaktə olunur. Onda bölmə, başlıq, seçilə bilən menyu,
+ * ünvan parametrləri və yuxarıdakı nişanlar başqadır. Burada — yalnız əsas menyu.
+ */
+$menuSection = $menuSection ?? 'menus';
+$menuTitle   = $menuTitle ?? 'Menyular';
+$menuChoices = $menuChoices ?? ['menu'];
+$menuTop     = $menuTop ?? '';
+
+$which = (string) ($_GET['menu'] ?? $menuChoices[0]);
+if (!in_array($which, $menuChoices, true)) {
+    $which = $menuChoices[0];
 }
+// bu menyunun ünvanı (formanın, yönləndirmənin, «Ləğv et»in)
+$menuParams = $menuParams ?? ['section' => $menuSection, 'menu' => $which];
 
 $items  = data_load($which);
 $errors = [];
@@ -159,7 +171,7 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             admin_section_mark('menus:' . $which);
         }
 
-        admin_redirect(['section' => 'menus', 'menu' => $which], 'Menyu yadda saxlanıldı.');
+        admin_redirect($menuParams, 'Menyu yadda saxlanıldı.');
     }
 }
 
@@ -216,17 +228,20 @@ $renderRow = static function (array $row) use ($parentOptions, $enMap) {
     <?php
 };
 
-admin_shell_start('menus', 'Menyular');
+admin_shell_start($menuSection, $menuTitle);
 ?>
-<div class="card"><div class="card__body" style="display:flex;gap:8px;flex-wrap:wrap">
-<?php foreach (ADMIN_MENUS as $key => $label): ?>
-	<a class="btn<?= $key === $which ? ' btn--primary' : '' ?>" href="<?= e(admin_url(['section' => 'menus', 'menu' => $key])) ?>"><?= e($label) ?></a>
-<?php endforeach; ?>
-</div></div>
+<?php if ($menuTop !== ''): ?>
+<?= $menuTop ?>
+<?php else: ?>
+<p class="field__hint" style="margin-top:0">
+	Altlıqdakı keçidlər («Yararlı linklər», «Media») və yazılar —
+	<a href="<?= e(admin_url(['section' => 'footer'])) ?>">«Altlıq» bölməsində</a>.
+</p>
+<?php endif; ?>
 
 <?= admin_section_bar('menus:' . $which) ?>
 <?php f_errors($errors); ?>
-<?php f_open(['section' => 'menus', 'action' => 'edit', 'menu' => $which]); ?>
+<?php f_open($menuParams + ['action' => 'edit']); ?>
 
 <div class="card">
 	<div class="card__head"><?= e(ADMIN_MENUS[$which]) ?></div>
@@ -260,7 +275,7 @@ for ($k = 0; $k < 3; $k++) {
 
 <div class="actions">
 	<button class="btn btn--primary" type="submit">Yadda saxla</button>
-	<a class="btn" href="<?= e(admin_url(['section' => 'menus', 'menu' => $which])) ?>">Ləğv et</a>
+	<a class="btn" href="<?= e(admin_url($menuParams)) ?>">Ləğv et</a>
 </div>
 <?php
 f_close();

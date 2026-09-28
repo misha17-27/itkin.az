@@ -11,6 +11,7 @@ const ADMIN_SECTIONS = [
     'categories'=> ['Kateqoriyalar','M4 6h16M4 12h16M4 18h10'],
     'pages'     => ['Səhifələr',    'M6 3h8l4 4v14H6zM14 3v4h4'],
     'menus'     => ['Menyular',     'M4 6h16M4 12h16M4 18h16'],
+    'footer'    => ['Altlıq (footer)', 'M4 4h16v16H4zM4 15h16M8 18h3M13 18h3'],
     'media'     => ['Qalereya',     'M4 5h16v14H4zM4 15l4-4 4 4 3-3 5 5'],
     'contacts'  => ['Əlaqə və sosial şəbəkələr', 'M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z'],
     'trash'     => ['Zibil qutusu', 'M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6'],
@@ -24,7 +25,7 @@ const ADMIN_SECTIONS = [
 /** Yan menyunun qrupları (bölmələrin sırası da buradan gəlir) */
 const ADMIN_GROUPS = [
     'Əsas'    => ['dashboard'],
-    'Məzmun'  => ['posts', 'kitabxana', 'itkinlr', 'categories', 'pages', 'menus', 'media', 'contacts', 'trash'],
+    'Məzmun'  => ['posts', 'kitabxana', 'itkinlr', 'categories', 'pages', 'menus', 'footer', 'media', 'contacts', 'trash'],
     'Ayarlar' => ['users', 'settings', 'mail', 'security', 'profile'],
 ];
 

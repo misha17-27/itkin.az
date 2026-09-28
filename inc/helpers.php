@@ -604,6 +604,30 @@ function mejs_inline(string $key): string
  * Admin panelinin «Əlaqə və sosial şəbəkələr» bölməsi data/contacts.php-yə
  * yazır; fayl yoxdursa orijinal saytdakı dəyərlər işlənir.
  */
+/**
+ * Altlığın yazıları: sütun başlıqları və müəllif hüququ sətri. Paneldə («Altlıq»)
+ * dəyişdirilə bilər — data/footer.php: ['az' => [açar => mətn], 'en' => [...]].
+ * Boş dəyər — orijinal mətn (ingiliscədə lüğətdəki tərcümə).
+ */
+const FOOTER_TEXTS = [
+    'links'     => 'Yararlı linklər',
+    'media'     => 'Media',
+    'contact'   => 'Bizimlə əlaqə',
+    'copyright' => '© 2025. Bütün hüquqlar qorunur.',
+];
+
+/** Altlıqdakı yazı (HTML-ə hazır) */
+function footer_text(string $key): string
+{
+    $saved = trim((string) (data_load('footer')[lang()][$key] ?? ''));
+    if ($saved !== '') {
+        return e($saved);
+    }
+    // orijinal: «Media» orijinalda da tərcümə olunmurdu — ingiliscədə də eyni söz
+    $orig = FOOTER_TEXTS[$key] ?? '';
+    return $key === 'media' ? $orig : t($orig);
+}
+
 const CONTACT_DEFAULTS = [
     'phone'     => '(+994 12) 405 99 79',
     'email'     => 'info@itkin.az',

@@ -95,7 +95,7 @@ Panel hər qeydə kimin və nə vaxt əlavə etdiyini və son dəfə kimin dəyi
 | Xəbərlər, Kitabxana, İtkinlər, Kateqoriyalar — siyahı | «Əlavə edib» sütunu. Xəbərlərdə bu sütuna görə süzgəc var (kateqoriya süzgəci ilə birlikdə işləyir) |
 | Həmin bölmələrin redaktə forması | «Kim əlavə edib» kartı: kim əlavə edib və kim son dəyişib — tarix və saatla |
 | Səhifələr | Siyahıda «Əlavə edib» və «Son dəyişiklik», səhifənin yuxarısında da |
-| Menyular, Əlaqə və sosial şəbəkələr | Yuxarıda «Son dəyişiklik» |
+| Menyular, Altlıq, Əlaqə və sosial şəbəkələr | Yuxarıda «Son dəyişiklik» |
 | Qalereya | Faylın altında «Yükləyib: …» |
 | Zibil qutusu, İcmal | Silinmiş elementi kim əlavə etmişdi; son xəbərləri kim əlavə edib |
 
@@ -155,7 +155,8 @@ Harada saxlanılır:
 | İtkinlər | İtkin düşmüş şəxslərin siyahısı: ad və foto |
 | Kateqoriyalar | Ad, ünvan, təsvir. Yazısı olan kateqoriya silinmir (zibil qutusundakı yazılar da sayılır) |
 | Səhifələr | Statik səhifələrin siyahısı; hər səhifədə bütün mətnlər, mətn blokları, şəkillər, qalereya, fon şəkli və videosu, SEO |
-| Menyular | Əsas menyu və altlıqdakı iki sütun; alt bəndlərlə birlikdə |
+| Menyular | Başlıqdakı əsas menyu, alt bəndlərlə birlikdə |
+| Altlıq (footer) | Sütun başlıqları («Yararlı linklər», «Media», «Bizimlə əlaqə») və ən aşağıdakı müəllif hüququ sətri — AZ və EN; hər iki sütunun keçidləri (ad, ünvan, sıra, ingiliscə ad). Boş buraxılan yazının yerində orijinal mətn çıxır (`data/footer.php`) |
 | Qalereya | Sayta yüklənmiş bütün şəkillər, videolar və PDF-lər: yükləmək, növə görə süzmək, axtarmaq, silmək (bir-bir və ya seçib birdən) |
 | Zibil qutusu | Silinən xəbər, kitab, itkin, kateqoriya və fayllar — 30 gün ərzində bərpa etmək olar, sonra avtomatik silinir |
 | Əlaqə və sosial şəbəkələr | Altlıqdakı telefon və e-poçt, Facebook / Instagram / YouTube keçidləri |

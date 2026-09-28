@@ -379,3 +379,32 @@
 	aspect-ratio: 16 / 9;
 	border: 0;
 }
+
+/*
+ * Ana səhifə: itkinlər karuseli. Adlar müxtəlif uzunluqdadır (2–4 sətir) — ağ kart
+ * slaydın sonuna qədər uzanır, bütün kartlar eyni hündürlükdə olur.
+ */
+.elementor-element-db4538c .swiper-slide.elementor-150 {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+}
+.elementor-element-db4538c .swiper-slide.elementor-150 > .elementor-section-wrap {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+.elementor-element-db4538c .swiper-slide.elementor-150 .elementor-element.elementor-element-5327ab8 {
+	flex: 1 1 auto;
+}
+
+/* Telefonda bir sırada iki kart var — ad bir az kiçik, kənar boşluqlar dar */
+@media (max-width: 767px) {
+	.elementor-element-db4538c .elementor-150 .elementor-element.elementor-element-cb02d9a .elementor-heading-title {
+		font-size: 15px;
+		line-height: 1.3;
+	}
+	.elementor-element-db4538c .elementor-150 .elementor-element.elementor-element-cb02d9a > .elementor-widget-container {
+		margin: 12px 12px 12px 12px;
+	}
+}
