@@ -78,11 +78,42 @@ Panelə bir neçə nəfər öz hesabı ilə daxil ola bilər («Ayarlar» → «
 - Əvvəlki tək hesab (`config.php` / `data/settings.php`-dəki `admin_user`, `admin_password`)
   ilk administrator olur — şifrəsi dəyişmir. Fayl ilk istifadəçi əlavə olunanda və ya
   profil yadda saxlananda yaranır.
+- Silinmiş istifadəçinin nömrəsi (id) yeni istifadəçiyə verilmir — onun əlavə etdiyi
+  məzmun başqasının adına keçməsin (`storage/user-seq.json`, `storage/users-deleted.json`).
 
 **Hamı paneldən kənarda qalıbsa** (şifrə unudulub): cPanel → File Manager →
 `data/users.php` faylını silin (əvvəlcə nüsxəsini götürün). Giriş yenidən köhnə tək
 hesabla açılacaq — `data/settings.php`-dəki son şifrə və ya ilkin `admin` / `itkin2026`.
 Sonra istifadəçiləri yenidən əlavə edin.
+
+### Müəllif: kim əlavə edib, kim dəyişib
+
+Panel hər qeydə kimin və nə vaxt əlavə etdiyini və son dəfə kimin dəyişdiyini yazır.
+
+| Harada | Nə göstərilir |
+|---|---|
+| Xəbərlər, Kitabxana, İtkinlər, Kateqoriyalar — siyahı | «Əlavə edib» sütunu. Xəbərlərdə bu sütuna görə süzgəc var (kateqoriya süzgəci ilə birlikdə işləyir) |
+| Həmin bölmələrin redaktə forması | «Kim əlavə edib» kartı: kim əlavə edib və kim son dəyişib — tarix və saatla |
+| Səhifələr | Siyahıda «Əlavə edib» və «Son dəyişiklik», səhifənin yuxarısında da |
+| Menyular, Əlaqə və sosial şəbəkələr | Yuxarıda «Son dəyişiklik» |
+| Qalereya | Faylın altında «Yükləyib: …» |
+| Zibil qutusu, İcmal | Silinmiş elementi kim əlavə etmişdi; son xəbərləri kim əlavə edib |
+
+- «Son dəyişiklik» yalnız məzmun həqiqətən dəyişəndə yenilənir — yazını açıb heç nəyə
+  toxunmadan yadda saxlamaq onu dəyişmir. Yalnız ingiliscə mətn dəyişəndə də yenilənir.
+- **Köhnə saytdan gələnlər** — WordPress-dəki müəllif «köhnə sayt» qeydi ilə: xəbərlər
+  (Konul, jgitd), kitablar, itkinlər, statik səhifələr və ~990 fayl. Bu məlumat WordPress
+  bazasının 22.09.2026 nüsxəsindən bir dəfə götürülüb — `data/wp-authors.php`.
+  WordPress kateqoriyaların müəllifini saxlamırdı — köhnə kateqoriyalarda «—» görünür.
+- Panel müəllifi yazmağa başlamazdan əvvəl paneldə əlavə olunmuş qeydlərdə «—»
+  (məlum deyil) görünür.
+- İstifadəçinin adı dəyişəndə siyahılarda yeni adı görünür. İstifadəçi silinəndə onun
+  məzmunu saytda qalır, paneldə isə adı «istifadəçi silinib» qeydi ilə göstərilir.
+- Saxlanılır: sətrin özündə (`created_by`, `modified_by` — istifadəçinin nömrəsi, adı və
+  vaxt; giriş adı yazılmır); faylların yükləyəni — `storage/uploads-by.json`; menyu və
+  əlaqə — `storage/section-edits.json`. Saytın özündə (ziyarətçilərə) müəllif göstərilmir.
+- Vaxtlar Bakı vaxtı ilədir: `config.php`-dəki `timezone` (`Asia/Baku`) hostinqin saat
+  qurşağından asılı olmadan tətbiq olunur.
 
 ### İngiliscə versiya
 

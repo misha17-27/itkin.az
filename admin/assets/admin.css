@@ -368,7 +368,8 @@ body.is-lib-open { overflow: hidden; }
 
 .th-filter { margin: 0; }
 .th-filter select {
-	max-width: 100%; margin-left: -8px; padding: 4px 8px;
+	/* en sütunun enindədir — uzun seçimlər (kateqoriya, ad) başlıq sütununu sıxmasın */
+	width: calc(100% + 8px); max-width: none; margin-left: -8px; padding: 4px 8px; text-overflow: ellipsis;
 	font: inherit; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
 	color: var(--ink-soft); background: transparent; border: 1px solid transparent; border-radius: 7px;
 	cursor: pointer;
@@ -519,3 +520,19 @@ a.lang-flag { text-decoration: none; }
 	.trash-table th:nth-child(4), .trash-table td:nth-child(4) { display: none; }
 	.trash-table .table__actions { flex-wrap: wrap; }
 }
+
+/* ------------------------------------------------------------ müəllif (kim əlavə edib, kim son dəyişib) */
+
+.author { color: var(--ink); font-weight: 600; }
+.author--gone { color: var(--ink-soft); font-style: italic; }
+.author--none { color: var(--ink-soft); font-weight: 400; cursor: help; }
+.authorship { display: grid; gap: 8px; font-size: 13.5px; }
+.authorship__row { display: grid; grid-template-columns: 120px minmax(0, 1fr); column-gap: 10px; row-gap: 1px; }
+.authorship__label { grid-row: span 2; color: var(--ink-soft); }
+.authorship__who { font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
+.authorship__who small { font-weight: 400; color: var(--ink-soft); }
+.authorship__when { font-size: 12.5px; color: var(--ink-soft); }
+.page-edited { margin: 0 0 14px; padding: 10px 14px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
+.page-edited .authorship__row { grid-template-columns: auto auto 1fr; align-items: baseline; }
+.page-edited .authorship__label { grid-row: auto; }
+.media-item__by { font-size: 11px; color: var(--ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: -4px; }

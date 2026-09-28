@@ -8,6 +8,8 @@ require_once __DIR__ . '/inc/data.php';
 require_once __DIR__ . '/inc/schema.php';
 require_once __DIR__ . '/inc/render.php';
 
+site_timezone();           // tarix və saatlar Bakı vaxtı ilə (config.php: timezone)
+
 // İdarə paneli: /<admin_path>/ (config.php) — admin/index.php işləyir
 if (admin_request()) {
     require __DIR__ . '/admin/index.php';

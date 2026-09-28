@@ -111,6 +111,10 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             'og:image'       => $cover['url'],
         ]);
 
+        // kim əlavə edib, kim son dəyişib (admin/inc/authors.php)
+        $saved   = admin_author_touch($saved, $isNew ? null : $prev);
+        $touched = admin_author_touched($saved, $isNew ? null : $prev);
+
         store_save('kitabxana', admin_upsert($rows, $saved), 'Kitabxana / library books');
 
         $flash = $isNew ? 'Kitab əlavə olundu.' : 'Dəyişikliklər yadda saxlanıldı.';
@@ -129,6 +133,10 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
                 $flash .= ' İngiliscə versiya silindi.';
             } elseif (!$enSaved && $enNow && !$isNew) {
                 $flash .= ' İngiliscə versiya əlavə olundu.';
+            }
+            // yalnız ingiliscə mətn dəyişibsə də «son dəyişiklik» yenilənsin
+            if (!$touched && $enSaved !== $enNow) {
+                admin_author_mark('kitabxana', $newId, 'Kitabxana / library books');
             }
         }
 
@@ -223,6 +231,10 @@ if ($action === 'edit') {
                     ?>
 				</div>
 			</div>
+
+<?php if (!$isNew): ?>
+			<?= admin_author_card($item, 'kitabxana') ?>
+<?php endif; ?>
 		</div>
 	</div>
 
@@ -240,7 +252,7 @@ admin_shell_start('kitabxana', 'Kitabxana', [
 $enRows = data_load('kitabxana-en');
 ?>
 <table class="table">
-	<thead><tr><th style="width:70px"></th><th>Ad</th><th style="width:230px">Müəllif</th><th style="width:110px">PDF</th><th style="width:60px">EN</th><th></th></tr></thead>
+	<thead><tr><th style="width:70px"></th><th>Ad</th><th style="width:230px">Müəllif</th><th style="width:150px">Əlavə edib</th><th style="width:110px">PDF</th><th style="width:60px">EN</th><th></th></tr></thead>
 	<tbody>
 <?php foreach ($rows as $row): ?>
 <?php $enRow = (array) ($enRows[$row['id']] ?? []); ?>
@@ -251,6 +263,7 @@ $enRows = data_load('kitabxana-en');
 				<div class="table__meta">/kitabxana-blog/<?= e($row['slug']) ?>/</div>
 			</td>
 			<td class="table__meta"><?= e($row['excerpt']) ?></td>
+			<td class="table__meta"><?= admin_author_cell($row, 'kitabxana') ?></td>
 			<td class="table__meta"><?= count(array_filter($row['downloads'] ?? [])) ?> fayl</td>
 			<td><?php if ($enRow): ?><span class="lang-flag" title="<?= e('İngiliscə: ' . ($enRow['title'] ?? '')) ?>">EN</span><?php else: ?><span class="lang-flag lang-flag--off" title="İngiliscə versiya yoxdur">EN</span><?php endif; ?></td>
 			<td class="is-right"><div class="table__actions">
@@ -259,7 +272,7 @@ $enRows = data_load('kitabxana-en');
 			</div></td>
 		</tr>
 <?php endforeach; ?>
-<?php if (!$rows): ?><tr><td colspan="6" class="empty">Hələ kitab yoxdur.</td></tr><?php endif; ?>
+<?php if (!$rows): ?><tr><td colspan="7" class="empty">Hələ kitab yoxdur.</td></tr><?php endif; ?>
 	</tbody>
 </table>
 <?php

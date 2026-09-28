@@ -189,6 +189,17 @@ admin_shell_start('trash', 'Zibil qutusu', [
 					Silinəndə istifadə olunurdu: <?= e(implode(', ', array_slice((array) $item['used_in'], 0, 3))) ?><?= count((array) $item['used_in']) > 3 ? ' …' : '' ?>
 				</div>
 <?php endif; ?>
+<?php
+    // kim əlavə edib / yükləyib (admin/inc/authors.php)
+    $added = $isMedia
+        ? admin_upload_author((string) ($item['path'] ?? ''), [], is_array($item['uploaded_by'] ?? null) ? $item['uploaded_by'] : [])
+        : admin_row_author($row, $type);
+?>
+<?php if ($added !== null && $added['name'] !== ''): ?>
+				<div class="table__meta">
+					<?= $isMedia ? 'Yükləyib' : 'Əlavə edib' ?>: <?= e($added['name']) ?><?= $added['origin'] === 'wp' ? ' (köhnə sayt)' : ($added['origin'] === 'gone' ? ' (istifadəçi silinib)' : '') ?>
+				</div>
+<?php endif; ?>
 			</td>
 			<td><span class="badge trash-type trash-type--<?= e($type) ?>"><?= e(TRASH_TYPES[$type][0]) ?></span></td>
 			<td class="table__meta"><?= $who !== '' ? e($who) : '—' ?><?php

@@ -24,6 +24,11 @@ if ($action === 'delete' && $id > 0) {
         admin_redirect(['section' => 'users'], 'Öz hesabınızı silə bilməzsiniz.', 'error');
     }
     admin_users_mutate(static function (array $users) use ($id) {
+        if (isset($users[$id])) {
+            // id bir daha verilməsin; əlavə etdiyi məzmunda adı görünsün (admin/inc/authors.php)
+            admin_user_seq_note($id);
+            admin_user_forget($users[$id]);
+        }
         unset($users[$id]);
         return $users;   // silinmiş istifadəçinin sessiyası növbəti sorğuda bağlanır
     });
@@ -89,7 +94,8 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
                     return null;
                 }
             }
-            $newId = $isNew ? (max(array_keys($users) ?: [0]) + 1) : $id;
+            // silinmiş istifadəçinin id-si təkrar verilmir (admin/inc/users.php)
+            $newId = $isNew ? admin_user_next_id($users) : $id;
             $row   = $isNew ? ['id' => $newId, 'created' => date('Y-m-d\TH:i:s')] : $users[$id];
             $row['name']  = $name;
             $row['login'] = $login;
@@ -102,6 +108,9 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
                 $row['must_change'] = true;
             }
             $users[$newId] = $row;
+            if ($isNew) {
+                admin_user_seq_note($newId);
+            }
             $saved = $row;
             return $users;
         });
@@ -245,7 +254,7 @@ admin_shell_start('users', 'İstifadəçilər', [
 					<form method="post" action="<?= e(admin_url(['section' => 'users', 'action' => 'delete', 'id' => $u['id']])) ?>">
 						<?= admin_token_field() ?>
 						<button class="btn btn--sm btn--danger" type="submit"
-						        data-confirm="&#8220;<?= e(admin_user_label($u)) ?>&#8221; silinsin? O, panelə daxil ola bilməyəcək.">Sil</button>
+						        data-confirm="&#8220;<?= e(admin_user_label($u)) ?>&#8221; silinsin? O, panelə daxil ola bilməyəcək. Əlavə etdiyi məzmun saytda qalır — paneldə onun adı ilə göstəriləcək.">Sil</button>
 					</form>
 <?php endif; ?>
 				</div>

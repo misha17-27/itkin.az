@@ -431,11 +431,22 @@ function trash_move_file(string $path, array $usedIn = []): array
             'size'       => $size,
             'used_in'    => array_values(array_map('strval', $usedIn)),
         ];
+        // kim yükləyib (admin/inc/authors.php) — iz faylla birlikdə zibil qutusuna gedir
+        $uploadedBy = function_exists('admin_uploads_by_take') ? admin_uploads_by_take($path) : [];
+        if ($uploadedBy) {
+            $item['uploaded_by'] = $uploadedBy;
+        } elseif (function_exists('admin_wp_authors') && ($wp = (string) (admin_wp_authors()['uploads'][$path] ?? '')) !== '') {
+            // köhnə saytın faylı: başqa adla bərpa olunsa da müəllifi itməsin
+            $item['uploaded_by'] = ['wp' => $wp];
+        }
         try {
             trash_write($item);
         } catch (Throwable $e) {
             @rename($target . '/' . basename($path), $abs);   // qeyd yazılmadı — fayl yerinə qayıdır
             trash_prune_dirs($target);
+            if ($uploadedBy) {
+                admin_uploads_by_put($path, $uploadedBy);
+            }
             throw $e;
         }
         return $item;
@@ -470,6 +481,10 @@ function trash_restore_file(array $item): array
     }
     @chmod($root . '/' . $dest, 0644);
     trash_prune_dirs(dirname($src));
+    // kim yükləyib — iz faylın (bəlkə yeni) yerinə qayıdır
+    if (!empty($item['uploaded_by']) && is_array($item['uploaded_by']) && function_exists('admin_uploads_by_put')) {
+        admin_uploads_by_put($dest, $item['uploaded_by']);
+    }
 
     if ($dest !== $path) {
         return ['ok' => true, 'message' => '“' . basename($path) . '” bərpa olundu, amma əvvəlki yerində artıq başqa fayl olduğu üçün '

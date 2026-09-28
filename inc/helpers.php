@@ -29,6 +29,18 @@ function cfg(string $key, $default = null)
     return $all[$key] ?? $default;
 }
 
+/**
+ * Saytın saat qurşağı (config.php: timezone). Hostinqdə PHP-nin saat qurşağı çox
+ * vaxt UTC və ya başqa ölkənindir — onda paneldə yazılan vaxtlar saatlarla sürüşərdi.
+ */
+function site_timezone(): void
+{
+    $tz = (string) cfg('timezone', 'Asia/Baku');
+    if ($tz !== '' && in_array($tz, timezone_identifiers_list(), true)) {
+        date_default_timezone_set($tz);
+    }
+}
+
 /** @param bool $reload ayar dəyişdikdən sonra yenidən oxumaq üçün */
 function cfg_all(bool $reload = false): array
 {
@@ -801,10 +813,14 @@ function storage_json(string $name, ?callable $change = null): array
     $data = is_array($data) ? $data : [];
     if ($change) {
         $data = $change($data);
-        ftruncate($fh, 0);
-        rewind($fh);
-        fwrite($fh, (string) json_encode($data));
-        fflush($fh);
+        // əvvəlcə kodlaşdırırıq: alınmasa (məsələn yanlış UTF-8) köhnə fayl silinməsin
+        $json = json_encode($data, JSON_INVALID_UTF8_SUBSTITUTE);
+        if ($json !== false) {
+            ftruncate($fh, 0);
+            rewind($fh);
+            fwrite($fh, $json);
+            fflush($fh);
+        }
     }
     flock($fh, LOCK_UN);
     fclose($fh);

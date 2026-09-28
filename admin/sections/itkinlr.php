@@ -94,6 +94,10 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             'og:image'       => $thumb['url'],
         ]);
 
+        // kim əlavə edib, kim son dəyişib (admin/inc/authors.php)
+        $saved   = admin_author_touch($saved, $isNew ? null : $prev);
+        $touched = admin_author_touched($saved, $isNew ? null : $prev);
+
         store_save('itkinlr', admin_upsert($rows, $saved), 'İtkin düşmüş şəxslər / missing persons');
 
         $flash = $isNew ? 'Qeyd əlavə olundu.' : 'Dəyişikliklər yadda saxlanıldı.';
@@ -108,6 +112,10 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
                 $flash .= ' İngiliscə versiya silindi.';
             } elseif (!$enSaved && $enNow && !$isNew) {
                 $flash .= ' İngiliscə versiya əlavə olundu.';
+            }
+            // yalnız ingiliscə mətn dəyişibsə də «son dəyişiklik» yenilənsin
+            if (!$touched && $enSaved !== $enNow) {
+                admin_author_mark('itkinlr', $newId, 'İtkin düşmüş şəxslər / missing persons');
             }
         }
 
@@ -174,6 +182,10 @@ if ($action === 'edit') {
                     ]); ?>
 				</div>
 			</div>
+
+<?php if (!$isNew): ?>
+			<?= admin_author_card($item, 'itkinlr') ?>
+<?php endif; ?>
 		</div>
 	</div>
 
@@ -191,7 +203,7 @@ admin_shell_start('itkinlr', 'İtkinlər', [
 $enRows = data_load('itkinlr-en');
 ?>
 <table class="table">
-	<thead><tr><th style="width:70px"></th><th>Ad, soyad</th><th style="width:60px">EN</th><th></th></tr></thead>
+	<thead><tr><th style="width:70px"></th><th>Ad, soyad</th><th style="width:170px">Əlavə edib</th><th style="width:60px">EN</th><th></th></tr></thead>
 	<tbody>
 <?php foreach ($rows as $row): ?>
 <?php $enRow = (array) ($enRows[$row['id']] ?? []); ?>
@@ -201,6 +213,7 @@ $enRows = data_load('itkinlr-en');
 				<a class="table__title" href="<?= e(admin_url(['section' => 'itkinlr', 'action' => 'edit', 'id' => $row['id']])) ?>"><?= e($row['title']) ?></a>
 				<div class="table__meta">/itkinlr/<?= e($row['slug']) ?>/</div>
 			</td>
+			<td class="table__meta"><?= admin_author_cell($row, 'itkinlr') ?></td>
 			<td><?php if ($enRow): ?><span class="lang-flag" title="<?= e('İngiliscə: ' . ($enRow['title'] ?? '')) ?>">EN</span><?php else: ?><span class="lang-flag lang-flag--off" title="İngiliscə versiya yoxdur">EN</span><?php endif; ?></td>
 			<td class="is-right"><div class="table__actions">
 				<a class="btn btn--sm" href="<?= e(url('itkinlr/' . $row['slug'])) ?>" target="_blank" rel="noopener">Bax</a>
@@ -208,7 +221,7 @@ $enRows = data_load('itkinlr-en');
 			</div></td>
 		</tr>
 <?php endforeach; ?>
-<?php if (!$rows): ?><tr><td colspan="4" class="empty">Hələ qeyd yoxdur.</td></tr><?php endif; ?>
+<?php if (!$rows): ?><tr><td colspan="5" class="empty">Hələ qeyd yoxdur.</td></tr><?php endif; ?>
 	</tbody>
 </table>
 <?php

@@ -28,6 +28,7 @@ require_once __DIR__ . '/inc/helpers.php';
 require_once __DIR__ . '/inc/layout.php';
 require_once __DIR__ . '/inc/form.php';
 require_once __DIR__ . '/inc/trash.php';
+require_once __DIR__ . '/inc/authors.php';
 
 production_errors();
 force_https();

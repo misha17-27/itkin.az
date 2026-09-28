@@ -40,7 +40,7 @@ function admin_head(string $title): void
 	<meta name="robots" content="noindex, nofollow">
 	<title><?= e($title) ?> — İtkin admin</title>
 	<link rel="icon" href="<?= asset('uploads/2023/11/fav.png') ?>">
-	<link rel="stylesheet" href="<?= asset('admin/assets/admin.css') ?>">
+	<link rel="stylesheet" href="<?= asset_ver('admin/assets/admin.css') ?>">
 </head>
 <body>
 <?php if ($flash): ?>
@@ -108,8 +108,8 @@ function admin_shell_end(): void
 	</main>
 </div>
 <script nonce="<?= e(csp_nonce()) ?>">window.ITKIN = <?= json_encode(['base' => base_path() . '/', 'admin' => admin_url()], JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) ?>;</script>
-<script src="<?= asset('admin/assets/admin.js') ?>"></script>
-<script src="<?= asset('admin/assets/editor.js') ?>"></script>
+<script src="<?= asset_ver('admin/assets/admin.js') ?>"></script>
+<script src="<?= asset_ver('admin/assets/editor.js') ?>"></script>
 </body>
 </html>
 <?php

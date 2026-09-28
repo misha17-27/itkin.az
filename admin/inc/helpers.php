@@ -34,7 +34,16 @@ function admin_flash(): ?array
 function post_str(string $key, string $default = ''): string
 {
     $value = $_POST[$key] ?? $default;
-    return is_string($value) ? trim(admin_eol($value)) : $default;
+    if (!is_string($value)) {
+        return $default;
+    }
+    // yanlış UTF-8 baytları (əl ilə düzəldilmiş sorğu) faylları və JSON-u pozmasın.
+    // mbstring-siz də işləyir: hostinqdə modul olmasa, heç olmasa giriş açılsın.
+    if (preg_match('//u', $value) !== 1) {
+        // yanlış ardıcıllıqlar «�» ilə əvəz olunur, düz hərflər qalır (yalnız PHP-nin özü ilə)
+        $value = htmlspecialchars_decode(htmlspecialchars($value, ENT_NOQUOTES | ENT_SUBSTITUTE, 'UTF-8'), ENT_NOQUOTES);
+    }
+    return trim(admin_eol($value));
 }
 
 /**

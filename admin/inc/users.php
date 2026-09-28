@@ -160,6 +160,49 @@ function admin_user_update(int $id, array $changes): void
 }
 
 /**
+ * Yeni istifadəçinin id-si. Id heç vaxt təkrarlanmır: silinmiş istifadəçinin id-si
+ * yenisinə keçsəydi, onun son girişi və əlavə etdiyi məzmun yeni istifadəçinin
+ * adına görünərdi. Verilmiş ən böyük id storage/user-seq.json-da saxlanılır —
+ * data/users.php silinib yenidən yaransa da yadda qalır.
+ */
+function admin_user_next_id(array $users): int
+{
+    $max = max(array_keys($users) ?: [0]);
+    foreach (array_keys(admin_last_logins()) as $key) {
+        $max = max($max, (int) $key);
+    }
+    $seq = storage_json('user-seq.json');
+    return max($max, (int) ($seq['last'] ?? 0)) + 1;
+}
+
+/** Verilmiş və ya silinən id-ni yadda saxlayır (bir daha verilməsin) */
+function admin_user_seq_note(int $id): void
+{
+    storage_json('user-seq.json', static function (array $d) use ($id) {
+        $d['last'] = max((int) ($d['last'] ?? 0), $id);
+        return $d;
+    });
+}
+
+/**
+ * Silinmiş istifadəçilərin adları (storage/users-deleted.json: id => [since, label]) —
+ * onların əlavə etdiyi məzmunda kimin olduğu görünsün, adı boş olsa da.
+ */
+function admin_user_forget(array $user): void
+{
+    storage_json('users-deleted.json', static function (array $d) use ($user) {
+        $d[(string) $user['id']] = ['since' => (string) ($user['created'] ?? ''), 'label' => admin_user_label($user)];
+        return $d;
+    });
+}
+
+function admin_users_deleted(): array
+{
+    static $list = null;
+    return $list ?? ($list = storage_json('users-deleted.json'));
+}
+
+/**
  * Son giriş vaxtları ayrıca, storage/user-logins.json-da (kilidlə) saxlanılır:
  * hər girişdə istifadəçilər faylını yenidən yazmaq lazım gəlmir.
  */

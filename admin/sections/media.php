@@ -128,6 +128,7 @@ if ($action === 'upload' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     } else {
         // Seçim pəncərəsindən gəlirsə yalnız həmin növ qəbul olunur
         $saved = media_upload($root, $failed, $pick !== '' ? MEDIA_KIND_EXT[$kind] : []);
+        admin_uploads_by_add($saved);   // kim yükləyib — qalereyada göstərilir
         $ok    = $saved !== [];
         $msg   = $ok ? count($saved) . ' fayl yükləndi.' : 'Fayl yüklənmədi.';
         if ($failed) {
@@ -284,6 +285,10 @@ function media_usage(string $root): array
         }
         $seen[$name] = true;
     }
+
+    // Köhnə saytın müəllifləri siyahısı (data/wp-authors.php) faylların adlarını sadalayır,
+    // amma onları istifadə etmir — dizayn sayılmasın, yoxsa həmin fayllar silinməz olardı
+    $seen['wp-authors'] = true;
 
     // Qalan hər şey dizayndır
     $files = array_merge(
@@ -622,12 +627,15 @@ ob_start();
 <?php endif; ?>
 
 <div class="media-grid">
+<?php $uploadsBy = admin_uploads_by(); ?>
 <?php foreach ($slice as $file): ?>
 <?php
     $places  = $pick === '' ? ($used[media_ref($file['path'])] ?? []) : [];
     $labels  = array_keys($places);
     $design  = in_array(true, $places, true);
     $isImage = in_array($file['ext'], MEDIA_IMAGE_EXT, true);
+    // kim yükləyib (panel bunu yadda saxlamağa başlayandan sonra yüklənənlər üçün)
+    $by      = admin_upload_author($file['path'], $uploadsBy);
 ?>
 	<figure class="media-item">
 		<div class="media-item__thumb">
@@ -652,6 +660,10 @@ ob_start();
 		</div>
 		<figcaption class="media-item__foot">
 			<span class="media-item__name" title="<?= e($file['path']) ?>"><?= e($file['name']) ?></span>
+<?php if ($by !== null && $pick === ''): ?>
+<?php   $byNote = $by['origin'] === 'wp' ? 'köhnə saytda (WordPress)' : admin_author_when($by['at']) . ($by['origin'] === 'gone' ? ' · istifadəçi silinib' : ''); ?>
+			<span class="media-item__by<?= $by['origin'] === 'gone' ? ' author--gone' : '' ?>" title="<?= e($byNote) ?>">Yükləyib: <?= e($by['name']) ?></span>
+<?php endif; ?>
 			<div class="media-item__btns">
 <?php if ($pick !== ''): ?>
 				<button class="btn btn--sm btn--primary" type="button" data-choose="<?= e($file['path']) ?>">Seç</button>

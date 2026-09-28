@@ -72,6 +72,9 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             ]),
             'schema'      => $prev['schema'] ?? '',
         ];
+        // kim əlavə edib, kim son dəyişib (admin/inc/authors.php)
+        $saved   = admin_author_touch($saved, $isNew ? null : $prev);
+        $touched = admin_author_touched($saved, $isNew ? null : $prev);
         store_save('categories', admin_upsert($rows, $saved), 'Kateqoriyalar / categories');
 
         $flash = $isNew ? 'Kateqoriya əlavə olundu.' : 'Yadda saxlanıldı.';
@@ -87,6 +90,10 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
                 $flash .= ' İngiliscə versiya silindi.';
             } elseif (!$enHad && $enNow && !$isNew) {
                 $flash .= ' İngiliscə versiya əlavə olundu.';
+            }
+            // yalnız ingiliscə ad dəyişibsə də «son dəyişiklik» yenilənsin
+            if (!$touched && $enHad !== $enNow) {
+                admin_author_mark('categories', $newId, 'Kateqoriyalar / categories');
             }
         }
 
@@ -143,6 +150,9 @@ if ($action === 'edit') {
             ?>
 		</div>
 	<?php f_en_close(); ?>
+<?php if (!$isNew): ?>
+	<div class="narrow"><?= admin_author_card($item, 'categories') ?></div>
+<?php endif; ?>
 	<?php f_actions(admin_url(['section' => 'categories']),
         $isNew ? null : admin_url(['section' => 'categories', 'action' => 'delete', 'id' => $id])); ?>
     <?php
@@ -165,13 +175,14 @@ admin_shell_start('categories', 'Kateqoriyalar', [
 ]);
 ?>
 <table class="table">
-	<thead><tr><th>Ad</th><th style="width:220px">Ünvan</th><th style="width:100px">Yazı</th><th style="width:44px" title="İngiliscə versiya">EN</th><th></th></tr></thead>
+	<thead><tr><th>Ad</th><th style="width:220px">Ünvan</th><th style="width:100px">Yazı</th><th style="width:170px">Əlavə edib</th><th style="width:44px" title="İngiliscə versiya">EN</th><th></th></tr></thead>
 	<tbody>
 <?php foreach ($rows as $row): ?>
 		<tr>
 			<td><a class="table__title" href="<?= e(admin_url(['section' => 'categories', 'action' => 'edit', 'id' => $row['id']])) ?>"><?= e($row['name']) ?></a></td>
 			<td class="table__meta">/category/<?= e($row['slug']) ?>/</td>
 			<td class="table__meta"><?= (int) ($counts[$row['id']] ?? 0) ?></td>
+			<td class="table__meta"><?= admin_author_cell($row, 'categories') ?></td>
 			<td><?php
             // tərcümə var: səhifə açılırsa göy nişan, içində ingiliscə xəbər yoxdursa boz
             if (isset($enRows[$row['id']])) {

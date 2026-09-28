@@ -23,6 +23,28 @@ if (!function_exists('menus_en_save')) {
     }
 }
 
+if (!function_exists('menus_signature')) {
+    /**
+     * Menyunun redaktə olunan hissəsi: ad, ünvan, sıra və iç-içəlik. «Son dəyişiklik»
+     * yalnız bunlar dəyişəndə yazılır — yadda saxlayanda köhnə tam ünvanların
+     * (https://itkin.az/…) qısa yola çevrilməsi dəyişiklik sayılmır.
+     */
+    function menus_signature(array $tree): array
+    {
+        $out = [];
+        foreach ($tree as $node) {
+            $out[] = [
+                (string) ($node['label'] ?? ''),
+                // null — «#» (keçidsiz), '' — ana səhifə: fərqli sayılmalıdır
+                !empty($node['external']) ? 'x:' . (string) ($node['href'] ?? '')
+                    : (($node['path'] ?? null) === null ? '#' : 'p:' . (string) $node['path']),
+                menus_signature((array) ($node['children'] ?? [])),
+            ];
+        }
+        return $out;
+    }
+}
+
 const ADMIN_MENUS = [
     'menu'          => 'Əsas menyu',
     'menu-footer-1' => 'Altlıq — birinci sütun',
@@ -114,6 +136,7 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             $tree[] = $node;
         }
 
+        $enBefore = data_load($which . '-en', true);   // «son dəyişiklik» üçün müqayisə
         store_save($which, admin_menu_attach_pages($tree), ADMIN_MENUS[$which] . ' / navigation');
 
         // 4) ingiliscə adlar — yalnız qalan bəndlərin, boş ad saxlanılmır.
@@ -129,6 +152,11 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
                 }
             }
             menus_en_save($which, $enNext);
+        }
+
+        // «Son dəyişiklik» (admin/inc/authors.php) — menyu və ya ingiliscə adlar həqiqətən dəyişibsə
+        if (menus_signature(data_load($which, true)) !== menus_signature($items) || data_load($which . '-en', true) !== $enBefore) {
+            admin_section_mark('menus:' . $which);
         }
 
         admin_redirect(['section' => 'menus', 'menu' => $which], 'Menyu yadda saxlanıldı.');
@@ -196,6 +224,7 @@ admin_shell_start('menus', 'Menyular');
 <?php endforeach; ?>
 </div></div>
 
+<?= admin_section_bar('menus:' . $which) ?>
 <?php f_errors($errors); ?>
 <?php f_open(['section' => 'menus', 'action' => 'edit', 'menu' => $which]); ?>
 

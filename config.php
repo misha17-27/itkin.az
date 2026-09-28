@@ -11,6 +11,10 @@ return [
     'site_tagline'  => 'Qarabağ İtkin Ailələri',
     'locale'        => 'az',
 
+    // Saat qurşağı: paneldə yazılan tarix və saatlar (xəbərin tarixi, kim nə vaxt
+    // əlavə edib, zibil qutusu) hostinqin ayarından asılı olmadan Bakı vaxtı ilə
+    'timezone'      => 'Asia/Baku',
+
     // Əlaqə formasının göndəriləcəyi e-poçt
     'contact_email' => 'info@itkin.az',
     'contact_from'  => 'no-reply@itkin.az',

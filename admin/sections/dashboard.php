@@ -109,6 +109,7 @@ foreach ($tiles as [$label, $n, $section]): ?>
 			<tr>
 				<td style="width:70px"><?php if (!empty($row['thumb']['url'])): ?><img class="table__thumb" src="<?= asset($row['thumb']['url']) ?>" alt=""><?php endif; ?></td>
 				<td><a class="table__title" href="<?= e(admin_url(['section' => 'posts', 'action' => 'edit', 'id' => $row['id']])) ?>"><?= e($row['title']) ?></a></td>
+				<td class="table__meta" style="width:160px"><?= admin_author_cell($row, 'posts') ?></td>
 				<td class="table__meta" style="width:130px"><?= e(az_date($row['date'])) ?></td>
 			</tr>
 <?php endforeach; ?>

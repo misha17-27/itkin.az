@@ -270,29 +270,33 @@ if ($which !== '' && $action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET')
             store_save('page-texts-en', $nextEn, 'Səhifə mətnləri, ingiliscə / English page text overrides');
         }
 
-        // SEO başlığı və təsviri data/pages.php-də saxlanılır
-        $pages = data_load('pages');
+        // SEO başlığı və təsviri data/pages.php-də saxlanılır (yazılması — aşağıda, «son dəyişiklik» ilə birlikdə)
+        $pages   = data_load('pages');
+        $pageIdx = null;
         foreach ($pages as $i => $page) {
-            if ($page['slug'] !== ADMIN_PAGES[$which][1]) {
-                continue;
+            if ($page['slug'] === ADMIN_PAGES[$which][1]) {
+                $pageIdx = $i;
+                break;
             }
+        }
+        $pageBefore = $pageIdx !== null ? $pages[$pageIdx] : [];
+        if ($pageIdx !== null) {
             $desc = post_str('description');
-            $pages[$i]['doc_title']   = admin_seo_title($page['title'] . ' - ' . cfg('site_name'));
-            $pages[$i]['description'] = $desc;
-            $pages[$i]['head_meta']   = admin_sync_meta($page['head_meta'] ?? [], [
+            $pages[$pageIdx]['doc_title']   = admin_seo_title($pageBefore['title'] . ' - ' . cfg('site_name'));
+            $pages[$pageIdx]['description'] = $desc;
+            $pages[$pageIdx]['head_meta']   = admin_sync_meta($pageBefore['head_meta'] ?? [], [
                 'og:description' => $desc,
             ]);
-            store_save('pages', $pages, 'Statik səhifələr / static pages');
-            break;
         }
 
         // İngiliscə ad, SEO başlığı və təsvir — data/pages-en.php.
         // Forma bu sahələrsiz gəlibsə (köhnə səhifədən), ingiliscə versiyaya toxunmuruq.
-        $enNote = '';
-        $record = admin_page_record(ADMIN_PAGES[$which][1]);
+        $enNote   = '';
+        $record   = admin_page_record(ADMIN_PAGES[$which][1]);
+        $enBefore = isset($record['id']) ? admin_en_get('pages', (int) $record['id']) : [];
         if (isset($record['id']) && array_key_exists('title', $givenEn)) {
             $pageId = (int) $record['id'];
-            $hadEn  = admin_en_get('pages', $pageId) !== [];
+            $hadEn  = $enBefore !== [];
             $enSeo  = [
                 'title'       => post_en('title'),
                 'doc_title'   => post_en('doc_title'),
@@ -309,6 +313,21 @@ if ($which !== '' && $action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET')
             }
         }
 
+        // «Son dəyişiklik» (admin/inc/authors.php) — yalnız səhifədə nəsə həqiqətən dəyişibsə:
+        // mətnlər, ingiliscə mətnlər, SEO və ya ingiliscə ad
+        if ($pageIdx !== null) {
+            $enAfter = isset($record['id']) ? admin_en_get('pages', (int) $record['id']) : [];
+            $changed = $next !== $texts || $nextEn !== $textsEn || $enAfter !== $enBefore
+                || admin_author_changed($pages[$pageIdx], $pageBefore);
+            $stamp = $changed ? admin_author_stamp() : [];
+            if ($stamp) {
+                $pages[$pageIdx]['modified_by'] = $stamp;
+            }
+            if ($pages[$pageIdx] !== $pageBefore) {
+                store_save('pages', $pages, 'Statik səhifələr / static pages');
+            }
+        }
+
         admin_redirect(['section' => 'pages', 'page' => $which],
             ($warnings ? 'Yadda saxlanıldı, amma: ' . implode('; ', $warnings) . '.' : 'Səhifə yadda saxlanıldı.')
             . ($enNote !== '' ? ' ' . $enNote : ''),
@@ -319,9 +338,7 @@ if ($which !== '' && $action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET')
 /* ---------------------------------------------------------------- siyahı */
 
 if ($which === '') {
-    admin_shell_start('pages', 'Səhifələr', [
-        ['href' => base_path() . '/', 'label' => 'Saytı aç ↗'],
-    ]);
+    admin_shell_start('pages', 'Səhifələr');   // «Saytı aç ↗» üst zolaqda hər səhifədə var
     ?>
 <div class="card">
 	<div class="card__body">
@@ -333,7 +350,7 @@ if ($which === '') {
 		</p>
 		<table class="table">
 			<thead>
-				<tr><th>Səhifə</th><th>Ünvan</th><th style="width:90px">Məzmun</th><th style="width:70px">SEO</th><th style="width:60px">EN</th><th></th></tr>
+				<tr><th>Səhifə</th><th>Ünvan</th><th style="width:130px">Əlavə edib</th><th style="width:190px">Son dəyişiklik</th><th style="width:90px">Məzmun</th><th style="width:70px">SEO</th><th style="width:60px">EN</th><th></th></tr>
 			</thead>
 			<tbody>
 <?php foreach (ADMIN_PAGES as $key => [$label, $slug, $path]): ?>
@@ -355,6 +372,15 @@ if ($which === '') {
 <?php endif; ?>
 					</td>
 					<td><span class="url-pill">/<?= e($path) ?></span></td>
+					<td class="table__meta"><?= admin_author_cell($record, 'pages') ?></td>
+					<td class="table__meta">
+<?php if (($editor = admin_row_editor($record)) !== null): ?>
+						<span class="author<?= $editor['origin'] === 'gone' ? ' author--gone' : '' ?>"><?= e($editor['name']) ?></span>
+						<span class="table__sub"><?= e(admin_author_when($editor['at'])) ?><?= $editor['origin'] === 'gone' ? ' · istifadəçi silinib' : '' ?></span>
+<?php else: ?>
+						<span class="author author--none" title="Panel bunu qeyd etməyə başlayandan bəri dəyişdirilməyib">—</span>
+<?php endif; ?>
+					</td>
 					<td>
 <?php if ($list): ?>
 						<span class="dot" title="<?= count($list) ?> sahə redaktə olunur"></span>
@@ -413,6 +439,7 @@ admin_shell_start('pages', $pageLabel, $top);
 f_errors($errors);
 f_open(['section' => 'pages', 'action' => 'edit', 'page' => $which]);
 ?>
+<div class="page-edited"><?= admin_author_box($record, 'pages') ?></div>
 <div class="card">
 	<div class="card__head">Məzmun</div>
 	<div class="card__body">

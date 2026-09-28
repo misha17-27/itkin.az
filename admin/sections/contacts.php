@@ -32,15 +32,22 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             $next[$key] = $url;
         }
         if (!$errors) {
+            // «Son dəyişiklik» (admin/inc/authors.php) — yalnız dəyər həqiqətən dəyişibsə
+            $current = [];
+            foreach (array_keys($next) as $key) {
+                $current[$key] = site_contact_value($key);
+            }
             store_save('contacts', $next, 'Əlaqə və sosial şəbəkələr / site contacts');
+            if ($current !== $next) {
+                admin_section_mark('contacts');
+            }
             admin_redirect(['section' => 'contacts'], 'Əlaqə məlumatları yadda saxlanıldı.');
         }
     }
 }
 
-admin_shell_start('contacts', 'Əlaqə və sosial şəbəkələr', [
-    ['href' => base_path() . '/', 'label' => 'Saytı aç ↗'],
-]);
+admin_shell_start('contacts', 'Əlaqə və sosial şəbəkələr');   // «Saytı aç ↗» üst zolaqda hər səhifədə var
+echo admin_section_bar('contacts');
 f_errors($errors);
 
 $val = static function (string $key) use ($errors): string {
