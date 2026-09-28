@@ -415,6 +415,26 @@ nədənsə serverə düşməsə, sayt onu ilk yazıda özü yaradır. Nginx host
 Qısası:
 məzmun faylları birbaşa açılmır, panel isə axtarış sistemlərinə düşmür.
 
+### Yeniləmə: GitHub → server (Terminalsız, cron ilə)
+
+Sayt serverdə `public_html`-də git deposudur. cPanel-də Terminal olmasa da, git əmrlərini
+**cPanel → Cron Jobs** icra edə bilir — GitHub-a göndərilən dəyişiklik bir neçə dəqiqəyə
+özü sayta düşür.
+
+cPanel → **Cron Jobs** → «Add New Cron Job»: vaxt — `*/10 * * * *` (hər 10 dəqiqə), əmr:
+
+```sh
+export PATH="$PATH:/usr/local/cpanel/3rdparty/bin"; cd /home/itkin/public_html && ( date; git config core.fileMode false; git status --short | head -30; git pull --ff-only origin main; git log --oneline -1 ) > /home/itkin/git-update.log 2>&1
+```
+
+- `--ff-only` təhlükəsizdir: serverdə paneldən dəyişdirilmiş fayl GitHub-dakı dəyişikliklə
+  toqquşsa, git heç nəyi silmir — yeniləməni dayandırır və səbəbini jurnala yazır.
+- Jurnal: `/home/itkin/git-update.log` (sayt qovluğundan kənarda, brauzerdən açılmır).
+  Panelin «İcmal» səhifəsində «Saytın versiyası» kartı var: saytın hazırkı versiyası,
+  son yoxlamanın vaxtı və nəticəsi; administrator jurnalı orada oxuya bilir.
+- cPanel-in «Update from Remote» düyməsi də işləyir; «Deploy HEAD Commit» lazım deyil
+  (`.cpanel.yml` yoxdur — sayt elə depo qovluğundan açılır).
+
 ### Sayt yeniləndikdə — diqqət
 
 Panel məzmunu `data/*.php` fayllarına yazır, bu fayllar isə repozitoriyada da

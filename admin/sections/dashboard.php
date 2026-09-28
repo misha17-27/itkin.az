@@ -118,6 +118,40 @@ foreach ($tiles as [$label, $n, $section]): ?>
 	</table>
 </div>
 
+<?php
+// Saytın versiyası və GitHub-dan avtomatik yeniləmə (cPanel → Cron Jobs; README → «Yeniləmə»)
+$version = admin_site_version();
+$update  = admin_update_log();
+?>
+<?php if ($version || $update): ?>
+<div class="card">
+	<div class="card__head">Saytın versiyası</div>
+	<div class="card__body">
+<?php   if ($version): ?>
+		<p style="margin:0">
+			<code><?= e($version['sha']) ?></code>
+<?php     if ($version['subject'] !== ''): ?> — <?= e($version['subject']) ?><?php endif; ?>
+<?php     if ($version['time']): ?>
+			<span class="table__meta">· <?= e(az_date(date('Y-m-d\TH:i:s', $version['time']))) ?>, <?= e(date('H:i', $version['time'])) ?></span>
+<?php     endif; ?>
+		</p>
+<?php   endif; ?>
+<?php   if ($update !== null): ?>
+		<p class="field__hint" style="margin-bottom:0">
+			GitHub-dan son yoxlama: <?= e(az_date(date('Y-m-d\TH:i:s', $update['time']))) ?>, <?= e(date('H:i', $update['time'])) ?>
+			<?= $update['error'] ? ' — <strong style="color:var(--danger)">yeniləmə alınmadı</strong>' : ' — qaydasındadır' ?>
+		</p>
+<?php     if (admin_role() === 'admin'): ?>
+		<details style="margin-top:8px"<?= $update['error'] ? ' open' : '' ?>>
+			<summary class="field__hint" style="cursor:pointer">Jurnal (git-update.log)</summary>
+			<pre class="mail-log"><?= e($update['text']) ?></pre>
+		</details>
+<?php     endif; ?>
+<?php   endif; ?>
+	</div>
+</div>
+<?php endif; ?>
+
 <div class="card card--en">
 	<div class="card__head">
 		<span class="lang-flag">EN</span> İngiliscə versiya

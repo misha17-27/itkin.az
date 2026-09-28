@@ -290,6 +290,70 @@ function admin_require_delete(string $section): void
  * Paneldən dəyişdirilən ayarlar (data/settings.php) — config.php-nin üstünə düşür.
  * Bu fayl .gitignore-dadır: şifrənin hash-i, SMTP və kapça açarları burada saxlanılır.
  */
+/**
+ * Saytın versiyası — serverdəki git deposunun HEAD-i (yalnız faylları oxuyuruq,
+ * shell lazım deyil): ['sha' => 'cf9ce60', 'subject' => 'Başlıq', 'time' => unix|0].
+ * Depo yoxdursa boş massiv.
+ */
+function admin_site_version(): array
+{
+    $git  = dirname(__DIR__, 2) . '/.git';
+    $head = @file_get_contents($git . '/HEAD');
+    if (!is_string($head)) {
+        return [];
+    }
+    $head = trim($head);
+    $sha  = $head;
+    if (strpos($head, 'ref: ') === 0) {
+        $ref = substr($head, 5);
+        $sha = trim((string) @file_get_contents($git . '/' . $ref));
+        if ($sha === '') {
+            // sıxılmış istinadlar: «<sha> refs/heads/main»
+            foreach (@file($git . '/packed-refs') ?: [] as $line) {
+                $parts = explode(' ', trim($line));
+                if (($parts[1] ?? '') === $ref) {
+                    $sha = $parts[0];
+                    break;
+                }
+            }
+        }
+    }
+    if (!preg_match('/^[0-9a-f]{40}$/', $sha)) {
+        return [];
+    }
+
+    // commit-in başlığı və vaxtı — obyekt ayrıca fayldadırsa (yeni çəkilənlər adətən belədir)
+    $info = ['sha' => substr($sha, 0, 7), 'subject' => '', 'time' => 0];
+    $raw  = @file_get_contents($git . '/objects/' . substr($sha, 0, 2) . '/' . substr($sha, 2));
+    $body = is_string($raw) && function_exists('gzuncompress') ? @gzuncompress($raw) : false;
+    if (is_string($body) && strpos($body, 'commit ') === 0) {
+        if (preg_match('/^committer .* (\d+) [+-]\d{4}$/m', $body, $m)) {
+            $info['time'] = (int) $m[1];
+        }
+        $parts = explode("\n\n", $body, 2);
+        $info['subject'] = trim(strtok($parts[1] ?? '', "\n"));
+    }
+    return $info;
+}
+
+/**
+ * GitHub-dan avtomatik yeniləmənin jurnalı (cPanel → Cron Jobs yazır, sayt qovluğundan
+ * kənarda: /home/<istifadəçi>/git-update.log). Oxunmursa null.
+ */
+function admin_update_log(): ?array
+{
+    $file = dirname(__DIR__, 3) . '/git-update.log';
+    if (!@is_file($file) || !@is_readable($file)) {
+        return null;
+    }
+    $text = (string) @file_get_contents($file, false, null, 0, 20000);
+    return [
+        'time'  => (int) @filemtime($file),
+        'text'  => $text,
+        'error' => (bool) preg_match('/\b(error|fatal|Aborting|not possible to fast-forward|conflict)\b/i', $text),
+    ];
+}
+
 function admin_settings(): array
 {
     $file = dirname(__DIR__, 2) . '/data/settings.php';
