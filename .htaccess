@@ -13,6 +13,10 @@
     # Sənədlər və lokal dev router
     RewriteRule ^(README\.md|router\.php|error_log)$ - [F,L]
 
+    # Köhnə saytın (WordPress) fayl ünvanları: /wp-content/uploads/… → /uploads/…
+    # Sosial şəbəkələrdə və axtarışda paylaşılmış şəkil keçidləri qırılmasın.
+    RewriteRule ^wp-content/uploads/(.+)$ /uploads/$1 [R=301,L]
+
     # Yalnız koddan daxil edilən PHP faylları — birbaşa açılmır
     RewriteRule ^(inc|templates|admin/(inc|sections|views))(/|$) - [F,L]
 

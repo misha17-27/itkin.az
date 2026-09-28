@@ -21,6 +21,12 @@ if (preg_match('#(^|/)\.(?!well-known(/|$))#', $rel)
     return true;
 }
 
+// köhnə saytın fayl ünvanları (.htaccess-dəki kimi)
+if (preg_match('#^wp-content/uploads/(.+)$#', $rel, $m)) {
+    header('Location: /uploads/' . str_replace('%2F', '/', rawurlencode($m[1])), true, 301);
+    return true;
+}
+
 $root = realpath(__DIR__);
 $file = realpath(__DIR__ . '/' . $rel);
 
