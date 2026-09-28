@@ -98,7 +98,7 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         // 1) boş olmayan sətirlərdən düz siyahı
         $flat = [];
         foreach ($labels as $key => $label) {
-            $label = trim((string) $label);
+            $label = trim(strip_tags((string) $label));   // ad — sadə mətn, HTML yox
             if ($label === '') {
                 continue;                       // boş ad = silinmiş bənd
             }
@@ -158,7 +158,7 @@ if ($action === 'edit' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             $enNext   = [];
             foreach ($flat as $key => $row) {
                 $en = $enLabels[$key] ?? '';
-                $en = is_string($en) ? trim(admin_eol($en)) : '';
+                $en = is_string($en) ? trim(strip_tags(admin_eol($en))) : '';
                 if ($en !== '') {
                     $enNext[(int) $row['node']['id']] = ['label' => $en];
                 }

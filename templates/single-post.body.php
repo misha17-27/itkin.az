@@ -38,7 +38,7 @@
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-4ad653c4 elementor-widget elementor-widget-theme-post-featured-image elementor-widget-image" data-id="4ad653c4" data-element_type="widget" data-widget_type="theme-post-featured-image.default">
 				<div class="elementor-widget-container">
-<?php $t = $post['thumb']; ?><img width="<?= e($t['width']) ?>" height="<?= e($t['height']) ?>" src="<?= asset($t['url']) ?>" class="<?= e($t['class'] ?: 'attachment-full size-full') ?>" alt="<?= e($t['alt']) ?>"<?php if ($t['srcset']): ?> srcset="<?= e(srcset_urls($t['srcset'])) ?>"<?php endif; ?><?php if ($t['sizes']): ?> sizes="<?= e($t['sizes']) ?>"<?php endif; ?> />
+<?php $t = $post['thumb']; ?><img width="<?= e($t['width']) ?>" height="<?= e($t['height']) ?>" src="<?= e(asset($t['url'])) ?>" class="<?= e($t['class'] ?: 'attachment-full size-full') ?>" alt="<?= e($t['alt']) ?>"<?php if ($t['srcset']): ?> srcset="<?= e(srcset_urls($t['srcset'])) ?>"<?php endif; ?><?php if ($t['sizes']): ?> sizes="<?= e($t['sizes']) ?>"<?php endif; ?> />
 </div>
 				</div>
 				<div class="elementor-element elementor-element-5cad3f3d elementor-widget elementor-widget-theme-post-content" data-id="5cad3f3d" data-element_type="widget" data-widget_type="theme-post-content.default">

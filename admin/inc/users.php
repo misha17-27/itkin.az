@@ -108,6 +108,20 @@ function admin_users_mutate(callable $fn)
     }
 }
 
+/**
+ * Heç bir hesabın şifrəsi yoxdur — panelə giriş hələ qurulmayıb (təzə quraşdırma:
+ * data/settings.php və data/users.php repozitoriyaya düşmür, config.php-də standart şifrə yoxdur).
+ */
+function admin_setup_needed(): bool
+{
+    foreach (admin_users() as $user) {
+        if ($user['password'] !== '') {
+            return false;
+        }
+    }
+    return true;
+}
+
 function admin_user_get(int $id): ?array
 {
     return admin_users()[$id] ?? null;

@@ -132,7 +132,7 @@ function nav_items(array $items, bool $top, bool $dropdown): void
         echo '<a href="' . e(nav_href($item)) . '"'
             . (nav_is_current($item) ? ' aria-current="page"' : '')
             . ' class="' . nav_a_class($item, $top) . '"' . $tab . '>'
-            . $item['label'] . '</a>';
+            . e($item['label']) . '</a>';   // ad paneldən gəlir — HTML kimi yox, mətn kimi
         if ($item['children']) {
             echo "\n" . '<ul class="sub-menu elementor-nav-menu--dropdown">' . "\n";
             nav_items($item['children'], false, $dropdown);

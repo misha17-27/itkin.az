@@ -272,15 +272,16 @@ function body_class(string $lead, bool $fullWidth = false, string $page = '', bo
  */
 function elementor_post_json(int $id, string $title, string $image = ''): string
 {
+    // <script> içinə düşür: HEX_TAG — başlıqdakı «</script>» skripti bağlaya bilməsin
     if ($id === 0) {
-        return json_encode(['id' => 0, 'title' => $title, 'excerpt' => ''], JSON_UNESCAPED_SLASHES);
+        return json_encode(['id' => 0, 'title' => $title, 'excerpt' => ''], JSON_UNESCAPED_SLASHES | JSON_HEX_TAG);
     }
     return json_encode([
         'id'            => $id,
         'title'         => rawurlencode($title . ' - ' . cfg('site_name')),
         'excerpt'       => '',
         'featuredImage' => $image !== '' ? abs_url_file($image) : false,
-    ], JSON_UNESCAPED_UNICODE);
+    ], JSON_UNESCAPED_UNICODE | JSON_HEX_TAG);
 }
 
 /** Xarici ünvan olduğu kimi, daxili yol isə sayt köküylə qaytarılır */
@@ -742,7 +743,8 @@ function request_host(): string
     }
     $bare = (string) preg_replace('/:\d{1,5}$/', '', $host);
     if (in_array($bare, $allowed, true)) {
-        return $host;
+        // port götürülür: «Host: itkin.az:1234» canonical və paylaşma keçidlərinə düşməsin
+        return $bare;
     }
     // lokal işləmək üçün
     if (preg_match('/^(localhost|127\.0\.0\.1|\[::1\])(:\d{1,5})?$/', $host)) {

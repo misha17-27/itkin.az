@@ -44,6 +44,18 @@ RedirectMatch 404 "/\.(?!well-known/)"
     </IfModule>
 </FilesMatch>
 
+# Arxiv və ehtiyat nüsxələr (cPanel-də «Compress» ilə sayt qovluğunda yaradılan data.zip və s.)
+# heç vaxt yüklənmir — içində şifrə hash-ləri və poçt ayarları ola bilər
+<FilesMatch "(?i)(\.(zip|tar|t?gz|bz2|xz|7z|rar|sql|bak|old|orig|save|swp|log)|~)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
 <IfModule mod_headers.c>
     <FilesMatch "\.(css|js|png|jpe?g|gif|svg|webp|woff2?|ttf|eot|ico|mp4)$">
         Header set Cache-Control "public, max-age=2592000"

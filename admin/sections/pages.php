@@ -88,10 +88,13 @@ function admin_page_changed(array $field, array $texts): bool
 /** Keçid sahəsi üçün: təhlükəli sxemdirsə null, yoxsa atribut üçün qaçırılmış dəyər */
 function admin_page_url(string $raw): ?string
 {
-    if (preg_match('#^\s*(javascript|data|vbscript):#i', $raw)) {
+    // əvvəlcə HTML-varlıqlar açılır: «&#106;avascript:», «java&Tab;script:» kimi
+    // gizlədilmiş sxemlər də yoxlansın; sonra yalnız nisbi, http(s), mailto, tel
+    $decoded = html_entity_decode($raw, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    if (!admin_safe_url($decoded)) {
         return null;
     }
-    return htmlspecialchars($raw, ENT_QUOTES, 'UTF-8', false);
+    return htmlspecialchars($decoded, ENT_QUOTES, 'UTF-8');
 }
 
 /**
@@ -142,6 +145,11 @@ function admin_page_take(array $field, array $given, array $galleries, string $r
         case 'number':
             return (string) preg_replace('/[^0-9]/', '', $raw);
         case 'url':
+            // orijinalla eyni keçid (yazılışı fərqli olsa da) — orijinal olduğu kimi qalsın
+            $orig = trim((string) $field['value']);
+            if (html_entity_decode($raw, ENT_QUOTES | ENT_HTML5, 'UTF-8') === html_entity_decode($orig, ENT_QUOTES | ENT_HTML5, 'UTF-8')) {
+                return $orig;
+            }
             $url = admin_page_url($raw);
             if ($url === null) {
                 $warnings[] = $field['label'] . ': belə keçid qəbul edilmir, əvvəlki qaldı';

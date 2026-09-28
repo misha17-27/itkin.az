@@ -35,8 +35,10 @@ return [
     // /admin/ ünvanı 404 qaytarır — panelin yerini təxmin etmək çətinləşsin
     'admin_path'     => 'mguliyev',
     'admin_user'     => 'admin',
-    // Standart şifrə: itkin2026 — İLK GİRİŞDƏN SONRA MÜTLƏQ DƏYİŞİN
-    'admin_password' => '$2y$10$mPlw9fbIJo0W4CN7wF7N4ucWKNuTRwspN0guCEmDL5EimguQrDsMG',
+    // Standart şifrə YOXDUR: repozitoriya açıqdır, burada yazılan hash hamıya məlum olardı.
+    // Şifrə serverdə data/settings.php-də (və ya data/users.php-də) saxlanılır — bu fayllar
+    // repozitoriyaya düşmür. Onlar olmayanda panelə giriş bağlıdır (README → «İlk giriş»).
+    'admin_password' => '',
 
     // Əlaqə formasının CSRF açarı — quraşdırmadan sonra təsadüfi sətirlə əvəz edin
     'form_secret'   => '',

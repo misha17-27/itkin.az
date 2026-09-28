@@ -50,10 +50,29 @@ Forma işləmirsə, `config.php`-də `'log_contact' => true` edin — müraciət
 öz adı ilə (`/admin/`) gələn sorğu saytın adi 404 səhifəsini görür — panelin yerini
 təxmin etmək çətinləşir. Ünvanı dəyişmək üçün yalnız `admin_path`-ı dəyişin.
 
-İlk giriş: istifadəçi `admin`, şifrə `itkin2026`.
-**Girdikdən dərhal sonra «Mənim profilim» bölməsindən giriş adını və şifrəni dəyişin.**
-Bu şifrə README-də açıq yazıldığı üçün o dəyişənə qədər panelin yalnız «Mənim profilim»
-bölməsi açılır — digər bölmələr ora yönləndirir.
+### İlk giriş
+
+Repozitoriya açıqdır, ona görə **standart şifrə yoxdur**: təzə quraşdırılmış saytda panelə
+heç kim daxil ola bilmir (giriş səhifəsi bunu yazır). Şifrə serverdə, repozitoriyaya
+düşməyən `data/settings.php` faylında olmalıdır. İki yol:
+
+1. **Kompüterdəki (lokal) paneldən** — orada «Mənim profilim»də şifrəni qoyun, sonra
+   `data/settings.php` faylını cPanel → File Manager ilə serverdəki sayt qovluğunun
+   `data/` qovluğuna yükləyin.
+2. **cPanel → Terminal** ilə (sayt qovluğunda):
+
+   ```bash
+   php -r 'echo password_hash("YENİ-UZUN-ŞİFRƏ", PASSWORD_DEFAULT), PHP_EOL;'
+   ```
+
+   Çıxan sətri (`$2y$…`) `data/settings.php` faylına yazın:
+
+   ```php
+   <?php return ['admin_user' => 'admin', 'admin_password' => '$2y$…'];
+   ```
+
+Sonra `/mguliyev/`-də `admin` və həmin şifrə ilə daxil olun. Köhnə quraşdırmalarda
+ilkin şifrə `itkin2026` idi — o hələ də işləyirsə, panel əvvəlcə şifrəni dəyişməyi tələb edir.
 
 ### İstifadəçilər və rollar
 
@@ -83,7 +102,7 @@ Panelə bir neçə nəfər öz hesabı ilə daxil ola bilər («Ayarlar» → «
 
 **Hamı paneldən kənarda qalıbsa** (şifrə unudulub): cPanel → File Manager →
 `data/users.php` faylını silin (əvvəlcə nüsxəsini götürün). Giriş yenidən köhnə tək
-hesabla açılacaq — `data/settings.php`-dəki son şifrə və ya ilkin `admin` / `itkin2026`.
+hesabla açılacaq — `data/settings.php`-dəki şifrə ilə; onu «İlk giriş»dəki kimi yeniləyin.
 Sonra istifadəçiləri yenidən əlavə edin.
 
 ### Müəllif: kim əlavə edib, kim dəyişib
@@ -365,6 +384,17 @@ SMTP şifrəsi `data/settings.php`-də saxlanılır: bu fayl repozitoriyaya dü�
   `/.well-known/` (SSL sertifikatı üçün) açıq qalır.
 - **Xəta mətni** hostinqdə ekrana çıxmır (fayl yolları görünməsin) — `.user.ini` və
   kodun özü bunu bağlayır; xətalar hostinqin `error_log`-una yazılır.
+- **Paneldən gələn qısa mətnlər** (menyu adları, kateqoriya adı, SEO başlıq, altlıq
+  yazıları) saytda həmişə mətn kimi çıxır — HTML/skript kimi işləmir; `<script>` içinə
+  düşən JSON `</script>`-i bağlaya bilmir. Şəkil yolları yalnız `uploads/` altındakı
+  mövcud fayl ola bilər; səhifələrdəki keçid sahələrində `javascript:` və oxşarları
+  (HTML-varlıqlarla gizlədilmiş olsa da) qəbul edilmir.
+- **Arxivlər yüklənmir:** sayt qovluğunda qalan `*.zip`, `*.sql`, `*.bak`, `*.log` və s.
+  brauzerdən açılmır (məsələn, cPanel-də «Compress» ilə yaradılan `data.zip`).
+- **Əlaqə forması başqa saytdan göndərilə bilmir** (brauzerin `Origin` / `Sec-Fetch-Site`
+  başlıqları yoxlanılır); jurnal yandırılıbsa, onun yalnız son 5 arxivi saxlanılır.
+- **Canlıya keçəndən sonra** «Ümumi ayarlar»da sayt ünvanını `https://itkin.az` yazın —
+  bütün sorğular HTTPS-ə yönləndirilir, keçidlər Host başlığından asılı olmur.
 
 ### Hostinqdə
 

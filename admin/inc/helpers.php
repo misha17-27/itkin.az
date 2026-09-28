@@ -373,6 +373,12 @@ function admin_thumb_from_path(string $path, array $previous = []): array
     if ($path === '') {
         return admin_empty_thumb();
     }
+    // Yalnız uploads/ altındakı mövcud fayl (və ya dəyişməyən köhnə dəyər). Yol saytda
+    // atributlara və <style> içinə yazılır — əl ilə düzəldilmiş sorğu oraya kod qoya bilməsin.
+    if ($path !== (string) ($previous['url'] ?? '')
+        && !(page_path_ok($path) && is_file(dirname(__DIR__, 2) . '/' . $path))) {
+        return $previous ?: admin_empty_thumb();
+    }
 
     $thumb = $previous ?: admin_empty_thumb();
     $thumb['url'] = $path;

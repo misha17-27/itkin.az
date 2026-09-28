@@ -165,6 +165,12 @@ function contact_log(string $status, string $body): void
     // böyüyəndə köhnəsi arxivə çıxır
     if (is_file($file) && filesize($file) > CONTACT_LOG_MAX) {
         @rename($file, preg_replace('/(\.php)?$/', '-' . date('Ymd-His') . '$1', $file, 1));
+        // yalnız son 5 arxiv qalır: disk dolmasın, şəxsi məlumat əbədi saxlanılmasın
+        $old = glob((string) preg_replace('/(\.php)?$/', '-*$1', $file, 1)) ?: [];
+        sort($old);
+        foreach (array_slice($old, 0, max(0, count($old) - 5)) as $stale) {
+            @unlink($stale);
+        }
     }
     // PHP faylı kimi başlayır: .htaccess işləməsə də brauzerdə açılanda heç nə göstərmir
     $head = !is_file($file) && substr($file, -4) === '.php' ? "<?php exit; ?>\n" : '';
@@ -184,6 +190,18 @@ function contact_handle(): array
 
     $posted = $_POST['form_fields'] ?? null;
     if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST' || !is_array($posted)) {
+        return $state;
+    }
+
+    // Başqa saytdan göndərilən forma qəbul edilmir (brauzer bunu Sec-Fetch-Site və
+    // Origin başlıqları ilə bildirir): kənar səhifə ziyarətçinin adından yazıb
+    // saatlıq limiti doldura bilməsin
+    $site   = strtolower((string) ($_SERVER['HTTP_SEC_FETCH_SITE'] ?? ''));
+    $origin = (string) ($_SERVER['HTTP_ORIGIN'] ?? '');
+    $from   = $origin !== '' && $origin !== 'null' ? strtolower((string) parse_url($origin, PHP_URL_HOST)) : '';
+    $self   = strtolower((string) preg_replace('/:\d+$/', '', request_host()));
+    if ($site === 'cross-site' || ($from !== '' && $from !== $self)) {
+        $state['notice'] = t('Formanın etibarlılıq müddəti bitmişdi. Zəhmət olmasa yenidən göndərin.');
         return $state;
     }
 

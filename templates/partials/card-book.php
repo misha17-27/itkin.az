@@ -12,7 +12,7 @@ $card_cats  = '';
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-d3e7d92 elementor-widget elementor-widget-theme-post-featured-image elementor-widget-image" data-id="d3e7d92" data-element_type="widget" data-widget_type="theme-post-featured-image.default">
 				<div class="elementor-widget-container">
-													<?php $t = $post['card_thumb']; ?><img decoding="async" width="<?= e($t['width']) ?>" height="<?= e($t['height']) ?>" src="<?= asset($t['url']) ?>" class="<?= e($t['class']) ?>" alt="<?= e($t['alt']) ?>"<?php if ($t['srcset']): ?> srcset="<?= e(srcset_urls($t['srcset'])) ?>"<?php endif; ?><?php if ($t['sizes']): ?> sizes="<?= e($t['sizes']) ?>"<?php endif; ?> />													</div>
+													<?php $t = $post['card_thumb']; ?><img decoding="async" width="<?= e($t['width']) ?>" height="<?= e($t['height']) ?>" src="<?= e(asset($t['url'])) ?>" class="<?= e($t['class']) ?>" alt="<?= e($t['alt']) ?>"<?php if ($t['srcset']): ?> srcset="<?= e(srcset_urls($t['srcset'])) ?>"<?php endif; ?><?php if ($t['sizes']): ?> sizes="<?= e($t['sizes']) ?>"<?php endif; ?> />													</div>
 				</div>
 				<div class="elementor-element elementor-element-fc52d96 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="fc52d96" data-element_type="widget" data-widget_type="theme-post-title.default">
 				<div class="elementor-widget-container">

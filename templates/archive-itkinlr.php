@@ -49,7 +49,7 @@ $crumbs = [['label' => t('İtkinlər'), 'href' => null]];
 	<div class="page-content">
 <?php foreach ($items as $item): $t = $item['thumb'] ?? null; ?>
 					<article class="post">
-				<h2 class="entry-title"><a href="<?= url('itkinlr/' . $item['slug']) ?>"><?= e($item['title']) ?></a></h2><?php if ($t): ?><a href="<?= url('itkinlr/' . $item['slug']) ?>"><img width="<?= e($t['width']) ?>" height="<?= e($t['height']) ?>" src="<?= asset($t['url']) ?>" class="<?= e($t['class']) ?>" alt="<?= e($t['alt']) ?>" decoding="async"<?php if ($t['srcset']): ?> srcset="<?= e(srcset_urls($t['srcset'])) ?>"<?php endif; ?><?php if ($t['sizes']): ?> sizes="<?= e($t['sizes']) ?>"<?php endif; ?> /></a><?php endif; ?>			</article>
+				<h2 class="entry-title"><a href="<?= url('itkinlr/' . $item['slug']) ?>"><?= e($item['title']) ?></a></h2><?php if ($t): ?><a href="<?= url('itkinlr/' . $item['slug']) ?>"><img width="<?= e($t['width']) ?>" height="<?= e($t['height']) ?>" src="<?= e(asset($t['url'])) ?>" class="<?= e($t['class']) ?>" alt="<?= e($t['alt']) ?>" decoding="async"<?php if ($t['srcset']): ?> srcset="<?= e(srcset_urls($t['srcset'])) ?>"<?php endif; ?><?php if ($t['sizes']): ?> sizes="<?= e($t['sizes']) ?>"<?php endif; ?> /></a><?php endif; ?>			</article>
 <?php endforeach; ?>
 			</div>
 

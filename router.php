@@ -15,6 +15,7 @@ if (preg_match('#(^|/)\.(?!well-known(/|$))#', $rel)
     || preg_match('#^(README\.md|router\.php|error_log)$#', $rel)
     || preg_match('#^(inc|templates|data|storage|admin/(inc|sections|views))(/|$)#', $rel)
     || preg_match('#^config\.php$#', $rel)
+    || preg_match('#(\.(zip|tar|t?gz|bz2|xz|7z|rar|sql|bak|old|orig|save|swp|log)|~)$#i', $rel)
     || preg_match('#^uploads/.*\.(php[0-9]?|phtml|phar)$#i', $rel)) {
     http_response_code(403);
     echo 'Forbidden';

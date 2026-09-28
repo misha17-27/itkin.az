@@ -29,7 +29,7 @@
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-40258eba elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-theme-post-featured-image elementor-widget-image" data-id="40258eba" data-element_type="widget" data-widget_type="theme-post-featured-image.default">
 				<div class="elementor-widget-container">
-<?php $t = $post['thumb']; ?><img width="<?= e($t['width']) ?>" height="<?= e($t['height']) ?>" src="<?= asset($t['url']) ?>" class="<?= e($t['class'] ?: 'attachment-full size-full') ?>" alt="<?= e($t['alt']) ?>"<?php if ($t['srcset']): ?> srcset="<?= e(srcset_urls($t['srcset'])) ?>"<?php endif; ?><?php if ($t['sizes']): ?> sizes="<?= e($t['sizes']) ?>"<?php endif; ?> />
+<?php $t = $post['thumb']; ?><img width="<?= e($t['width']) ?>" height="<?= e($t['height']) ?>" src="<?= e(asset($t['url'])) ?>" class="<?= e($t['class'] ?: 'attachment-full size-full') ?>" alt="<?= e($t['alt']) ?>"<?php if ($t['srcset']): ?> srcset="<?= e(srcset_urls($t['srcset'])) ?>"<?php endif; ?><?php if ($t['sizes']): ?> sizes="<?= e($t['sizes']) ?>"<?php endif; ?> />
 </div>
 				</div>
 		<div class="elementor-element elementor-element-006cf92 e-con-full e-flex e-con e-child" data-id="006cf92" data-element_type="container">

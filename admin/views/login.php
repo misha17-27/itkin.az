@@ -12,6 +12,13 @@ admin_head('Giriş');
 <?php if ($error !== ''): ?>
 		<div class="errors"><?= e($error) ?></div>
 <?php endif; ?>
+<?php if (admin_setup_needed()): ?>
+		<div class="errors">
+			Panelə giriş hələ qurulmayıb: serverdə şifrə faylı yoxdur.
+			cPanel → File Manager ilə <code>data/settings.php</code> faylını sayt qovluğundakı
+			<code>data/</code> qovluğuna yükləyin (README → «İlk giriş»).
+		</div>
+<?php endif; ?>
 
 		<div class="field">
 			<label for="f-user">İstifadəçi</label>
