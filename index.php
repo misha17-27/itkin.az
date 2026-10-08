@@ -44,17 +44,49 @@ if (lang() !== LANG_DEFAULT && !lang_has($raw, lang())) {
     exit;
 }
 
-// Səhifə nömrəsi: ?sehife=2 və ya Elementor-un orijinal ?e-page-XXXX=2 parametri
-$page = (int) ($_GET['sehife'] ?? 0);
+// Səhifə nömrəsi: köhnə ?sehife=2 və ya Elementor-un ?e-page-XXXX=2 parametri
+$page      = (int) ($_GET['sehife'] ?? 0);
+$pageParam = isset($_GET['sehife']);
 if ($page < 1) {
     foreach ($_GET as $key => $value) {
-        if (strpos($key, 'e-page-') === 0) {
-            $page = (int) $value;
+        if (strpos((string) $key, 'e-page-') === 0) {
+            $page      = is_string($value) ? (int) $value : 0;
+            $pageParam = true;
             break;
         }
     }
 }
 $page = min(max(1, $page), 100000);   // nəhəng rəqəm tam ədəd daşmasına səbəb olmasın
+
+/*
+ * Səhifələnən siyahılar (Xəbərlər və kateqoriyalar) gözəl ünvanla açılır:
+ * /xeberler/page/2/, /category/tedbirler/page/2/ — WordPress-in standart forması.
+ * Köhnə ?e-page-…=2 / ?sehife=2 ünvanları və /page/1/ oraya daimi yönləndirilir
+ * (paylaşılmış keçidlər qırılmasın, axtarış sistemləri dublikat görməsin).
+ */
+$listBase = null;
+if ($parts === ['xeberler']
+    || (count($parts) === 3 && $parts[0] === 'xeberler' && $parts[1] === 'page')) {
+    $listBase = 'xeberler';
+} elseif (($parts[0] ?? '') === 'category' && isset($parts[1])
+    && (count($parts) === 2 || (count($parts) === 4 && $parts[2] === 'page'))
+    && ($listCat = find_category($parts[1])) !== null) {
+    // yalnız mövcud kateqoriya — ünvan sorğudan yox, kateqoriyanın öz slug-ından qurulur
+    $listBase = 'category/' . $listCat['slug'];
+}
+if ($listBase !== null) {
+    $onPage = count($parts) > 2 && $parts[count($parts) - 2] === 'page' ? $parts[count($parts) - 1] : null;
+    $target = null;
+    if ($onPage === null && $pageParam) {
+        $target = $page;                            // köhnə parametrli ünvan
+    } elseif ($onPage === '1') {
+        $target = 1;                                // /page/1/ — siyahının özü
+    }
+    if ($target !== null) {
+        header('Location: ' . abs_url($target > 1 ? $listBase . '/page/' . $target : $listBase), true, 301);
+        exit;
+    }
+}
 
 // Statik səhifələr üçün şablon uyğunluğu
 $PAGE_TEMPLATES = [
@@ -75,7 +107,16 @@ if ($parts === []) {
 
 } elseif (count($parts) === 1 && isset($PAGE_TEMPLATES[$parts[0]])) {
     $view = $PAGE_TEMPLATES[$parts[0]];
-    $vars = ['slug' => $parts[0], 'page' => $page];
+    $vars = ['slug' => $parts[0], 'page' => 1];
+
+} elseif (count($parts) === 3 && $parts[0] === 'xeberler' && $parts[1] === 'page' && ctype_digit($parts[2])) {
+    // Xəbərlərin səhifələri: /xeberler/page/2/; mövcud olmayan səhifə — 404
+    $wanted   = (int) $parts[2];
+    $lastPage = max(1, (int) ceil(count(all_posts()) / max(1, (int) cfg('per_page')['xeberler'])));
+    if ($wanted >= 2 && $wanted <= $lastPage) {
+        $view = 'page-xeberler';
+        $vars = ['slug' => 'xeberler', 'page' => $wanted];
+    }
 
 } elseif ($parts[0] === 'itkinlr') {
     if (count($parts) === 1) {
@@ -107,12 +148,12 @@ if ($parts === []) {
     $cat = find_category($parts[1]);
     if ($cat && count($parts) === 2) {
         $view = 'archive-category';
-        $vars = ['category' => $cat, 'page' => $page];
+        $vars = ['category' => $cat, 'page' => 1];
     } elseif ($cat && count($parts) === 4 && $parts[2] === 'page' && ctype_digit($parts[3])) {
         // WordPress-in standart səhifələmə ünvanı: /category/<slug>/page/2/
-        $wanted   = max(1, (int) $parts[3]);
+        $wanted   = (int) $parts[3];
         $lastPage = max(1, (int) ceil(count(posts_in_category((int) $cat['id'])) / max(1, (int) cfg('per_page')['category'])));
-        if ($wanted <= $lastPage) {
+        if ($wanted >= 2 && $wanted <= $lastPage) {
             $view = 'archive-category';
             $vars = ['category' => $cat, 'page' => $wanted, 'paged_path' => true];
         }

@@ -31,6 +31,44 @@ function schema_from_store(string $stored): string
 }
 
 /**
+ * Səhifələnmiş siyahı (/xeberler/page/2/, /category/<slug>/page/2/): saxlanılmış qraf
+ * birinci səhifəni təsvir edir — onun ünvanları səhifənin öz ünvanı ilə, WebPage /
+ * CollectionPage adı səhifənin başlığı ilə əvəz olunur (canonical ilə uyğun olsun).
+ * $base və $paged — saytın kökünə nisbətən yollar ("xeberler", "xeberler/page/2").
+ */
+function schema_paged(string $stored, string $base, string $paged, string $title): string
+{
+    $data = json_decode($stored, true);
+    if (!is_array($data) || !isset($data['@graph']) || !is_array($data['@graph'])) {
+        return $stored;
+    }
+    $from = '{{SITE}}/' . trim($base, '/') . '/';
+    $to   = '{{SITE}}/' . trim($paged, '/') . '/';
+    $swap = static function ($value) use (&$swap, $from, $to) {
+        if (is_array($value)) {
+            return array_map($swap, $value);
+        }
+        if ($value === $from) {
+            return $to;
+        }
+        return $value === $from . '#breadcrumb' ? $to . '#breadcrumb' : $value;
+    };
+    foreach ($data['@graph'] as $i => $node) {
+        if (!is_array($node)) {
+            continue;
+        }
+        $node = array_map($swap, $node);
+        if (array_intersect((array) ($node['@type'] ?? []), ['WebPage', 'CollectionPage'])) {
+            $node['name'] = $title;
+        }
+        $data['@graph'][$i] = $node;
+    }
+    // <script> içinə düşür — başlıqdakı </script> qrafı qırmasın
+    $json = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG);
+    return is_string($json) ? $json : $stored;
+}
+
+/**
  * Saxlanılmış qraf yoxdursa (məsələn 404 səhifəsi) minimal qraf qurur.
  */
 function schema_fallback(array $meta, array $crumbs = []): string

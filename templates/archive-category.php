@@ -38,6 +38,10 @@ $meta['body_class']  = body_class(
 );
 $meta['head_meta']   = $category['head_meta'] ?? [];
 $meta['schema']      = $category['schema'] ?? '';
+if ($paged) {
+    // qraf birinci səhifəni təsvir edir — səhifənin öz ünvanı və başlığı ilə (inc/schema.php)
+    $meta['schema'] = schema_paged((string) $meta['schema'], $pager_base, $path, $title);
+}
 $meta['elementor_post'] = elementor_post_json(0, $meta['title']);
 
 if ($paged) {
