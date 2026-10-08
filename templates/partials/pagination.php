@@ -19,8 +19,10 @@ $mid_size = 2;
 // (pagination_page_limit); data-max-page isə real sayı saxlayır.
 $shown = min($total, 5);
 
+// Tam ünvan (https://itkin.az/…), WordPress-dəki kimi: Elementor-un AJAX səhifələməsi
+// keçidi new URL(href) ilə oxuyur — nisbi yolda xəta verir və klik heç nə etmir.
 $link = static function (int $n) use ($page_param, $pager_base) {
-    return url($pager_base) . '?' . rawurlencode($page_param) . '=' . $n;
+    return abs_url($pager_base) . '?' . rawurlencode($page_param) . '=' . $n;
 };
 ?>
 <div class="e-load-more-anchor" data-page="<?= $current ?>" data-max-page="<?= $total ?>" data-next-page="<?= $current < $total ? e($link($current + 1)) : '' ?>"></div>
